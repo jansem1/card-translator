@@ -7,6 +7,8 @@ MegaAnn = pd.read_csv('megares_annotations_v1.01.csv')
 
 # print(AroAnn)
 # print(MegaAnn)
+#TODO: import CARD database, extract the header, add CMG into header
+#TODO: Add this header to final conversion file as index column
 
 # Create new table containing AMR++-relevant data
 AroCols = [2,3,1] # Important columns from ARO data.
