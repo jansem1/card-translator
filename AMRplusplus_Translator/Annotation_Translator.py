@@ -1,3 +1,5 @@
+# Translates CARD Annotation file into one that AMR++ can read
+
 import pandas as pd
 from datetime import date
 
@@ -7,7 +9,7 @@ MegaAnn = pd.read_csv('megares_annotations_v1.01.csv')
 
 # print(AroAnn)
 # print(MegaAnn)
-#TODO: import CARD database, extract the header, add CMG into header
+#TODO: import CARD database (nucleotide_fasta_...), extract the header, add CMG into header
 #TODO: Add this header to final conversion file as index column
 
 # Create new table containing AMR++-relevant data
@@ -23,6 +25,6 @@ NewAro.columns = ['class', 'mechanism', 'group']
 # Exports AMR++-ready annotation file
 print(NewAro)
 today = date.today()
-filename = ("CARD_to_AMRplusplus_" + today.strftime("%Y_%b_%d") + ".csv")
+filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 print(filename)
 # pd.DataFrame.to_csv(NewAro,filename)
