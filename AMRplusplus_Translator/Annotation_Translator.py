@@ -5,12 +5,13 @@ from datetime import date
 
 # import annotation data
 AroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t', index_col="DNA Accession") # When reading, tsv files must have their delimiter stated
-MegaAnn = pd.read_csv('megares_annotations_v2.00.csv') # MEGARes Annotation
+MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annotation
 
 # print(AroAnn)
 # print(MegaAnn)
 #TODO: import CARD database (nucleotide_fasta_...), extract the header, add CMG into header
 #TODO: Add this header to final conversion file as index column
+#TODO: Convert AAC(2') and other such groups to -PRIME notation
 
 # Create new table containing AMR++-relevant data
 AroCols = [2,3,1] # Important columns from ARO data.

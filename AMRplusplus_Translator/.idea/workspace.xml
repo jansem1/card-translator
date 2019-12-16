@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Annotation_Translator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="221">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575054183807</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Moved to MEGARes 2.0 data, updated code to match">
+      <created>1576518901867</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1576518901867</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -257,7 +264,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10700132" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24702774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -282,7 +289,8 @@
     <MESSAGE value="Columns now named properly and filename includes date" />
     <MESSAGE value="Added tsv/csv files to directory" />
     <MESSAGE value="Renamed Test to Annotation Translator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed Test to Annotation Translator" />
+    <MESSAGE value="Moved to MEGARes 2.0 data, updated code to match" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved to MEGARes 2.0 data, updated code to match" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/aro_index.tsv">
@@ -329,8 +337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Annotation_Translator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        <state relative-caret-position="221">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
