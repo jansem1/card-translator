@@ -4,6 +4,9 @@
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Annotation_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Annotation_Translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database_translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database_translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/megares_drugs_annotations_v2.00.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/megares_drugs_database_v2.00.fasta" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,36 +19,39 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Annotation_Translator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="170">
+              <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Database_translator.py">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aro_categories_index.tsv">
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="4065">
-              <caret line="2766" column="18" selection-start-line="2766" selection-start-column="18" selection-end-line="2766" selection-end-column="18" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/megares_modified_annotations_v2.00.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
           <provider editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/megares_annotations_v1.01.csv">
-          <provider selected="true" editor-type-id="csv-text-editor" />
+        <entry file="file://$PROJECT_DIR$/aro_categories_index.tsv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="34">
+              <caret line="138" column="104" lean-forward="true" selection-start-line="138" selection-end-line="138" selection-end-column="104" />
+            </state>
+          </provider>
           <provider editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
           </provider>
@@ -63,9 +69,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>AroAnnotation</find>
+      <find>NewAro</find>
     </findStrings>
     <replaceStrings>
       <replace>AroAnn</replace>
+      <replace>NewAnn</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -77,6 +85,7 @@
         <option value="$PROJECT_DIR$/aro_categories_index.tsv" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/Database_translator.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
         <option value="$PROJECT_DIR$/Annotation_Translator.py" />
       </list>
     </option>
@@ -110,6 +119,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -167,9 +177,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="scratch_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AMRplusplus_Translator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Annotation_Translator" />
+        <item itemvalue="Python.scratch_1" />
         <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
@@ -248,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576518901867</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed naming of Megares file">
+      <created>1576519011166</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1576519011166</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -268,8 +307,8 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993395" visible="true" weight="0.32531825" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993395" visible="true" weight="0.37199435" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,7 +329,8 @@
     <MESSAGE value="Added tsv/csv files to directory" />
     <MESSAGE value="Renamed Test to Annotation Translator" />
     <MESSAGE value="Moved to MEGARes 2.0 data, updated code to match" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved to MEGARes 2.0 data, updated code to match" />
+    <MESSAGE value="Fixed naming of Megares file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed naming of Megares file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/aro_index.tsv">
@@ -312,14 +352,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/megares_annotations_v1.01.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/megares_modified_database_v2.00.fasta">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Database_translator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        <state relative-caret-position="34">
+          <caret line="2" column="73" lean-forward="true" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/megares_annotations_v1.01.csv">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/megares_modified_annotations_v2.00.csv">
       <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
@@ -327,8 +386,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/aro_categories_index.tsv">
       <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="4065">
-          <caret line="2766" column="18" selection-start-line="2766" selection-start-column="18" selection-end-line="2766" selection-end-column="18" />
+        <state relative-caret-position="34">
+          <caret line="138" column="104" lean-forward="true" selection-start-line="138" selection-end-line="138" selection-end-column="104" />
         </state>
       </provider>
       <provider editor-type-id="csv-table-editor">
@@ -337,8 +396,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Annotation_Translator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="170">
+          <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
         </state>
       </provider>
     </entry>
