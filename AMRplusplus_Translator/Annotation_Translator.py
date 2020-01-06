@@ -15,7 +15,7 @@ typeAnn = pd.DataFrame(typeCol, columns=['type'])
 #TODO: Need to label for multi-compound-resistant determinants for multidrug resistance, or only for multiple types (eg. Drugs and metals)?
 #TODO: Is the fact that CARD sorts its drugs by semicolon separation in a single cell an issue? - WILL IT CAUSE FALSE NEGATIVES? eg. AMR++ doesn't list an item as carbapenem resistant if it is labelled "cephalosporn;penam"?
 #TODO: Add type column and find a way to label ARO terms accordingly (Drug, multi-compound resistant, biocide, metal). Just label all as Drugs?
-#TODO: import CARD database (nucleotide_fasta_...), extract the header, add CMG into header
+#TODO: import CARD database (nucleotide_fasta_...), extract the header, replace with new headers. Will need to find each header via DNA accession and replace it
 #TODO: Convert AAC(2') and other such groups to -PRIME notation
 
 # Create new table containing AMR++-relevant data
@@ -34,6 +34,5 @@ print(finalAnn)
 
 today = date.today()
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv") # Exports AMR++-ready annotation file and names it based on the present date
-
 
 pd.DataFrame.to_csv(finalAnn,filename, index=False) # exports converted annotation file as csv

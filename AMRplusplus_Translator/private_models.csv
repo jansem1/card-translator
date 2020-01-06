@@ -1,0 +1,555 @@
+model_id,model_type_id,name,description,private,resistance_type
+83,40292,IMP-47,,1,0
+166,40292,TEM-77,,1,0
+370,40292,SHV-112,,1,0
+432,40292,sav1866,,1,0
+874,40292,AAC(1),,1,0
+1204,40292,tcmA,,1,0
+1302,40292,tet34,,1,0
+1569,40292,catD,,1,0
+1477,40292,SHV-39,,1,0
+1976,40292,mefA,,1,0
+2067,40292,CMY-131,,1,0
+2082,40292,CMY-106,,1,0
+2118,40292,OXA-193,,1,0
+1974,40292,emrD,,1,0
+2204,40292,AAC(6')-IId,AAC(6')-IId,1,0
+2244,40292,vanSI,vanSI is a vanS variant found in the vanI gene cluster; it is a histidine kinase,1,0
+2221,40292,VEB-1a,VEB-1a is a beta-lactamase that is found in Pseudomonas aeruginosa.,1,0
+3309,40292,ampS,"amp(S) is an ampC-like beta-lactamase, aminopeptidase and penicillinase identified from Bartonella clarridgeiae.",1,0
+2318,40292,adiY,adiY is a DNA-binding transcriptional activator of the adi system. Implicated in arginine-dependent acid resistance in Escherichia coli.,1,0
+2332,40292,mfd,"mfd dissociates transcription elongation complexes blocked at nonpairing lesions and mediates recruitment of DNA repair proteins. The Mfd (mutation frequency decline) protein, also known as transcription-repair coupling factor, is responsible for ATP-dependent removal of stalled RNA polymerase from DNA lesions by inducing forward movement of the RNA polymerase and subsequent recruitment of nucleotide excision repair machinery to the sites of the lesions.",1,0
+3350,40292,Lin,"Listeria monocytogenes EGD-e lin gene for lincomycin resistance ABC-F type ribosomal protection protein, complete CDS.",1,0
+2417,40292,Clostridioides difficile toxin subunit b,Not to be confused with 'toxin B' (TcdB). Clostridioides difficile toxin subunit b (CTDb) binds to host cells and translocates CDTa (ADP-ribosyltransferase component of the Clostridioides difficile toxin) into the cytosol. CDTb is activated by serine proteases and binds to lipolysis stimulated lipoprotein receptor.,1,0
+2415,40292,Clostridioides difficile toxin subunit a,Not to be confused with 'toxin A' (TcdA). Clostridioides difficile toxin subunit a (CtdA) is the ADP-ribosyltransferase component of the Clostridioides difficile toxin (CDT).,1,0
+2431,40292,hp1184,hp1184 is a translocase that belongs to the MATE efflux pump family. It is found in H. pylori and is involved in the active efflux of antibiotics.,1,0
+3352,40292,tetR(G),Class G tetracycline resistance determinant from Vibrio anguillarum,1,0
+2443,40292,pilX11,conjugal transfer protein,1,0
+2447,40292,traE,The traE gene a homologue of Escherichia coli DNA topoisomerase III,1,0
+2442,40292,pilX10,conjugal transfer protein,1,0
+2438,40292,pilX8,conjugal transfer gene,1,0
+2439,40292,colicin immunity protein,"Immunity proteins against Colicins (EcCIP) are produced alongside the relevant colicin protein (EcCol) to protect the cell from the cytotoxic domain of the colicin. Usually this involves binding to and blocking the active site of the domain, to prevent it from targeting the cells own mechanisms.",1,0
+2437,40292,pilX7,conjugal transfer gene,1,0
+2449,40292,repC,protein required for initiation of replication,1,0
+2464,40292,Ace,"Ace is a microbial surface component recognizing adhesive matrix molecules (MSCRAMM) from Enterococcus faecalis. Ace mediates binding to immobilized collagen type I, collagen type IV, and mouse laminin.",1,0
+2484,40292,hydrolase,hydrolyze,1,0
+2501,40292,IS1 InsB,tranposase,1,0
+2497,40292,TraB,conjugal transfer protein,1,0
+2531,40292,Sin,Serine recombinases can rearrange DNA sequences with topological selectivity.,1,0
+2513,40292,HlgC,HlgC is one of the S components of γ-hemolysin. HlgC may combine with any of the F components (HlgB or LukF-PV) produced by Staphylococcus aureus to form an active toxin molecule.,1,0
+2539,40292,transposase IS66 family protein,Catalysis of the transposition of transposable elements or transposons. Transposases are involved in recombination required for transposition and are site-specific for the transposon/transposable element.,1,0
+3375,40292,grm,Gentamicin-resistance methyltransferase (aminoglycoside-resistant),1,0
+3354,40292,nimB,nimbi can confer 5-nitroimidazole resistance to susceptible strains of Bacteroides,1,0
+2609,40292,heat-stable toxin,"Heat-stable toxin from Enterotoxigenic Escherichia coli (ETEC) activates guanylate cyclase resulting in ion secretion, leading to the loss of electrolytes and water from intestinal cells.",1,0
+2556,40292,LukS-PV,Panton-Valentine leukocidin chain S precursor,1,0
+2472,40292,ParA,Partitioning protein,1,0
+2534,40292,ArsR family transcriptional regulator,functions as a transcriptional repressor of an arsenic resistance operon,1,0
+2608,40292,EltB,heat-labile toxin from Enterotoxigenic Escherichia coli (ETEC) is an AB toxin that ADP ribosylates and activates adenylate cyclase resulting in ion secretion. This causes cholera-like diarrhea in humans and animals. The B subunit binds ganglioside GM1 in the host cell membrane.,1,0
+2633,40292,Vibrio cholerae cytolysin,"Vibrio cholerae cytolysin (VCC) is a pore-forming toxin that acts on the target cells by forming transmembrane oligomeric β-barrel pores, thereby leading to permeabilization of the target cell membranes.",1,0
+2581,40292,HBL-L1,"HBL-L1 is a component of Hemolysin BL, a membrane-lytic toxin from Bacillus cereus. HBL-B first binds to the cell membrane, followed by the ordered recruitment of first L1 and then L2.The membrane-associated HBL components form a membrane attack complex that causes lysis by a colloid osmotic mechanism",1,0
+2626,40292,accessory cholera enterotoxin,"Accessory cholera enterotoxin (Ace) is a toxin from Vibrio cholerae, a pathogen that causes the potentially lethal disease cholera through the elaboration of the intestinal secretogen cholera toxin. Accessory cholera enterotoxin produces fluid accumulation when measured using in vitro models",1,0
+2530,40292,MarR famiy transcriptional regulator,Transcriptional regulator,1,0
+2546,40292,CylR1,"Cytolysin operon-encoded regulatory proteins, CylR1 and CylR2, cooperatively repress toxin expression",1,0
+2610,40292,cytotoxic necrotizing factor 1,"Cytotoxic necrotizing factor 1 is a toxin expressed by certain uropathogenic and neonatal meningitis-causing strains of E. coli. It induces the formation of actin stress fibers and membrane ruffling, necrosis",1,0
+2677,40292,Epsilon,"Epsilon antitoxin, produced by various prokaryotes, forms part of a post-segregational killing system, which is involved in the initiation of programmed cell death of plasmid-free cells.",1,0
+2441,40292,pilX9,conjugal transfer protein,1,0
+2958,40292,Tse4,A toxic effector protein secreted by the type vi secretion system of Pseudomonas aeruginosa,1,0
+2603,40292,Stx1A,"Shiga toxin are A-B toxins produced by several enteric pathogens, most importantly Shigella dysenteriae (serotype 1 only) and Enterohaemorrhagic Escherichia coli (EHEC). Shiga toxins are important factors in disease pathogenesis and are responsible for the haemolytic uremic syndrome (HUS). Subunit A is the active component of the toxin.",1,0
+2632,40292,TDH-related hemolysin,TDH-related hemolysin (TRH) from Vibrio parahaemolyticus is a pore-forming toxin that activates cl- channels resulting in altered ion flux. It is a heat labile toxin and immunologically similar to TDH.,1,0
+2544,40292,CylS,"Cytolysin is comprised of two nonidentical peptide subunits: CylLL(the long subunit) and CylLS (the short subunit), both of which are required for lytic activity",1,0
+2548,40292,Tn3 family transposase,Catalysis of the transposition of transposable elements or transposons. Transposases are involved in recombination required for transposition and are site-specific for the transposon/transposable element.,1,0
+2741,40292,DNA-invertase hin,Hin belongs to the serine recombinase family of DNA invertases in which it relies on the active site serine to initiate DNA cleavage and recombination.,1,0
+2506,40292,β-hemolysin,β-hemolysin is a toxin produced by Staphylococcus aureus that process hemolytic activity for erythrocytes and also plays an important role in skin colonization by damaging keratinocytes,1,0
+2454,40292,Chromate transport protein,"These proteins reduce chromate accumulation and are essential for chromate resistance. They are composed of one or two copies of this region. The short-chain CHR proteins form heterodimer transporters which efflux chromate ions from the cytoplasm, while the long chain CHR proteins appear to have arisen from a gene fusion event of two short chain transporters",1,0
+2511,40292,TraX,conjugal transfer protein,1,0
+2585,40292,NheC,"NheC is a binding component of nonhemolytic enterotoxin. Along with another binding components NheB and  cytolytic protein component NheA, nonhemolytic enterotoxin is a pore-forming toxin possesses hemolytic, cytotoxic, dermonecrotic, and vascular permeability activities",1,0
+2657,40292,VagC,Antitoxin of the VagCD toxin-antitoxin system,1,0
+2628,40292,CtxA,"Cholera toxin from Vibrio cholerae is an AB toxin that causes severe disruption of intestinal cell function, leading to the watery secretory diarrhea characteristic of cholera. The A subunit is the active heterodimeric protein subunit.",1,0
+2545,40292,CylM,CylM posttranslationally modifies the CylLL and CylLS precursors.,1,0
+2588,40292,pertussis toxin subunit 1,The S1 subunit of pertussis toxin is the enzymatically active subunit and is the largest of the 5 subunits.,1,0
+2612,40292,Legionella pneumophila RtxA,Legionella pneumophila RtxA is a toxin involved in pore formation in host cells,1,0
+2489,40292,Hok,host killing - a long lived (half-life 20 minutes) toxin,1,0
+2486,40292,single stranded DNA binding protein,binds to single stranded DNA,1,0
+2623,40292,Shigella enterotoxin 2,Shigella enterotoxin 2 is a toxin encoded on inv plasmid. It may account for the early diarrheal phase often observed during shigellosis,1,0
+2719,40292,TraF,conjugal transfer pilus assembly protein,1,0
+2514,40292,HlgB,"HlgB is one of the F components of γ-hemolysin. HlgB may combine with any of the S components (HlgA, HlgC or LukS-PV) produced by Staphylococcus aureus to form an active toxin molecule.",1,0
+2963,40292,SPE-G,speG is an exotoxin G precursor found in Streptococcus pyogenes,1,0
+2667,40292,ParB,Involved in plasmid partition. Localize to both poles of the predivisional cell following completion of DNA replication. Binds to the DNA origin of replication.,1,0
+2669,40292,StbB,Mediator of plasmid stability,1,0
+2670,40292,StbA,plasmid stability protein,1,0
+2658,40292,VagD,Toxin of the VagCD toxin antitoxin system,1,0
+2676,40292,ParD,ParD is a plasmid anti-toxin that forms a ribbon-helix-helix DNA binding structure. It stabilises plasmids by inhibiting ParE toxicity in cells that express ParD and ParE. ParD forms a dimer and also regulates its own promoter (parDE).,1,0
+2675,40292,FlmA,Toxin of the Flm toxin/antitoxin system - F-plasmid homologues of hok/mok TA system,1,0
+2672,40292,RelE,Toxic compnent of a type II toxin-antitoxin module,1,0
+2653,40292,msrB,MsrB is an ABC-efflux pump expressed to Staphylococcus species that confers resistance to erythromycin and streptogramin B antibiotics. It is associated with plasmid DNA.,1,0
+2710,40292,TraH,conjugal transfer pilus assembly protein,1,0
+2703,40292,YafN,antitoxin of YafO-YafN TA system,1,0
+2702,40292,Omega,Type II TA mediator,1,0
+2690,40292,PndA,PndA encodes toxin proteins containing single transmembrane domains. It is part of the PndA-PndB (promotion of nucleic acid acid degradation) TA.,1,0
+2701,40292,MazF,Type II toxin,1,0
+2709,40292,TraS,Entry exclusion protein,1,0
+2699,40292,HicB,antitoxin type II,1,0
+2764,40292,Escherichia coli CpxR,"The Escherichia coli CpxR/CpxA system responds to general periplasmic stress and has been used as a model two-component system for transcription regulation in bacteria. CpxR/CpxA system facilitates Salmonella and E. coli resistance to cationic antimicrobial peptides.The CpxR/CpxA system can activate transcription of marRAB operon, thus facilitating multidrug-resistant regulator to enhance expression of TolC-dependent tripartite multidrug transporters.",1,0
+2776,40292,Escherichia coli rob,"rob is a positive regulator for the acrAB efflux genes, and is structurally similar to SoxS and MarA.",1,0
+3069,40292,PilO,PilO is part of the IM alignment sub‐complex.,1,0
+3170,40292,TasA,TasA is a component of the B. subtilis fibril.,1,0
+3175,40292,FapE,FapE is a component of the Fap adhesive fimbril.,1,0
+3180,40292,FapA,FapA is part of the Fap amyloid adhesin.,1,0
+2830,40292,DnaA,"DnaA is a chromosomal replication initiation protein which binds and interacts with RNA polymerase in Escherichia coli. A surplus of DnaA present in a cell has been shown to confer resistance to the antibiotic Rifampicin. Normally, rifampicin inhibits initiation of transcription by RNA polymerase, but a surplus of DnaA available at the origin has been shown to disrupt Rifampicin activity and confer resistance.",1,0
+538,40292,Enterobacter cloacae rob,,1,0
+2879,40292,QepA3,A plasmid-mediate quinolone efflux pump described in Enterobacter aerogenes and Escherichia coli. QepA3 confers resistance to fluoroquinolone antibiotics by expelling the antibiotic molecules from the cell. This is distinct from the usual chromosomal mutation mechanism of quinolone resistance. Described by Wang et al. 2017.,1,0
+2892,40292,Proteus mirabilis chloramphenicol acetyltransferase,A chloramphenicol resistance determinant described in Proteus mirabilis.,1,0
+2898,40292,Shigella flexneri chloramphenicol acetyltransferase,A chloramphenicol acetyltransferase and chloramphenicol resistance determinant described in Shigella flexneri,1,0
+2542,40292,CylI,"The cylI gene product protects the cytolysin-producing bacterium from lysis, though the mechanisms is still unknown",1,0
+3469,40292,OXA-307,OXA-307 is a beta-lactamase found in Acinetobacter spp.,1,0
+1374,40292,blaI,,1,0
+2671,40292,Zeta,Type II toxin,1,0
+3071,40292,PilA,Component of adhesin in Pseudomonas aeruginosa.,1,0
+3171,40292,TapA,TapA is component of the Bacillus subtilis fibril.,1,0
+3176,40292,FapC,FapC is a component of Fap amyloid adhesins.,1,0
+3253,40292,PapH,PapH is a minor subunit of P pili in E. coli.,1,0
+3453,40292,OXA-289,OXA-289 is a beta-lactamase found in Acinetobacter spp.,1,0
+2507,40292,RepA4,Associated with replication initiation.,1,0
+2692,40292,YafO,toxin type II,1,0
+2966,40292,SPE-J,SpeJ is an exotoxin type J precursor found in Streptococcus pyogenes,1,0
+2967,40292,ypjA,ypjA is an adhesin-like autotransporter protein found in Escherichia coli K-12 MG1655. It is homologous to Ag43. It is important in early stage adhesion and does not influence mature biofilm formation.,1,0
+2968,40292,ydhQ,ydhQ is an adhesin-like autotransporter protein found in Escherichia coli K-12 MG1655. It is homologous to Ag43. It is important in early stage adhesion and does not influence mature biofilm formation.,1,0
+2954,40292,yplA phospholipase A,Phospholipase from Yersinia enterocolitica.,1,0
+2956,40292,Tse2,A toxic effector secreted by the type VI secretion system of Pseudomonas aeruginosa.,1,0
+2959,40292,LegS1,Acid sphingomyelinase-like phosphodiesterase found in Legionella pneumophila.,1,0
+2961,40292,SPE-A,SpeA is an exotoxin type A precursor found in Streptococcus pyogenes,1,0
+2964,40292,SPE-H,SpeH is an exotoxin type H precursor found in Streptococcus pyogenes,1,0
+2969,40292,Antigen 43,Ag43 is a surface adhesin found in E. coli that promotes biofilm formation.,1,0
+3168,40292,CsgA,CsgA is a major subunit of the E.coli curli pili.,1,0
+3172,40292,SipW,SipW is a component of Bacillus subtilis fimbril.,1,0
+3177,40292,FapB,FapB is a component of the Fap amyloid adhesins.,1,0
+2955,40292,Tse1,A toxic effector protein secreted by the type VI secretion system of Pseudomonas aeruginosa.,1,0
+2957,40292,Tse3,A toxic effector protein secreted by the type VI secretion system of Pseudomonas aeruginosa,1,0
+2962,40292,SPE-C,speC is an exotoxin C precursor found in Streptococcus pyogenes,1,0
+2965,40292,SPE-I,SpeI is an exotoxin type I precursor found in Streptococcus pyogenes,1,0
+2916,40292,IucC aerobactin siderophore biosynthesis protein,Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in Shigella flexneri serotype 2a str. 301,1,0
+2918,40292,IucB aerobactin siderophore biosynthesis protein 1,Catalyzing the biosynthesis of the aerobactin (siderophore) in Shigella flexneri serotype 2a str. 301,1,0
+2920,40292,PilJ,C. difficile gram-positive type IV pili.,1,0
+2922,40292,iroN outer membrane receptor FepA,"FepA is an enterobactin receptor biosynthesized by all E.coli strains encoded by the IroN gene cluster. This outer membrane receptor allows the transport of salmochelins (enterobactin siderophore, iroA) in Shigella dysenteriae Sd197",1,0
+2926,40292,IutA ferric aerobactin siderophore receptor,"Outer membrane transport protein allowing the transport of ferric-aerobactin across the cytoplasmic membrane in Shigella boydii strain: Sb227, serotype: 4.",1,0
+2929,40292,IutA ferric aerobactin siderophore receptor 2,Outer membrane transport protein allowing the transport of ferric-aerobactin across the cytoplasmic membrane in Shigella sonnei strain: Ss046,1,0
+2932,40292,tonB Transport Protein,"Part of a three inner membrane protein complex consisting of TonB-ExbB-ExbD.  Transduces proton motive force of the cytoplasmic membrane to outer membrane transporters (TonB-dependent transporters, TBDTs) which allow for the transportation of siderophores, as well as vitamin B12, nickel complexes and carbohydrates.",1,0
+2933,40292,IutA ferric aerobactin siderophore receptor 3,Outer membrane transport protein allowing the transport of ferric-aerobactin across the cytoplasmic membrane in Shigella flexneri 5 strain 8401,1,0
+2936,40292,TonB Transport Protein 2,"Part of a three inner membrane protein complex consisting of TonB-ExbB-ExbD. Transduces proton motive force of the cytoplasmic membrane to outer membrane transporters (TonB-dependent transporters, TBDTs) which allow for the transportation of siderophores, as well as vitamin B12, nickel complexes and carbohydrates.",1,0
+2939,40292,InvA,Virulence bio of Yersinia enterocolitica.,1,0
+2940,40292,hylA,hylA is a hyaluronidase found in group A streptococcus. It is involved in the growth and spread of the bacteria within the host.,1,0
+2941,40292,Clostridium botulinum colA,Collagenase found in Clostridium botulinum which facilitates bacterial invasion.,1,0
+2942,40292,streptokinase found in streptococcus dysgalactiae,Streptokinase found in streptococcus dysgalactiae.,1,0
+2943,40292,staphlokinase from Staphylococcus aureus,Staphlokinase from Staphylococcus aureus assists invasion into tissues through plasmininduced proteolysis.,1,0
+2944,40292,neuraminidase of Vibrio cholerae,neuraminidase of Vibrio cholerae,1,0
+2945,40292,nanA from Shigella dysenteriae,nanA from Shigella dysenteriae,1,0
+2947,40292,YE2966 hemolysin of Yersinia enterocolitica strain 8081,YE2966 hemolysin of Yersinia enterocolitica strain 8081,1,0
+2948,40292,YE2407 of hemolysin Yersinia enterocolitica strain 8081,YE2407 of hemolysin Yersinia enterocolitica strain 8081,1,0
+2949,40292,YE3454 hemolysin of Yersinia enterocolitica 8081,YE3454 hemolysin of Yersinia enterocolitica 8081,1,0
+2950,40292,YE2408 hemolysin of Yersinia enterocolitica 8081,YE2408 hemolysin of Yersinia enterocolitica 8081,1,0
+2951,40292,HlyE,"Also known as Cytolysin A, ClyA, silent hemolysin A, SheA, hemolysin E, HlyE",1,0
+2953,40292,phospholipase D from Rickettsia rickettsii,phospholipase D from Rickettsia rickettsii,1,0
+2972,40292,yeeJ,yeeJ is an autotransporter adhesin found in Escherichia coli K-12 MG1655. It is homologous to Ag43. It greatly increases adhesion to solid surfaces.,1,0
+3163,40292,ang-DHBA,"(2,3-dihydroxybenzoyl)adenylate ligase (DHBA-AMP ligase) involved in anguibactin biosynthesis",1,0
+2369,40292,ADC-80,ADC-80 is a beta-lactamase found in Acinetobacter baumannii.,1,0
+2649,40292,mobC,The relaxosome protein MobC promotes conjugal plasmid mobilization by extending DNA strand separation to the nick site at the origin of transfer,1,0
+2547,40292,CylR2,"Cytolysin operon-encoded regulatory proteins, CylR1 and CylR2, cooperatively repress toxin expression",1,0
+2495,40292,TraL,conjugal transfer protein,1,0
+3173,40292,CsgC,CsgC regulates CsgA amyloid formation.,1,0
+3178,40292,FapF,FapF is a component of the Fap amyloid adhesins.,1,0
+3165,40292,CsgF,Curli assembly component,1,0
+3167,40292,CsgB,Minor subunit curlin.,1,0
+3181,40292,Staphylococcus Bap protein,Staphylococcus Bap protein is a major component of biofilm formation.,1,0
+3182,40292,Rck,Rck is an invasin in Salmonella that uses a zipper entry method into host cells.,1,0
+3183,40292,inlA,Internalin A is an invasion factor of Listeria.,1,0
+3184,40292,inlB,Internalin B is an invasin found in Listeria.,1,0
+3185,40292,CotA,CotA,1,0
+3249,40292,TcpE,TcpE is a component of the TCP pilus.,1,0
+3186,40292,Cfab,Cfab is the major pilin of CFA/I.,1,0
+3187,40292,InsB,InsB is a component of the CS4 pili.,1,0
+3188,40292,CsaE,Minor pilin of the CS4 pili.,1,0
+3189,40292,CsaC,CsaC is the usher protein of CS4.,1,0
+3190,40292,CsaB,CsaB is the major subunit of CS4 pili.,1,0
+3192,40292,CooA,CooA is a CS1 fimbrial subunit A precursor.,1,0
+3193,40292,CooD,CooD is a tip-associated minor pilin,1,0
+3194,40292,CooC,CooC is the usher protein of the CS1 pili.,1,0
+3195,40292,CooB,CooB is the  periplasmic chaperone of the CS1 pili.,1,0
+3197,40292,SipA,Effector protein of Salmonella.,1,0
+3198,40292,SipC,SipC is an effector protein involved in Salmonella invasion.,1,0
+3199,40292,SopB of Salmonella,SopB is a phosphotase involved in Salmonella invasion.,1,0
+3200,40292,gltB of E.coli,gltB of E.coli,1,0
+3201,40292,gltD,gltD is a part of E.coli's fimbrial usher protein family.,1,0
+3202,40292,gltF,gltF is a part of E.coli FUP.,1,0
+3203,40292,yhcA,yhcA,1,0
+3204,40292,yhcD,yhcD,1,0
+3205,40292,yhcE,yhcE,1,0
+3206,40292,yhF,yhF,1,0
+3207,40292,yhcG,yhcG,1,0
+3208,40292,FaeC,FaeC,1,0
+3209,40292,FaeF,FaeF,1,0
+3210,40292,FaeH,FaeH,1,0
+3211,40292,FaeG,FaeG,1,0
+3212,40292,CsuA,Acinetobacter baumannii alternate CUP pili.,1,0
+3213,40292,CsuB,CsuB,1,0
+3214,40292,CsuE,CsuE,1,0
+3215,40292,CsuA/B,CsuA/B,1,0
+3223,42418,S pilus of Escherichia coli,S pili in E.coli mediate adhesion.,1,0
+3224,42418,CS1 pili,CS1 pili,1,0
+3225,42418,CS4 pili,CS4 pili is the Coli Surface Antigen 4 pili.,1,0
+3226,40292,E.coli fimbrial usher protein,E.coli fimbrial usher protein,1,0
+3227,40292,Acinetobacter baumannii CUP,Acinetobacter baumannii CUP,1,0
+3228,42418,F4 fimbrial antigen,F4 fimbrial antigen,1,0
+3229,42418,Type I pili of Escherichia coli,Type I pili of Escherichia coli include the Fim proteins.,1,0
+3230,42418,P pili,P pili are found in pyelonephritic E. coli.,1,0
+3231,42418,curli of Escherichia coli,Curli of Escherichia coli,1,0
+3234,42418,Type IVa pili of Pseudomonas aeruginosa,The gram positive bacteria Pseudomonas aeruginosa. Assembly proteins make up the pilus.,1,0
+3235,40292,CS2 pili,CS2 pili,1,0
+3237,40292,BfpL,BfpL is the inner membrane protein of E.coli bundle forming IVb pilus.,1,0
+3238,40292,BfpK,BfpK is the prepilin protein of E.coli bundle forming IVb pilus.,1,0
+3239,40292,BfpH,BfpH is the lipoprotein of E.coli bundle forming IVb pilus.,1,0
+3240,40292,BfpP,BfpP is the prepilin peptidase of E.coli bundle forming IVb pilus.,1,0
+3241,40292,bfpE,bfpE is the transmembrane protein of E.coli bundle forming IVb pilus.,1,0
+3242,40292,BfpC,BfpC is the protein of E.coli bundle forming IVb pilus.,1,0
+3243,40292,BfpG,BfpG is a lipoprotein of E.coli bundle forming IVb pilus.,1,0
+3244,40292,BfpA,BfpA is the major pilin structural unit bundlin of E.coli bundle forming IVb pilus.,1,0
+3245,40292,TcpS,TcpS is a component of the TCP pilus.,1,0
+3246,40292,TcpC,TcpC is the secretin of the TCP pilus.,1,0
+3247,40292,TcpB,TcpB is a component of the TCP pilus.,1,0
+3250,40292,TcpT,TcpT is a component of the TCP pilus.,1,0
+3232,42418,Bacillus subtilis fibril,Bacillus subtilis fimrbils consist of TasA and is involved in biofilm formation.,1,0
+3027,40292,BabA,"Helicobacter outer membrane proteins, also known as Hops, are similar to OmpA.",1,0
+3078,40292,SfaB,SfaB is part of the S pili assembly.,1,0
+3164,40292,CsgE,Curli transport specificity factor.,1,0
+3191,40292,375,CsaA is a chaperone-like protein that is part of the CS4 pili.,1,0
+3248,40292,TcpA,TcpA is a component of the TCP pili.,1,0
+2946,40292,NanA of Streptococcus pneumoniae O25b:H4,NanA of Escherichia coli O25b:H4,1,0
+2977,40292,SopE,SopeE is a toxin utilized by Salmonella enterica. It is injected by the pathogen through a type III secretion system and exerts its toxic effect by inducing both cytoskeletal and nuclear responses by stimulating GDP/GTP nucleotide exchange in Rho family of small molecular weight GTP-binding proteins. It is also essential for bacterial entry into host cell,1,0
+2722,40292,TrbC,conjugal transfer pilus assembly protein,1,0
+2515,40292,exfoliative toxin A,Exfoliative toxin A (ETA) is a heat stable toxin primarily responsible for the skin manifestation of staphylococcal scalded skin syndrome and bullous impetigo.,1,0
+2635,40292,cytotoxic necrotizing factor,"Cytotoxic necrotizing factor (CNFy) from Yersinia pseudotuberculosis is a toxin that modulates inflammatory responses, protects the bacteria from attacks of innate immune effectors and enhances the severity of a Yersinia infection.",1,0
+2575,40292,anthrolysin O,Anthrolysin O is a pore-forming toxin from Bacillus anthracis that has lytic activity against phagocytes and decreases the barrier function of human polarized epithelial cells,1,0
+2651,40292,MobB,MobB promotes the specific transfer of the plasmid in the presence of conjugative plasmids.,1,0
+2725,40292,TrbI,conjugal transfer protein,1,0
+2742,40292,LexA,"LexA is a transcriptional repressor that represses SOS response genes coding primarily for error-prone DNA polymerases, DNA repair enzymes and cell division inhibitors. LexA forms de facto a two-component regulatory system with RecA, which senses DNA damage at stalled replication forks, forming monofilaments and acquiring an active conformation capable of binding to LexA and causing LexA to cleave itself, in a process called autoproteolysis",1,0
+2598,40292,EAEC heat-stable enterotoxin 1,"EAEC heat-stable enterotoxin 1 from Enteroaggregative Escherichia coli (EAEC), a toxin implicated in the pathogenesis of EAEC leading to diarrhea",1,0
+2727,40292,TraW,conjugal transfer pilus assembly protein,1,0
+2568,40292,exoenzyme S,"Pseudomonas aeruginosa Exoenzyme S (ExoS) is a bifunctional type-III cytotoxin. It inhibits Rho GTPase family signalling, paralysing macrophages, and inhibits phagocytosis",1,0
+2594,40292,CdtB,"The cytolethal distending toxin subunits CdtA and CdtC associate with the nuclease CdtB to form a ternary complex that translocates CdtB into the host cell, where it acts as a genotoxin by creating DNA lesions",1,0
+2650,40292,mobA,"DNA strand transferase,conjugal transfer relaxase TraA,Ti-type conjugative transfer relaxase TraA,MobA/MobL family",1,0
+2562,40292,Staphylococcal enterotoxin D,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2723,40292,TraU,conjugal transfer pilus assembly protein,1,0
+2736,40292,RecA,RecA is a 38 kilodalton protein essential for the repair and maintenance of DNA.,1,0
+2467,40292,CcdB,toxin protein,1,0
+2737,40292,DNA polymerase,"DNA polymerases are enzymes that synthesize DNA molecules from deoxyribonucleotides, the building blocks of DNA. These enzymes are essential to DNA replication and usually work in pairs to create two identical DNA strands from a single original DNA molecule. During this process, DNA polymerase",1,0
+2561,40292,Staphylococcal enterotoxin C3,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2621,40292,Salmonella typhi cytolethal distending toxin,"Salmonella typhi cytolethal distending toxin differs from classic cytolethal distending toxins in which the genes encoding CdtA and CdtC are absent. Normally CdtA and CdtC mediate target cell binding and membrane translocation of CdtB, which then induces DNA damage through its nuclease. CdtB from S. typhi is produced with the pertussis-like toxins PltA and PltB only inside the host cell.",1,0
+2576,40292,edema factor,Edema factor (EF) is a calcium- and calmodulin-dependent adenylate cyclase that causes dramatic increases in intracellular concentrations of cAMP,1,0
+2570,40292,exoenzyme U,"Pseudomonas aeruginosa exoenzyme U (ExoU) is an acute cytotoxin associated with lung injury, bacterial dissemination and sepsis in animal model and human infections.",1,0
+2596,40292,diphtheria toxin,"Diphtheria toxin from Corynebacterium diphtheriae acts on and inhibit translation elongation factor 2 (eEF2), thereby blocking its function on the ribosome and inhibiting protein synthesis in the host cell",1,0
+2634,40292,zona occludens toxin,Zona occludens toxin (Zot) from Vibrio cholerae is a toxin that has the ability to increase mucosal permeability by reversibly affecting the structure of tight junctions.,1,0
+2458,40292,Asa1,"Asa1 is an aggregation substance encoded on pheromone-inducible conjugative plasmid pTEF1Asa1 have been implicated in binding to components of the extracellular matrix such as fibrin, fibronectin, thrombospondin, vitronectin and collagen type I.",1,0
+2582,40292,HBL-L2,"HBL-L2 is a component of Hemolysin BL, a membrane-lytic toxin from Bacillus cereus. HBL-B first binds to the cell membrane, followed by the ordered recruitment of first L1 and then L2.The membrane-associated HBL components form a membrane attack complex that causes lysis by a colloid osmotic mechanism",1,0
+2471,40292,EbpB,EbpB is an ancillary structural protein subunit at the base of the endocarditis and biofilm-associated Ebp pili.,1,0
+2483,40292,antirestriction protein KlcA,def,1,0
+2573,40292,aerolysin,"Aerolysin is a pore-forming toxin from Aeromonas hydrophila responsible for the hemolytic, cytotoxic, and enterotoxic activities",1,0
+2905,40292,tse6,Tse6 is a T6S integral membrane toxin from Pseudomonas aeruginosa. Tse6 acts on target cells by degrading the universally essential dinucleotides NAD(+) and NADP(+). Described by Whitney et al 2015.,1,0
+2563,40292,Staphylococcal enterotoxin E,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2604,40292,Stx2A,"Shiga toxin are A-B toxins produced by several enteric pathogens, most importantly Shigella dysenteriae (serotype 1 only) and Enterohaemorrhagic Escherichia coli (EHEC). Shiga toxins are important factors in disease pathogenesis and are responsible for the haemolytic uremic syndrome (HUS). Subunit A is the active component of the toxin.",1,0
+2600,40292,Pic,Pic from Enteroaggregative Escherichia coli (EAEC) is a multifunctional protein involved in enteric pathogenesis,1,0
+2493,40292,TraY,conjugal transfer protein,1,0
+2569,40292,exoenzyme T,The Pseudomonas aeruginosa exoenzyme T (ExoT) is a bacterial GTPase-activating protein (GAP) contributes to actin cytoskeleton disruption,1,0
+2565,40292,Staphylococcal enterotoxin K,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2641,40292,YstB,"YstB is a novel subtype of the heat-stable enterotoxin of Yersinia enterocolitica (Yst). Yst is important in causing Yersinia-associated diarrhoea, and YstB may play an important role in the pathogenesis,",1,0
+2475,40292,T7 phage exclusion protein,Responsible for the exclusion of phage T7 by plasmid F. Growth of bacteriophage T7 is inhibited in cells of E.coli that carries the plasmid F,1,0
+2602,40292,Set1B,Shigella enterotoxin 1 from Shigella flexneri 2a is an A-B toxin involved in the pathogenesis of diarrheal illness. Shigella enterotoxin 1 comprises a single 20-kDa catalytic A subunit encoded by the setA gene and five 7-kDa B subunits encoded by the setB gene.,1,0
+2590,40292,pertussis toxin subunit 3,"Subunits S2 to S5 of pertussis toxin constitute a heteromultimeric complex referred to as the B oligomer, responsible for the binding of the toxin to its receptors on the surface of the target cells.",1,0
+2726,40292,TraC,conjugal transfer ATP-binding protein,1,0
+2618,40292,PlcC,"Phospholipases C play a role in the pathogenesis of Mycobacterium tuberculosis, the causative agent of tuberculosis. Mycobacterium tuberculosis possesses four genes encoding putative phospholipases C, plcA, plcB, plcC and plcD. However, the contribution of these genes to virulence is unknown.",1,0
+2622,40292,Salmonella plasmid virulence SpvB,The spvB gene on the Salmonella virulence plasmid encodes an ADP-ribosylating toxin that modifies actin directly and totally disrupt the cytoskeleton of the cell,1,0
+2592,40292,pertussis toxin subunit 5,"Subunits S2 to S5 of pertussis toxin constitute a heteromultimeric complex referred to as the B oligomer, responsible for the binding of the toxin to its receptors on the surface of the target cells.",1,0
+2571,40292,exoenzyme Y,Exoenzyme Y is a toxin of Pseudomonas aeruginosa with adenylate cyclase activity that elevates the intracellular cAMP levels.,1,0
+2481,40292,SopB,partition protein,1,0
+2606,40292,Stx2B,"Shiga toxin are A-B toxins produced by several enteric pathogens, most importantly Shigella dysenteriae (serotype 1 only) and Enterohaemorrhagic Escherichia coli (EHEC). Shiga toxins are important factors in disease pathogenesis and are responsible for the haemolytic uremic syndrome (HUS). B subunits form a pentameric structure binding to its cellular receptor.",1,0
+2453,40292,SgrA,"SgrA, or Serine glutamate repeat A, is an LPxTG (Leu-Pro-any-Thr-Gly) surface adhesin that binds to fibrinogen and nidogen.",1,0
+2491,40292,TraM,conjugal transfer protein,1,0
+2629,40292,CtxB,"Cholera toxin from Vibrio cholerae is an AB toxin that causes severe disruption of intestinal cell function, leading to the watery secretory diarrhea characteristic of cholera. The B subunit is the receptor binding subunit.",1,0
+2496,40292,traK,conjugal transfer protein,1,0
+2564,40292,Staphylococcal enterotoxin H,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2664,40292,prevent host death family protein,antitoxin,1,0
+2470,40292,EbpA,"EbpA, is an ancillary structural protein subunit at the tip of the endocarditis and biofilm-associated Ebp pili.",1,0
+2552,40292,Fertility inhibition protein,"One of the components on the FinOP fertility inhibition complex, which inhibits the expression of traJ gene, which in turn regulates the expression of some 20 transfer genes. The transfer genes are responsible for the process, called conjugal transfer, in which DNA is transmitted from one bacterial host to another. RNA-binding that interacts with the traJ mRNA and its antisense RNA, finP, stabilizing finP against endonucleolytic degradation and facilitating sense-antisense RNA recognition.",1,0
+2498,40292,ResD,resolvase,1,0
+2638,40292,YaxB,YaxAB from Yersinia enterocolitica is a pore-forming toxin that mediates cell death occurs via osmotic lysis through the formation of distinct membrane pores. Both YaxA and YaxB are required for cytotoxic activity.,1,0
+2637,40292,YaxA,YaxAB from Yersinia enterocolitica is a pore-forming toxin that mediates cell death occurs via osmotic lysis through the formation of distinct membrane pores. Both YaxA and YaxB are required for cytotoxic activity.,1,0
+2485,40292,group II intron reverse transcriptase/maturase,def,1,0
+2617,40292,PlcB,"Phospholipases C play a role in the pathogenesis of Mycobacterium tuberculosis, the causative agent of tuberculosis. Mycobacterium tuberculosis possesses four genes encoding putative phospholipases C, plcA, plcB, plcC and plcD. However, the contribution of these genes to virulence is unknown.",1,0
+2605,40292,Stx1B,"Shiga toxin are A-B toxins produced by several enteric pathogens, most importantly Shigella dysenteriae (serotype 1 only) and Enterohaemorrhagic Escherichia coli (EHEC). Shiga toxins are important factors in disease pathogenesis and are responsible for the haemolytic uremic syndrome (HUS). B subunits form a pentameric structure binding to its cellular receptor.",1,0
+2616,40292,PlcA,"Phospholipases C play a role in the pathogenesis of Mycobacterium tuberculosis, the causative agent of tuberculosis. Mycobacterium tuberculosis possesses four genes encoding putative phospholipases C, plcA, plcB, plcC and plcD. However, the contribution of these genes to virulence is unknown.",1,0
+2619,40292,PlcD,"Phospholipases C play a role in the pathogenesis of Mycobacterium tuberculosis, the causative agent of tuberculosis. Mycobacterium tuberculosis possesses four genes encoding putative phospholipases C, plcA, plcB, plcC and plcD. However, the contribution of these genes to virulence is unknown.",1,0
+2414,40292,toxin B,Clostridium difficile toxin B is a toxin generated by Clostridium difficile.,1,0
+2448,40292,DnaJ,"Chaperone DnaJ, also known as Hsp40 (heat shock protein 40 kD), is a molecular chaperone protein. The J domain of DnaJ interacts with Hsp70 heat shock proteins. DnaJ heat-shock proteins play a role in regulating the ATPase activity of Hsp70 heat-shock proteins.",1,0
+2465,40292,C protein,transcriptional regulator,1,0
+2533,40292,AbiK,"A reverse transcriptase (RT) is an enzyme used to generate complementary DNA (cDNA) from an RNA template, a process termed reverse transcription.",1,0
+2668,40292,ResA,a nuclease which is involved in DNA recombination.,1,0
+2461,40292,Major pili subunit operon regulatory protein papB,May act as both positive and negative regulator of pap transcription. Might positively regulate levels of papI and/or mbf. Its autoregulatory mode of action involves differential binding to separate sites.,1,0
+2586,40292,adenylate cyclase toxin,"Adenylate cyclase toxin (ACT) from Bordetella pertussis is a member of the RTX (repeats in toxin) family of toxins. ACT binds cell membranes and cause disruption of the permeability barrier, leading to efflux of cell contents.",1,0
+2543,40292,CylL,"Cytolysin is comprised of two nonidentical peptide subunits: CylLL(the long subunit) and CylLS (the short subunit), both of which are required for lytic activity",1,0
+2560,40292,Staphylococcal enterotoxins C1,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2583,40292,NheA,"NheA is a cytolytic protein component of nonhemolytic enterotoxin. Along with two binding components NheB and NheC, nonhemolytic enterotoxin is a pore-forming toxin possesses hemolytic, cytotoxic, dermonecrotic, and vascular permeability activities",1,0
+2540,40292,CylA,"CylA is a serine protease for removing the six-amino-acid sequences from N-terminus of each cytolysin subunit (CylLL' and CylLS', post modified products  of CylLL and CylLS by CylM) and generates the active toxin subunits, CylLL'' and CylLS''",1,0
+2450,40292,Acm,Acm is a collagen adhesin precursor. This adhesin interacts with collagen type I and to a lesser extent with collagen type IV.,1,0
+2640,40292,Yst,"Yst is a low-molecular-mass, heat-stable enterotoxin, characteristic only of the virulent strains of Yersinia enterocolitica. Yst is important in causing Yersinia-associated diarrhoea",1,0
+2500,40292,InsA,tranposase,1,0
+2584,40292,NheB,"NheB is a binding component of nonhemolytic enterotoxin. Along with another binding components NheC and  cytolytic protein component NheA, nonhemolytic enterotoxin is a pore-forming toxin possesses hemolytic, cytotoxic, dermonecrotic, and vascular permeability activities",1,0
+2738,40292,TraO,conjugal transfer protein the forms the bulk of type IV secretion complex that spans outer membrane and periplasm,1,0
+2553,40292,TraI,conjugal transfer protein,1,0
+2557,40292,toxic shock syndrome toxin-1,Toxic shock syndrome toxin-1 is a potent superantigen produced by Staphylococcus aureus.,1,0
+2620,40292,Community Acquired Respiratory Distress Syndrome toxin,"CARDS toxin (Community Acquired Respiratory Distress Syndrome toxin) is a ADP-ribosylating and vacuolating cytotoxin from Mycoplasma pneumoniae. CARDS toxin binds to human surfactant protein A and annexin A2 on airway epithelial cells and is internalized, leading to disruption of monolayer integrity and cell death.",1,0
+2739,40292,tnpA,ISNCY family-transposase,1,0
+2613,40292,listeriolysin O,"Listeriolysin O from Listeria monocytogenes is a toxin that mediates lysis of the primary phagosomes formed after the uptake of extracellular bacteria, and is required for the efficient escape from the double-membrane vacuole that forms upon cell-to-cell spead.",1,0
+2558,40292,Staphylococcal enterotoxin A,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2504,40292,PemI,Antitoxin component of a type II toxin-antitoxin (TA) module. Labile antitoxin that binds to its cognate PemK endoribonuclease toxin and neutralizes its activity. Responsible for the stable maintenance of the plasmid during cell division. Both PemI and PemK proteins bind to the promoter region of the pem operon to autoregulate their synthesis.,1,0
+2572,40292,phospholipase C,Phospholipase C suppresses neutrophil respiratory burst activity and thus facilitate chronic persistent infection by Pseudomonas aeruginosa.,1,0
+2574,40292,RtxA,The repeat in toxin A(RtxA) is a toxin produced by Aeromonas hydrophila that disrupted the actin cytoskeleton and induce host cell apoptosis,1,0
+2624,40292,Streptococcus beta-haemolysin,"Beta-haemolysin from group A Streptococcus and group B Streptococcus is a pore-forming toxin that induces apoptosis of host cells, promotes cellular invasion, and triggers iNOS and cytokine release.",1,0
+2607,40292,EltA,heat-labile toxin from Enterotoxigenic Escherichia coli (ETEC) is an AB toxin that ADP ribosylates and activates adenylate cyclase resulting in ion secretion. This causes cholera-like diarrhea in humans and animals.The A subunit functions enzymatically as an ADP-ribosyltransferase.,1,0
+2630,40292,multifunctional autoprocessing RTX toxin,"Multifunctional autoprocessing RTX toxins (MARTX) are large exotoxins of 350–560 kDa produced by many species of Vibrio. MARTX is capable of inducing cytopathic activities in host cells including actin depolymerization, Rho inactivation, caspase 3/7-dependent apoptosis, and induction of reactive oxygen species.",1,0
+2460,40292,RepA,This protein is essential for plasmid replication; it is involved in copy control functions,1,0
+2599,40292,plasmid-encoded enterotoxin,"Plasmid-encoded enterotoxin from Enteroaggregative Escherichia coli (EAEC) is a serine protease, leading to cytoskeletal changes and epithelial-cell rounding by cleavage of the cytoskeletal protein spectrin",1,0
+2730,40292,TraV,conjugal transfer protein,1,0
+2473,40292,EbpC,EbpC is the major pilin of the endocarditis and biofilm-associated Ebp pili. EbpC polymerizes and forms the fiber backbone.,1,0
+2631,40292,thermostable direct hemolysin,"Thermostable direct hemolysin (TDH) from Vibrio parahaemolyticus is a pore-forming toxin that forms pores of ~2nm in diameter on host cell membrane, allowing both water and ions to flow through the membrane. This toxin also exerts a variety of biological activities such as hemolytic activity, cytotoxicity, cardiotoxicity, and enterotoxicity",1,0
+2591,40292,pertussis toxin subunit 4,"Subunits S2 to S5 of pertussis toxin constitute a heteromultimeric complex referred to as the B oligomer, responsible for the binding of the toxin to its receptors on the surface of the target cells.",1,0
+2516,40292,exfoliative toxin B,exfoliative toxin B (ETB) is a heat sensitive toxin primarily responsible for the skin manifestation of staphylococcal scalded skin syndrome and bullous impetigo.,1,0
+2505,40292,PemK,Toxic component of a type II toxin-antitoxin (TA) module. Probably functions as an endoribonuclease. Responsible for the stable maintenance of the plasmid during cell division by postsegregational killing of plasmid-less daughter cells. Neutralized by coexpression with cognate antitoxin PemI. Both PemI and PemK proteins bind to the promoter region of the pem operon to autoregulate their synthesis.,1,0
+2597,40292,hemolysin,"Hemolysin from Escherichia coli is a RTX protein secreted by a type I secretion system that is cytotoxic to many types of cells: erythrocytes, granulocytes, monocytes, endothelial cells and renal epithelial cells",1,0
+2479,40292,repA2,This protein is involved in the determination of copy number in gene replication. It binds to the repA promoter thus inhibiting the synthesis of the mRNA for the initiator protein RepA.,1,0
+2502,40292,DNA resolvase,DNA resolvase,1,0
+2578,40292,protective antigen,The protective antigen forms a oligomer that creates a membrane-spanning channel that LF and EF translocate through to enter the cytosol,1,0
+2735,40292,MazG,A nucleotide pyrophosphohydrolase,1,0
+2549,40292,IncFII family plasmid replication intiator RepA,Initiates plasmid replication.,1,0
+2593,40292,CdtA,"The cytolethal distending toxin subunits CdtA and CdtC associate with the nuclease CdtB to form a ternary complex that translocates CdtB into the host cell, where it acts as a genotoxin by creating DNA lesions",1,0
+2579,40292,cytotoxin K,"Cytotoxin K from Bacillus cereus belongs to the family of oligomeric β-barrel pore-forming toxins. Cytotoxin K may be responsible for a disease that is similar to, although not as severe as, the necrotic enteritis caused by the beta-toxin of C. perfringens type C",1,0
+2714,40292,TrbB,conjugal transfer pilin assembly thiol-disulfide isomerase,1,0
+2728,40292,TraP,conjugal transfer protein,1,0
+2456,40292,intl1,"Integrons are genetic mechanisms that allow bacteria to adapt and evolve rapidly through the acquisition, stockpiling and differential expression of new genes. Additionally, an integron will usually contain one or more gene cassettes that have been incorporated into it.",1,0
+2444,40292,taxB,conjugal transfer protein,1,0
+2538,40292,Topoisomerase III,Topoisomerase III can introduce single-strand breaks that are required for DNA to be exchanged by adjacent chromosomes.,1,0
+2452,40292,Scm,"Scm is a collagen adhesin produced by Enterococcus faecium. Also known as second collagen adhesin of E. faecium, this adhesin binds to collagen type V and fibrinogen",1,0
+2488,40292,PsiA,plasmid SOS inhibition protein A,1,0
+2535,40292,transposon DNA invertase,Enzyme that repress transposases,1,0
+2665,40292,death on curing protein (doc),toxin,1,0
+2537,40292,transposon Tn552 resolvase,Resolvase catalyzes the resolution (a site-specific recombination) of the cointegrated replicon to yield the final transposition products,1,0
+2499,40292,uvrD,helicase,1,0
+2601,40292,Set1A,Shigella enterotoxin 1 from Shigella flexneri 2a is an A-B toxin involved in the pathogenesis of diarrheal illness. Shigella enterotoxin 1 comprises a single 20-kDa catalytic A subunit encoded by the setA gene and five 7-kDa B subunits encoded by the setB gene,1,0
+2589,40292,pertussis toxin subunit 2,"Subunits S2 to S5 of pertussis toxin constitute a heteromultimeric complex referred to as the B oligomer, responsible for the binding of the toxin to its receptors on the surface of the target cells.",1,0
+2715,40292,TraQ,conjugal transfer pilin chaperone,1,0
+2512,40292,HlgA,HlgA is one of the S components of γ-hemolysin. HlgA may combine with any of the F components (HlgB or LukF-PV) produced by Staphylococcus aureus to form an active toxin molecule.,1,0
+2639,40292,yersinia murine toxin,Yersinia murine toxin (Ymt) is a toxin unique to Yersinia pestis that posess intracellular phospholipase D activity. This appeared to protect Y. pestis from a cytotoxic digestion product of blood plasma in the flea gut.,1,0
+2555,40292,LukF-PV,Panton-Valentine leukocidin chain F precursor,1,0
+2536,40292,IS6 family transposase,The transposase produces nicks at the donor and the recipient sites. The 3' end of the transposon is ligated to the 5' end of the target sequence. The transposon is duplicated after DNA replication.,1,0
+2559,40292,Staphylococcal enterotoxin B,Staphylococcal enterotoxin B is a member of a family of toxins known as superantigens that activate a large number of T-cells (up to 20%) by cross-linking MHC class II molecules with T-cell receptors in a Vbeta-restricted fashion.,1,0
+2509,40292,ArgR family transcriptional regulator,Arginine repressor,1,0
+2541,40292,CylB,"CylB proteolytically cleaved and secreted the cytolysin subunits from the cell. CylB functions as an ABC transporter (C-terminal ATP-binding domain) and a signal peptidase (N-terminal cysteine protease domain), generating CylLL' and CylLS' from CylLL and CylLS.",1,0
+2480,40292,SopA,partitioning protein,1,0
+2673,40292,StbD,Part of the PhdYeFM antitoxin toxin system,1,0
+2459,40292,Asc10,"Asc1 is an aggregation substance encoded on pheromone-inducible conjugative plasmid pTEF2 from Enterococcus faecalis that has been implicated in binding to components of the extracellular matrix such as fibrin, fibronectin, thrombospondin, vitronectin and collagen type I.",1,0
+2532,40292,bin,resolvase/integrase  a nuclease which is involved in DNA recombination.,1,0
+2595,40292,CdtC,"The cytolethal distending toxin subunits CdtA and CdtC associate with the nuclease CdtB to form a ternary complex that translocates CdtB into the host cell, where it acts as a genotoxin by creating DNA lesions",1,0
+2469,40292,replication initiation protein RepE,replication initiation protein,1,0
+2474,40292,SrtC,SrtC is a sortase responsible for the assembly of pili and their cell wall attachment via a mechanism of cross-linking of the Ebp proteins.,1,0
+2492,40292,TraJ,conjugal transfer protein,1,0
+2740,40292,transcription termination factor NusG,A transcription termination factor,1,0
+2587,40292,dermonecrotic toxin,Dermonecrotic toxin (Dnt) from Bordetella bronchiseptica is an A-B type toxin composed of N-terminal receptor-binding (B) domain and a C-terminal enzymatically active (A) domain.  Dnt is a Dermonecrosis-inducing toxin stimulates the assembly of actin stress fibers and focal adhesions by deamidating or polyaminating small GTPase Rho.,1,0
+2455,40292,Dihydrofolate reductase DfrA,"Dihydrofolate reductase converts dihydrofolate into tetrahydrofolate, a methyl group shuttle required for the de novo synthesis of purines, thymidylic acid, and certain amino acids. (Trimethoprim-resistant dihydrofolate reductase DfrA)",1,0
+2652,40292,ParE,"Toxin component of a toxin-antitoxin (TA) module involved in plasmid partition. Acts by inhibiting DNA gyrase, converting supercoiled plasmid DNA into a singly cleaved linear form in an ATP-dependent fashion. To do so it probably interacts with one of the gyrase subunits. Gyrase inhibition is prevented by antitoxin ParD, and is reversed in vitro by incubation with ParD. In cells that have lost the plasmid filamentation and growth inhibition occur; this is suppressed when ParD is supplied in trans. The parDE operon alone is capable of stabilizing an RK2-derived minireplicon under defined growth conditions in several different Gram-negative bacteria. It does so by the post-segregational killing (PSK) of plasmid-free cells, also referred to as a plasmid addiction system.",1,0
+2487,40292,PsiB,plasmid SOS inhibition protein B/ recombinase,1,0
+2615,40292,listeriolysin S,"Listeriolysin S from Listeria monocytogenes is a peptide haemolysin that contributes to the virulence of L. monocytogenes, the pathogen responsible for the disease listeriosis.",1,0
+2490,40292,Mok,"mok, modulation of killing - required for hok translation",1,0
+2708,40292,TraG,conjugal transfer mating pair stabilization protein,1,0
+2494,40292,TraA,conjugal transfer protein,1,0
+2413,40292,toxin A,Clostridium difficile toxin A is a toxin generated by Clostridium difficile.,1,0
+2554,40292,Coupling protein TraD,"Conjugative DNA transfer (CDT) is the unidirectional transfer of ssDNA plasmid from a donor to a recipient cell. It is the central mechanism by which antibiotic resistance and virulence factors are propagated in bacterial populations. Couples the transferosome to a type IV secretion system. Probably forms a pore through which single-stranded plasmid DNA is transferred to the secretion system. The last 37 residues are important for determining plasmid specificity and transfer efficiency, with additional specificity conferred by the TraD-TraM pair.",1,0
+2648,40292,HicA,"HicA is a toxin part of the HicA/HicB toxin-antitoxin system overexpression of the HicA toxin, which exhibits mRNA interferase activity, causes cleavage of mRNAs and an arrest of cell growth",1,0
+2577,40292,lethal factor,LF is a zinc-dependent protease that cleaves mitogen-activated protein kinase kinases (MAPKKs) in their amino-terminal regions. It induces the cytokine-independent shock-like death associated with anthrax.,1,0
+2625,40292,CAMP factor,Streptococcus agalactiae CAMP factor is a pore-forming toxin that forms pores in cell membrane by oligomerization. The CAMP factor also binds to the Fc fragments of human IgG and IgM.,1,0
+2721,40292,TraN,conjugal transfer mating-pair stabilization protein,1,0
+2696,40292,HipA,type II toxin,1,0
+2611,40292,vacuolating cytotoxin A,Vacuolating cytotoxin A of Helicobacter pylori is a toxin that induces the formation of vacuoles arising from late endosomal/lysosomal compartments.,1,0
+2457,40292,PadR family transcriptional regulator,"transcriptional regulation is the means by which a cell regulates the conversion of DNA to RNA (transcription), thereby orchestrating gene activity.",1,0
+2508,40292,delta-hemolysin,"delta-hemolysin is a toxin produced by Staphylococcus aureus that is capable of lysing erythrocytes and other mammalian cells, as well as subcellular structures",1,0
+2566,40292,Staphylococcal enterotoxin Q,Staphylococcal enterotoxins are prototype superantigens characterized by their ability to bind to major histocompatibility complex (MHC) class II molecules and subsequently activate a large fraction of T-lymphocytes.,1,0
+2567,40292,exotoxin A,The Pseudomonas exotoxin (or exotoxin A) is an ADP-ribosylating exotoxin produced by Pseudomonas aeruginosa,1,0
+2451,40292,EcbA,EcbA is a collagen adhesin produced by Enterococcus faecium. This adhesin binds to collagen type V,1,0
+2580,40292,HBL-B,"HBL-B is the only protein able to associate productively with the cell membrane, and this binding is followed by the ordered recruitment of first L1 and then L2.The membrane-associated HBL components form a membrane attack complex that causes lysis by a colloid osmotic mechanism.",1,0
+2674,40292,Sok,Suppression of killing - a short lived (half-life 30 seconds) RNA antitoxin,1,0
+2466,40292,CcdA,antitoxin,1,0
+2663,40292,Acinetobacter baumannii ACICU plasmid pACICU1 addiction module antitoxin,an antibody that counteracts a toxin,1,0
+2477,40292,pir,replication initiation protein,1,0
+2700,40292,MazE,Type II antitoxin,1,0
+2647,40292,RelB,"Antitoxin component of a type II toxin-antitoxin (TA) module. Counteracts the effect of cognate toxin RelE via direct protein-protein interaction, preventing RelE from entering the ribosome A site and thus inhibiting its endoribonuclease activity. An autorepressor of relBE operon transcription. 2 RelB dimers bind to 2 operator sequences; DNA-binding and repression is stronger when complexed with toxin/corepressor RelE by conditional cooperativity. Increased transcription rate of relBE and activation of relE is consistent with a lower level of RelB in starved cells due to degradation of RelB by protease Lon.",1,0
+2906,40292,tse6*,Tse6 is a T6S integral membrane toxin from Pseudomonas aeruginosa that acts on target cells by degrading the universally essential dinucleotides NAD(+) and NADP(+). Described by Whitney et al. 2015. Tse6* includes an insertion of the PA14_01130 locus.,1,0
+2908,40292,Tse6*,Tse6 is a T6S integral membrane toxin from Pseudomonas aeruginosa that acts on target cells by degrading the universally essential dinucleotides NAD(+) and NADP(+). Described by Whitney et al. 2015. Tse6* includes an insertion of the PA14_01130 locus.,1,0
+2915,40292,IucA aerobactin siderophore biosynthesis protein,Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in Shigella flexneri serotype 2a str. 301,1,0
+2503,40292,alpha-hemolysin,alpha-hemolysin is a toxin produced by Staphylococcus aureus that forms pores in cell membrane to kill or limit the ability of neutrophils,1,0
+2919,40292,FimH,E.coli,1,0
+2952,40292,ehxA,Enterohemolysin,1,0
+2970,40292,yfaL,yfaL is an autotransporter adhesin found in Escherichia coli K-12 MG1655. It is homologous to Ag43. It greatly increases adhesion to solid surfaces.,1,0
+2971,40292,ycgV,ycgV is an autotransporter adhesin found in Escherichia coli K-12 MG1655. It is homologous to Ag43. It greatly increases adhesion to solid surfaces.,1,0
+3016,40292,ECs0594,ECs0594 outer membrane protein Escherichia coli O157:H7 str. Sakai.,1,0
+3169,40292,Bacillus subtilis fibril,Bacillus subtilis fimrbils consist of TasA and is involved in biofilm formation.,1,0
+3074,40292,Pneumolysin,Pneumolysin,1,0
+3166,40292,CsgG,Curli secretion channel.,1,0
+3236,42418,Ebp pili,"Ebp pili are important for adherence to host extracellular matrix proteins, including fibrinogen and collagen and play a role in biofilm formation",1,0
+2973,40292,Hcp1,Hemolysin coregulated protein 1 is a hexameric ring-shaped protein secreted by the type vi secretion system of Pseudomonas aeruginosa and is required for the assembly of the type vi secretion system machinery.,1,0
+2974,40292,peb1A,peb1A is an adhesin that also functions as an ABC transporter aspartate/glutamate-binding protein. It comes from the food-borne human pathogen Campylobacter jejuni.,1,0
+2975,40292,fimH from Salmonella enterica subsp. enterica serovar Typhimurium str. LT2,Facilitates adhesion to mammalian and avian cells.,1,0
+2976,40292,ECs0362,ECs0362 is an autotransporter protein that is similar to adhesins involved in diffuse adherence (AIDA). It is found in Escherichia coli O157:H7 str. Sakai.,1,0
+2978,40292,SopE2,SopeE2 is a toxin utilized by Salmonella enterica. It is injected by the pathogen through a type III secretion system and exerts its toxic effect by inducing both cytoskeletal and nuclear responses by stimulating GDP/GTP nucleotide exchange in Rho family of small molecular weight GTP-binding proteins. It is also essential for bacterial entry into host cell,1,0
+2979,40292,EmaA,A collegen-binding autotransporter adhesin. This protein is found in Aggregatibacter actinomycetemcomitans.,1,0
+2980,40292,adhesin of Bartonella quintana strain Toulouse,adhesin of Bartonella quintana strain Toulouse.,1,0
+2981,40292,ECs0548,Adhesin from Escherichia coli O157:H7 from the Sakai outbreak.,1,0
+2982,40292,adhesin of Escherichia coli O83:H1 strain NRG 857C,adhesin of Escherichia coli O83:H1 strain NRG 857C.,1,0
+2983,40292,iucB aerobactin siderophore biosynthesis protein [Escherichia coli],"Catalyzing the biosynthesis of the aerobactin (siderophore) in Escherichia coli including strains: SMS-3-5,",1,0
+2984,40293,iucB aerobactin siderophore biosynthesis protein (plasmid) [Escherichia coli],Catalyzing the biosynthesis of the aerobactin (siderophore) in Escherichia coli strains: APEC O103,1,0
+2988,40292,iucA [Multispecies: Enterobacteriaceae],Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in: Escherichia coli SMS-3-5;,1,0
+2990,40292,iucA (plasmid) [Escherichia coli],Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in plasmid within: Escherichia coli chi7122;,1,0
+2991,40292,iucA [Escherichia coli],Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in: Escherichia coli IAI39;,1,0
+2993,40292,EAEC TssL,Type six secretion (Tss) L is a protein subunit that forms a membrane complex with TssJ and TssM that localizes at the inner membrane. This inner membrane complex is required to anchor the type VI secretion machinery to the bacterial cell envelope. This TssL is of enteroaggregative Escherichia coli (EAEC),1,0
+2994,40292,Pseudomonas aeruginosa TssL1,Type six secretion (Tss) L is a protein subunit that forms a membrane complex with TssJ and TssM that localizes at the inner membrane. This inner membrane complex is required to anchor the type VI secretion machinery to the bacterial cell envelope. This TssL is of Pseudomonas aeruginosa.,1,0
+2996,40292,CNFy,cytotoxic necrotizing factor toxin from Yersinia pseudotuberculosis,1,0
+2997,40292,IucC [Escherichia coli],Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in: Escherichia coli SMS-3-5;,1,0
+2998,40292,IucC [Multispecies: Enterobacteriaceae],Part of the IucA/IucC gene family catalyzing the biosynthesis of the aerobactin (siderophore) in: Escherichia coli APEC O1;,1,0
+2999,40292,adhesin P1 from Mycoplasma pneumoniae M129,adhesin P1 from Mycoplasma pneumoniae M129,1,0
+3004,40292,MPN132,MPN132 is a P1 family adhesin found in Mycoplasma pneumoniae M129,1,0
+3000,40292,adhesin P1 from Mycoplasma gallisepticum strain R,adhesin P1 from Mycoplasma gallisepticum strain R,1,0
+3001,40292,MPN468,MPN468 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3002,40292,MPN409,MPN409 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3003,40292,MPN500,MPN500 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3005,40292,MPN131,MPN131 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3006,40292,MPN144,MPN144 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3007,40292,MPN286,MPN286 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3008,40292,MPN202,MPN202 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3009,40292,MPN370,MPN370 is a P1 family adhesin found in Mycoplasma pneumoniae M129.,1,0
+3010,40292,YadC,YadC is a fimbrial tip-adhesin from Escherichia coli str. K-12 substrain MG1655.,1,0
+3011,40292,sfmH,sfmH is a fimbrial adhesin found in Escherichia coli.,1,0
+3012,40292,AufC,AufC is an outer membrane export usher protein.,1,0
+3179,40292,FapD,FapD is a part of Fap amyloid adhesins.,1,0
+3017,40292,ECs2110,ECs2110 is an outer membrane protein found in Escherichia coli O157:H7 str. Sakai.,1,0
+3019,40292,ydeT,ydeT is a fimbrial usher domain-containing Escherichia coli str. K-12 substr. MG1655.,1,0
+3020,40292,SfmD of Escherichia coli str. K-12 substrain MG1655,SfmD of Escherichia coli str. K-12 substrain MG1655 codes for a putative fimbrial usher protein.,1,0
+3021,40292,sfmD of Escherichia coli str. K-12 substrain MG1655,sfmD of Escherichia coli str. K-12 substrain MG1655,1,0
+3022,40292,sfmD of Escherichia coli UMN026,sfmD of Escherichia coli UMN026,1,0
+3023,40292,ycbS,ycbS is a membrane protein found in Escherichia coli IAI39.,1,0
+3025,40292,BcfC,BcfC is an outer membrane usher protein found in Salmonella enterica subspecies enterica serovar Typhimurium strain LT2.,1,0
+3026,40292,Ace (toxin),Accessory cholera enterotoxin (Ace) secreted by Vibrio cholerae strains. Ace activates chloride channels stimulating chloride/bicarbonate transport that augments fluid secretion resulting in diarrhea.,1,0
+3028,40292,SabA,SabA is an outer membrane adhesin of H. pylori.,1,0
+3029,40292,HopQ,HopQ is an adhesin of H. pylori. Only a partial sequence is available.,1,0
+3030,40292,RtxA (Vibrio cholerae),rtxA gene codes for a multifunctional-autoprocessing repeats-in-toxin (MARTX) toxin in various species of Vibrio. This MARTX toxin manifests itself into a delivery system for effectors which exert their individual toxic effects on host cells depending on the type. As such the toxicity of rtxA is to enable other toxic effectors,1,0
+3031,40292,HopZ,HopZ is an outer membrane adhesin of H. pylori.,1,0
+3097,40292,sagH,sagH gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3098,40292,sagI,sagI gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3032,40292,TDH,Thermostable direct hemolysin (TDH) is found in Vibrio parahaemolyticus. The hemolytic activity of TDH has been well characterized and discussed. TDH forms pores of approximately 2 nm on erythrocyte membranes and causes colloidal osmotic lysis and is therefore considered to function as a pore-forming toxin. The pore formed as a result of this toxin allows for both ions and water to pass through. The altered ion flow is what is responsible for diarrhea in patients affected by this toxin.,1,0
+3033,40292,OpcA,OpcA mediates adhesion by binding to epithelial and endothelial cells through to vitronectin and proteoglycan receptor binding.,1,0
+3034,40292,GspB,GspB mediates binding of this organism to human platelets via its interaction with sialyl-T antigen on the receptor GPIbα. This interaction appears to be a major virulence determinant in the pathogenesis of infective endocarditis.,1,0
+3035,40292,SraP,SraP from Staphylococcus aureus is a serine rich adhesin.,1,0
+3036,40292,TRH,"TDH-related hemolysin (TRH) is a hemolytic toxin related to thermostable direct hemolysin (TDH). However, it is heat-labile in heat treatment at 60°C for 10 min. The effects of TRH to the Cl− secretion are similar to those of TDH, and in cultured human colonic epithelial cells, TRH increases Cl− secretion, followed by elevation of intracellular calcium.",1,0
+3037,40292,Fap1,Fap1 is a serine-rich repeat glycoprotein adhesin.,1,0
+3038,40292,Hsa,Hsa is a gene in Streptococcus gordonii strain Challis substrain CH1 is a hemagglutinin in the SSR family.,1,0
+3039,40292,SrpA,SrpA is an SSR adhesin.,1,0
+3040,40292,PsrP,PsrP is a SSR adhesin found in Streptococcus pneumoniae.,1,0
+3041,40292,LJ1711,LJ1711 is found in Lactobacillus johnsonii.,1,0
+3042,40292,srpA from Streptococcus cristatus,srpA from Streptococcus cristatus,1,0
+3043,40292,Srr-1,Streptococcus agalactiae serine rich repeat protein.,1,0
+3044,40292,Srr-2,Streptococcus agalactiae serine-rich repeat protein 2.,1,0
+3045,40292,SAOUHSC_02990,Staphylococcus aureus subspecies aureus NCTC 8325 SSR adhesin.,1,0
+3046,40292,SE2249,Streptococcal hemagglutinin protein found in Staphylococcus epidermidis ATCC 12228.,1,0
+3049,40292,PapA,The major pilin protein of E. coli.,1,0
+3050,40292,PapK,PapK is a component of the P pili of E. coli. It acts as a fimbrial adapter.,1,0
+3051,40292,PapG,PapG is a fimbrial protein of the E.coli P pili.,1,0
+3052,40292,PapF,PapF is part of the P pili of E.coli. It acts as the fimbrial adapter.,1,0
+3053,40292,PapE,PapE is a fimbrial tip protein found in P pili of E.coli.,1,0
+3054,40292,PapC,PapC is the outer membrane usher protein of P-pili in E.coli.,1,0
+3056,40292,FimF,FimF is a minor component of type 1 fimbriae.,1,0
+3057,40292,FimD,FimD is the chaperone usher protein of E.coli Type I pili.,1,0
+3058,40292,FimC,FimC is the periplasmic usher protein of E.coli type I pili.,1,0
+3059,40292,FimI,FimI is a fimbrial protein involved in the biosynthesis of the Type I pili.,1,0
+3060,40292,FimA,FimA is a major type 1 subunit protein found in type I pili of E.coli.,1,0
+3061,40292,PilQ of Pseudomonas aeruginosa,PilQ is part of the outer membrane secretin sub-complex.,1,0
+3062,40292,PilF of Pseudomonas aeruginosa,PilF is part of the outer membrane secretin sub complex.,1,0
+3063,40292,PilC of Pseudomonas aeruginosa,PilC is part of the outer membrane (OM) secretin sub‐complex.,1,0
+3064,40292,PilB of Pseudomonas aeruginosa,PilB is part of the inner membrane (IM) motor sub‐complex.,1,0
+3065,40292,PilT,PilT is a twitching motility protein that is a part of the inner membrane (IM) motor sub‐complex.,1,0
+3066,40292,PilU,PilU is a twiching motility protein that is part of the inner membrane (IM) motor sub‐complex.,1,0
+3067,40292,PilM,PilM,1,0
+3068,40292,PilN,PilN is involved in the fimbrial biogenesis protein and part of the IM alignment sub‐complex.,1,0
+3070,40292,PilP,PilP,1,0
+3055,40292,275,FimG is a minor component of type 1 fimbriae.,1,0
+3047,40292,LJ0391,LJ0391 is a SSR found in Lactobacillus johnsonii NCC 533.,1,0
+3048,40292,LPXTG,LPXTG is an SSR adhesin.,1,0
+3072,40298,Ornithine rhamnolipid,"Red polyenic pigment produced by the cyl operon involving genes cylX, cylD, cylG, acpC, cylZ, cylA, cylB, cylE, cylF, cylI, cylJ, and cylK. The expression of these genes creates a biosynthetic pathway for the production of this pigment, as well as β-haemolysin/cytolysin with which it is associated . It possess haemolytic activity associated with Streptococcus agalactiae. Functioning very similarly to the β-haemolysin/cytolysin that pathogenic strains of this species also produces.",1,0
+3073,40292,Cfb,"CAMP factor (cfb) is a pore-forming toxin that oligomerizes to generate discrete pores in target cells, using the carbohydrate core of GPI-anchored proteins as a membrane receptor. However, evidence shows that while it does have pore-forming function, it is not essential for pathogenesis.",1,0
+3075,40293,Pneumolysin,pneumolysin C428A,1,0
+3077,40292,SfaC,SfaC is part of the S pili assembly.,1,0
+3082,40292,SfaF,SfaF is a component of the S pili.,1,0
+3083,40292,SfaG,SfaG is a part of S pili.,1,0
+3084,40292,SfaS,SfaS is a part of S pili in E.coli.,1,0
+3085,40292,SfaH,SfaH is a part of the S pili in E.coli.,1,0
+3089,40292,Streptolysin S,Streptolysin S (SLS) toxin is a membrane-active beta hemolysin that is secreted by most strains of Streptococcus pyogenes. It is encoded by a nine gene operon and contributes to pathogenesis by lysing a broad-spectrum of host cells,1,0
+3090,40292,sagA,sagA gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3091,40292,sagB,sagB gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3092,40292,sagC,sagC gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3093,40292,sagD,sagD gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3094,40292,sagE,sagE gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3095,40292,sagF,sagF gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3096,40292,sagG,sagG gene is a part of the nine-part system of genes that make up streptolysin S toxin of Streptococcus pyogenes,1,0
+3162,40292,angB/G,ischorismate lyase involved in anguibactin biosynthesis,1,0
+3099,40292,Streptolysin O,"Streptolysin O (SLO) is a pore-forming toxin with cholesterol-dependent cytolytic and hemolytic properties. Its primary function is to form large pore in host cell membranes as a method of immune evasion by inducing caspase-dependent apoptosis in macrophage, neutrophil and epithelial cells",1,0
+3100,40292,orbE,Transport protein for ornibactin siderophore,1,0
+3103,40292,SPE-K,SpeK is an exotoxin type K precursor found in Streptococcus pyogenes. Superantigen toxin utilized by streptococcus pyogenes as a part of its streptococcal pyrogenic exotoxin group that it produces as a part of its pathogenesis,1,0
+3104,40292,fiuA,ferrichrome receptor,1,0
+3105,40292,SPE-L,SpeL is an exotoxin type L precursor found in Streptococcus pyogenes. Superantigen toxin utilized by streptococcus pyogenes as a part of its streptococcal pyrogenic exotoxin group that it produces as a part of its pathogenesis,1,0
+3106,40292,SPE-M,speM is an exotoxin type M precursor found in Streptococcus pyogenes. Superantigen toxin utilized by streptococcus pyogenes as a part of its streptococcal pyrogenic exotoxin group that it produces as a part of its pathogenesis,1,0
+3107,40292,Streptococcal superantigen,Streptococcal superantigen (SSA) is found in Streptococcus pyogenes. Superantigen toxin utilized by streptococcus pyogenes as a part of its streptococcal pyrogenic exotoxin group that it produces as a part of its pathogenesis,1,0
+3108,40292,Mitogenic exotoxin Z,Mitogenic exotoxin Z (SmeZ) is found in Streptococcus pyogenes. Superantigen toxin utilized by streptococcus pyogenes as a part of its streptococcal pyrogenic exotoxin group that it produces as a part of its pathogenesis,1,0
+3109,40292,orbL,putative ornibactin biosynthesis protein,1,0
+3110,40292,orbS,Extracytoplasmic function (ECF) sigma factor that targets RNA polymerase to promoters that are required for ornibactin gene expression. The gene is under the control of an iron-regulated σ-70-dependent promoter (targeted for repression by global regulator Fur.,1,0
+3111,40292,orbH,MbtH-like protein present in the orb gene cluster.,1,0
+3112,40292,LukE,LukE is one of the S-class component of LukED. LukE may combine with the F component LukD produced by Staphylococcus aureus to form an active toxin molecule.,1,0
+3113,40292,orbG,putative dioxygenase,1,0
+3114,40292,orbC,putative iron transport-related ATP-binding protein,1,0
+3115,40292,LukD,LukD is one of the F-class component of LukED. LukD may combine with the S component LukE produced by Staphylococcus aureus to form an active toxin molecule.,1,0
+3116,40292,LukA,"LukA (also known as LukG) is one of the F-class component of LukAB (also known as LukGH). LukA may combine with the S component LukB produced by Staphylococcus aureus to form an active toxin molecule. LukAB is unique as bi-component leukocidin because its units assemble before it is secreted, where as such systems generally assemble when they attach to the cell.",1,0
+3174,40292,Pseudomonas fimbril,Pseudomonas fimbrils consist of Fap amyloids.,1,0
+3079,40292,SfaA,sfaA is part of S pilus in E.coli.,1,0
+3080,40292,SfaD,SfaD is part of s pili in E.coli.,1,0
+3081,40292,SfaE,SfaE is part of E.coli s pili.,1,0
+3117,40292,LukB,"LukB (also known as LukH) is one of the S-class component of LukAB (also known as LukGH). LukB may combine with the F component LukA produced by Staphylococcus aureus to form an active toxin molecule. LukAB is unique as bi-component leukocidin because its units assemble before it is secreted, where as such systems generally assemble when they attach to the cell.",1,0
+3118,40292,orbD,putative iron transport-related membrane protein,1,0
+3119,40292,orbF,putative iron transport-related membrane protein,1,0
+3120,40292,orbB,periplasmic binding protein component of ferric-ornibactin uptake system. putative iron transport-related exported protein,1,0
+3121,40292,orbI,Promoter involved in the biosynthesis of ornibactin tetrapeptide siderophore.,1,0
+3122,40292,orbJ,ornibactin biosynthesis non-ribosomal peptide synthase,1,0
+3123,40292,orbK,ornibactin biosynthesis protein,1,0
+3124,40292,pvdA-orb,Responsible for catalyzing the conversion of L-ornithine to N5-hydroxyornithine (the first step in the biosynthesis process and is necessary in all hydroxamate-containing siderophores),1,0
+3125,40292,orbA,"A ferric-ornibactin receptor. Works in combination with pvdA, orbA, orb F",1,0
+3126,40292,orbF - transport protein,putative iron transport-related membrane protein,1,0
+3127,42203,Ornithine rhamnolipid,"Red polyenic pigment produced by the cyl operon involving genes cylX, cylD, cylG, acpC, cylZ, cylA, cylB, cylE, cylF, cylI, cylJ, and cylK. The expression of these genes creates a biosynthetic pathway for the production of this pigment, as well as β-haemolysin/cytolysin with which it is associated . It possess haemolytic activity associated with Streptococcus agalactiae. Functioning very similarly to the β-haemolysin/cytolysin that pathogenic strains of this species also produces.",1,0
+3146,40292,iucD (plasmid),catecholate siderophore esterase IroD,1,0
+3148,40292,Lysine 6-monooxygenase [Multispecies: Enterobacteriaceae],Enzyme that catalyses the hydroxylation of lysine at the N6 position in siderophores,1,0
+3149,40292,L-ornithine 5-monooxygenase,Catalyses hydroxylation of L-ornithine at the N5 position to facilitate siderophore biosynthesis,1,0
+3150,40292,pvdA - ornithine monooxygenase [Multispecies: Pseudomonas],Responsible for catalyzing the conversion of L-ornithine to N5-hydroxyornithine (the first step in the biosynthesis process and is necessary in all hydroxamate-containing siderophores),1,0
+3151,40292,fatD,ferric anguibactin transport protein,1,0
+3152,40292,angM,Essential in the biosynthesis of anguibactin,1,0
+3153,40292,fatB,Siderophore binding protein FatB. Functioning as an ABC-type receptor in the initial process of ferric-siderophore uptake.,1,0
+3154,40292,fatC,Cytoplasmic membrane protein essential for the transport of ferric-anguibactin.,1,0
+3155,40292,fatA,"Outer membrane receptor in V. anguillarum transporting ferric-anguibactin into the periplasmic space of the bacteria. Once bound, the protein uses energy from the ExbB2-ExbD2-TonB2-TtpC complex via proton motive force and changes its conformation to enable the transport of ferric-siderophore into the periplasmic space.",1,0
+3156,40292,angR,Involved in anguibactin biosynthesis and regulation,1,0
+3157,40292,angT,Involved in anguibactin biosynthesis,1,0
+3158,40292,angU,involved in anguibactin biosythesis,1,0
+3159,40292,angN,Involved in anguibactin biosynthesis,1,0
+3160,40292,angH,involved in anguibactin biosynthesis,1,0
+3161,40292,ang-NRPS,putative non-ribosomal peptide synthetase involved in anguibactin biosynthesis,1,0
+3261,40292,dfr-lie,A dihydrofolate reductase and trimethoprim resistance gene,1,0
+3282,40292,tet(47),A tetracycline-resistant ribosomal protection protein,1,0
+3279,40292,tet(61),A tetracycline-resistance ribosomal protection protein,1,0
