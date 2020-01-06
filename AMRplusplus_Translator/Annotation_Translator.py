@@ -6,13 +6,14 @@ from datetime import date
 
 # import annotation data
 AroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t') # When reading, tsv files must have their delimiter stated
-MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annotation
+# MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annotation
 
-# print(AroAnn)
-# print(MegaAnn)
+typeCol = ['Drugs'] * len(AroAnn.index)
+typeAnn = pd.DataFrame(typeCol, columns=['type'])
+# print(typeAnn)
 
-#TODO: Add "type" column
-#TODO:Is the fact that CARD sorts its drugs by semicolon separation in a single cell an issue? - WILL IT CAUSE FALSE NEGATIVES? eg. AMR++ doesn't list an item as carbapenem resistant if it is labelled "cephalosporn;penam"?
+#TODO: Need to label for multi-compound-resistant determinants for multidrug resistance, or only for multiple types (eg. Drugs and metals)?
+#TODO: Is the fact that CARD sorts its drugs by semicolon separation in a single cell an issue? - WILL IT CAUSE FALSE NEGATIVES? eg. AMR++ doesn't list an item as carbapenem resistant if it is labelled "cephalosporn;penam"?
 #TODO: Add type column and find a way to label ARO terms accordingly (Drug, multi-compound resistant, biocide, metal). Just label all as Drugs?
 #TODO: import CARD database (nucleotide_fasta_...), extract the header, add CMG into header
 #TODO: Convert AAC(2') and other such groups to -PRIME notation
@@ -20,15 +21,15 @@ MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annota
 # Create new table containing AMR++-relevant data
 AroCols = [1,3,4,2] # Important columns from ARO data.
 newAnn = AroAnn[AroAnn.columns[AroCols]] # Creates a Dataframe containing the Columns from the ARO annotation file
-# ARO's branches are in a different order than MEGARes, hence 1,3,4,2.
-# Also Add DNA accession (second column) as junk data to fill in header temporarily - fills the same spot as Meg_#
+# ARO's columns (branches) are in a different order than MEGARes, hence 1,3,4,2.
+# Also Add DNA accession as junk data to fill in header temporarily - fills the same spot as Meg_#
 
 newAnn.columns = ['DNA Accession', 'class', 'mechanism', 'group'] # rename columns to match with those of AMR++
 
-appendCol = newAnn['DNA Accession'].map(str) + "|" + newAnn['class'].map(str) + "|" + newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) # concatenate columns to make header
+appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) # concatenate columns to make header
 appColumns = [1,2,3] # Sets the columns from newAnn to be copied over to the final CSV
-finalAnn = pd.concat([appendCol, newAnn[newAnn.columns[appColumns]]], axis=1)
-finalAnn.columns = ['header', 'class', 'mechanism', 'group']
+finalAnn = pd.concat([appendCol, typeAnn, newAnn[newAnn.columns[appColumns]]], axis=1)
+finalAnn.columns = ['header', 'type', 'class', 'mechanism', 'group']
 print(finalAnn)
 
 today = date.today()
