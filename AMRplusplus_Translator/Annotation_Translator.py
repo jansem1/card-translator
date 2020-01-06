@@ -10,6 +10,8 @@ MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annota
 
 # print(AroAnn)
 # print(MegaAnn)
+
+#TODO: Add "type" column
 #TODO:Is the fact that CARD sorts its drugs by semicolon separation in a single cell an issue? - WILL IT CAUSE FALSE NEGATIVES? eg. AMR++ doesn't list an item as carbapenem resistant if it is labelled "cephalosporn;penam"?
 #TODO: Add type column and find a way to label ARO terms accordingly (Drug, multi-compound resistant, biocide, metal). Just label all as Drugs?
 #TODO: import CARD database (nucleotide_fasta_...), extract the header, add CMG into header
