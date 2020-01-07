@@ -12,8 +12,9 @@
 # TODO: Convert AAC(2') and other such groups to -PRIME notation
 #  - Find and delete all parentheses in each cell of the "group" column (BEFORE it is concatenated into the header)
 #   - for open parens, make sure it excludes open parens with a space in front of them (Eg. see line 808 of Jan 6 export)
-#   - For close parens, make sure it's only at the end of the string
-#  - Find all ' in the group column. Replace with '-PRIME' string. Use {Dataframe}.replace
+#   - For close parens, make sure it's ONLY at the end of the string
+#  - Find all '' in the group column. Replace with '-DPRIME' string. Use {Dataframe}.str.replace
+#  - Find all ' in the group column. Replace with '-PRIME' string. Use {Dataframe}.str.replac
 
 
 import numpy as np
@@ -35,14 +36,24 @@ newAnn = AroAnn[AroAnn.columns[AroCols]].copy()  # Creates a Dataframe containin
 # ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession as junk data to fill in header temporarily - fills the same spot as Meg_#
 
-newAnn.columns = ['DNA Accession', 'class', 'mechanism', 'group']
-#
-# # Removes parentheses in gene family and converts ' to -PRIME. eg. AAC(6') = AAC6-PRIME
-# newAnn['group'] = newAnn['group'].map(str).replace('(')
-# newAnn['group'] = newAnn['group'].map(str).replace('\')','-PRIME')  # will only replace ' when it is next to a close paren,
-# # to prevent accidental removal of apostrophes in areas where they may not be used to indicate PRIME
-# newAnn['group'] = newAnn['group'].map(str).replace('/)$/')
+newAnn.columns = ['DNA Accession', 'class', 'mechanism', 'group']  # sets names of columns of new annotation
 
+# Removes parentheses in gene family and converts ' to -PRIME. eg. AAC(6') = AAC6-PRIME
+newAnn['group'] = newAnn['group'].str.replace('(?<! )\(', '')  # !!DANGER!! This will replace any open paren, anywhere. See TO-DO
+# '(?<! ) is regex for "unless there is a space in front of the value"
+newAnn['group'] = newAnn['group'].str.replace('\'\'\)$', '-DPRIME')
+newAnn['group'] = newAnn['group'].str.replace('\'\)$', '-PRIME')  #
+# Replace ' or '' when next to a close paren and at the end of a line (single gene family)
+
+newAnn['group'] = newAnn['group'].str.replace('\'\'\);', '-DPRIME')  # will only replace ' when it is next to a close paren,
+newAnn['group'] = newAnn['group'].str.replace('\'\);', '-PRIME')
+# Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
+
+newAnn['group'] = newAnn['group'].str.replace('\)$', '')  # replaces ) at the end of a string
+# ($ is a regex that causes this to only apply at the end)
+newAnn['group'] = newAnn['group'].str.replace('\);', '') # replaces ) when in multiple gene families
+# (see line 12 of converted file)
+#TODO is this all the possible cases?
 
 appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header by
@@ -57,4 +68,4 @@ today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
-pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
+# pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
