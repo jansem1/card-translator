@@ -298,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578420221253</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added -PRIME notation conversion">
+      <created>1578422202600</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1578422202600</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -324,29 +331,34 @@
     <MESSAGE value="Added Type column to annotation and header" />
     <MESSAGE value="Added private model list" />
     <MESSAGE value="Removed need for multiple dataframes, cleaned up comments and formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed need for multiple dataframes, cleaned up comments and formatting" />
+    <MESSAGE value="Added -PRIME notation conversion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added -PRIME notation conversion" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1578420196560">
+    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1578422187087">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578420196560" />
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom" timestamp="1578422125098">
+    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578422187087" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578422125098" />
-    <state width="1515" height="243" key="GridCell.Tab.0.center" timestamp="1578422125098">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1578422293842" />
+    <state width="1515" height="243" key="GridCell.Tab.0.bottom" timestamp="1578424294746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578422125098" />
-    <state width="1515" height="243" key="GridCell.Tab.0.left" timestamp="1578422125098">
+    <state width="1515" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
+    <state width="1515" height="243" key="GridCell.Tab.0.center" timestamp="1578424294746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578422125098" />
-    <state width="1515" height="243" key="GridCell.Tab.0.right" timestamp="1578422125098">
+    <state width="1515" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
+    <state width="1515" height="243" key="GridCell.Tab.0.left" timestamp="1578424294746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578422125098" />
+    <state width="1515" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
+    <state width="1515" height="243" key="GridCell.Tab.0.right" timestamp="1578424294746">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
     <state width="520" height="446" key="SwitcherDM" timestamp="1578420554908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

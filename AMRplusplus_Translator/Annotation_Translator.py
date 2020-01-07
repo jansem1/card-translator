@@ -12,7 +12,7 @@
 # TODO: Convert AAC(2') and other such groups to -PRIME notation
 #  - Find and delete all parentheses in each cell of the "group" column (BEFORE it is concatenated into the header)
 #   - for open parens, make sure it excludes open parens with a space in front of them (Eg. see line 808 of Jan 6 export)
-#   - For close parens, make sure it's ONLY at the end of the string
+#   - For close parens, make sure it's ONLY at the end of the string AND is preceded by a number (\d)
 #  - Find all '' in the group column. Replace with '-DPRIME' string. Use {Dataframe}.str.replace
 #  - Find all ' in the group column. Replace with '-PRIME' string. Use {Dataframe}.str.replac
 
@@ -38,21 +38,20 @@ newAnn = AroAnn[AroAnn.columns[AroCols]].copy()  # Creates a Dataframe containin
 
 newAnn.columns = ['DNA Accession', 'class', 'mechanism', 'group']  # sets names of columns of new annotation
 
-# Removes parentheses in gene family and converts ' to -PRIME. eg. AAC(6') = AAC6-PRIME
-newAnn['group'] = newAnn['group'].str.replace('(?<! )\(', '')  # !!DANGER!! This will replace any open paren, anywhere. See TO-DO
-# '(?<! ) is regex for "unless there is a space in front of the value"
+#//region -PRIME notation conversion
+# Removes parentheses in gene family and converts ' to -PRIME and '' to -DPRIME. eg. AAC(6') = AAC6-PRIME
+newAnn['group'] = newAnn['group'].str.replace('(?<! )\(', '')
+# replaces open paren only when within a word
 newAnn['group'] = newAnn['group'].str.replace('\'\'\)$', '-DPRIME')
 newAnn['group'] = newAnn['group'].str.replace('\'\)$', '-PRIME')  #
 # Replace ' or '' when next to a close paren and at the end of a line (single gene family)
-
-newAnn['group'] = newAnn['group'].str.replace('\'\'\);', '-DPRIME')  # will only replace ' when it is next to a close paren,
-newAnn['group'] = newAnn['group'].str.replace('\'\);', '-PRIME')
+newAnn['group'] = newAnn['group'].str.replace('\'\'\);', '-DPRIME;')
+newAnn['group'] = newAnn['group'].str.replace('\'\);', '-PRIME;')
 # Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
-
-newAnn['group'] = newAnn['group'].str.replace('\)$', '')  # replaces ) at the end of a string
-# ($ is a regex that causes this to only apply at the end)
-newAnn['group'] = newAnn['group'].str.replace('\);', '') # replaces ) when in multiple gene families
-# (see line 12 of converted file)
+newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\)$', '')
+newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
+# replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
+#//endregion
 #TODO is this all the possible cases?
 
 appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
@@ -68,4 +67,4 @@ today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
-# pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
+pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
