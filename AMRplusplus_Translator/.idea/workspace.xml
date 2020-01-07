@@ -69,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,11 +77,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,10 +156,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Annotation_Translator" />
+        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.scratch_1" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.scratch_2" />
-        <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578339330061</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added private model list">
+      <created>1578341932586</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1578341932586</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -308,36 +315,41 @@
     <MESSAGE value="Finished Annotation generator" />
     <MESSAGE value="Added todo" />
     <MESSAGE value="Added Type column to annotation and header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Type column to annotation and header" />
+    <MESSAGE value="Added private model list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added private model list" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="408" y="8" key="CommitChangelistDialog2" timestamp="1578339302160">
+    <state x="408" y="8" key="CommitChangelistDialog2" timestamp="1578341911280">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="408" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578339302160" />
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom" timestamp="1578341872827">
+    <state x="408" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578341911280" />
+    <state width="1515" height="243" key="GridCell.Tab.0.bottom" timestamp="1578420142735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578341872827" />
-    <state width="1515" height="243" key="GridCell.Tab.0.center" timestamp="1578341872826">
+    <state width="1515" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578420142735" />
+    <state width="1515" height="243" key="GridCell.Tab.0.center" timestamp="1578420142735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578341872826" />
-    <state width="1515" height="243" key="GridCell.Tab.0.left" timestamp="1578341872826">
+    <state width="1515" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578420142735" />
+    <state width="1515" height="243" key="GridCell.Tab.0.left" timestamp="1578420142735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578341872826" />
-    <state width="1515" height="243" key="GridCell.Tab.0.right" timestamp="1578341872826">
+    <state width="1515" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578420142735" />
+    <state width="1515" height="243" key="GridCell.Tab.0.right" timestamp="1578420142735">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578341872826" />
+    <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578420142735" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1578337053262">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1578337053262" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1578336951897">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1578412485507">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578336951897" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578412485507" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1578414755123">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1578414755123" />
   </component>
 </project>
