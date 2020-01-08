@@ -17,18 +17,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>AroAnnotation</find>
-      <find>NewAro</find>
-      <find>newAnn</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>AroAnn</replace>
-      <replace>NewAnn</replace>
-      <replace>newAnn</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -305,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578422202600</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed -PRIME notation bugs">
+      <created>1578424384331</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1578424384331</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -332,13 +327,14 @@
     <MESSAGE value="Added private model list" />
     <MESSAGE value="Removed need for multiple dataframes, cleaned up comments and formatting" />
     <MESSAGE value="Added -PRIME notation conversion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added -PRIME notation conversion" />
+    <MESSAGE value="Fixed -PRIME notation bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed -PRIME notation bugs" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1578422187087">
+    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1578424367793">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578422187087" />
+    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1578424367793" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
