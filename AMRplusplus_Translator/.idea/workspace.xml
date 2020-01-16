@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Annotation_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Annotation_Translator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
   </component>
   <component name="RunManager" selected="Python.Annotation_Translator">
     <configuration name="Annotation_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -321,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579198472737</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Test pushing to multiple repos 3">
+      <created>1579198731182</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1579198731182</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -362,13 +370,14 @@
     <MESSAGE value="removed finished TODO" />
     <MESSAGE value="Test pushing to multiple repos" />
     <MESSAGE value="Test pushing to multiple repos 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test pushing to multiple repos 2" />
+    <MESSAGE value="Test pushing to multiple repos 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test pushing to multiple repos 3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579198421933">
+    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579198707701">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579198421933" />
+    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579198707701" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -397,18 +406,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
-    <state x="277" y="56" key="SettingsEditor" timestamp="1579198535930">
+    <state x="277" y="56" key="SettingsEditor" timestamp="1579201760489">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579198535930" />
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579201760489" />
     <state width="520" height="446" key="SwitcherDM" timestamp="1578420554908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1578420554908" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579198433404">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579198721560">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579198433404" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579198721560" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579198691231">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
