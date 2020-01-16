@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="removed finished TODO">
+    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Annotation_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Annotation_Translator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunManager" selected="Python.Annotation_Translator">
     <configuration name="Annotation_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -308,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578500954834</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Test pushing to multiple repos">
+      <created>1579197298041</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1579197298041</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -319,6 +325,16 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Here we go again" />
@@ -337,21 +353,22 @@
     <MESSAGE value="Added -PRIME notation conversion" />
     <MESSAGE value="Fixed -PRIME notation bugs" />
     <MESSAGE value="removed finished TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed finished TODO" />
+    <MESSAGE value="Test pushing to multiple repos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test pushing to multiple repos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579114328754">
+    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579198401633">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579114328754" />
+    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579198401633" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1578422293842" />
-    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1579114530639">
+    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1579197516528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1579114530639" />
+    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1579197516528" />
     <state x="610" y="307" key="Github.ShareDialog" timestamp="1579114754644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -372,14 +389,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1579198385741">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579198385741" />
     <state width="520" height="446" key="SwitcherDM" timestamp="1578420554908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1578420554908" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1578500983142">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579197262077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1578500983119" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579197262077" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579101424539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
