@@ -8,7 +8,6 @@
 # TODO: import CARD database (nucleotide_fasta_...), extract the header, replace with new headers. Will need to find
 #  each header via DNA accession and replace it
 
-
 import numpy as np
 import pandas as pd
 from datetime import date
