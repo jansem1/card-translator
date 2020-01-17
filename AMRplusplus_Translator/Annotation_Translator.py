@@ -2,7 +2,7 @@
 
 # TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
 #  those that match
-# TODO: Need to add ‘RequiresSNPConfirmation’ flags to the translator. Current ARO source files I’m using are homolog
+# TODO: Need to add ‘RequiresSNPConfirmation’ flags to the translator. Current ARO source files I’m using are homologue
 #  model only. Translate variant model as well, add the flag, combine with translated annotation file.
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
@@ -14,12 +14,10 @@ from datetime import date
 
 # import annotation data
 AroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv files must have their delimiter stated
-# MegaAnn = pd.read_csv('megares_modified_annotations_v2.00.csv') # MEGARes Annotation
 
 typeCol = ['Drugs'] * len(AroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
 typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe
-# print(typeAnn)
 
 # Create new table containing AMR++-relevant data
 AroCols = [1, 3, 4, 2]  # Important columns from ARO data.
