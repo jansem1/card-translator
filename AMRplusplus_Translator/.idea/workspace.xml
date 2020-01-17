@@ -4,6 +4,7 @@
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Annotation_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Annotation_Translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database_translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database_translator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +35,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Annotation_Translator">
+  <component name="RunManager" selected="Python.Database_translator">
     <configuration name="Annotation_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -50,6 +51,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Annotation_Translator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Database_translator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AMRplusplus_Translator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Database_translator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,27 +122,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="AMRplusplus_Translator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Database_translator" />
         <item itemvalue="Python.Annotation_Translator" />
         <item itemvalue="Python.scratch" />
         <item itemvalue="Python.scratch_1" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.scratch_2" />
       </list>
     </recent_temporary>
   </component>
@@ -329,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579198731182</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Removed unnecessary files">
+      <created>1579202076908</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1579202076908</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -371,13 +379,14 @@
     <MESSAGE value="Test pushing to multiple repos" />
     <MESSAGE value="Test pushing to multiple repos 2" />
     <MESSAGE value="Test pushing to multiple repos 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test pushing to multiple repos 3" />
+    <MESSAGE value="Removed unnecessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary files" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579198707701">
+    <state x="595" y="1" key="CommitChangelistDialog2" timestamp="1579202075654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579198707701" />
+    <state x="595" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579202075654" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -390,34 +399,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom" timestamp="1578424294746">
+    <state width="1537" height="242" key="GridCell.Tab.0.bottom" timestamp="1579293479321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
-    <state width="1515" height="243" key="GridCell.Tab.0.center" timestamp="1578424294746">
+    <state width="1537" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579293479321" />
+    <state width="1537" height="242" key="GridCell.Tab.0.center" timestamp="1579293479321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
-    <state width="1515" height="243" key="GridCell.Tab.0.left" timestamp="1578424294746">
+    <state width="1537" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579293479321" />
+    <state width="1537" height="242" key="GridCell.Tab.0.left" timestamp="1579293479321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
-    <state width="1515" height="243" key="GridCell.Tab.0.right" timestamp="1578424294746">
+    <state width="1537" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579293479321" />
+    <state width="1537" height="242" key="GridCell.Tab.0.right" timestamp="1579293479321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578424294746" />
-    <state x="277" y="56" key="SettingsEditor" timestamp="1579201760489">
+    <state width="1537" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579293479321" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1579292271438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579201760489" />
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579292271438" />
     <state width="520" height="446" key="SwitcherDM" timestamp="1578420554908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1578420554908" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579198721560">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579202082330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579198721560" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579202082330" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579198691231">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

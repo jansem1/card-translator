@@ -1,12 +1,12 @@
 # Translates CARD Annotation file into one that AMR++ can read
 
-# TODO: Need to label for multi-compound-resistant determinants for multidrug resistance,
-#  or only for multiple types (eg. Drugs and metals)?
-# TODO: Is the fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue?
-#  WILL IT CAUSE FALSE NEGATIVES? eg. AMR++ doesn't list an item as carbapenem resistant if it is
-#  labelled "cephalosporin;penam"?
-# TODO: import CARD database (nucleotide_fasta_...), extract the header, replace with new headers. Will need to find
-#  each header via DNA accession and replace it
+# TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
+#  those that match
+# TODO: Need to add ‘RequiresSNPConfirmation’ flags to the translator. Current ARO source files I’m using are homolog
+#  model only. Translate variant model as well, add the flag, combine with translated annotation file.
+# TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
+#  cause false negatives. Fix.
+
 
 import numpy as np
 import pandas as pd
