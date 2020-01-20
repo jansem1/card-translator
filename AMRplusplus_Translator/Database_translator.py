@@ -17,10 +17,11 @@ from datetime import date
     # print(dbIn in headerSource)
 
 aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"))
-# filepath = easygui.fileopenbox('test') # Alternative to current-day file system. Currently broken by issues
+# filepath = eg.fileopenbox('test') # Alternative to current-day file system. Currently broken by issues
 # with tkinter
 today = date.today()
-filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")  # Opens annotation file that was created today
+filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")  # Opens annotation file that was
+# created today
 annotationSource = pd.read_csv(filename)   # Reads file
 # Extract header from translated annotation instead of original index file in order to minimize dependencies
 
@@ -39,21 +40,51 @@ for i in range(0,len(aroDB)):
     # dbAccessions.append(aroDB[i].id[:aroDB[i].id.index('|')])
     # print(dbAccessions[i])
 
-x = 0 # test value that determines which annotation/databse entry pair to print
-print(aroDB[x].id) # print original id. If print(aroDB[n].id) matches with print(newAroDB[n]), the translator is working
-# creating the list of translated headers in the right order
+x = 0  # test value that determines which annotation/databse entry pair to print
+# print(aroDB[x].id)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
+# the translator is creating the list of translated headers in the right order
 
 match = []
-newAroDB = ['void'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order for
-# the translated database
+newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
+# for the translated database. If one is not filled in, it will be listed as "error"
+
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):
         if annotationAccessions[i] == dbAccessions[n]:
-            match.append([i, n])  # give list of accessions that match each other
-            newAroDB[n] = annotationSource['header'].loc[i]  # set list to contain all translated headers in the correct
+            match.append([i, n])  # give list of indices of accessions that match each other
+            newHeaders[n] = annotationSource['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
-# TODO: Write new FASTA with headers replaced with newAroDB
-print(newAroDB[x])
-# print(aroDB[0])
+# TODO: Write new FASTA with headers replaced with newHeaders
+
+for i in range(0,len(newHeaders)):  # Checks that all database entries have been assigned a header
+    if newHeaders[i] == 'error':
+        print("Database entry " + str(i) + " has not been given a value")  # Indicates the entries with no header
+        errorPresent = True
+
+if errorPresent == True:
+    exit()
+
+# print(newHeaders[x])
+# print(aroDB[x])
 # print("Matching Accessions: ")
 # print(match)
+#
+newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")
+translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
+
+i = 0
+with open(translatedFilename,'w') as translated:
+    for record in newAroDB:
+        print("old:" + record.id)
+        record.id = newHeaders[i]
+        # record.description = newHeaders[i]
+        record.description = ''
+        print("NEW:" + record.id)
+        i += 1
+        SeqIO.write(record, translated, 'fasta-2line')  # writes fasta file line-by-line. 'fasta-2line' instead of
+        # 'fasta'
+        # forces it to
+        # avoid using line breaks
+
+
+
