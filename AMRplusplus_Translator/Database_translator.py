@@ -1,10 +1,8 @@
 # Translates CARD database's header into a header that AMR++ can read. MUST BE RUN AFTER ANNOTATION TRANSLATOR TO GET
 # HEADER DATA
 
-# TODO: Compare DNA Accession from header to DNA Accession from database file, take Annotation header and replace
-#  matching DB headers
-# TODO #  3. If the DNA Accessions match, replace the aroDB string with its annotation equivalent (STARTING WITH A '>'!)
-#  4. Write new FASTA file
+# TODO: Fix entries 1301, 2086, and 2128 not being converted properly
+
 import numpy as np
 import pandas as pd
 from Bio import SeqIO
