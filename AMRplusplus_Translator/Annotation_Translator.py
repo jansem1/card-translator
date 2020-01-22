@@ -13,15 +13,18 @@ import pandas as pd
 from datetime import date
 
 # import annotation data
-AroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv files must have their delimiter stated
+aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv files must have their delimiter stated
+# privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
+# them from the translated annotation list
 
-typeCol = ['Drugs'] * len(AroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
+typeCol = ['Drugs'] * len(aroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
-typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe
+typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe so it can be concatenated to
+# the new Dataframe which will contain the translated data
 
 # Create new table containing AMR++-relevant data
-AroCols = [1, 3, 4, 2]  # Important columns from ARO data.
-newAnn = AroAnn[AroAnn.columns[AroCols]].copy()  # Creates a Dataframe containing the Columns from the ARO annotation file
+aroCols = [1, 3, 4, 2]  # Important columns from ARO data.
+newAnn = aroAnn[aroAnn.columns[aroCols]].copy()  # Creates a Dataframe containing the Columns from the ARO annotation file
 # ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession as junk data to fill in header temporarily - fills the same spot as Meg_#
 
@@ -56,4 +59,5 @@ today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
+# TODO Don't forget to uncomment me when ready to output annotation file
 pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
