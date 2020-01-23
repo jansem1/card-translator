@@ -37,7 +37,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
-  <component name="RunManager" selected="Python.Database_translator">
+  <component name="RunManager" selected="Python.Annotation_Translator">
     <configuration name="Annotation_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -365,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579551381604</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added TODO and comments">
+      <created>1579720655917</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1579720655938</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -412,13 +419,14 @@
     <MESSAGE value="Made database translator create list of matched headers, and cleaned up annotation translator." />
     <MESSAGE value="Database translator now produces fasta-format translated database and catches entries with no header" />
     <MESSAGE value="TODO edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO edit" />
+    <MESSAGE value="Added TODO and comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added TODO and comments" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="503" y="1" key="CommitChangelistDialog2" timestamp="1579551378357">
+    <state x="503" y="1" key="CommitChangelistDialog2" timestamp="1579810773065">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="503" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579551378357" />
+    <state x="503" y="1" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579810773065" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -431,22 +439,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="242" key="GridCell.Tab.0.bottom" timestamp="1579634145649">
+    <state width="1537" height="242" key="GridCell.Tab.0.bottom" timestamp="1579810773141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579634145649" />
-    <state width="1537" height="242" key="GridCell.Tab.0.center" timestamp="1579634145649">
+    <state width="1537" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579810773141" />
+    <state width="1537" height="242" key="GridCell.Tab.0.center" timestamp="1579810773141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579634145649" />
-    <state width="1537" height="242" key="GridCell.Tab.0.left" timestamp="1579634145649">
+    <state width="1537" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579810773141" />
+    <state width="1537" height="242" key="GridCell.Tab.0.left" timestamp="1579810773141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579634145649" />
-    <state width="1537" height="242" key="GridCell.Tab.0.right" timestamp="1579634145649">
+    <state width="1537" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579810773141" />
+    <state width="1537" height="242" key="GridCell.Tab.0.right" timestamp="1579810773141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579634145649" />
+    <state width="1537" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579810773141" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1579299685108">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -459,10 +467,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579551389373" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579538737666">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579793528616">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579538737666" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579793528616" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1579538746757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

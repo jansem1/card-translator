@@ -61,8 +61,8 @@ print(newHeaders[x])
 # print(aroDB[x])
 print("Matching Accessions: ")
 print(match)
-#
 
+# Error checking before proceeding to the file writing stage
 for i in range(0,len(newHeaders)):  # Checks that all database entries have been assigned a header
     if newHeaders[i] == 'error':
         print("Database entry " + str(i) + " has not been given a value")  # Indicates the entries with no header
@@ -70,7 +70,6 @@ for i in range(0,len(newHeaders)):  # Checks that all database entries have been
 
 if errorPresent == True:
     exit()
-
 
 newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")

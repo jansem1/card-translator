@@ -46,6 +46,20 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
+dupedRows = newAnn[newAnn.duplicated(keep=False)].copy()  # Rows that are just duplicate annotations
+multiRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the same
+# DNA accession and group
+# print(dupedRows)
+multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
+# complete duplicates of one another, leaving only the ones that differ in everything except DNA Accession and group.
+# If there are any entries in this dataframe, then searching with DNA Accession and group together will still result in
+# multiple hits
+print(multiRows)  # Print entries that are duplicates of one another (line number in annotation file is multirows'
+# index number + 2)
+
+# TODO: Remove annotations that overlap on group and DNA Accession levels. MAKE SURE TO DOCUMENT THIS. GIVE AN OUTPUT
+#  SAYING WHICH ENTRIES WERE CUT
+
 appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header by
 # mapping them to strings  and putting a | between each term
@@ -53,11 +67,11 @@ appColumns = [1, 2, 3]  # Sets the columns from newAnn to be copied over to the 
 newAnn = pd.concat([appendCol, typeAnn, newAnn[newAnn.columns[appColumns]]], axis=1)
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group']  # rename columns to match with those of AMR++
 
-print(newAnn)
+# print(newAnn)
 
 today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
 # TODO Don't forget to uncomment me when ready to output annotation file
-pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
+# pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
