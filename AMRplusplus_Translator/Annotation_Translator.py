@@ -55,9 +55,24 @@ multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'
 # complete duplicates of one another, leaving only the ones that differ in everything except DNA Accession and group.
 # If there are any entries in this dataframe, then searching with DNA Accession and group together will still result in
 # multiple hits
-with pd.option_context('display.max_columns', 999):
-    print(multiRows)  # Print entries that are duplicates of one another (line number in annotation
+# with pd.option_context('display.max_columns', 4):
+    # print(multiRows)  # Print entries that are duplicates of one another (line number in annotation
     # file is multirows' index number + 2)
+
+# print(newAnn[~newAnn['DNA Accession'].isin(multiRows['DNA Accession'])])
+# newAnn = newAnn[~newAnn['DNA Accession'].isin(multiRows['DNA Accession'])]
+cutEntries = list(multiRows.index)
+cutLines = [x+2 for x in cutEntries]
+print("\033[1;31;31m The following entries (line #) were cut from original file because their DNA accessions and "
+      "groups overlapped, making it impossible to add them to the database file:\n\033[0;31;39m\n")
+print(cutLines)
+print("Their index values are: ")
+print(cutEntries)
+newAnn = newAnn.drop(cutEntries,axis=0)  # removes rows that cannot be entered into the database
+newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries
+
+# print(newAnn.loc[cutEntries])
+# print(newAnn)
 #//endregion
 
 # TODO: Remove annotations that overlap on group and DNA Accession levels, but differ elsewhere because they cannot
