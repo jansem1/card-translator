@@ -46,6 +46,7 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
+#//region Unsearchable annotation checking
 dupedRows = newAnn[newAnn.duplicated(keep=False)].copy()  # Rows that are just duplicate annotations
 multiRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the same
 # DNA accession and group
@@ -54,11 +55,14 @@ multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'
 # complete duplicates of one another, leaving only the ones that differ in everything except DNA Accession and group.
 # If there are any entries in this dataframe, then searching with DNA Accession and group together will still result in
 # multiple hits
-print(multiRows)  # Print entries that are duplicates of one another (line number in annotation file is multirows'
-# index number + 2)
+with pd.option_context('display.max_columns', 999):
+    print(multiRows)  # Print entries that are duplicates of one another (line number in annotation
+    # file is multirows' index number + 2)
+#//endregion
 
-# TODO: Remove annotations that overlap on group and DNA Accession levels. MAKE SURE TO DOCUMENT THIS. GIVE AN OUTPUT
-#  SAYING WHICH ENTRIES WERE CUT
+# TODO: Remove annotations that overlap on group and DNA Accession levels, but differ elsewhere because they cannot
+#  be entered into the database file without errors. MAKE SURE TO DOCUMENT THIS. GIVE AN OUTPUT SAYING WHICH
+#  ENTRIES WERE CUT
 
 appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header by
@@ -66,6 +70,9 @@ appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + 
 appColumns = [1, 2, 3]  # Sets the columns from newAnn to be copied over to the final CSV
 newAnn = pd.concat([appendCol, typeAnn, newAnn[newAnn.columns[appColumns]]], axis=1)
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group']  # rename columns to match with those of AMR++
+
+# TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
+#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
 
 # print(newAnn)
 

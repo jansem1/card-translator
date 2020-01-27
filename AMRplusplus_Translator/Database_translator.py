@@ -55,7 +55,6 @@ for i in range(0, len(annotationAccessions)):  # Sorts headers into same order a
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = annotationSource['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
-# TODO: Write new FASTA with headers replaced with newHeaders
 
 print(newHeaders[x])
 # print(aroDB[x])
