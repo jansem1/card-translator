@@ -3,7 +3,7 @@
 
 # TODO: CHANGE SEARCH SYSTEM. MULTIPLE ANNOTATIONS CAN HAVE THE SAME DNA ACCESSION
 # TODO: Fix entries 1301, 2086, and 2128 not being converted properly
-
+# TODO: Remove database entries that were removed by
 import numpy as np
 import pandas as pd
 from Bio import SeqIO
@@ -27,18 +27,22 @@ annotationSource = pd.read_csv(filename)   # Reads file
 # print(annotationSource['header'].loc[1][:annotationSource['header'].loc[1].index('|')])
 
 annotationAccessions = []
+annotationGroup = []
+print(len(annotationSource))
 for i in range(0,len(annotationSource)):  # Create list of DNA Accession from translated annotation file
     annotationAccessions.append(annotationSource['header'].loc[i][:annotationSource['header'].loc[i].index('|')])
-    # print(annotationAccessions[i])
+    print(i)
+    annotationGroup.append(annotationSource['group'].loc[i])
+    print(annotationAccessions[i])
+print(annotationGroup)
 
 dbAccessions = []
+dbGroups = []
 p = re.compile('(gb\|)')  # find the string 'gb|'
 for i in range(0,len(aroDB)):  # Create list of DNA Accessions from database file
     dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
-    # aroDB[i].id = p.sub('', aroDB[i].id)
     dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
     # the DNA accession
-    # dbAccessions.append(aroDB[i].id[:aroDB[i].id.index('|')])
     # print(dbAccessions[i])
 
 x = 1301  # test value that determines which annotation/databse entry pair to print
@@ -83,9 +87,4 @@ with open(translatedFilename, 'w') as translated:
         print("NEW:" + record.id)
         i += 1
         SeqIO.write(record, translated, 'fasta-2line')  # writes fasta file line-by-line. 'fasta-2line' instead of
-        # 'fasta'
-        # forces it to
-        # avoid using line breaks
-
-
-
+        # 'fasta' forces it to avoid using line breaks

@@ -17,11 +17,6 @@ aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv 
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
 # them from the translated annotation list
 
-typeCol = ['Drugs'] * len(aroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
-# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
-typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe so it can be concatenated to
-# the new Dataframe which will contain the translated data
-
 # Create new table containing AMR++-relevant data
 aroCols = [1, 3, 4, 2]  # Important columns from ARO data.
 newAnn = aroAnn[aroAnn.columns[aroCols]].copy()  # Creates a Dataframe containing the Columns from the ARO annotation file
@@ -63,8 +58,8 @@ multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'
 # newAnn = newAnn[~newAnn['DNA Accession'].isin(multiRows['DNA Accession'])]
 cutEntries = list(multiRows.index)
 cutLines = [x+2 for x in cutEntries]
-print("\033[1;31;31m The following entries (line #) were cut from original file because their DNA accessions and "
-      "groups overlapped, making it impossible to add them to the database file:\n\033[0;31;39m\n")
+print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
+      "DNA accessions and groups overlapped, making it impossible to add them to the database file:\033[0;31;39m")
 print(cutLines)
 print("Their index values are: ")
 print(cutEntries)
@@ -75,9 +70,10 @@ newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entrie
 # print(newAnn)
 #//endregion
 
-# TODO: Remove annotations that overlap on group and DNA Accession levels, but differ elsewhere because they cannot
-#  be entered into the database file without errors. MAKE SURE TO DOCUMENT THIS. GIVE AN OUTPUT SAYING WHICH
-#  ENTRIES WERE CUT
+typeCol = ['Drugs'] * len(aroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
+# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
+typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe so it can be concatenated to
+# the new Dataframe which will contain the translated data
 
 appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header by
@@ -96,4 +92,4 @@ filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".c
 # Exports AMR++-ready annotation file and names it based on the present date
 
 # TODO Don't forget to uncomment me when ready to output annotation file
-# pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
+pd.DataFrame.to_csv(newAnn,filename, index=False)  # exports converted annotation file as csv
