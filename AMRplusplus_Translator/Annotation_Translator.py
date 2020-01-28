@@ -45,17 +45,17 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 dupedRows = newAnn[newAnn.duplicated(keep=False)].copy()  # Rows that are just duplicate annotations
 multiRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the same
 # DNA accession and group
-# print(dupedRows)
 multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
 # complete duplicates of one another, leaving only the ones that differ in everything except DNA Accession and group.
 # If there are any entries in this dataframe, then searching with DNA Accession and group together will still result in
 # multiple hits
+
 # with pd.option_context('display.max_columns', 4):
     # print(multiRows)  # Print entries that are duplicates of one another (line number in annotation
     # file is multirows' index number + 2)
 
-# print(newAnn[~newAnn['DNA Accession'].isin(multiRows['DNA Accession'])])
-# newAnn = newAnn[~newAnn['DNA Accession'].isin(multiRows['DNA Accession'])]
+#//region Cut entries that can't be entered into the database
+# Cut entries that cannot be entered into Database
 cutEntries = list(multiRows.index)
 cutLines = [x+2 for x in cutEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
@@ -70,7 +70,7 @@ newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entrie
 # print(newAnn)
 #//endregion
 
-typeCol = ['Drugs'] * len(aroAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
+typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
 typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe so it can be concatenated to
 # the new Dataframe which will contain the translated data
