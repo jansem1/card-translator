@@ -206,7 +206,6 @@ ARO:3003879	40578	5305	2362	ADC-61	ADC-61	AFI56570.1	JQ753702.1
 ARO:3004632	42621	5401	3331	ADC-62	ADC-62	AFK24475.1	JQ867374.1
 ARO:3004633	42622	5403	3332	ADC-67	ADC-67	AFP89364.1	JX169789.1
 ARO:3004493	42027	4869	3013	ADC-68	ADC-68	AGL39360.1	KC866352.1
-ARO:3003853	40552	3633	2340	ADC-7	ADC-7	WP_063857816.1	NG_048677.1
 ARO:3003853	40552	5295	2340	ADC-7	ADC-7	AAT70411.1	AY648950.1
 ARO:3004634	42623	5411	3333	ADC-73	ADC-73	ALA14808.1	KP881233.1
 ARO:3003880	40579	5362	2363	ADC-74	ADC-74	ALA14809.1	KP881234.1
@@ -294,7 +293,6 @@ ARO:3004736	42846	5746	3551	ARL-3	ARL-3	APY23844.1	KY363208.1
 ARO:3004737	42847	5747	3552	ARL-4	ARL-4	APY23838.1	KY363206.1
 ARO:3004738	42848	5748	3553	ARL-5	ARL-5	APY23862.1	KY363214.1
 ARO:3004739	42849	5749	3554	ARL-6	ARL-6	APY23865.1	KY464892.1
-ARO:3000838	37218	4708	1390	arlR	arlR	WP_000192137.1	NC_009641.1
 ARO:3000838	37218	5453	1390	arlR	arlR	ATC67679.1	CP023390.1
 ARO:3000839	37219	5398	182	arlS	arlS	ABD30512.1	CP000253.1
 ARO:3000858	37238	3397	1405	armA	armA	ADC55560.1	GU437214.1
@@ -358,6 +356,7 @@ ARO:3004761	42874	5904	3565	BRO-1	BRO-1	AAA92126.1	U49269.2
 ARO:3004762	42875	5761	3566	BRO-2	BRO-2	CAA90891.1	Z54181.1
 ARO:3001205	37586	5446	255	determinant of bleomycin resistance	BRP(MBL)	AGH88989.1	KC503911.1
 ARO:3003772	40445	3545	2281	Brucella suis mprF	Brucella suis mprF	Q8FW76	AE014292
+ARO:3004860	42996	5925	3656	Burkholderia dolosa gyrA conferring resistance to fluoroquinolones	Burkholderia dolosa gyrA conferring resistance to fluoroquinolones	AJY14066.1	CP009795.1
 ARO:3004123	41248	4100	2786	Burkholderia pseudomallei Omp38	Burkholderia pseudomallei Omp38	AAP82271	AY312416
 ARO:3004294	41460	4198	2846	BUT-1	BUT-1	AAN17791.1	AF440406.1
 ARO:3004559	42465	5123	3266	CAM-1	CAM-1	AVX51087.1	MG430339.1
@@ -495,6 +494,7 @@ ARO:3003170	39747	5774	2067	CMY-131	CMY-131	AKG51729.1	KP281294.1
 ARO:3003652	40262	5775	3577	CMY-132	CMY-132	AKZ20822.1	KP862820.1
 ARO:3003653	40263	5776	3578	CMY-133	CMY-133	AKZ20821.1	KP862819.1
 ARO:3004778	42893	5777	3579	CMY-135	CMY-135	AKP17985.1	KP981366.1
+ARO:3004854	42990	5922	3652	CMY-136	CMY-136	AVR61040.1	MG844436.1
 ARO:3002025	38425	1662	1089	CMY-14	CMY-14	CAD88479.1	AJ555825
 ARO:3002026	38426	1737	1650	CMY-15	CMY-15	CAD88477.1	AJ555823
 ARO:3002027	38427	1815	1535	CMY-16	CMY-16	CAH03679.1	AJ781421
@@ -856,7 +856,6 @@ ARO:3004606	42567	5233	3304	erm(40)	erm(40)	AAS76623.1	AY570506.1
 ARO:3000603	36742	357	2013	Erm(41)	Erm(41)	ABW06859.1	EU177504
 ARO:3003106	39680	11	697	Erm(42)	Erm(42)	CBY77552.1	FR734406
 ARO:3003205	39789	3291	1546	Erm(43)	Erm(43)	CCF55073.1	HE650138
-ARO:3003971	40752	3778	2445	erm(44)	Erm(44)v	CUU67654.1	LN623525.1
 ARO:3003971	40752	5167	2445	erm(44)	Erm(44)v	CDL65151.1	HG796218.2
 ARO:3004595	42525	5168	3296	erm45	erm(45)	CEJ95855.1	LN680996.1
 ARO:3004596	42527	5169	3297	erm(46)	erm(46)	AJF36617.1	KM679362.1
@@ -909,12 +908,12 @@ ARO:3004173	41324	4164	2819	Escherichia coli 23S rRNA with mutation conferring r
 ARO:3004043	41090	5262	2661	Escherichia coli acrA	Escherichia coli acrA	AAC73565.1	U00096.3
 ARO:3003807	40492	5225	2306	Escherichia coli acrR with mutation conferring multidrug antibiotic resistance	Escherichia coli acrR with mutation conferring multidrug antibiotic resistance	AAC73566.1	U00096.3
 ARO:3004611	42575	5236	3306	Escherichia coli ampC1 beta-lactamase	Escherichia coli ampC1 beta-lactamase	CBJ02047.1	FN649414.1
-ARO:3004290	41454	4478	2843	Escherichia coli ampC	Escherichia coli ampC beta-lactamase	NP_418574.1	NC_000913.3
 ARO:3004290	41454	5393	2843	Escherichia coli ampC	Escherichia coli ampC beta-lactamase	AAC77110.1	U00096.3
+ARO:3004290	41454	4478	2843	Escherichia coli ampC	Escherichia coli ampC beta-lactamase	NP_418574.1	NC_000913.3
 ARO:3004612	42576	5238	3307	Escherichia coli ampH	Escherichia coli ampH beta-lactamase	BAJ42218.1	AP012030.1
 ARO:3004055	41120	4489	2764	Escherichia coli CpxR	Escherichia coli CpxR	ANK04473.1	CP015085.1
-ARO:3003900	40602	4616	2379	Escherichia coli CyaA with mutation conferring resistance to fosfomycin	Escherichia coli cyaA with mutation conferring resistance to fosfomycin	CDJ73082	HG738867
 ARO:3003900	40602	5882	2378	Escherichia coli CyaA with mutation conferring resistance to fosfomycin	Escherichia coli cyaA with mutation conferring resistance to fosfomycin	CDJ73082	HG738867
+ARO:3003900	40602	4616	2379	Escherichia coli CyaA with mutation conferring resistance to fosfomycin	Escherichia coli cyaA with mutation conferring resistance to fosfomycin	CDJ73082	HG738867
 ARO:3003370	39954	5280	2147	Escherichia coli EF-Tu mutants conferring resistance to Enacyloxin IIa	Escherichia coli EF-Tu mutants conferring resistance to Enacyloxin IIa	AAC76364.1	U00096.3
 ARO:3003368	39952	3531	2137	Escherichia coli EF-Tu mutants conferring resistance to kirromycin	Escherichia coli EF-Tu mutants conferring resistance to kirromycin	AAA50993.1	AH002539.2
 ARO:3003369	39953	4655	2158	Escherichia coli EF-Tu mutants conferring resistance to Pulvomycin	Escherichia coli EF-Tu mutants conferring resistance to Pulvomycin	AAN82549.1	AE014075.1
@@ -942,8 +941,8 @@ ARO:3004109	41230	4487	2776	Escherichia coli rob	Escherichia coli rob	NP_418813.
 ARO:3003288	39872	5493	627	Escherichia coli rpoB mutants conferring resistance to rifampicin	Escherichia coli rpoB mutants conferring resistance to rifampicin	BAB38333.1	BA000007.3
 ARO:3003381	39965	2074	1005	Escherichia coli soxR with mutation conferring antibiotic resistance	Escherichia coli soxR with mutation conferring antibiotic resistance	AAC77033.1	U00096
 ARO:3003511	40113	5276	2066	Escherichia coli soxS with mutation conferring antibiotic resistance	Escherichia coli soxS with mutation conferring antibiotic resistance	AAC77032.1	U00096.3
-ARO:3003893	40595	3671	2376	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	CDJ73205	HG738867
 ARO:3003893	40595	3668	2374	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	CDJ73205	HG738867
+ARO:3003893	40595	3671	2376	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	Escherichia coli UhpA with mutation conferring resistance to fosfomycin	CDJ73205	HG738867
 ARO:3003890	40592	3667	2373	Escherichia coli UhpT with mutation conferring resistance to fosfomycin	Escherichia coli UhpT with mutation conferring resistance to fosfomycin	CDJ73208	HG738867
 ARO:3003717	40371	3432	2232	ESP-1	ESP-1	AJP77085	KP109681
 ARO:3000832	37212	5466	1015	evgA	evgA	BAB36671.1	BA000007.3
@@ -1344,8 +1343,8 @@ ARO:3000803	37183	5525	1067	MexE	MexE	AAG05881.1	AE004091.2
 ARO:3000804	37184	5530	1300	MexF	MexF	AAG05882.1	AE004091.2
 ARO:3000806	37186	5202	995	mexG	MexG	AAG07592.1	AE004091.2
 ARO:3000807	37187	5354	1344	mexH	MexH	AAG07593.1	AE004091.2
-ARO:3000808	37188	163	1647	mexI	MexI	NP_252896.1	NC_002516
 ARO:3000808	37188	5392	1647	mexI	MexI	AAG07594.1	AE004091.2
+ARO:3000808	37188	163	1647	mexI	MexI	NP_252896.1	NC_002516
 ARO:3003692	40340	5274	2205	mexJ	MexJ	AAG07065.1	AE004091.2
 ARO:3003693	40341	4651	2206	mexK	MexK	AAG07064.1	AE004091.2
 ARO:3003710	40364	5380	2219	mexL	MexL	AAG07066.1	AE004091.2
@@ -1435,12 +1434,14 @@ ARO:3003389	39973	2070	1721	Mycobacterium leprae folP with mutation conferring r
 ARO:3003304	39888	2066	1710	Mycobacterium leprae gyrB conferring resistance to fluoroquinolone	Mycobacterium leprae gyrB conferring resistance to fluoroquinolone	CAC29513.1	AL450380
 ARO:3003284	39868	4581	624	Mycobacterium leprae rpoB mutations conferring resistance to rifampicin	Mycobacterium leprae rpoB mutations conferring resistance to rifampicin	CAC30845.1	AL450380
 ARO:3003481	40077	3261	2070	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to amikacin	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to amikacin		AL123456.3
+ARO:3004853	42989	5921	3651	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to capreomycin	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to capreomycin		AL123456.3
 ARO:3003436	40020	3263	2132	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to kanamycin	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to kanamycin		AL123456.3
 ARO:3003480	40076	4123	2131	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to streptomycin	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to streptomycin		AL123456.3
 ARO:3003437	40021	3260	2133	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to viomycin	Mycobacterium tuberculosis 16S rRNA mutation conferring resistance to viomycin		AL123456.3
 ARO:3003453	40046	2081	1354	Mycobacterium tuberculosis embA mutant conferring resistance to ethambutol	Mycobacterium tuberculosis embA mutant conferring resistance to ethambutol	AFN51820.1	CP003248
-ARO:3003326	39910	2078	196	Mycobacterium tuberculosis embB mutations conferring resistance to ethambutol	Mycobacterium tuberculosis embB with mutation conferring resistance to ethambutol	CCP46624.1	AL123456
+ARO:3003326	39910	2078	196	Mycobacterium tuberculosis embB mutations conferring resistance to ethambutol	Mycobacterium tuberculosis embB mutant conferring resistance to ethambutol	CCP46624.1	AL123456
 ARO:3003465	40058	3327	821	Mycobacterium tuberculosis embB mutants conferring resistance to rifampicin	Mycobacterium tuberculosis embB with mutation conferring resistance to rifampicin	AAK48268.1	AE000516
+ARO:3003327	39911	2080	1432	Mycobacterium tuberculosis mutant embC conferring resistance to ethambutol	Mycobacterium tuberculosis embC mutant conferring resistance to ethambutol	AFN51819.1	CP003248
 ARO:3003455	40048	4712	1339	Mycobacterium tuberculosis embR mutant conferring resistance to ethambutol	Mycobacterium tuberculosis embR mutant conferring resistance to ethambutol	CCP44023.1	AL123456.3
 ARO:3003458	40051	4455	100	Mycobacterium tuberculosis ethA with mutation conferring resistance to ethionamide	Mycobacterium tuberculosis ethA with mutation conferring resistance to ethionamide	AAK48336.1	AE000516.2
 ARO:3004157	41304	5391	2804	Mycobacterium tuberculosis folC with mutation conferring resistance to para-aminosalicylic acid	Mycobacterium tuberculosis folC with mutation conferring resistance to para-aminosalicylic acid	CCP45240.1	AL123456.3
@@ -1454,7 +1455,6 @@ ARO:3003451	40044	2100	505	Mycobacterium tuberculosis iniC mutant conferring res
 ARO:3003784	40467	3555	2290	Mycobacterium tuberculosis intrinsic murA conferring resistance to fosfomycin	Mycobacterium tuberculosis intrinsic murA conferring resistance to fosfomycin	CCE36834	HE608151
 ARO:3003463	40056	2084	1943	Mycobacterium tuberculosis kasA mutant conferring resistance to isoniazid	Mycobacterium tuberculosis kasA mutant conferring resistance to isoniazid	CCP45025.1	AL123456
 ARO:3003392	39976	5483	1176	Mycobacterium tuberculosis katG mutations conferring resistance to isoniazid	Mycobacterium tuberculosis katG mutations conferring resistance to isoniazid	CCP44675.1	AL123456.3
-ARO:3003327	39911	2080	1432	Mycobacterium tuberculosis mutant embC conferring resistance to ethambutol	Mycobacterium tuberculosis mutant embC conferring resistance to ethambutol	AFN51819.1	CP003248
 ARO:3003461	40054	4726	1203	Mycobacterium tuberculosis ndh mutant conferring resistance to isoniazid	Mycobacterium tuberculosis ndh with mutation conferring resistance to isoniazid	CCP44620.1	AL123456.3
 ARO:3003394	39978	4593	851	Mycobacterium tuberculosis pncA mutations conferring resistance to pyrazinamide	Mycobacterium tuberculosis pncA mutations conferring resistance to pyrazinamide	CCP44816.1	AL123456
 ARO:3004184	41337	5511	2827	Mycobacterium tuberculosis ribD with mutation conferring resistance to para-aminosalicylic acid	Mycobacterium tuberculosis ribD with mutation conferring resistance to para-aminosalicylic acid	CCP45469.1	AL123456.3
@@ -1506,8 +1506,20 @@ ARO:3002361	38761	5107	3254	NDM-11	NDM-11	AJE61443.1	KP265939.1
 ARO:3002362	38762	1829	1896	NDM-12	NDM-12	BAO79439.1	AB926431
 ARO:3003182	39759	1918	464	NDM-13	NDM-13	BAQ02518.1	LC012596
 ARO:3003183	39760	3685	2156	NDM-14	NDM-14	AJP18054.1	KM210086.1
+ARO:3003663	40273	5929	3657	NDM-15	NDM-15	AKF43458.1	KP735848.1
+ARO:3003664	40274	5930	3658	NDM-16	NDM-16	AKZ20823.1	KP862821.1
 ARO:3004093	41201	4073	2756	NDM-17	NDM-17	AOT73359.1	KX812714
+ARO:3004861	42999	5931	3659	NDM-18	NDM-18	APZ75411.1	KY503030.1
+ARO:3004862	43000	5932	3660	NDM-19	NDM-19	ASC49561.1	MF370080.1
 ARO:3000590	36729	777	1763	NDM-2	NDM-2	AEA41876.1	JF703135
+ARO:3004863	43001	5933	3661	NDM-20	NDM-20	AQY45923.1	KY654092.1
+ARO:3004864	43002	5935	3662	NDM-21	NDM-21	ATJ25942.1	MG183694.1
+ARO:3004865	43003	5936	3663	NDM-22	NDM-22	AWI33311.1	MH243357.1
+ARO:3004866	43004	5937	3664	NDM-23	NDM-23	AWU66462.1	MH450214.1
+ARO:3004867	43005	5938	3665	NDM-24	NDM-24	AWU66463.1	MH450215.1
+ARO:3004868	43006	5939	3666	NDM-25	NDM-25	AYF56302.1	MH986670.1
+ARO:3004870	43008	5940	3668	NDM-27	NDM-27	AYP70146.1	MK105832.1
+ARO:3004871	43009	5941	3669	NDM-28	NDM-28	QAT97614.1	MK425035.1
 ARO:3002354	38754	859	1515	NDM-3	NDM-3	AFK80349.1	JQ734687
 ARO:3002355	38755	939	1889	NDM-4	NDM-4	AFB82585.1	JQ348841
 ARO:3000467	36606	1025	1106	NDM-5	NDM-5	AEN03071.1	JN104597
@@ -1515,11 +1527,13 @@ ARO:3002356	38756	1103	8	NDM-6	NDM-6	AEX08599.1	JN967644
 ARO:3002357	38757	1183	585	NDM-7	NDM-7	AFQ31613.1	JX262694
 ARO:3002358	38758	1270	616	NDM-8	NDM-8	BAM84089.1	AB744718
 ARO:3002359	38759	1349	1168	NDM-9	NDM-9	AGU91756.1	KC999080
+ARO:3004836	42966	5918	3646	Neisseria gonorrhoea 23S rRNA with mutation conferring resistance to azithromycin	Neisseria gonorrhoea 23S rRNA with mutation conferring resistance to azithromycin		NR_103957
 ARO:3003495	40097	4136	2076	Neisseria gonorrhoeae 16S rRNA mutation conferring resistance to spectinomycin	Neisseria gonorrhoeae 16S rRNA mutation conferring resistance to spectinomycin		CP020418
 ARO:3003928	40637	5269	2404	Neisseria gonorrhoeae gyrA conferring resistance to fluoroquinolones	Neisseria gonorrhoeae gyrA conferring resistance to fluoroquinolones	AAW89357.1	AE004969.1
 ARO:3003929	40639	5461	2405	Neisseria gonorrhoeae parC conferring resistance to fluoroquinolone	Neisseria gonorrhoeae parC conferring resistance to fluoroquinolone	AAW89918.1	AE004969.1
-ARO:3004832	42962	5836	3628	Neisseria gonorrhoeae PBP2 conferring resistance to beta-lactam antibiotics	Neisseria gonorrhoeae PBP2 conferring resistance to beta-lactam antibiotics	WP_002218783.1	NZ_SAWD01000015.1
+ARO:3004832	42962	5928	3628	Neisseria gonorrhoeae PBP2 conferring resistance to beta-lactam antibiotics	Neisseria gonorrhoeae PBP2 conferring resistance to beta-lactam antibiotics	AAA25463.1	M32091.1
 ARO:3000464	36603	54	1395	Neisseria gonorrhoeae mutant porin PIB (por) with reduced permeability to antibiotic	Neisseria gonorrhoeae porin PIB (por)	AAB57788.1	U75641
+ARO:3004851	42987	5920	3649	Neisseria gonorrhoea mtrR with mutation conferring resistance	Neisseria gonorrhoea mtrR with mutation conferring resistance	ACF30254.1	CP001050.1
 ARO:3004833	42963	5846	3629	Neisseria gonorrhoea PBP1 conferring resistance to beta-lactam	Neisseria gonorrhoea PBP1 conferring resistance to beta-lactam	AAB52541.1	U80933.1
 ARO:3004835	42965	5848	3631	Neisseria gonorrhoea pilQ gene conferring resistance to beta-lactam	Neisseria gonorrhoea pilQ gene conferring resistance to beta-lactam	VEG60537.1	LR134358
 ARO:3004834	42964	5847	3630	Neisseria gonorrhoea porB1b gene conferring resistance to beta-lactam	Neisseria gonorrhoea porB1b gene conferring resistance to beta-lactam	AAA25500.1	J03017.1
@@ -2117,7 +2131,6 @@ ARO:3004054	41119	4526	2685	Pseudomonas aeruginosa CpxR	Pseudomonas aeruginosa C
 ARO:3004038	41082	5488	2655	Pseudomonas aeruginosa emrE	Pseudomonas aeruginosa emrE	AAG08375.1	AE004091.2
 ARO:3003702	40355	3408	2215	Pseudomonas aeruginosa gyrA and parC conferring resistance to fluoroquinolone	Pseudomonas aeruginosa gyrA and parC conferring resistance to fluoroquinolone	BAA37152.1	AB003428.1
 ARO:3003684	40319	5277	2196	Pseudomonas aeruginosa gyrA conferring resistance to fluoroquinolones	Pseudomonas aeruginosa gyrA conferring resistance to fluoroquinolones	AAG06556.1	AE004091.2
-ARO:3003686	40321	4650	2224	Pseudomonas aeruginosa oprD with mutation conferring resistance to imipenem	Pseudomonas aeruginosa oprD with mutation conferring resistance to imipenem	NP_249649.1	NC_002516.2
 ARO:3003686	40321	5273	2224	Pseudomonas aeruginosa oprD with mutation conferring resistance to imipenem	Pseudomonas aeruginosa oprD with mutation conferring resistance to imipenem	AAG04347.1	AE004091.2
 ARO:3003685	40320	5275	2198	Pseudomonas aeruginosa parE conferring resistance to fluoroquinolones	Pseudomonas aeruginosa parE conferring resistance to fluoroquinolones	AAG08352.1	AE004091.2
 ARO:3004107	41228	5395	2775	Pseudomonas aeruginosa soxR	Pseudomonas aeruginosa soxR	AAG05661.1	AE004091.2
@@ -2255,6 +2268,7 @@ ARO:3003048	39482	4717	1261	rosA	rosA	AAC60781.1	U46859.1
 ARO:3003049	39483	4555	507	rosB	rosB	AAC60780.1	U46859
 ARO:3000444	36583	7	910	rphA	rphA	AIA08936.1	KJ151292
 ARO:3003992	40874	3864	2528	rphB	rphB	APB03222.1	KX531052.1
+ARO:3004857	42993	5926	3655	rpl4	rpl4	AKE04873.1	CP011301
 ARO:3000501	36640	4176	2831	Nocardia rifampin resistant beta-subunit of RNA polymerase (rpoB2)	rpoB2	BAD59497.1	AP006618.1
 ARO:3003930	40640	5267	2406	rpsJ	rpsJ	AAW90462.1	AE004969.1
 ARO:3004444	41637	4271	2884	RSA-1	RSA-1	AUW34365.1	MG739510.1
@@ -2274,6 +2288,7 @@ ARO:3002895	39329	584	1285	SAT-1	SAT-2	BAD95494.1	AB211124
 ARO:3002898	39332	673	531	SAT-3	SAT-3	CAA88265.1	Z48231
 ARO:3002897	39331	459	1505	SAT-4	SAT-4	AAB53445.1	U01945
 ARO:3000489	36628	4538	432	sav1866	sav1866	WP_000597238.1	NC_002745.2
+ARO:3004856	42992	5923	3653	SCO-1	SCO-1	ABL14266	EF104648
 ARO:3000826	37206	5397	228	sdiA	sdiA	AAL20862.1	AE006468.2
 ARO:3003561	40167	3310	1294	Sed1 beta-lactamase	Sed-1	AAK63223.1	AF321608
 ARO:3004128	41254	5857	2790	Serratia marcescens Omp1	Serratia marcescens Omp1	AIA49384.1	CP005927.1
@@ -2282,7 +2297,6 @@ ARO:3000849	37229	1878	347	SFH-1	SFH-1	AAF09244.1	AF197943
 ARO:3000862	37242	3696	2079	sgm	sgm	WP_063978071.1	NG_050600
 ARO:3003940	40664	5265	2411	Shigella flexneri gyrA conferring resistance to fluoroquinolones	Shigella flexneri gyrA conferring resistance to fluoroquinolones	AAN43827.1	AE005674.2
 ARO:3003941	40666	5263	2412	Shigella flexneri parC conferring resistance to fluoroquinolones	Shigella flexneri parC conferring resistance to fluoroquinolones	AAN44541.1	AE005674.2
-ARO:3003941	40666	4606	2412	Shigella flexneri parC conferring resistance to fluoroquinolones	Shigella flexneri parC conferring resistance to fluoroquinolones	NP_708834.1	NC_004337.2
 ARO:3001059	37439	1469	1028	SHV-1	SHV-1	ACR66323.1	FJ668814
 ARO:3001338	37738	1542	583	SHV-100	SHV-100	CAQ03505.1	AM941846
 ARO:3001150	37530	1620	202	SHV-101	SHV-101	ABV72593.1	EU155018
@@ -2471,9 +2485,9 @@ ARO:3003735	40390	3510	2254	Staphylococcus mutant fusA gene conferring resistanc
 ARO:3003737	40392	4642	2256	Staphylococcus mutant fusE gene conferring resistance to fusidic acid	Staphylococcus aureus fusE with mutation conferring resistance to fusidic acid	ADL24064.1	CP002114.2
 ARO:3003901	40603	5195	2380	Staphylococcus aureus GlpT with mutation conferring resistance to fosfomycin	Staphylococcus aureus GlpT with mutation conferring resistance to fosfomycin	CAG39357	BX571856.1
 ARO:3003296	39880	5499	1166	Staphylococcus aureus gyrA conferring resistance to fluoroquinolones	Staphylococcus aureus gyrA conferring resistance to fluoroquinolones	ALY16697.1	CP012011.1
-ARO:3003296	39880	2057	1166	Staphylococcus aureus gyrA conferring resistance to fluoroquinolones	Staphylococcus aureus gyrA conferring resistance to fluoroquinolones	YP_039483.1	NC_002952
 ARO:3003301	39885	5405	1822	Staphylococcus aureus gyrB conferring resistance to aminocoumarin	Staphylococcus aureus gyrB conferring resistance to aminocoumarin	CAG39033.1	BX571856.1
 ARO:3003729	40418	3538	2276	Staphylococcus aureus ileS with mutation conferring resistance to mupirocin	Staphylococcus aureus ileS with mutation conferring resistance to mupirocin	CAA52296.1	X74219
+ARO:3004572	42486	5623	3276	Staphylococcys aureus LmrS	Staphylococcus aureus LmrS	AAW38464.1	CP000046.1
 ARO:3003917	40625	5198	2394	Staphylococcus aureus menA with mutation conferring resistance to lysocin	Staphylococcus aureus menA with mutation conferring resistance to lysocin	ABD30105.1	CP000253.1
 ARO:3003769	40441	59	651	Staphylococcus aureus mprF	Staphylococcus aureus mprF	ADJ67256.1	HM140977
 ARO:3003319	39903	3542	1001	Staphylococcus aureus mprF mutations conferring resistance to daptomycin	Staphylococcus aureus mprF with mutation conferring resistance to daptomycin	ADJ67256	HM140977
@@ -2491,7 +2505,6 @@ ARO:3003794	40479	3565	2299	Staphylococcus aureus walK with mutation conferring 
 ARO:3004457	41668	4429	2896	Staphylococcus intermedius chloramphenicol acetyltransferase	Staphylococcus intermedius chloramphenicol acetyltransferase	AAA26615.1	M64281.1
 ARO:3000521	36660	3523	2270	mupA	Staphylococcus mupA conferring resistance to mupirocin	CAA53189	X75439
 ARO:3000510	36649	3524	2271	mupB	Staphylococcus mupB conferring resistance to mupirocin	AEY83581	JQ231224
-ARO:3004572	42486	5623	3276	Staphylococcys aureus LmrS	Staphylococcys aureus LmrS	AAW38464.1	CP000046.1
 ARO:3003774	40449	4634	2283	Streptococcus agalactiae mprF	Streptococcus agalactiae mprF	AAN00989.1	AE009948.1
 ARO:3004097	41205	4106	2791	Streptococcus mitis CdsA with mutation conferring daptomycin resistance	Streptococcus mitis CdsA with mutation conferring daptomycin resistance	AQA08261.1	CP019562.1
 ARO:3004181	41334	4171	2826	Streptococcus pneumoniae 23S rRNA mutation conferring resistance to macrolides and streptogramins antibiotics	Streptococcus pneumoniae 23S rRNA mutation conferring resistance to macrolides and streptogramins antibiotics		NZ_CP018138.1
@@ -2697,7 +2710,7 @@ ARO:3000572	36711	734	43	tet(42)	tet(42)	ACD35503.1	EU523697
 ARO:3000573	36712	4680	1773	tet(43)	tet(43)	ACS83748.1	GQ244501.1
 ARO:3000556	36695	410	1171	tet44	tet(44)	CBH51823.1	FN594949
 ARO:3003196	39779	5590	17	tet(45)	tet(45)	AEM62948.1	JF837330.1
-ARO:3004613	42577	5415	3308	758325878	Tet(47)	AKQ05891.1	KR857681.1
+ARO:3004613	42577	5415	3308	Tet(47)	Tet(47)	AKQ05891.1	KR857681.1
 ARO:3004581	42510	5151	3284	tet(48)	tet(48)	AKQ05892.1	KR857682.1
 ARO:3004582	42512	5154	3285	tet(49)	tet(49)	AKQ05893.1	KR857683.1
 ARO:3004584	42514	5156	3287	tet(50)	tet(50)	AKQ05894.1	KR857684.1
@@ -2760,7 +2773,6 @@ ARO:3003060	39494	4186	49	tsnR	tsnR	AAA99931.1	L39157.1
 ARO:3000844	37224	1163	392	TUS-1 beta-lactamase	TUS-1	AAN63648.1	AF441287
 ARO:3004730	42834	5679	3484	tva(A)	tva(A)	SOX29786.1	LT970863.1
 ARO:3004059	41125	5520	2691	Type A NfxB	Type A NfxB	AAG07988.1	AE004091.2
-ARO:3004059	41125	4022	2691	Type A NfxB	Type A NfxB	NP_253290.1	NC_002516.2
 ARO:3004060	41127	5519	2693	Type B NfxB	Type B NfxB	AAG07988.1	AE004091.2
 ARO:3003577	40187	4591	842	ugd	ugd	AAC75089.1	U00096
 ARO:3003305	39889	5887	2148	Ureaplasma urealyticum gyrB conferring resistance to fluoroquinolone	Ureaplasma urealyticum  gyrB conferring resistance to fluoroquinolone	WP_004025678.1	NC_011374.1
