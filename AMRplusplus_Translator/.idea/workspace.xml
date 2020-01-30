@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Amalgamated_Translator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Annotation_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Annotation_Translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580332623626</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Combined translators into Amalgamated_Translator and began merging the code">
+      <created>1580411005293</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1580411005293</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -428,7 +434,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fiddling with indexing" />
     <MESSAGE value="Finished Annotation generator" />
     <MESSAGE value="Added todo" />
     <MESSAGE value="Added Type column to annotation and header" />
@@ -453,17 +458,18 @@
     <MESSAGE value="re-fixed typecol bug" />
     <MESSAGE value="Updated CARD data, imported protein accession to be able to attribute genes to gene families" />
     <MESSAGE value="Updated CARD data, imported protein accession to be able to attribute genes to gene families. Translator cannot produce correct output at this stage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated CARD data, imported protein accession to be able to attribute genes to gene families. Translator cannot produce correct output at this stage" />
+    <MESSAGE value="Combined translators into Amalgamated_Translator and began merging the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Combined translators into Amalgamated_Translator and began merging the code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579880156688">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1579880156688" />
-    <state x="561" y="16" key="CommitChangelistDialog2" timestamp="1580332621601">
+    <state x="158" y="16" key="CommitChangelistDialog2" timestamp="1580415306684">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="561" y="16" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580332621601" />
+    <state x="158" y="16" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580415306684" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -476,22 +482,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="307" key="GridCell.Tab.0.bottom" timestamp="1580410797596">
+    <state width="1537" height="307" key="GridCell.Tab.0.bottom" timestamp="1580413209757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="307" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580410797596" />
-    <state width="1537" height="307" key="GridCell.Tab.0.center" timestamp="1580410797595">
+    <state width="1537" height="307" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580413209757" />
+    <state width="1537" height="307" key="GridCell.Tab.0.center" timestamp="1580413209757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="307" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580410797595" />
-    <state width="1537" height="307" key="GridCell.Tab.0.left" timestamp="1580410797595">
+    <state width="1537" height="307" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580413209757" />
+    <state width="1537" height="307" key="GridCell.Tab.0.left" timestamp="1580413209757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="307" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580410797595" />
-    <state width="1537" height="307" key="GridCell.Tab.0.right" timestamp="1580410797596">
+    <state width="1537" height="307" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580413209757" />
+    <state width="1537" height="307" key="GridCell.Tab.0.right" timestamp="1580413209757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="307" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580410797596" />
+    <state width="1537" height="307" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580413209757" />
     <state x="277" y="56" key="SettingsEditor" timestamp="1579299685108">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

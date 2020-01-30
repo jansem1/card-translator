@@ -6,6 +6,7 @@
 #  model only. Translate variant model as well, add the flag, combine with translated annotation file.
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
+# TODO: Create README file for program
 
 
 import numpy as np
@@ -85,33 +86,27 @@ print(cutLines)
 # print(cutEntries)
 newAnn.drop(cutEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
 
-nullProt = list(newAnn[newAnn['Protein Accession'].isnull()].index)
-nullProtLines = [x+2 for x in nullProt]
+
+protDupeEntries = list(protDupe.index)
+protDupeLines = [x+2 for x in protDupeEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
-      "lack a protein accession, making it impossible to add them to the database file:\033[0;31;39m")
-print(nullProtLines)
+      "lack or have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
+print(protDupeLines)
 # print("(Debug) Their index values are: ")
-# print(nullProt)
-newAnn.dropna(how='any', axis=0, subset=['Protein Accession'], inplace=True)  # removes rows with no protein
-# accession
+# print(protDupeEntries)  # only show those that were cut because of duplication, not null
+newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
 
+# nullProt = list(newAnn[newAnn['Protein Accession'].isnull()].index)
+# nullProtLines = [x+2 for x in nullProt]
+# print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
+#       "lack a protein accession, making it impossible to add them to the database file:\033[0;31;39m")
+# print(Diff(nullProtLines, protDupeLines))
+# # print("(Debug) Their index values are: ")
+# print(Diff(nullProt,protDupeEntries))
+# newAnn.dropna(how='any', axis=0, subset=['Protein Accession'], inplace=True)  # removes rows with no protein
+# # accession
 
-
-protDupeLines = [x+2 for x in list(protDupe.index)]
-print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
-      "have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
-print(Diff(protDupeLines, nullProtLines))
-# print("(Debug) Their index values are: ")
-# print(Diff(list(protDupe.index),nullProt))  # only show those that were cut because of duplication, not null
-newAnn.drop(protDupe, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
-
-exit()
-
-# TODO: Some entries have duplicate Prot. Acc. and different gene families (eg. 921/923), while others have duplicate
-#  prot. Accessions, but identical gene families (and different DNA accessions). Cut all duplicate protein accessions
-#  as PA is the only way to identify genes to gene families
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-
 
 # newAnn.to_csv('newAnn_test.csv')
 # print(newAnn.loc[cutEntries])
@@ -121,23 +116,11 @@ newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entrie
 #//endregion
 
 #//region Add gene from index file
-indexCols = [6, 5]  # Columns for protein accession and gene from index file, respectively
-# categoriesCols = [0, 2, 1]  # Protein accession, gene family, and DNA Accession columns from annotation file,
-# respectively
+indexCols = [6, 5]  # Columns for protein accession and gene, respectively, from index file
 
-# Create dataframes from the categories and index files to line up each entry's gene with its gene family by
-# protein accession
-# compCategories = aroAnn[aroAnn.columns[categoriesCols]].copy()
+# Create dataframes from the index file to line up each entry's gene with its gene family by protein accession
 compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
-#
-# compCategories = compCategories.drop(cutEntries, axis=0)
-# compCategories = compCategories.dropna(how='any', axis=0)  # Culls rows with no protein accession(or any empty cell)
-# compCategories.reset_index(drop=True, inplace=True)  # cut the same entries from the gene comparison DataFrame as were
-# # cut from the annotation to maintain consistency between the two. This allows them to be compared by index instead
-# # of contents (protein accession)
-
-# print(compCategories)
-print(compIndex)
+# print(compIndex)
 
 
 def dataframe_difference(df1, df2, doc=False, which=None):  # Compares 2 dataframes for their contents and outputs
@@ -146,8 +129,11 @@ def dataframe_difference(df1, df2, doc=False, which=None):  # Compares 2 datafra
     comparison_df = df1.merge(df2,
                               indicator=True,
                               how='outer',
-                              on='Protein Accession'
+                              on='Protein Accession',
+                              copy=False
                               )
+    # comparison_df = pd.DataFrame(comparison_df[comparison_df.index_x == comparison_df.index_y]['A'],
+    #                              columns=['A']).reset_index(drop=True)  # removes duplicate entries from merge
     if which is None:
         diff_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
     else:
@@ -167,14 +153,19 @@ if dataframe_difference(newAnn, compIndex, doc=False, which='left_only').index.s
 # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
 # gone wrong with your download.
 
-print(len(newAnn))
+
 geneMerge = dataframe_difference(newAnn, compIndex, doc=True, which='both')
-
-
 with pd.option_context('display.max_columns', 10):
-    print(geneMerge[geneMerge.duplicated(subset=['Protein Accession'], keep=False)])
+    print(geneMerge[geneMerge.duplicated(subset=['Protein Accession'], keep=False)])  # print entries duplicated by
+    # merging index and newAnn
+
+print("number of duplicates:" + str(len(geneMerge[geneMerge.duplicated(subset=['Protein Accession'], keep='first')])))
+print("newAnn length: " + str(len(newAnn)))
+print("geneMerge length: " + str(len(geneMerge)))
+
 # TODO: BUG: dataframe_difference has more rows than newAnn, which shouldn't be possible. Entries are getting
-#  duplicated somehow
+#  duplicated somehow by the merge function. Can just remove them, but concern is more that it's doing something that
+#  it shouldn't
 
 # TODO: Take the entries that align to both, concatenate their "gene" column onto the annotation entry with the
 #  matching protein accession
