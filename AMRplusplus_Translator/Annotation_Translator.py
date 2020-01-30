@@ -74,9 +74,13 @@ print("\033[1;31;31m The following entries (line # in the annotation file) were 
 print(cutLines)
 print("(Debug) Their index values are: ")
 print(cutEntries)
-# null_rows=newAnn[newAnn.isnull().any(axis=0)].copy()
-# print(null_rows)
-# print(newAnn[null_rows])
+nullProt = list(newAnn[newAnn['Protein Accession'].isnull()].index)
+nullProtEntries = [x+2 for x in nullProt]
+print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
+      "lack a protein accession, making it impossible to add them to the database file:\033[0;31;39m")
+print(nullProtEntries)
+print("(Debug) Their index values are: ")
+print(nullProt)
 newAnn = newAnn.drop(cutEntries, axis=0)  # removes rows that cannot be entered into the database
 newAnn = newAnn.dropna(how='any', axis=0, subset=['Protein Accession'])  # removes rows with no protein accession,
 # and can thus not be entered into the database
