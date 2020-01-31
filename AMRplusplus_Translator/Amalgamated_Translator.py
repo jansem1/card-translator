@@ -56,7 +56,7 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
-def Diff(li1, li2): # get difference of two lists
+def Diff(li1, li2): # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
     diff.sort()
     return diff
@@ -76,6 +76,7 @@ protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  
 #     print(multiRows)
 
 # Provide the user with output detailing which entries were cut and why
+# Duplicate DNA accession and group cutting
 cutEntries = list(multiRows.index)
 cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
@@ -86,7 +87,7 @@ print(cutLines)
 # print(cutEntries)
 newAnn.drop(cutEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
 
-
+# Duplicate Protein Accession cutting
 protDupeEntries = list(protDupe.index)
 protDupeLines = [x+2 for x in protDupeEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
@@ -96,44 +97,42 @@ print(protDupeLines)
 # print(protDupeEntries)  # only show those that were cut because of duplication, not null
 newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
 
-# nullProt = list(newAnn[newAnn['Protein Accession'].isnull()].index)
-# nullProtLines = [x+2 for x in nullProt]
-# print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
-#       "lack a protein accession, making it impossible to add them to the database file:\033[0;31;39m")
-# print(Diff(nullProtLines, protDupeLines))
-# # print("(Debug) Their index values are: ")
-# print(Diff(nullProt,protDupeEntries))
-# newAnn.dropna(how='any', axis=0, subset=['Protein Accession'], inplace=True)  # removes rows with no protein
-# # accession
-
+# N/A cutting
+nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
+nullLines = [x+2 for x in nullEntries]
+print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
+      "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
+      "them to the database file:\033[0;31;39m")
+print(Diff(nullLines, protDupeLines))
+# print("(Debug) Their index values are: ")
+# print(Diff(nullEntries, protDupeEntries))
+newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with no protein accession
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
+dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len(cutEntries)
+percentDrop = round(100 * dropTotal/len(aroAnn), 2)
+print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
+                                                                                                 "\n")
 # newAnn.to_csv('newAnn_test.csv')
 # print(newAnn.loc[cutEntries])
 # print(newAnn)
 
-
 #//endregion
 
 #//region Add gene from index file
-indexCols = [6, 5]  # Columns for protein accession and gene, respectively, from index file
-
-# Create dataframes from the index file to line up each entry's gene with its gene family by protein accession
-compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
-# print(compIndex)
 
 
-def dataframe_difference(df1, df2, doc=False, which=None):  # Compares 2 dataframes for their contents and outputs
-    # the results. set doc to true to output a csv file containing the merged dataframe. pass which='both'to check
-    # those that are in both one and the other.
+def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession'):  # Compares 2 dataframes for their
+    # contents and outputs the results. set doc to true to output a csv file containing the merged dataframe. pass
+    # which='both'to check those that are in both one and the other.
     comparison_df = df1.merge(df2,
                               indicator=True,
                               how='outer',
-                              on='Protein Accession',
-                              copy=False
+                              on=on,
                               )
-    # comparison_df = pd.DataFrame(comparison_df[comparison_df.index_x == comparison_df.index_y]['A'],
-    #                              columns=['A']).reset_index(drop=True)  # removes duplicate entries from merge
+    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index
+    comparison_df.drop(duplicates, axis=0, inplace=True)
+    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
     if which is None:
         diff_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
     else:
@@ -143,7 +142,11 @@ def dataframe_difference(df1, df2, doc=False, which=None):  # Compares 2 datafra
     return diff_df
 
 
-if dataframe_difference(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
+indexCols = [6, 5]  # Columns for protein accession and gene, respectively, from index file
+# Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
+compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
+
+if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
     # no entries that are only in the annotation file
     print("\033[1;31;31m ERROR: Annotation is larger than index. Ensure you have the most recent version of both \033["
           "0;31;39m")
@@ -154,89 +157,49 @@ if dataframe_difference(newAnn, compIndex, doc=False, which='left_only').index.s
 # gone wrong with your download.
 
 
-geneMerge = dataframe_difference(newAnn, compIndex, doc=True, which='both')
-with pd.option_context('display.max_columns', 10):
-    print(geneMerge[geneMerge.duplicated(subset=['Protein Accession'], keep=False)])  # print entries duplicated by
-    # merging index and newAnn
+mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
+if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
+    # after merge. Merge function sometimes produces duplicate entries
+    print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size)
+    with pd.option_context('display.max_columns', 10):
+        print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)])  # print entries
+        # duplicated by merging index and newAnn
+    print("number of duplicates:" + str(len(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep='first')])))
+    print("newAnn length: " + str(len(newAnn)))
+    print("mergeCheck length: " + str(len(mergeCheck)))
+    print("ERROR: Duplicate entries detected. Exiting translator")
+    exit()
 
-print("number of duplicates:" + str(len(geneMerge[geneMerge.duplicated(subset=['Protein Accession'], keep='first')])))
-print("newAnn length: " + str(len(newAnn)))
-print("geneMerge length: " + str(len(geneMerge)))
+newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both')  # add gene to newAnn by protein accession
+newAnn.drop(['_merge'], axis=1, inplace=True)
+# newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
-# TODO: BUG: dataframe_difference has more rows than newAnn, which shouldn't be possible. Entries are getting
-#  duplicated somehow by the merge function. Can just remove them, but concern is more that it's doing something that
-#  it shouldn't
+# with pd.option_context('display.max_columns', 10):
+    # print(newAnn)
 
-# TODO: Take the entries that align to both, concatenate their "gene" column onto the annotation entry with the
-#  matching protein accession
-
-print('Debug: exit early. Check TODO.')
-exit()
-
-
-# matchGene = []
-# match = []
-# for i in range(0, len(compCategories)):
-#     for n in range(0, len(compIndex)):
-#         if compCategories['Protein Accession'].loc[i] == compIndex['Protein Accession'].loc[n]:
-#             # matchGene.append(compIndex['Protein Accession'].loc[n])
-#             match.append([i, n])
-# print(match)
-# TODO: Compare compIndex to newAnn, match Prot. Acc. from Index and newAnn, and then concatenate matching gene
-#  onto newAnn
 #//endregion
-
-
-# TODO: Move this to just before creating the annotation file, if possible (Check to see if any Database translator
-#  code relies on this code)
-typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
-# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
-typeAnn = pd.DataFrame(typeCol, columns=['type'])  # Turns that list into a Dataframe so it can be concatenated to
-# the new Dataframe which will contain the translated data
-
-appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
-            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header by
-# mapping them to strings  and putting a | between each term
-newAnn = pd.concat([appendCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group']], axis=1) #
-# concatenates all columns that must be in the final annotation
-newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group']  # rename columns to match with those of AMR++
-print(newAnn)
-
-
-# TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
-#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
-
-print('Debug: exit early. Check TODO.')
-exit()
-
 #//endregion
 
 #//region Database Translation
 
 annotationAccessions = list(newAnn['DNA Accession'])
-annotationGroup = list(newAnn['group'])
+annotationGene = list(newAnn['ARO Name'])
 
 dbAccessions = []
 dbGene = []
 p = re.compile('(gb\|)')  # find the string 'gb|'
-for i in range(0,len(aroDB)):  # Create list of DNA Accessions from database file
+for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from database headers
     dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
     dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
     # the DNA accession
     # TODO: Get gene from DB's accession annotation file and assign using Protein accession
     dbGene.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
     splitGroup = dbGene[i].split("|")  # separates the header into individual sections
-    dbGene[i] = splitGroup[4]  # adds the 'group' section of that header into the dbGene list
+    dbGene[i] = splitGroup[4]  # adds the 'group' section of the database header into the dbGene list
 
-x = 1301  # test value that determines which annotation/databse entry pair to print
-print(aroDB[x].id)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
-# the translator is creating the list of translated headers in the right order
 
-match = []
-newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
-# for the translated database. If one is not filled in, it will be listed as "error"
 
-#//region -PRIME notation conversion
+#//region -PRIME notation conversion for dbGene
 for i in range(0,len(dbGene)):  # DB file is in ' notation. Translated Annotation file is in -PRIME notation.
     # Converts dbGene to be in -PRIME annotation so that comparison will be accurate
     dbGene[i] = dbGene[i].replace('(?<! )\(', '')
@@ -252,24 +215,73 @@ for i in range(0,len(dbGene)):  # DB file is in ' notation. Translated Annotatio
     # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
 
+# TODO: Move this to just before creating the annotation file, if possible (Check to see if any Database translator
+#  code relies on this code)
+typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
+# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
+typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be concatenated to
+# the new Dataframe which will contain the translated data
+
+# appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
+#             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
+#
+# with pd.option_context('display.max_columns', 10):
+#     print(newAnn.loc[newAnn['class'].isna()])
+# exit()
+#
+
+# print(newAnn[newAnn.isna().any(axis=1)].index.tolist())
+# print(typeAnn[typeAnn.isna()].index.tolist())
+# print(len(newAnn.index))
+# print(len(typeAnn))
+appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
+            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)
+
+with pd.option_context('display.max_columns', 10):
+    print(appendCol)
+exit()
+
+newAnn = pd.concat([appendCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
+                    newAnn['Protein Accession'], newAnn['ARO Name']], axis=1)  # concatenates all columns that must be
+# in the final annotation
+
+
+newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'ARO Name']  # rename columns
+# to match
+# with those of
+# AMR++
+# TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
+#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
+with pd.option_context('display.max_columns', 10):
+    print(newAnn.loc[newAnn['header'].isna()])
+exit()
+
+
+match = []
+newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
+# for the translated database. If one is not filled in, it will be listed as "error"
+
 for i in range(0, len(annotationAccessions)):  # Sorts headers into same order as database by matching by DNA
     # accession and gene family
     for n in range(0, len(dbAccessions)):
-        if annotationAccessions[i] == dbAccessions[n] and annotationGroup[i] == dbGene[n]:  # match by accession and
+        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGene[n]:  # match by accession and
             # family
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
 
+x = 1301  # test value that determines which annotation/databse entry pair to print
+print(aroDB[x].id)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
+# the translator is creating the list of translated headers in the right order
 print(newHeaders[x])
 # print(aroDB[x])
 print("Matching Accessions: ")
 print(match)
 
 # Error checking before proceeding to the file writing stage
-for i in range(0,len(newHeaders)):  # Checks that all database entries have been assigned a header
+for i in range(0, len(newHeaders)):  # Checks that all database entries have been assigned a header
     if newHeaders[i] == 'error':
-        print("Database entry " + str((i+1)*2 - 1) + " has not been given a value")  # Indicates the entries with no
+        print("Index number " + str(i) + " has not been given a value")  # Indicates the entries with no
         # header
         errorPresent = True
 
@@ -279,6 +291,18 @@ if errorPresent == True:
 
 #//endregion
 
+newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all colymns that are unneeded for annotation
+# file
+print(newAnn)
+# TODO: Does this output an annotation file with the proper columns? Drop PA and ARO Names
+
+print("EXIT Early. check TODO")
+exit()
+
+
+
+
+
 #//region Write final files
 
 # Write annotation file
@@ -286,11 +310,7 @@ today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
-newAnn = newAnn['header', 'type', 'class', 'mechanism', 'group']
-print(newAnn)  # TODO: Does this output an annotation file with the proper columns?
 
-print("EXIT Early. check TODO")
-exit()
 pd.DataFrame.to_csv(newAnn, filename, index=False)  # exports converted annotation file as csv
 
 # Write Database file
