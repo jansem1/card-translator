@@ -143,7 +143,7 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession'):  #
     return diff_df
 
 
-indexCols = [6, 5]  # Columns for protein accession and gene, respectively, from index file
+indexCols = [6, 4]  # Columns for protein accession and gene, respectively, from index file
 # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
 # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
 compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
@@ -186,8 +186,12 @@ newAnn.drop(['_merge'], axis=1, inplace=True)
 
 annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here because DNA Accession gets cut from
 # newAnn in the next section
-annotationGene = list(newAnn['ARO Name'])
-
+annotationGene = list(newAnn['Model Name'])
+# TODO: FIND A WAY TO SEARCH FOR DNA Accessions in newAnn. newAnn.str.find() gives a series
+# newAnn['DNA Accession'].str.find()
+print('Early Break. FIND A WAY TO SEARCH FOR DNA ACCESSION TO FIGURE OUT WHY 13 ENTRIES AREN\'T BEING matched' 
+      'properly')
+exit()
 #//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
@@ -198,11 +202,11 @@ headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + ne
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
 
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
-                    newAnn['Protein Accession'], newAnn['ARO Name']], axis=1)  # concatenates all columns that must be
+                    newAnn['Protein Accession'], newAnn['Model Name']], axis=1)  # concatenates all columns that must be
 # in the final annotation
 
-newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'ARO Name']  # rename columns
-# to match with those of AMR++. Protein Accession and ARO Name will be cut before export
+newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name']  # rename columns
+# to match with those of AMR++. Protein Accession and Model Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
 #  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
 #//endregion
@@ -254,7 +258,7 @@ for i in range(0, len(annotationAccessions)):  # Sorts headers into same order a
             # order for the translated database
 
 # x = 305  # test value that determines which annotation/databse entry pair to print
-x = 0
+x = 451
 
 print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
 # the translator is creating the list of translated headers in the right order
@@ -285,7 +289,7 @@ if errorPresent == True:
 newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all columns that are unneeded for annotation
 # file
 print(newAnn)
-# TODO: Does this output an annotation file with the proper columns? Drop PA and ARO Name
+# TODO: Does this output an annotation file with the proper columns? Drop PA and Model Name
 
 print("EXIT Early. check TODO")
 exit()
