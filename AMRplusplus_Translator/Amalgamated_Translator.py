@@ -187,7 +187,8 @@ newAnn.drop(['_merge'], axis=1, inplace=True)
 annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here because DNA Accession gets cut from
 # newAnn in the next section
 annotationGene = list(newAnn['Model Name'])
-# TODO: FIND A WAY TO SEARCH FOR DNA Accessions in newAnn. newAnn.str.find() gives a series
+# TODO: FIND A WAY TO SEARCH FOR DNA Accessions in newAnn. newAnn.str.find() gives a series.
+#  - Maybe an issue with DNA Accessions being culled? If so, would probably see more database entries not matching
 # newAnn['DNA Accession'].str.find()
 print('Early Break. FIND A WAY TO SEARCH FOR DNA ACCESSION TO FIGURE OUT WHY 13 ENTRIES AREN\'T BEING matched' 
       'properly')
