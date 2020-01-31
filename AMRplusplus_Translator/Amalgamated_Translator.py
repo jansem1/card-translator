@@ -29,6 +29,7 @@ aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"
 
 # Create new table containing AMR++-relevant data
 aroCols = [0, 1, 3, 4, 2]  # Important columns from ARO data.
+# 0 = Protein Accession; 1 = DNA Accession; 2 = Gene family; 3 = Drug; 4 = Class
 newAnn = aroAnn[aroAnn.columns[aroCols]].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
@@ -143,6 +144,7 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession'):  #
 
 
 indexCols = [6, 5]  # Columns for protein accession and gene, respectively, from index file
+# Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
 # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
 compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
 
@@ -182,79 +184,60 @@ newAnn.drop(['_merge'], axis=1, inplace=True)
 
 #//region Database Translation
 
-annotationAccessions = list(newAnn['DNA Accession'])
+annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here because DNA Accession gets cut from
+# newAnn in the next section
 annotationGene = list(newAnn['ARO Name'])
 
-dbAccessions = []
-dbGene = []
-p = re.compile('(gb\|)')  # find the string 'gb|'
-for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from database headers
-    dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
-    dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
-    # the DNA accession
-    # TODO: Get gene from DB's accession annotation file and assign using Protein accession
-    dbGene.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
-    splitGroup = dbGene[i].split("|")  # separates the header into individual sections
-    dbGene[i] = splitGroup[4]  # adds the 'group' section of the database header into the dbGene list
-
-
-
-#//region -PRIME notation conversion for dbGene
-for i in range(0,len(dbGene)):  # DB file is in ' notation. Translated Annotation file is in -PRIME notation.
-    # Converts dbGene to be in -PRIME annotation so that comparison will be accurate
-    dbGene[i] = dbGene[i].replace('(?<! )\(', '')
-    # replaces open paren only when within a word
-    dbGene[i] = dbGene[i].replace('\'\'\)$', '-DPRIME')
-    dbGene[i] = dbGene[i].replace('\'\)$', '-PRIME')  #
-    # Replace ' or '' when next to a close paren and at the end of a line (single gene family)
-    dbGene[i] = dbGene[i].replace('\'\'\);', '-DPRIME;')
-    dbGene[i] = dbGene[i].replace('\'\);', '-PRIME;')
-    # Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
-    dbGene[i] = dbGene[i].replace('(?<=\d)\)$', '')
-    dbGene[i] = dbGene[i].replace('(?<=\d)\);', ';')
-    # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
-#//endregion
-
-# TODO: Move this to just before creating the annotation file, if possible (Check to see if any Database translator
-#  code relies on this code)
+#//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
 typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be concatenated to
 # the new Dataframe which will contain the translated data
 
-# appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn['type'].map(str) + "|" + newAnn['class'].map(str) + "|" + \
-#             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
-#
-# with pd.option_context('display.max_columns', 10):
-#     print(newAnn.loc[newAnn['class'].isna()])
-# exit()
-#
+headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
+            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
 
-# print(newAnn[newAnn.isna().any(axis=1)].index.tolist())
-# print(typeAnn[typeAnn.isna()].index.tolist())
-# print(len(newAnn.index))
-# print(len(typeAnn))
-appendCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
-            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)
-
-with pd.option_context('display.max_columns', 10):
-    print(appendCol)
-exit()
-
-newAnn = pd.concat([appendCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
+newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
                     newAnn['Protein Accession'], newAnn['ARO Name']], axis=1)  # concatenates all columns that must be
 # in the final annotation
 
-
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'ARO Name']  # rename columns
-# to match
-# with those of
-# AMR++
+# to match with those of AMR++. Protein Accession and ARO Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
 #  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
-with pd.option_context('display.max_columns', 10):
-    print(newAnn.loc[newAnn['header'].isna()])
-exit()
+#//endregion
+
+#//region dbGenes and dbAccession Processor
+dbAccessions = []
+dbGenes = []
+p = re.compile('(gb\|)')  # find the string 'gb|'
+for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from database headers
+    dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
+    dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
+    # the DNA accession
+    # TODO: When getting database gene, use aroDB.description (not aroDB.id) and then cut everything after the first [
+    dbGenes.append(aroDB[i].description)
+    # TODO: MATCHING STOPS WORKING IF THIS IS CHANGED TO .description. Does work if .description ir
+    splitGroup = dbGenes[i].split("|")  # separates the header into individual sections
+    dbGenes[i] = splitGroup[5]  # adds the 'group' section of the database header into the dbGenes list
+    dbGenes[i] = dbGenes[i][:dbGenes[i].index(' [')]  # cuts species information, leaving only the gene
+#//endregion
+
+#//region -PRIME notation conversion for dbGenes
+for i in range(0,len(dbGenes)):  # DB file is in ' notation. Translated Annotation file is in -PRIME notation.
+    # Converts dbGenes to be in -PRIME annotation so that comparison will be accurate
+    dbGenes[i] = dbGenes[i].replace('(?<! )\(', '')
+    # replaces open paren only when within a word
+    dbGenes[i] = dbGenes[i].replace('\'\'\)$', '-DPRIME')
+    dbGenes[i] = dbGenes[i].replace('\'\)$', '-PRIME')  #
+    # Replace ' or '' when next to a close paren and at the end of a line (single gene family)
+    dbGenes[i] = dbGenes[i].replace('\'\'\);', '-DPRIME;')
+    dbGenes[i] = dbGenes[i].replace('\'\);', '-PRIME;')
+    # Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
+    dbGenes[i] = dbGenes[i].replace('(?<=\d)\)$', '')
+    dbGenes[i] = dbGenes[i].replace('(?<=\d)\);', ';')
+    # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
+#//endregion
 
 
 match = []
@@ -264,37 +247,45 @@ newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all 
 for i in range(0, len(annotationAccessions)):  # Sorts headers into same order as database by matching by DNA
     # accession and gene family
     for n in range(0, len(dbAccessions)):
-        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGene[n]:  # match by accession and
-            # family
+        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
+            # gene
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
 
-x = 1301  # test value that determines which annotation/databse entry pair to print
-print(aroDB[x].id)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
+# x = 305  # test value that determines which annotation/databse entry pair to print
+x = 0
+
+print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
 # the translator is creating the list of translated headers in the right order
 print(newHeaders[x])
 # print(aroDB[x])
 print("Matching Accessions: ")
 print(match)
-
+# exit()
+# TODO: Cull Database entries with identical DNA Accessions and genes
 # Error checking before proceeding to the file writing stage
+noValue = 0
 for i in range(0, len(newHeaders)):  # Checks that all database entries have been assigned a header
     if newHeaders[i] == 'error':
-        print("Index number " + str(i) + " has not been given a value")  # Indicates the entries with no
+        print("Database entry " + str((i+1)*2-1) + " has not been given a value")  # Indicates the entries with no
         # header
+        print("DEBUG: index = " + str(i))
+        print(aroDB[i].description)
+        noValue += 1
         errorPresent = True
-
+print("Number of missing entries: " + str(noValue))
 if errorPresent == True:
     exit()
-
+# TODO: ARO NAMES IS NOT THE SAME AS THE DATABASE HEADER'S GENE SOMETIMES. SWITCH OVER TO USING "MODEL NAME"? Talk to
+#  Brian/Andrew first
 
 #//endregion
 
-newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all colymns that are unneeded for annotation
+newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all columns that are unneeded for annotation
 # file
 print(newAnn)
-# TODO: Does this output an annotation file with the proper columns? Drop PA and ARO Names
+# TODO: Does this output an annotation file with the proper columns? Drop PA and ARO Name
 
 print("EXIT Early. check TODO")
 exit()
