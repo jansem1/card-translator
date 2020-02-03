@@ -21,7 +21,8 @@ aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv 
 # them from the translated annotation list
 aroIndex = pd.read_csv('aro_index.tsv', sep='\t')  # Read index file in order to compare gene  to gene family via
 # protein accession
-aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"))
+aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"))  # Read in CARD Database file as a
+# list
 
 
 #//region Annotation Translation
@@ -61,6 +62,7 @@ def Diff(li1, li2): # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
     diff.sort()
     return diff
+
 
 #//region Unsearchable annotation checking and Cut entries that can't be entered into the database
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
@@ -131,8 +133,9 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession'):  #
                               how='outer',
                               on=on,
                               )
-    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index
-    comparison_df.drop(duplicates, axis=0, inplace=True)
+    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
+    # the merge
+    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
     comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
     if which is None:
         diff_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
@@ -172,7 +175,8 @@ if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].i
     print("ERROR: Duplicate entries detected. Exiting translator")
     exit()
 
-newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both')  # add gene to newAnn by protein accession
+newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both')  # add 'Model Name' to newAnn, merging by protein
+# accession
 newAnn.drop(['_merge'], axis=1, inplace=True)
 # newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
@@ -190,9 +194,9 @@ annotationGene = list(newAnn['Model Name'])
 # TODO: FIND A WAY TO SEARCH FOR DNA Accessions in newAnn. newAnn.str.find() gives a series.
 #  - Maybe an issue with DNA Accessions being culled? If so, would probably see more database entries not matching
 # newAnn['DNA Accession'].str.find()
-print('Early Break. FIND A WAY TO SEARCH FOR DNA ACCESSION TO FIGURE OUT WHY 13 ENTRIES AREN\'T BEING matched' 
-      'properly')
-exit()
+# print('Early Break. FIND A WAY TO SEARCH FOR DNA ACCESSION TO FIGURE OUT WHY 13 ENTRIES AREN\'T BEING matched'
+      # 'properly (Line 194)')
+# exit()
 #//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
@@ -203,11 +207,13 @@ headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + ne
             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
 
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
-                    newAnn['Protein Accession'], newAnn['Model Name']], axis=1)  # concatenates all columns that must be
+                    newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
+# concatenates all columns that
+# must be
 # in the final annotation
 
-newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name']  # rename columns
-# to match with those of AMR++. Protein Accession and Model Name will be cut before export
+newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
+# rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
 #  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
 #//endregion
@@ -220,9 +226,7 @@ for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from d
     dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
     dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
     # the DNA accession
-    # TODO: When getting database gene, use aroDB.description (not aroDB.id) and then cut everything after the first [
     dbGenes.append(aroDB[i].description)
-    # TODO: MATCHING STOPS WORKING IF THIS IS CHANGED TO .description. Does work if .description ir
     splitGroup = dbGenes[i].split("|")  # separates the header into individual sections
     dbGenes[i] = splitGroup[5]  # adds the 'group' section of the database header into the dbGenes list
     dbGenes[i] = dbGenes[i][:dbGenes[i].index(' [')]  # cuts species information, leaving only the gene
@@ -259,31 +263,35 @@ for i in range(0, len(annotationAccessions)):  # Sorts headers into same order a
             # order for the translated database
 
 # x = 305  # test value that determines which annotation/databse entry pair to print
-x = 451
+x = 1
 
-print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with print(newHeaders[x]),
-# the translator is creating the list of translated headers in the right order
+print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
+# print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
+# allowing one-to-one indexing (aroDB[1] should have the same DNA accession as newHeaders[1]. newHeaders will have a
+# gene family where aroDB has a gene)
 print(newHeaders[x])
 # print(aroDB[x])
 print("Matching Accessions: ")
 print(match)
-# exit()
-# TODO: Cull Database entries with identical DNA Accessions and genes
+# TODO: Cull Database entries with a) overlapping DNA Accessions and gene families or b) which are in the index and
+#  database files, but not in the annotation file. First step: Find a way to differentiate between the two. Find the
+#  a) group first. Anything left over is in b). Use protein accession and DNA accession from protdupe, multirows, etc.
+
 # Error checking before proceeding to the file writing stage
 noValue = 0
-for i in range(0, len(newHeaders)):  # Checks that all database entries have been assigned a header
+dbToCull = []  # list of db entries that need to be culled
+for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header
     if newHeaders[i] == 'error':
         print("Database entry " + str((i+1)*2-1) + " has not been given a value")  # Indicates the entries with no
         # header
         print("DEBUG: index = " + str(i))
         print(aroDB[i].description)
         noValue += 1
+        dbToCull.append(i)
         errorPresent = True
-print("Number of missing entries: " + str(noValue))
+print("Number of unmatched entries: " + str(noValue))
 if errorPresent == True:
     exit()
-# TODO: ARO NAMES IS NOT THE SAME AS THE DATABASE HEADER'S GENE SOMETIMES. SWITCH OVER TO USING "MODEL NAME"? Talk to
-#  Brian/Andrew first
 
 #//endregion
 
@@ -292,12 +300,8 @@ newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all columns tha
 print(newAnn)
 # TODO: Does this output an annotation file with the proper columns? Drop PA and Model Name
 
-print("EXIT Early. check TODO")
+print("EXIT Early. check TODO, line 300")
 exit()
-
-
-
-
 
 #//region Write final files
 
@@ -310,7 +314,8 @@ filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".c
 pd.DataFrame.to_csv(newAnn, filename, index=False)  # exports converted annotation file as csv
 
 # Write Database file
-newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")
+newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")  # Read in CARD database as a
+# Seqrecord object, instead of a list
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
 i = 0
