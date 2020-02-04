@@ -22,8 +22,9 @@ aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv 
 aroIndex = pd.read_csv('aro_index.tsv', sep='\t')  # Read index file in order to compare gene  to gene family via
 # protein accession
 aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"))  # Read in CARD Database file as a
-# list
-
+# list of seqRecord objects
+newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")  # Read in CARD database as a
+# Seqrecord generator, instead of a list, so that it can be overwritten later
 
 #//region Annotation Translation
 # TODO: Add protein accession to newAnn for comparison, then cut it off before writing the annotation file
@@ -58,29 +59,61 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
+
 def Diff(li1, li2): # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
     diff.sort()
     return diff
 
 
-#//region Unsearchable annotation checking and Cut entries that can't be entered into the database
+def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
+    # dataframes
+    # for
+    # their
+    # contents and outputs the results. set doc to true to output a csv file containing the merged dataframe. pass
+    # which='both'to check those that are in both one and the other.
+    comparison_df = df1.merge(df2,
+                              indicator=ind,
+                              how='outer',
+                              on=on,
+                              left_index=byIndex,
+                              right_index=byIndex
+                              )
+    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
+    # the merge
+    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
+    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
+    if ind is True:
+        if which is None:
+            merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
+        else:
+            merged_df = comparison_df[comparison_df['_merge'] == which]
+    else:
+        merged_df = comparison_df
+    if doc:
+        merged_df.to_csv('diff.csv')
+    return merged_df
+
+
+
+
+#//region Unsearchable annotation checking and Culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
 # Rows that are just duplicate annotations
-multiRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the same
-# DNA accession and group
-multiRows = multiRows[~multiRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
-# complete duplicates of one another from multiRows, leaving only the ones that differ in everything except DNA
+overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the
+# same DNA accession and group
+overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
+# complete duplicates of one another from overlapRows, leaving only the ones that differ in everything except DNA
 # Accession and group.If there are any entries in this dataframe, then searching with DNA Accession and group together
 # will still result in multiple hits
 protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  # find duplicate Prot. Acc.
 
 # with pd.option_context('display.max_columns', 4):
-#     print(multiRows)
+#     print(overlapRows)
 
-# Provide the user with output detailing which entries were cut and why
-# Duplicate DNA accession and group cutting
-cutEntries = list(multiRows.index)
+# Provide the user with output detailing which entries were culled and why
+# Duplicate DNA accession and group culling
+cutEntries = list(overlapRows.index)
 cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
@@ -90,7 +123,7 @@ print(cutLines)
 # print(cutEntries)
 newAnn.drop(cutEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
 
-# Duplicate Protein Accession cutting
+# Duplicate Protein Accession culling
 protDupeEntries = list(protDupe.index)
 protDupeLines = [x+2 for x in protDupeEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
@@ -100,7 +133,7 @@ print(protDupeLines)
 # print(protDupeEntries)  # only show those that were cut because of duplication, not null
 newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
 
-# N/A cutting
+# N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
 nullLines = [x+2 for x in nullEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
@@ -122,34 +155,13 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 
 #//endregion
 
-#//region Add gene from index file
-
-
-def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession'):  # Compares 2 dataframes for their
-    # contents and outputs the results. set doc to true to output a csv file containing the merged dataframe. pass
-    # which='both'to check those that are in both one and the other.
-    comparison_df = df1.merge(df2,
-                              indicator=True,
-                              how='outer',
-                              on=on,
-                              )
-    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
-    # the merge
-    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
-    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-    if which is None:
-        diff_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
-    else:
-        diff_df = comparison_df[comparison_df['_merge'] == which]
-    if doc:
-        diff_df.to_csv('diff.csv')
-    return diff_df
-
+#//region index merge checking
 
 indexCols = [6, 4]  # Columns for protein accession and gene, respectively, from index file
 # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
 # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
 compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
+
 
 if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
     # no entries that are only in the annotation file
@@ -160,7 +172,6 @@ if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size >
 # should have all of the entries that are in the annotation, but not vice versa. Having things in 'right_only' is
 # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
 # gone wrong with your download.
-
 
 mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
 if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
@@ -175,13 +186,8 @@ if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].i
     print("ERROR: Duplicate entries detected. Exiting translator")
     exit()
 
-newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both')  # add 'Model Name' to newAnn, merging by protein
-# accession
-newAnn.drop(['_merge'], axis=1, inplace=True)
-# newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-
-# with pd.option_context('display.max_columns', 10):
-    # print(newAnn)
+newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both', ind=False)  # add 'Model Name' to newAnn,
+# merging by protein accession
 
 #//endregion
 #//endregion
@@ -191,12 +197,18 @@ newAnn.drop(['_merge'], axis=1, inplace=True)
 annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here because DNA Accession gets cut from
 # newAnn in the next section
 annotationGene = list(newAnn['Model Name'])
-# TODO: FIND A WAY TO SEARCH FOR DNA Accessions in newAnn. newAnn.str.find() gives a series.
-#  - Maybe an issue with DNA Accessions being culled? If so, would probably see more database entries not matching
-# newAnn['DNA Accession'].str.find()
-# print('Early Break. FIND A WAY TO SEARCH FOR DNA ACCESSION TO FIGURE OUT WHY 13 ENTRIES AREN\'T BEING matched'
-      # 'properly (Line 194)')
-# exit()
+
+overlapToCull = dataframe_merge(overlapRows, newAnn.loc[overlapRows.index], ind=False,
+                                on='DNA Accession')  # Adds 'Model Name' to overlapRows so that the database can be
+# searched for entries whose annotations had been culled for having overlapping DNA acc. and gene family. ProtDupe and
+# DupedRows always have NaN for their model name, so do not need to be culled from database.
+
+print(list(overlapToCull['Model Name']))
+print(list(overlapToCull['DNA Accession']))
+exit()
+# TODO: DNA ACCESSION AND MODEL NAME ARE INCORRECTLY ALIGNED, and the wrong model names are being brought in. Likely
+#  because newAnn index has since been reset
+
 #//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
@@ -252,15 +264,22 @@ for i in range(0,len(dbGenes)):  # DB file is in ' notation. Translated Annotati
 match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
 # for the translated database. If one is not filled in, it will be listed as "error"
-
-for i in range(0, len(annotationAccessions)):  # Sorts headers into same order as database by matching by DNA
-    # accession and gene family
-    for n in range(0, len(dbAccessions)):
+dbToCull = []
+for i in range(0, len(annotationAccessions)):
+    for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
             # gene
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
+            # TODO: if the db accession and db gene align with the cull values, assign i to dbtocull
+for i in range(0, len(dbAccessions)):
+    if dbGenes[i] in list(overlapToCull['Model Name']) and dbAccessions[i] in list(overlapToCull['DNA Accession']):
+        # Gets indices of database entries whose annotations have been culled so that those database entries can
+        # be removed later
+        newHeaders[i] = 'culled'
+        dbToCull.append(i)
+print(dbToCull)
 
 # x = 305  # test value that determines which annotation/databse entry pair to print
 x = 1
@@ -279,43 +298,47 @@ print(match)
 
 # Error checking before proceeding to the file writing stage
 noValue = 0
-dbToCull = []  # list of db entries that need to be culled
+# list of db entries that need to be culled. ProtDupe and DupedRows always have NaN for their model name,
+# so do not need to be culled from database
+errorPresent = False
+
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header
-    if newHeaders[i] == 'error':
-        print("Database entry " + str((i+1)*2-1) + " has not been given a value")  # Indicates the entries with no
+    if newHeaders[i] == 'culled':
+        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA Accession and "
+                                                         "gene family overlapped with another annotation")
+        print(aroDB[i].description)
+    elif newHeaders[i] == 'error':
+        print("Database entry " + str((i + 1) * 2 - 1) + " has not been given a value")  # Indicates the entries with no
         # header
         print("DEBUG: index = " + str(i))
         print(aroDB[i].description)
-        noValue += 1
-        dbToCull.append(i)
         errorPresent = True
+        noValue += 1
 print("Number of unmatched entries: " + str(noValue))
-if errorPresent == True:
+if errorPresent:
     exit()
 
 #//endregion
 
-newAnn = newAnn['header', 'class', 'mechanism', 'group']  # drop all columns that are unneeded for annotation
+#//region Write final files
+
+finalAnn = newAnn['header', 'class', 'mechanism', 'group'].copy()  # drop all columns that are unneeded for annotation
 # file
 print(newAnn)
-# TODO: Does this output an annotation file with the proper columns? Drop PA and Model Name
+# TODO: Does this output an annotation file with the proper columns?
 
-print("EXIT Early. check TODO, line 300")
+print("EXIT Early. check TODO, line 330")
 exit()
-
-#//region Write final files
 
 # Write annotation file
 today = date.today()  # get current date
 filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 # Exports AMR++-ready annotation file and names it based on the present date
 
-
-pd.DataFrame.to_csv(newAnn, filename, index=False)  # exports converted annotation file as csv
+pd.DataFrame.to_csv(finalAnn, filename, index=False)  # exports converted annotation file as csv
 
 # Write Database file
-newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")  # Read in CARD database as a
-# Seqrecord object, instead of a list
+
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
 i = 0
