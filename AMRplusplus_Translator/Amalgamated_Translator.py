@@ -27,15 +27,15 @@ newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta") 
 # Seqrecord generator, instead of a list, so that it can be overwritten later
 
 #//region Annotation Translation
-# TODO: Add protein accession to newAnn for comparison, then cut it off before writing the annotation file
 
-# Create new table containing AMR++-relevant data
-aroCols = [0, 1, 3, 4, 2]  # Important columns from ARO data.
-# 0 = Protein Accession; 1 = DNA Accession; 2 = Gene family; 3 = Drug; 4 = Class
-newAnn = aroAnn[aroAnn.columns[aroCols]].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
+# Create new DataFrame containing AMR++-relevant data
+aroCols = ['Protein Accession', 'DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family']  # Important
+# columns
+# from ARO data.
+# 0 = Protein Accession; 1 = DNA Accession; 2 = Gene family; 3 = class; 4 = mechanism
+newAnn = aroAnn[aroCols].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
-
 
 newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group']  # sets names of columns of new
 # annotation file
@@ -150,10 +150,10 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 
 #//region Add "Model Name" to newAnn
 
-indexCols = [6, 4]  # Columns for protein accession and gene, respectively, from index file
+indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession and gene, respectively, from index file
 # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
 # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
-compIndex = aroIndex[aroIndex.columns[indexCols]].copy()
+compIndex = aroIndex[indexCols].copy()
 
 
 if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
@@ -202,12 +202,6 @@ for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of
         noAnnotationGene.append(aroIndex['Model Name'].loc[i])
         noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
 
-# print(noAnnotationAccession)
-# print(noAnnotationGene)
-# exit()
-
-# TODO: Create noAnnotation such that it contains the DB accession and gene from the index which are not in the
-#  annotation file (aroAnn)
 
 overlapToCull = dataframe_merge(overlapRows, compIndex, ind=False)
 protDupeToCull = dataframe_merge(protDupe, compIndex, ind=False)
@@ -316,7 +310,8 @@ noValue = 0
 # so do not need to be culled from database
 errorPresent = False
 
-for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header
+for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
+    # (due to culling) or erroneously
     if newHeaders[i] == overlapMessage:
         print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA Accession and "
                                                          "gene family overlapped with another annotation")
@@ -324,13 +319,14 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
     if newHeaders[i] == noAnnotationMessage:
         print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
         # print(aroDB[i].description)
-    if newHeaders[i] == protDupeMessage:
+    if newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020), but will be
+        # left in in case new data is added
         print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
         # print(aroDB[i].description)
-    elif newHeaders[i] == 'error':
-        print("Database entry " + str((i + 1) * 2 - 1) + " has not been given a value")  # Indicates the entries with no
-        # header
+    elif newHeaders[i] == 'error': # Indicates database entries which will not be assigned a header,
+        # but whose annotations were not culled, suggesting that an error in header assignment has occurred
+        print("Database entry " + str((i + 1) * 2 - 1) + " has not been given a value")
         print("DEBUG: index = " + str(i))
         # print(aroDB[i].description)
         errorPresent = True
@@ -340,14 +336,15 @@ print("Database entries to cull: " + str(len(dbToCull)))
 print(dbToCull)
 if errorPresent:
     exit()
-exit()
 #//endregion
 
 #//region Write final files
 
-finalAnn = newAnn['header', 'class', 'mechanism', 'group'].copy()  # drop all columns that are unneeded for annotation
-# file
-print(newAnn)
+finalCols = ['header', 'type', 'class', 'mechanism', 'group']
+finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
+# annotation file
+with pd.option_context('display.max_columns', 5):
+    print(finalAnn)
 # TODO: Does this output an annotation file with the proper columns?
 
 print("EXIT Early. check TODO, line 330")
@@ -364,6 +361,8 @@ pd.DataFrame.to_csv(finalAnn, filename, index=False)  # exports converted annota
 
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
+# TODO: Cut database entries that are in dbToCull - take all record.id entries, create list of indices,
+#  remove dbToCull from that list
 i = 0
 with open(translatedFilename, 'w') as translated:
     for record in newAroDB:
