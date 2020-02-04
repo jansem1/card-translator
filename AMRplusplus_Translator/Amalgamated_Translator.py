@@ -36,9 +36,6 @@ newAnn = aroAnn[aroAnn.columns[aroCols]].copy()  # Creates a Dataframe containin
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
 
-# TODO: Compare index and categories prot. acc. and gene families, then create a new file for the database translator
-#  with the gene and gene family so that the database translator can search by DNA Accession and gene,
-#  then replace the original header
 
 newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group']  # sets names of columns of new
 # annotation file
@@ -67,13 +64,10 @@ def Diff(li1, li2): # entries that are in list 1 but not list 2
 
 
 def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
-    # dataframes
-    # for
-    # their
-    # contents and outputs the results. set doc to true to output a csv file containing the merged dataframe. pass
-    # which='both'to check those that are in both one and the other.
+    # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
+    # merged dataframe. pass which='both'to check those that are in both one and the other.
     comparison_df = df1.merge(df2,
-                              indicator=ind,
+                              indicator=True,
                               how='outer',
                               on=on,
                               left_index=byIndex,
@@ -83,18 +77,17 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
     # the merge
     comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
     comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-    if ind is True:
+    if ind:
         if which is None:
             merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
         else:
             merged_df = comparison_df[comparison_df['_merge'] == which]
     else:
-        merged_df = comparison_df
+        merged_df = comparison_df[comparison_df['_merge'] == 'both']
+        # merged_df.drop(['_merge'], axis=1, inplace=True)
     if doc:
         merged_df.to_csv('diff.csv')
     return merged_df
-
-
 
 
 #//region Unsearchable annotation checking and Culling
@@ -117,7 +110,7 @@ cutEntries = list(overlapRows.index)
 cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
-      "DNA accessions and groups overlapped, making it impossible to add them to the database file:\033[0;31;39m")
+      "DNA accessions and groups overlapped, making it impossible for AMR++ to read them:\033[0;31;39m")
 print(cutLines)
 # print("(Debug) Their index values are: ")
 # print(cutEntries)
@@ -155,7 +148,7 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 
 #//endregion
 
-#//region index merge checking
+#//region Add "Model Name" to newAnn
 
 indexCols = [6, 4]  # Columns for protein accession and gene, respectively, from index file
 # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
@@ -173,6 +166,7 @@ if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size >
 # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
 # gone wrong with your download.
 
+
 mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
 if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
     # after merge. Merge function sometimes produces duplicate entries
@@ -189,6 +183,7 @@ if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].i
 newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both', ind=False)  # add 'Model Name' to newAnn,
 # merging by protein accession
 
+
 #//endregion
 #//endregion
 
@@ -198,16 +193,29 @@ annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here be
 # newAnn in the next section
 annotationGene = list(newAnn['Model Name'])
 
-overlapToCull = dataframe_merge(overlapRows, newAnn.loc[overlapRows.index], ind=False,
-                                on='DNA Accession')  # Adds 'Model Name' to overlapRows so that the database can be
-# searched for entries whose annotations had been culled for having overlapping DNA acc. and gene family. ProtDupe and
-# DupedRows always have NaN for their model name, so do not need to be culled from database.
+noAnnotationGene = []
+noAnnotationAccession = []
+for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of database
+        # entries which lack an annotation so that those DB entries can be culled
+    if aroIndex['Protein Accession'].loc[i] not in list(aroAnn['Protein Accession']) and \
+            aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
+        noAnnotationGene.append(aroIndex['Model Name'].loc[i])
+        noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
 
-print(list(overlapToCull['Model Name']))
-print(list(overlapToCull['DNA Accession']))
-exit()
-# TODO: DNA ACCESSION AND MODEL NAME ARE INCORRECTLY ALIGNED, and the wrong model names are being brought in. Likely
-#  because newAnn index has since been reset
+# print(noAnnotationAccession)
+# print(noAnnotationGene)
+# exit()
+
+# TODO: Create noAnnotation such that it contains the DB accession and gene from the index which are not in the
+#  annotation file (aroAnn)
+
+overlapToCull = dataframe_merge(overlapRows, compIndex, ind=False)
+protDupeToCull = dataframe_merge(protDupe, compIndex, ind=False)
+# Adds 'Model Name' to the dataframes that contain unmatchable annotation entries so that the database can be searched
+# for entries whose annotations had been culled
+# print(overlapToCull)
+
+
 
 #//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
@@ -265,6 +273,9 @@ match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
 # for the translated database. If one is not filled in, it will be listed as "error"
 dbToCull = []
+overlapMessage = 'overlap culled'
+protDupeMessage = 'protein accession duplication culled'
+noAnnotationMessage = 'lack annotation culled'
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -272,14 +283,17 @@ for i in range(0, len(annotationAccessions)):
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
-            # TODO: if the db accession and db gene align with the cull values, assign i to dbtocull
-for i in range(0, len(dbAccessions)):
+for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose annotations have been culled so that
+    # those database entries can be removed later
     if dbGenes[i] in list(overlapToCull['Model Name']) and dbAccessions[i] in list(overlapToCull['DNA Accession']):
-        # Gets indices of database entries whose annotations have been culled so that those database entries can
-        # be removed later
-        newHeaders[i] = 'culled'
+        newHeaders[i] = overlapMessage
         dbToCull.append(i)
-print(dbToCull)
+    if dbGenes[i] in list(protDupeToCull['Model Name']) and dbAccessions[i] in list(protDupeToCull['DNA Accession']):
+        newHeaders[i] = protDupeMessage
+        dbToCull.append(i)
+    if dbAccessions[i] in noAnnotationAccession and dbGenes[i] in noAnnotationGene:
+        newHeaders[i] = noAnnotationMessage
+        dbToCull.append(i)
 
 # x = 305  # test value that determines which annotation/databse entry pair to print
 x = 1
@@ -303,21 +317,30 @@ noValue = 0
 errorPresent = False
 
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header
-    if newHeaders[i] == 'culled':
+    if newHeaders[i] == overlapMessage:
         print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA Accession and "
                                                          "gene family overlapped with another annotation")
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
+    if newHeaders[i] == noAnnotationMessage:
+        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
+        # print(aroDB[i].description)
+    if newHeaders[i] == protDupeMessage:
+        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
+                                                         "identical to another annotation")
+        # print(aroDB[i].description)
     elif newHeaders[i] == 'error':
         print("Database entry " + str((i + 1) * 2 - 1) + " has not been given a value")  # Indicates the entries with no
         # header
         print("DEBUG: index = " + str(i))
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
         errorPresent = True
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
+print("Database entries to cull: " + str(len(dbToCull)))
+print(dbToCull)
 if errorPresent:
     exit()
-
+exit()
 #//endregion
 
 #//region Write final files
