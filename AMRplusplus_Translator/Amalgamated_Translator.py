@@ -13,6 +13,8 @@ import numpy as np
 import pandas as pd
 from datetime import date
 from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 import re
 
 # import annotation data
@@ -262,7 +264,6 @@ for i in range(0,len(dbGenes)):  # DB file is in ' notation. Translated Annotati
     # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
 
-
 match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
 # for the translated database. If one is not filled in, it will be listed as "error"
@@ -270,6 +271,7 @@ dbToCull = []
 overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
+
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -289,8 +291,7 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
         newHeaders[i] = noAnnotationMessage
         dbToCull.append(i)
 
-# x = 305  # test value that determines which annotation/databse entry pair to print
-x = 1
+x = 1 # test value that determines which annotation/databse entry pair to print
 
 print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
 # print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
@@ -300,9 +301,6 @@ print(newHeaders[x])
 # print(aroDB[x])
 print("Matching Accessions: ")
 print(match)
-# TODO: Cull Database entries with a) overlapping DNA Accessions and gene families or b) which are in the index and
-#  database files, but not in the annotation file. First step: Find a way to differentiate between the two. Find the
-#  a) group first. Anything left over is in b). Use protein accession and DNA accession from protdupe, multirows, etc.
 
 # Error checking before proceeding to the file writing stage
 noValue = 0
@@ -345,10 +343,6 @@ finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # annotation file
 with pd.option_context('display.max_columns', 5):
     print(finalAnn)
-# TODO: Does this output an annotation file with the proper columns?
-
-print("EXIT Early. check TODO, line 330")
-exit()
 
 # Write annotation file
 today = date.today()  # get current date
@@ -359,19 +353,25 @@ pd.DataFrame.to_csv(finalAnn, filename, index=False)  # exports converted annota
 
 # Write Database file
 
+headerToCull = []
+for i in dbToCull:
+    headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
+    del newHeaders[i]  # Remove culled entries from newHeaders
+
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
-# TODO: Cut database entries that are in dbToCull - take all record.id entries, create list of indices,
-#  remove dbToCull from that list
-i = 0
-with open(translatedFilename, 'w') as translated:
-    for record in newAroDB:
-        print("old:" + record.id)
-        record.id = newHeaders[i]  # Changes header to translated header
-        # record.description = newHeaders[i]
-        record.description = ''
-        print("NEW:" + record.id)
-        i += 1
-        SeqIO.write(record, translated, 'fasta-2line')  # writes fasta file line-by-line. 'fasta-2line' instead of
-        # 'fasta' forces it to avoid using line breaks
+def cull (database=newAroDB, headercull=headerToCull, newHeader=newHeaders, filename=translatedFilename):
+    keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header
+
+    for seq_record in database:  # pulls each Seq_record (header + sequence) from the source database
+        header = str(seq_record.id)  # extracts the header of the seq_record as a string
+        if header not in headercull and header not in keepSeq:  # check that the entry does not need to be culled
+            keepSeq[header] = str(seq_record.seq)  # store sequence of unculled entry
+        i = 0
+        with open(translatedFilename, 'w') as translated:
+            for header in keepSeq:
+                translated.write(">" + newHeader[i] + "\n" + keepSeq[header] + "\n")
+                i+=1
+cull()
+
 # //endregion
