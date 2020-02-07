@@ -233,8 +233,15 @@ newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Acce
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
 #  second and third |, as well as the corresponding class column entry, into "multi-drug resistance".
-# TODO: Will this cause issues with the culling, not being able to tell entries apart because they have the same
-#  accessions and groups?
+# TODO: Will creating a multi-group bin cause issues with the culling, not being able to tell entries apart because
+#  they have the same accessions and groups?
+#//endregion
+
+#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
+# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
+newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
+# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
+exit()
 #//endregion
 
 #//region dbGenes and dbAccession Processor
