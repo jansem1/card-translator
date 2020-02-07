@@ -15,6 +15,43 @@ from datetime import date
 from Bio import SeqIO
 import re
 
+
+#//region define functions
+
+def Diff(li1, li2):  # entries that are in list 1 but not list 2
+    diff = (list(set(li1) - set(li2)))
+    diff.sort()
+    return diff
+
+
+def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
+    # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
+    # merged dataframe. pass which='both'to check those that are in both one and the other.
+    comparison_df = df1.merge(df2,
+                              indicator=True,
+                              how='outer',
+                              on=on,
+                              left_index=byIndex,
+                              right_index=byIndex
+                              )
+    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
+    # the merge
+    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
+    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
+    if ind:
+        if which is None:
+            merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
+        else:
+            merged_df = comparison_df[comparison_df['_merge'] == which]
+    else:
+        merged_df = comparison_df[comparison_df['_merge'] == 'both']
+        # merged_df.drop(['_merge'], axis=1, inplace=True)
+    if doc:
+        merged_df.to_csv('diff.csv')
+    return merged_df
+#//endregion
+
+
 # import annotation data
 aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv files must have their delimiter stated
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
@@ -56,46 +93,16 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
-
-def Diff(li1, li2):  # entries that are in list 1 but not list 2
-    diff = (list(set(li1) - set(li2)))
-    diff.sort()
-    return diff
-
-
-def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
-    # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
-    # merged dataframe. pass which='both'to check those that are in both one and the other.
-    comparison_df = df1.merge(df2,
-                              indicator=True,
-                              how='outer',
-                              on=on,
-                              left_index=byIndex,
-                              right_index=byIndex
-                              )
-    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
-    # the merge
-    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
-    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-    if ind:
-        if which is None:
-            merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
-        else:
-            merged_df = comparison_df[comparison_df['_merge'] == which]
-    else:
-        merged_df = comparison_df[comparison_df['_merge'] == 'both']
-        # merged_df.drop(['_merge'], axis=1, inplace=True)
-    if doc:
-        merged_df.to_csv('diff.csv')
-    return merged_df
-
-
 #//region Convert multi-drug resistant class columns to "multi-drug resistant" string
 # print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
 newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
 # print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
 # exit()
 #//endregion
+# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
+#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
+#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
+
 
 #//region Unsearchable annotation checking and Culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
@@ -238,11 +245,7 @@ newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], ne
 
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
-# TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
-#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance".
-# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
-#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
-#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
+
 #//endregion
 
 #//region dbGenes and dbAccession Processor
