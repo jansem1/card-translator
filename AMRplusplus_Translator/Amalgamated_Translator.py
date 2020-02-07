@@ -90,6 +90,13 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
     return merged_df
 
 
+#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
+# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
+newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
+# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
+# exit()
+#//endregion
+
 #//region Unsearchable annotation checking and Culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
 # Rows that are just duplicate annotations
@@ -233,15 +240,9 @@ newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Acce
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
 #  second and third |, as well as the corresponding class column entry, into "multi-drug resistance".
-# TODO: Will creating a multi-group bin cause issues with the culling, not being able to tell entries apart because
-#  they have the same accessions and groups?
-#//endregion
-
-#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
-# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
-newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
-# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
-exit()
+# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
+#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
+#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
 #//endregion
 
 #//region dbGenes and dbAccession Processor

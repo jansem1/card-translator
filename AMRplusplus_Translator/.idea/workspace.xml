@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="Simplified database culling to make it more legible">
+    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Amalgamated_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator.py" afterDir="false" />
     </list>
@@ -507,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581097532482</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="added multi-drug resistant conversion for drug class">
+      <created>1581104377815</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1581104377815</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -521,7 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed unnecessary files" />
     <MESSAGE value="Database translator can now parse headers and extract DNA Accessions" />
     <MESSAGE value="Made database translator create list of matched headers, and cleaned up annotation translator." />
     <MESSAGE value="Database translator now produces fasta-format translated database and catches entries with no header" />
@@ -546,7 +552,8 @@
     <MESSAGE value="End of Day Feb 5 - Translator now outputs (ostensibly) correct database and annotation file." />
     <MESSAGE value="End of Day Feb 5 - Translator now outputs (ostensibly) correct database and annotation file. Validation still required" />
     <MESSAGE value="Simplified database culling to make it more legible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simplified database culling to make it more legible" />
+    <MESSAGE value="added multi-drug resistant conversion for drug class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multi-drug resistant conversion for drug class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -561,10 +568,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="699" y="14" key="CommitChangelistDialog2" timestamp="1581104365887">
+    <state x="699" y="14" key="CommitChangelistDialog2" timestamp="1581104375963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="699" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581104365887" />
+    <state x="699" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581104375963" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
