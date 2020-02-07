@@ -13,8 +13,6 @@ import numpy as np
 import pandas as pd
 from datetime import date
 from Bio import SeqIO
-from Bio.Seq import Seq
-from Bio.SeqRecord import SeqRecord
 import re
 
 # import annotation data
@@ -59,7 +57,7 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #TODO is this all the possible cases?
 
 
-def Diff(li1, li2): # entries that are in list 1 but not list 2
+def Diff(li1, li2):  # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
     diff.sort()
     return diff
@@ -203,8 +201,11 @@ for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of
             aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
         noAnnotationGene.append(aroIndex['Model Name'].loc[i])
         noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
-
-
+#         print(aroIndex['Protein Accession'].loc[i])
+#         print(aroIndex['Model Name'].loc[i])
+#         print(noAnnotationAccession)
+#
+# exit()
 overlapToCull = dataframe_merge(overlapRows, compIndex, ind=False)
 protDupeToCull = dataframe_merge(protDupe, compIndex, ind=False)
 # Adds 'Model Name' to the dataframes that contain unmatchable annotation entries so that the database can be searched
@@ -231,7 +232,9 @@ newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], ne
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
 # TODO: If the 'class' section contains a semicolon (multiple drugs), change the section of the string between the
-#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance"
+#  second and third |, as well as the corresponding class column entry, into "multi-drug resistance".
+# TODO: Will this cause issues with the culling, not being able to tell entries apart because they have the same
+#  accessions and groups?
 #//endregion
 
 #//region dbGenes and dbAccession Processor
@@ -272,6 +275,8 @@ overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
 
+
+
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -284,10 +289,10 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
     if dbGenes[i] in list(overlapToCull['Model Name']) and dbAccessions[i] in list(overlapToCull['DNA Accession']):
         newHeaders[i] = overlapMessage
         dbToCull.append(i)
-    if dbGenes[i] in list(protDupeToCull['Model Name']) and dbAccessions[i] in list(protDupeToCull['DNA Accession']):
+    elif dbGenes[i] in list(protDupeToCull['Model Name']) and dbAccessions[i] in list(protDupeToCull['DNA Accession']):
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
-    if dbAccessions[i] in noAnnotationAccession and dbGenes[i] in noAnnotationGene:
+    elif dbGenes[i] in noAnnotationGene and dbAccessions[i] in noAnnotationAccession:
         newHeaders[i] = noAnnotationMessage
         dbToCull.append(i)
 
@@ -311,20 +316,21 @@ errorPresent = False
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
     # (due to culling) or erroneously
     if newHeaders[i] == overlapMessage:
-        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA Accession and "
+        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA "
+                                                               "Accession and "
                                                          "gene family overlapped with another annotation")
-        # print(aroDB[i].description)
+        print(aroDB[i].description)
     if newHeaders[i] == noAnnotationMessage:
-        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
-        # print(aroDB[i].description)
+        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
+        print(aroDB[i].description)
     if newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020), but will be
         # left in in case new data is added
-        print("Database entry " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
+        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
-        # print(aroDB[i].description)
-    elif newHeaders[i] == 'error': # Indicates database entries which will not be assigned a header,
+        print(aroDB[i].description)
+    elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
-        print("Database entry " + str((i + 1) * 2 - 1) + " has not been given a value")
+        print("Database entry on line " + str((i + 1) * 2 - 1) + " has not been given a value")
         print("DEBUG: index = " + str(i))
         # print(aroDB[i].description)
         errorPresent = True
@@ -360,18 +366,17 @@ for i in dbToCull:
 
 translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
-def cull (database=newAroDB, headercull=headerToCull, newHeader=newHeaders, filename=translatedFilename):
-    keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header
-
-    for seq_record in database:  # pulls each Seq_record (header + sequence) from the source database
-        header = str(seq_record.id)  # extracts the header of the seq_record as a string
-        if header not in headercull and header not in keepSeq:  # check that the entry does not need to be culled
-            keepSeq[header] = str(seq_record.seq)  # store sequence of unculled entry
-        i = 0
-        with open(translatedFilename, 'w') as translated:
-            for header in keepSeq:
-                translated.write(">" + newHeader[i] + "\n" + keepSeq[header] + "\n")
-                i+=1
-cull()
+# Write all entries to database file that are not on the cull list
+keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header
+for seq_record in newAroDB:  # pulls each Seq_record (header + sequence) from the source newAroDB
+    header = str(seq_record.id)  # extracts the header of the seq_record as a string
+    if header not in headerToCull and header not in keepSeq:  # check that the entry does not need to be culled
+        keepSeq[header] = str(seq_record.seq)  # store sequence of unculled entry
+    i = 0
+    with open(translatedFilename, 'w') as translated:
+        for header in keepSeq:
+            translated.write(">" + newHeaders[i] + "\n" + keepSeq[header] + "\n")
+            i += 1
 
 # //endregion
+# THE END
