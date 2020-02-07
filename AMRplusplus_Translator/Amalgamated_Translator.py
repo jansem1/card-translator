@@ -93,15 +93,6 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
-#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
-# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
-newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
-# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
-# exit()
-#//endregion
-# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
-#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
-#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
 
 
 #//region Unsearchable annotation checking and Culling
@@ -161,6 +152,17 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 # print(newAnn)
 
 #//endregion
+
+#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
+# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
+newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
+# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
+# exit()
+#//endregion
+# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
+#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
+#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
+
 
 #//region Add "Model Name" to newAnn
 
