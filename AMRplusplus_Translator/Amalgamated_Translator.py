@@ -67,9 +67,7 @@ newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta") 
 
 # Create new DataFrame containing AMR++-relevant data
 aroCols = ['Protein Accession', 'DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family']  # Important
-# columns
-# from ARO data.
-# 0 = Protein Accession; 1 = DNA Accession; 2 = Gene family; 3 = class; 4 = mechanism
+# columns from ARO data.
 newAnn = aroAnn[aroCols].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
@@ -93,7 +91,7 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
-#//region Unsearchable annotation checking and Culling
+#//region Unsearchable annotation checking and culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
 # Rows that are just duplicate annotations
 overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the
@@ -104,10 +102,8 @@ overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Acce
 # will still result in multiple hits
 protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  # find duplicate Prot. Acc.
 
-# with pd.option_context('display.max_columns', 4):
-#     print(overlapRows)
+# Cull annotations and provide the user with output detailing which entries were culled and why
 
-# Provide the user with output detailing which entries were culled and why
 # Duplicate DNA accession and group culling
 cutEntries = list(overlapRows.index)
 cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
@@ -145,10 +141,6 @@ dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len
 percentDrop = round(100 * dropTotal/len(aroAnn), 2)
 print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
                                                                                                  "\n")
-# newAnn.to_csv('newAnn_test.csv')
-# print(newAnn.loc[cutEntries])
-# print(newAnn)
-
 #//endregion
 
 #//region Convert multi-drug resistant class columns to "multi-drug resistant" string
@@ -286,17 +278,19 @@ for i in range(0, len(annotationAccessions)):
 for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose annotations have been culled so that
     # those database entries can be removed later
     if dbGenes[i] in list(overlapToCull['Model Name']) and dbAccessions[i] in list(overlapToCull['DNA Accession']):
+        # DB entries whose annotations were culled for overlapping DNA accession and gene family
         newHeaders[i] = overlapMessage
         dbToCull.append(i)
     elif dbGenes[i] in list(protDupeToCull['Model Name']) and dbAccessions[i] in list(protDupeToCull['DNA Accession']):
+        # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
     elif dbGenes[i] in noAnnotationGene and dbAccessions[i] in noAnnotationAccession:
+        # DB entries with no annotation entry
         newHeaders[i] = noAnnotationMessage
         dbToCull.append(i)
 
 # x = 1 # test value that determines which annotation/databse entry pair to print
-#
 # print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
 # # print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
 # # allowing one-to-one indexing (aroDB[1] should have the same DNA accession as newHeaders[1]. newHeaders will have a
@@ -336,19 +330,20 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
-print(dbToCull)
+print("Line numbers of culled entries:")
+print((dbToCull + 1)*2 - 1)
 if errorPresent:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled")
     exit()
 #//endregion
 
 #//region Write final files
-
+print("Writing Annotation file")
 finalCols = ['header', 'type', 'class', 'mechanism', 'group']
 finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # annotation file
-with pd.option_context('display.max_columns', 5):
-    print(finalAnn)
+# with pd.option_context('display.max_columns', 5):
+#     print(finalAnn)
 
 # Write annotation file
 today = date.today()  # get current date
@@ -356,9 +351,9 @@ filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".c
 # Exports AMR++-ready annotation file and names it based on the present date
 
 pd.DataFrame.to_csv(finalAnn, filename, index=False)  # exports converted annotation file as csv
-
+print("DONE")
 # Write Database file and cull problem headers
-
+print("Writing Database file")
 headerToCull = []
 for i in dbToCull:
     headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
@@ -377,6 +372,6 @@ for seq_record in newAroDB:  # pulls each Seq_record (header + sequence) from th
         for header in keepSeq:
             translated.write(">" + newHeaders[i] + "\n" + keepSeq[header] + "\n")
             i += 1
-
+print("DONE")
 # //endregion
 # THE END
