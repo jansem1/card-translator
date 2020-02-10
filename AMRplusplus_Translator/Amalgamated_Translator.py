@@ -93,8 +93,6 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 #//endregion
 #TODO is this all the possible cases?
 
-
-
 #//region Unsearchable annotation checking and Culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
 # Rows that are just duplicate annotations
@@ -163,7 +161,6 @@ newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
 #  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
 #  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
 
-
 #//region Add "Model Name" to newAnn
 
 indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession and gene, respectively, from index file
@@ -196,7 +193,7 @@ if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].i
     print("ERROR: Duplicate entries detected. Exiting translator")
     exit()
 
-newAnn = dataframe_merge(newAnn, compIndex, doc=True, which='both', ind=False)  # add 'Model Name' to newAnn,
+newAnn = dataframe_merge(newAnn, compIndex, doc=False, which='both', ind=False)  # add 'Model Name' to newAnn,
 # merging by protein accession
 
 
@@ -217,18 +214,11 @@ for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of
             aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
         noAnnotationGene.append(aroIndex['Model Name'].loc[i])
         noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
-#         print(aroIndex['Protein Accession'].loc[i])
-#         print(aroIndex['Model Name'].loc[i])
-#         print(noAnnotationAccession)
-#
-# exit()
+
 overlapToCull = dataframe_merge(overlapRows, compIndex, ind=False)
 protDupeToCull = dataframe_merge(protDupe, compIndex, ind=False)
 # Adds 'Model Name' to the dataframes that contain unmatchable annotation entries so that the database can be searched
 # for entries whose annotations had been culled
-# print(overlapToCull)
-
-
 
 #//region Create AMR++-compliant header
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
@@ -241,9 +231,7 @@ headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + ne
 
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
                     newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
-# concatenates all columns that
-# must be
-# in the final annotation
+# concatenates all columns that must be in the final annotation
 
 newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
@@ -288,8 +276,6 @@ overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
 
-
-
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -309,21 +295,21 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
         newHeaders[i] = noAnnotationMessage
         dbToCull.append(i)
 
-x = 1 # test value that determines which annotation/databse entry pair to print
-
-print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
-# print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
-# allowing one-to-one indexing (aroDB[1] should have the same DNA accession as newHeaders[1]. newHeaders will have a
-# gene family where aroDB has a gene)
-print(newHeaders[x])
-# print(aroDB[x])
-print("Matching Accessions: ")
-print(match)
+# x = 1 # test value that determines which annotation/databse entry pair to print
+#
+# print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
+# # print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
+# # allowing one-to-one indexing (aroDB[1] should have the same DNA accession as newHeaders[1]. newHeaders will have a
+# # gene family where aroDB has a gene)
+# print(newHeaders[x])
+# # print(aroDB[x])
+# print("Matching Accessions: ")
+# print(match)
 
 # Error checking before proceeding to the file writing stage
 noValue = 0
-# list of db entries that need to be culled. ProtDupe and DupedRows always have NaN for their model name,
-# so do not need to be culled from database
+# list of db entries that have not been assigned a header and were not culled, suggesting that an error has occurred
+# somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled from database
 errorPresent = False
 
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
@@ -343,7 +329,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         print(aroDB[i].description)
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
-        print("Database entry on line " + str((i + 1) * 2 - 1) + " has not been given a value")
+        print("ERROR: Database entry on line " + str((i + 1) * 2 - 1) + " has not been given a value")
         print("DEBUG: index = " + str(i))
         # print(aroDB[i].description)
         errorPresent = True
@@ -352,6 +338,7 @@ print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
 print(dbToCull)
 if errorPresent:
+    print("ERROR: Some database entries are not being assigned headers, but are also not being culled")
     exit()
 #//endregion
 
@@ -370,7 +357,7 @@ filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".c
 
 pd.DataFrame.to_csv(finalAnn, filename, index=False)  # exports converted annotation file as csv
 
-# Write Database file
+# Write Database file and cull problem headers
 
 headerToCull = []
 for i in dbToCull:
