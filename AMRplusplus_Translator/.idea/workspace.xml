@@ -34,7 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myUseExistingConsole" value="true" />
@@ -184,13 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added ARO and MEGARes annotation data">
-      <created>1574959710124</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1574959710124</updated>
     </task>
     <task id="LOCAL-00004" summary="Columns now named properly and filename includes date">
       <created>1575046171017</created>
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581350448068</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Removed commented-out code and improved documentation">
+      <created>1581352624025</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1581352624025</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added TODO and comments" />
     <MESSAGE value="Added searching for annotation entries that have the same DNA accession and group, making them impossible to assign to a database entry properly" />
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="Added cutting of unsearchable entries and a message indicating which entries had been cut" />
@@ -567,7 +566,8 @@
     <MESSAGE value="moved function definitions to the top of the program and fixed some TODOs" />
     <MESSAGE value="Moved multi-drug conversion below annotation checking to prevent NaN issues" />
     <MESSAGE value="Removed commented-out code, improved documentation, set newAnn merge doc=True to doc=False to prevent confusing files being generated for the user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed commented-out code, improved documentation, set newAnn merge doc=True to doc=False to prevent confusing files being generated for the user" />
+    <MESSAGE value="Removed commented-out code and improved documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed commented-out code and improved documentation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -582,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="620" y="14" key="CommitChangelistDialog2" timestamp="1581350442852">
+    <state x="52" y="14" key="CommitChangelistDialog2" timestamp="1581352622194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="620" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581350442852" />
+    <state x="52" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581352622194" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -598,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="243" key="GridCell.Tab.0.bottom" timestamp="1581351768332">
+    <state width="1537" height="243" key="GridCell.Tab.0.bottom" timestamp="1581355574141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581351768332" />
-    <state width="1537" height="243" key="GridCell.Tab.0.center" timestamp="1581351768332">
+    <state width="1537" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
+    <state width="1537" height="243" key="GridCell.Tab.0.center" timestamp="1581355574141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581351768332" />
-    <state width="1537" height="243" key="GridCell.Tab.0.left" timestamp="1581351768332">
+    <state width="1537" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
+    <state width="1537" height="243" key="GridCell.Tab.0.left" timestamp="1581355574141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581351768332" />
-    <state width="1537" height="243" key="GridCell.Tab.0.right" timestamp="1581351768332">
+    <state width="1537" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
+    <state width="1537" height="243" key="GridCell.Tab.0.right" timestamp="1581355574141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581351768332" />
+    <state width="1537" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -630,10 +630,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="223" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1580839841086" />
-    <state x="543" y="70" key="SettingsEditor" timestamp="1581099375199">
+    <state x="451" y="54" key="SettingsEditor" timestamp="1581355523364">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="543" y="70" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1581099375199" />
+    <state x="451" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1581355523364" />
     <state width="520" height="446" key="SwitcherDM" timestamp="1580494822103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

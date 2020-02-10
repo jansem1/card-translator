@@ -330,8 +330,10 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
-print("Line numbers of culled entries:")
-print((dbToCull + 1)*2 - 1)
+print("Line numbers of culled entries: ")
+culledDB = [((line+1)*2-1) for line in dbToCull]
+print(culledDB)
+
 if errorPresent:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled")
     exit()
