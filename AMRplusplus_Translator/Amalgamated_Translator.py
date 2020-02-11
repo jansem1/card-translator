@@ -160,7 +160,6 @@ indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession
 # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
 compIndex = aroIndex[indexCols].copy()
 
-
 if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
     # no entries that are only in the annotation file
     print("\033[1;31;31m ERROR: Annotation is larger than index. Ensure you have the most recent version of both \033["
@@ -170,7 +169,6 @@ if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size >
 # should have all of the entries that are in the annotation, but not vice versa. Having things in 'right_only' is
 # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
 # gone wrong with your download.
-
 
 mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
 if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
@@ -219,7 +217,9 @@ typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be co
 # the new Dataframe which will contain the translated data
 
 headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
-            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)  # concatenate columns to make header
+            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
+# concatenate columns to make header and add "RequiresSNPConfirmation" flag to force AMR++ to use RGI's perfect
+# algorithm, because all the entries I translated are from the protein homolog model only
 
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
                     newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #

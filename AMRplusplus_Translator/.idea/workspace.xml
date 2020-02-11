@@ -185,13 +185,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00004" summary="Columns now named properly and filename includes date">
-      <created>1575046171017</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1575046171017</updated>
-    </task>
     <task id="LOCAL-00005" summary="Added tsv/csv files to directory">
       <created>1575053908892</created>
       <option name="number" value="00005" />
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581352624025</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Added output for a list of culled entries to make it easier for the user to go back and find relevant entries">
+      <created>1581355637932</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1581355637932</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added searching for annotation entries that have the same DNA accession and group, making them impossible to assign to a database entry properly" />
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="Added cutting of unsearchable entries and a message indicating which entries had been cut" />
     <MESSAGE value="Moved typecol creation to fix a bug where empty rows would be created in annotation file" />
@@ -567,7 +566,8 @@
     <MESSAGE value="Moved multi-drug conversion below annotation checking to prevent NaN issues" />
     <MESSAGE value="Removed commented-out code, improved documentation, set newAnn merge doc=True to doc=False to prevent confusing files being generated for the user" />
     <MESSAGE value="Removed commented-out code and improved documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed commented-out code and improved documentation" />
+    <MESSAGE value="Added output for a list of culled entries to make it easier for the user to go back and find relevant entries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added output for a list of culled entries to make it easier for the user to go back and find relevant entries" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -582,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="52" y="14" key="CommitChangelistDialog2" timestamp="1581352622194">
+    <state x="730" y="0" key="CommitChangelistDialog2" timestamp="1581355636342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="52" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581352622194" />
+    <state x="730" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581355636342" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -598,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="243" key="GridCell.Tab.0.bottom" timestamp="1581355574141">
+    <state width="1537" height="243" key="GridCell.Tab.0.bottom" timestamp="1581355726202">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
-    <state width="1537" height="243" key="GridCell.Tab.0.center" timestamp="1581355574141">
+    <state width="1537" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581355726202" />
+    <state width="1537" height="243" key="GridCell.Tab.0.center" timestamp="1581355726202">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
-    <state width="1537" height="243" key="GridCell.Tab.0.left" timestamp="1581355574141">
+    <state width="1537" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581355726202" />
+    <state width="1537" height="243" key="GridCell.Tab.0.left" timestamp="1581355726201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
-    <state width="1537" height="243" key="GridCell.Tab.0.right" timestamp="1581355574141">
+    <state width="1537" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581355726201" />
+    <state width="1537" height="243" key="GridCell.Tab.0.right" timestamp="1581355726202">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581355574141" />
+    <state width="1537" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581355726202" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
