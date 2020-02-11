@@ -2,8 +2,6 @@
 
 # TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
 #  those that match
-# TODO: Need to add ‘RequiresSNPConfirmation’ flags to the translator. Current ARO source files I’m using are homologue
-#  model only. Translate variant model as well, add the flag, combine with translated annotation file.
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
 # TODO: Create README file for program
