@@ -2,6 +2,7 @@
 
 # TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
 #  those that match
+# TODO: Make the script operable from command line, and make it possible to change the names of the input files
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
 # TODO: Create README file for program
@@ -12,9 +13,30 @@ import pandas as pd
 from datetime import date
 from Bio import SeqIO
 import re
+import argparse
 
+aroAnnFile = 'aro_categories_index.tsv'
+aroIndexFile = 'aro_index.tsv'
+aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-a", help='Allows user to define the filepath of the ARO annotation file')
+parser.add_argument("-i", help='Allows user to define the filepath of the ARO index file')
+parser.add_argument("-d", help='Allows user to define the filepath of the ARO database file')
+
+args = parser.parse_args()
+if isinstance(args.a, str):
+    aroAnnFile = args.a
+print("Annotation file: " + aroAnnFile)
+if isinstance(args.i, str):
+    aroIndexFile = args.i
+print("Index file: " + aroIndexFile)
+if isinstance(args.d, str):
+    aroDBFile = args.d
+print("Database file: " + aroDBFile)
 
 #//region define functions
+
 
 def Diff(li1, li2):  # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
@@ -51,14 +73,14 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
 
 
 # import annotation data
-aroAnn = pd.read_csv('aro_categories_index.tsv', sep='\t')  # When reading, tsv files must have their delimiter stated
+aroAnn = pd.read_csv(aroAnnFile, sep='\t')  # When reading, tsv files must have their delimiter stated
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
 # them from the translated annotation list
-aroIndex = pd.read_csv('aro_index.tsv', sep='\t')  # Read index file in order to compare gene  to gene family via
+aroIndex = pd.read_csv(aroIndexFile, sep='\t')  # Read index file in order to compare gene  to gene family via
 # protein accession
-aroDB = list(SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta"))  # Read in CARD Database file as a
+aroDB = list(SeqIO.parse(aroDBFile, "fasta"))  # Read in CARD Database file as a
 # list of seqRecord objects
-newAroDB = SeqIO.parse("nucleotide_fasta_protein_homolog_model.fasta", "fasta")  # Read in CARD database as a
+newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a
 # Seqrecord generator, instead of a list, so that it can be overwritten later
 
 #//region Annotation Translation
