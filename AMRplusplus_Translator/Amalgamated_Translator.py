@@ -111,7 +111,6 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\)$', '')
 newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
-#TODO is this all the possible cases?
 
 #//region Unsearchable annotation checking and culling
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
