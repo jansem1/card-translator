@@ -72,18 +72,18 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
         merged_df.to_csv('diff.csv')
     return merged_df
 
+
 #//endregion
 
-# import annotation data
-aroAnn = pd.read_csv(aroAnnFile, sep='\t')  # When reading, tsv files must have their delimiter stated
+# Import files
+aroAnn = pd.read_csv(aroAnnFile, sep='\t') # import annotation data
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
 # them from the translated annotation list
 aroIndex = pd.read_csv(aroIndexFile, sep='\t')  # Read index file in order to compare gene  to gene family via
 # protein accession
-aroDB = list(SeqIO.parse(aroDBFile, "fasta"))  # Read in CARD Database file as a
-# list of seqRecord objects
-newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a
-# Seqrecord generator, instead of a list, so that it can be overwritten later
+aroDB = list(SeqIO.parse(aroDBFile, "fasta"))  # Read in CARD Database file as a list of seqRecord objects
+newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a Seqrecord generator, instead of a list,
+# so that it can be overwritten later
 
 #//region Annotation Translation
 
