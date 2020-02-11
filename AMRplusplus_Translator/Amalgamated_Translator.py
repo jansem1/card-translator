@@ -15,10 +15,12 @@ from Bio import SeqIO
 import re
 import argparse
 
+# Define default filenames
 aroAnnFile = 'aro_categories_index.tsv'
 aroIndexFile = 'aro_index.tsv'
 aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
 
+#//region Parse commandline arguments to allow the user to input different filenames
 parser = argparse.ArgumentParser()
 parser.add_argument("-a", help='Allows user to define the filepath of the ARO annotation file')
 parser.add_argument("-i", help='Allows user to define the filepath of the ARO index file')
@@ -34,9 +36,9 @@ print("Index file: " + aroIndexFile)
 if isinstance(args.d, str):
     aroDBFile = args.d
 print("Database file: " + aroDBFile)
+#//endregion
 
 #//region define functions
-
 
 def Diff(li1, li2):  # entries that are in list 1 but not list 2
     diff = (list(set(li1) - set(li2)))
@@ -69,8 +71,8 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
     if doc:
         merged_df.to_csv('diff.csv')
     return merged_df
-#//endregion
 
+#//endregion
 
 # import annotation data
 aroAnn = pd.read_csv(aroAnnFile, sep='\t')  # When reading, tsv files must have their delimiter stated
