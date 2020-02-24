@@ -268,6 +268,8 @@ for i in range(0,len(dbGenes)):  # DB file is in ' notation. Translated Annotati
     # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
 
+
+#//region Prepare and match new headers to overwrite database headers
 match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
 # for the translated database. If one is not filled in, it will be listed as "error"
@@ -293,22 +295,9 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
         # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
-    # elif dbGenes[i] in noAnnotationGene and dbAccessions[i] in noAnnotationAccession:
-    #     # DB entries with no annotation entry
-    #     newHeaders[i] = noAnnotationMessage
-    #     dbToCull.append(i)
+#//endregion
 
-# x = 1 # test value that determines which annotation/databse entry pair to print
-# print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
-# # print(newHeaders[x]), the translator is creating the list of translated headers in the same order as the database,
-# # allowing one-to-one indexing (aroDB[1] should have the same DNA accession as newHeaders[1]. newHeaders will have a
-# # gene family where aroDB has a gene)
-# print(newHeaders[x])
-# # print(aroDB[x])
-# print("Matching Accessions: ")
-# print(match)
-
-# Error checking before proceeding to the file writing stage
+#//region Error checking before proceeding to the file writing stage
 noValue = 0
 # list of db entries that have not been assigned a header and were not culled, suggesting that an error has occurred
 # somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled from database
@@ -346,6 +335,7 @@ if errorPresent:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled. No files "
           "generated")
     exit()
+#//endregion
 #//endregion
 
 #//region Write final files

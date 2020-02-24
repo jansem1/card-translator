@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file.">
-      <change afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
+    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="removed the commented-out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,20 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Finished Annotation generator">
-      <created>1576872087461</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1576872087461</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added todo">
-      <created>1578337095879</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1578337095879</updated>
     </task>
     <task id="LOCAL-00014" summary="Added Type column to annotation and header">
       <created>1578339330061</created>
@@ -530,7 +514,21 @@
       <option name="project" value="LOCAL" />
       <updated>1581453427703</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file.">
+      <created>1582555949062</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1582555949078</updated>
+    </task>
+    <task id="LOCAL-00062" summary="removed the commented-out &quot;noannotationgenes&quot; section from oneSource">
+      <created>1582555987978</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1582555987978</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -544,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed NaN being entered into appendCol and added counter to track number of culled entries" />
     <MESSAGE value="Before changing index gene source from ARO Name to Model Name" />
     <MESSAGE value="End of day Jan 31 - still need to find out why 13 headers aren't being matched to their header. No clear reason they shouldn't be. May be DNA accession in annotation file having been culled?" />
     <MESSAGE value="End of day Feb 3. Hunting the 13 entries. They are unmatched because a) they were culled or b) they do not have an associated annotation entry" />
@@ -569,7 +566,8 @@
     <MESSAGE value="Checked output annotation file for missed -PRIME conversion, found none, so removed &quot;Is this all cases?&quot; TODO" />
     <MESSAGE value="Added todo to undo the replacement of multi-drug resistant class entries with &quot;Multi-Drug resistance&quot;" />
     <MESSAGE value="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file." />
+    <MESSAGE value="removed the commented-out &quot;noannotationgenes&quot; section from oneSource" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed the commented-out &quot;noannotationgenes&quot; section from oneSource" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -584,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="132" y="12" key="CommitChangelistDialog2" timestamp="1582555945873">
+    <state x="132" y="12" key="CommitChangelistDialog2" timestamp="1582556039931">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="132" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582555945873" />
+    <state x="132" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582556039931" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
