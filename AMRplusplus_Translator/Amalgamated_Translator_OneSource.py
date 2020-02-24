@@ -15,6 +15,13 @@ from Bio import SeqIO
 import re
 import argparse
 
+print("Definitions: \n"
+      "Entry: Information corresponding to a single determinant contained on one line of the annotation file or two "
+      "lines of the database file. \n"
+      "Annotation file: Contains information used to construct entry headers\n"
+      "Line number: The line number of the *original file*, not the final file. In the database file, this points to "
+      "the header's line number, not the sequence line number. \n")
+
 # Define default filenames
 aroIndexFile = 'aro_index.tsv'
 aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
