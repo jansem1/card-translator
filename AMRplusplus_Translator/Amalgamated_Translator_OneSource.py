@@ -18,9 +18,10 @@ import argparse
 print("Definitions: \n"
       "Entry: Information corresponding to a single determinant contained on one line of the annotation file or two "
       "lines of the database file. \n"
-      "Annotation file: Contains information used to construct entry headers\n"
-      "Line number: The line number of the *original file*, not the final file. In the database file, this points to "
-      "the header's line number, not the sequence line number. \n")
+      "Annotation file: Contains information used to construct new database entry headers\n"
+      "Database file: Contains sequence information for each determinant \n"
+      "Line number: The line number of an entry in the *original file*, not the final file. In the database file, "
+      "this points to the header's line number, not the sequence's line number. \n")
 
 # Define default filenames
 aroIndexFile = 'aro_index.tsv'
