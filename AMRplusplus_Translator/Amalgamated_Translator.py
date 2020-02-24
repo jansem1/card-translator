@@ -47,6 +47,10 @@ def Diff(li1, li2):  # entries that are in list 1 but not list 2
     return diff
 
 
+def entry_to_line(x): # Converts from index # to line #
+    return (x+1)*2 - 1
+
+
 def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
     # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
     # merged dataframe. pass which='both'to check those that are in both one and the other.
@@ -128,7 +132,7 @@ protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  
 
 # Duplicate DNA accession and group culling
 cutEntries = list(overlapRows.index)
-cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
+cutLines = [entry_to_line(x) for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
       "DNA accessions and groups overlapped, making it impossible for AMR++ to read them:\033[0;31;39m")
@@ -139,7 +143,7 @@ newAnn.drop(cutEntries, axis=0, inplace=True)  # removes rows with duplicate gro
 
 # Duplicate Protein Accession culling
 protDupeEntries = list(protDupe.index)
-protDupeLines = [x+2 for x in protDupeEntries]
+protDupeLines = [entry_to_line(x) for x in protDupeEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack or have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
 print(protDupeLines)
@@ -149,7 +153,7 @@ newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicat
 
 # N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
-nullLines = [x+2 for x in nullEntries]
+nullLines = [entry_to_line(x) for x in nullEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
       "them to the database file:\033[0;31;39m")
