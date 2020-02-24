@@ -127,15 +127,15 @@ protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  
 # Cull annotations and provide the user with output detailing which entries were culled and why
 
 # Duplicate DNA accession and group culling
-cutEntries = list(overlapRows.index)
-cutLines = [x+2 for x in cutEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
+overlapEntries = list(overlapRows.index)
+overlapLines = [x+2 for x in overlapEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
       "DNA accessions and groups overlapped, making it impossible for AMR++ to read them:\033[0;31;39m")
-print(cutLines)
+print(overlapLines)
 # print("(Debug) Their index values are: ")
-# print(cutEntries)
-newAnn.drop(cutEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
+# print(overlapEntries)
+newAnn.drop(overlapEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
 
 # Duplicate Protein Accession culling
 protDupeEntries = list(protDupe.index)
@@ -159,7 +159,7 @@ print(Diff(nullLines, protDupeLines))
 newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with no protein accession
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
-dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len(cutEntries)
+dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len(overlapEntries)
 percentDrop = round(100 * dropTotal/len(aroIndex), 2)
 print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
                                                                                                  "\n")

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="" />
+    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -539,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="End of day Jan 31 - still need to find out why 13 headers aren't being matched to their header. No clear reason they shouldn't be. May be DNA accession in annotation file having been culled?" />
     <MESSAGE value="End of day Feb 3. Hunting the 13 entries. They are unmatched because a) they were culled or b) they do not have an associated annotation entry" />
     <MESSAGE value="Before moving index model name merging to allow for overlapCull to pull original model names" />
     <MESSAGE value="Finished displaying database entries to be culled" />
@@ -564,7 +566,8 @@
     <MESSAGE value="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file." />
     <MESSAGE value="removed the commented-out &quot;noannotationgenes&quot; section from oneSource" />
     <MESSAGE value="removed the commented-out condition for removing database entries with no annotations from the &quot;match&quot; section" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed the commented-out condition for removing database entries with no annotations from the &quot;match&quot; section" />
+    <MESSAGE value="Removed the commented-out &quot;Add model name to newAnn...&quot; section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed the commented-out &quot;Add model name to newAnn...&quot; section" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -579,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582556232035">
+    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582556271301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582556232035" />
+    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582556271301" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -595,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="767" height="243" key="GridCell.Tab.0.bottom" timestamp="1582555894940">
+    <state width="767" height="243" key="GridCell.Tab.0.bottom" timestamp="1582556333873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582555894940" />
-    <state width="767" height="243" key="GridCell.Tab.0.center" timestamp="1582555894940">
+    <state width="767" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582556333873" />
+    <state width="767" height="243" key="GridCell.Tab.0.center" timestamp="1582556333873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582555894940" />
-    <state width="767" height="243" key="GridCell.Tab.0.left" timestamp="1582555894940">
+    <state width="767" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582556333873" />
+    <state width="767" height="243" key="GridCell.Tab.0.left" timestamp="1582556333873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582555894940" />
-    <state width="767" height="243" key="GridCell.Tab.0.right" timestamp="1582555894940">
+    <state width="767" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582556333873" />
+    <state width="767" height="243" key="GridCell.Tab.0.right" timestamp="1582556333873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582555894940" />
+    <state width="767" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582556333873" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
