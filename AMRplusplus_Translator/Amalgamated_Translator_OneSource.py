@@ -174,41 +174,6 @@ newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
 #  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
 #  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
 
-#//region Add "Model Name" to newAnn
-#
-# indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession and gene, respectively, from index file
-# # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
-# # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
-# compIndex = aroIndex[indexCols].copy()
-#
-# if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
-#     # no entries that are only in the annotation file
-#     print("\033[1;31;31m ERROR: Annotation is larger than index. Ensure you have the most recent version of both \033["
-#           "0;31;39m")
-#     exit()
-# # in the output file, "right_only" means that it is only in the index. 'left_only' should be empty, as the index
-# # should have all of the entries that are in the annotation, but not vice versa. Having things in 'right_only' is
-# # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
-# # gone wrong with your download.
-
-# mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
-# if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
-#     # after merge. Merge function sometimes produces duplicate entries
-#     print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size)
-#     with pd.option_context('display.max_columns', 10):
-#         print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)])  # print entries
-#         # duplicated by merging index and newAnn
-#     print("number of duplicates:" + str(len(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep='first')])))
-#     print("newAnn length: " + str(len(newAnn)))
-#     print("mergeCheck length: " + str(len(mergeCheck)))
-#     print("ERROR: Duplicate entries detected. Exiting translator")
-#     exit()
-#
-# newAnn = dataframe_merge(newAnn, compIndex, doc=False, which='both', ind=False)  # add 'Model Name' to newAnn,
-# # merging by protein accession
-
-
-#//endregion
 #//endregion
 
 #//region Database Translation
