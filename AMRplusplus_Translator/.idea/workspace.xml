@@ -186,13 +186,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00020" summary="Test pushing to multiple repos">
-      <created>1579197298041</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1579197298041</updated>
-    </task>
     <task id="LOCAL-00021" summary="Test pushing to multiple repos 2">
       <created>1579198472737</created>
       <option name="number" value="00021" />
@@ -529,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582561948472</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="added entry to line function">
+      <created>1582562136928</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1582562136928</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -583,10 +583,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582561946461">
+    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582562135335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582561946461" />
+    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582562135335" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -639,10 +639,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1580494822103" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1581453025407">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1582562460023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581453025407" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1582562460023" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581103852388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

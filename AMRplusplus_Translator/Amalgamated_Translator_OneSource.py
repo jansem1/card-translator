@@ -132,7 +132,7 @@ protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  
 
 # Duplicate DNA accession and group culling
 overlapEntries = list(overlapRows.index)
-overlapLines = [entry_to_line(x) for x in overlapEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
+overlapLines = [x+2 for x in overlapEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
       "DNA accessions and groups overlapped, making it impossible for AMR++ to read them:\033[0;31;39m")
@@ -143,7 +143,7 @@ newAnn.drop(overlapEntries, axis=0, inplace=True)  # removes rows with duplicate
 
 # Duplicate Protein Accession culling
 protDupeEntries = list(protDupe.index)
-protDupeLines = [entry_to_line(x) for x in protDupeEntries]
+protDupeLines = [x+2 for x in protDupeEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack or have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
 print(protDupeLines)
@@ -153,7 +153,7 @@ newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicat
 
 # N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
-nullLines = [entry_to_line(x) for x in nullEntries]
+nullLines = [x+2 for x in nullEntries]
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
       "them to the database file:\033[0;31;39m")
@@ -275,21 +275,21 @@ errorPresent = False
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
     # (due to culling) or erroneously
     if newHeaders[i] == overlapMessage:
-        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA "
+        print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation's DNA "
                                                                "Accession and gene family overlapped with another "
                                                                  "annotation")
         # print(aroDB[i].description)
     if newHeaders[i] == noAnnotationMessage:
-        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
+        print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because it has no corresponding annotation")
         # print(aroDB[i].description)
     if newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020), but will be
         # left in in case new data is added
-        print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
+        print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
         # print(aroDB[i].description)
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
-        print("ERROR: Database entry on line " + str((i + 1) * 2 - 1) + " has not been given a value")
+        print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
         print("DEBUG: index = " + str(i))
         print(aroDB[i].description)
         errorPresent = True
