@@ -154,6 +154,10 @@ newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicat
 # N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
 nullLines = [x+2 for x in nullEntries]
+nullGene = newAnn["Model Name"].loc[nullEntries].tolist() # List of genes of entries with null values
+nullAccession = newAnn["DNA Accession"].loc[nullEntries].tolist() # List of DNA Accessions of entries with null
+# values. These two together will be used to search the database for entries that need to be culled
+
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
       "them to the database file:\033[0;31;39m")
@@ -246,6 +250,7 @@ dbToCull = []
 overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
+nullEntryMessage = 'null entry culled'
 
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
@@ -264,6 +269,9 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
         # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
+    elif dbGenes[i] in nullGene and dbAccessions[i] in nullAccession:
+        newHeaders[i] = nullEntryMessage
+        dbToCull.append(i)
 #//endregion
 
 #//region Error checking before proceeding to the file writing stage
@@ -279,14 +287,18 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
                                                                "Accession and gene family overlapped with another "
                                                                  "annotation")
         # print(aroDB[i].description)
-    if newHeaders[i] == noAnnotationMessage:
+    elif newHeaders[i] == noAnnotationMessage:
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because it has no corresponding annotation")
         # print(aroDB[i].description)
-    if newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020), but will be
-        # left in in case new data is added
+    elif newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020),
+        # but will be left in in case new data is added
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
         # print(aroDB[i].description)
+    elif newHeaders[i] == nullEntryMessage:
+        print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation contained a "
+                                                                  "null value")
+
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")

@@ -145,7 +145,8 @@ print("\033[1;31;31m The following entries (line # in the annotation file) were 
 print(protDupeLines)
 # print("(Debug) Their index values are: ")
 # print(protDupeEntries)  # only show those that were cut because of duplication, not null
-newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
+
+newAnn.drop(Diff(protDupeEntries, cutEntries), axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
 
 # N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
