@@ -139,13 +139,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00024" summary="Database translator can now parse headers and extract DNA Accessions">
-      <created>1579293984027</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1579293984027</updated>
-    </task>
     <task id="LOCAL-00025" summary="Made database translator create list of matched headers, and cleaned up annotation translator.">
       <created>1579298745591</created>
       <option name="number" value="00025" />
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582570337353</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="intro print edit">
+      <created>1582570446852</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1582570446852</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -496,8 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added multi-drug resistant conversion for drug class" />
-    <MESSAGE value="removed exit under class conversion" />
     <MESSAGE value="moved function definitions to the top of the program and fixed some TODOs" />
     <MESSAGE value="Moved multi-drug conversion below annotation checking to prevent NaN issues" />
     <MESSAGE value="Removed commented-out code, improved documentation, set newAnn merge doc=True to doc=False to prevent confusing files being generated for the user" />
@@ -521,7 +519,9 @@
     <MESSAGE value="Undid a bug in the previous commit where the program would say it had culled the line numbers of annotation entries, but give the line number of database entries" />
     <MESSAGE value="Attempted to add, then removed nullEntryToCull section to Amalgamated_Translator.py because it would require that the index be merged before checking for unmatchable entries, which is not possible. Added it successfully to Amalgamated_Translator_OneSource.py" />
     <MESSAGE value="Improved documentation and added some onboarding for the user which gives basic definitions of terms." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved documentation and added some onboarding for the user which gives basic definitions of terms." />
+    <MESSAGE value="intro print edit" />
+    <MESSAGE value="Translator now creates folder for translated files to prevent clutter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Translator now creates folder for translated files to prevent clutter" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582562596140">
@@ -536,10 +536,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="0" y="12" key="CommitChangelistDialog2" timestamp="1582570335759">
+    <state x="0" y="12" key="CommitChangelistDialog2" timestamp="1582571501266">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582570335759" />
+    <state x="0" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582571501266" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -552,22 +552,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582570341391">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582571437321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582570341391" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582570341391">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582571437321" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582571437321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582570341391" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582570341391">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582571437321" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582571437321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582570341391" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582570341391">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582571437321" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582571437321">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582570341391" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582571437321" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

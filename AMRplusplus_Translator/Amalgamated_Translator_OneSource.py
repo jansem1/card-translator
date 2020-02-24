@@ -8,7 +8,7 @@
 # TODO: Remove "multi-drug resistance" if multi-group entries cannot be removed or changed to "multi-group" somehow
 # TODO: Create README file for program
 
-import numpy as np
+import os
 import pandas as pd
 from datetime import date
 from Bio import SeqIO
@@ -328,7 +328,15 @@ if errorPresent:
 #//endregion
 
 #//region Write final files
+translatedPath = './translations/'
+today = date.today()  # get current date
+if not os.path.exists(translatedPath):  # Creates a folder for translted files to go into if one is not already present
+    os.mkdir(translatedPath)
+filename = (translatedPath + "CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
+translatedFilename = (translatedPath + "CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
+
 print("Writing Annotation file")
+
 finalCols = ['header', 'type', 'class', 'mechanism', 'group']
 finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # annotation file
@@ -336,8 +344,7 @@ finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 #     print(finalAnn)
 
 # Write annotation file
-today = date.today()  # get current date
-filename = ("CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
+
 # Exports AMR++-ready annotation file and names it based on the present date
 
 # Export converted annotation file as csv
@@ -351,7 +358,6 @@ for i in dbToCull:
     headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
     del newHeaders[i]  # Remove culled entries from newHeaders
 
-translatedFilename = ("./CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
 # Write all entries to database file that are not on the cull list
 keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header
