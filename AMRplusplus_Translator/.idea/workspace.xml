@@ -4,10 +4,6 @@
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aro_categories_index.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/aro_categories_index.tsv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aro_index.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/aro_index.tsv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nucleotide_fasta_protein_homolog_model.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/nucleotide_fasta_protein_homolog_model.fasta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
   <component name="PyConsoleOptionsProvider">
     <option name="myUseExistingConsole" value="true" />
   </component>
-  <component name="RunManager" selected="Python.Amalgamated_Translator_OneSource (1)">
+  <component name="RunManager" selected="Python.Amalgamated_Translator">
     <configuration name="Amalgamated_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,10 +154,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Amalgamated_Translator_OneSource (1)" />
         <item itemvalue="Python.Amalgamated_Translator" />
-        <item itemvalue="Python.Amalgamated_Translator_OneSource" />
         <item itemvalue="Python.Annotation_Translator" />
+        <item itemvalue="Python.Amalgamated_Translator_OneSource (1)" />
+        <item itemvalue="Python.Amalgamated_Translator_OneSource" />
         <item itemvalue="Python.Amalgamated_Translator" />
       </list>
     </recent_temporary>
@@ -188,13 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Fixed -PRIME notation bugs">
-      <created>1578424384331</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1578424384331</updated>
     </task>
     <task id="LOCAL-00019" summary="removed finished TODO">
       <created>1578500954834</created>
@@ -532,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582556656143</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Removed _combined from filenames">
+      <created>1582560906407</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1582560906407</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -546,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished displaying database entries to be culled" />
     <MESSAGE value="End of day Feb 4 - cleaned up Todo, improved comments, got annotation file to output correct columns" />
     <MESSAGE value="End of Day Feb 5 - Translator now outputs (ostensibly) correct database and annotation file." />
     <MESSAGE value="End of Day Feb 5 - Translator now outputs (ostensibly) correct database and annotation file. Validation still required" />
@@ -571,7 +566,8 @@
     <MESSAGE value="Removed the commented-out &quot;Add model name to newAnn...&quot; section" />
     <MESSAGE value="Renamed &quot;cutLines&quot; and &quot;cutEntries&quot; to &quot;overlapLines&quot; and &quot;overlapEntries&quot;, respectively, to better reflect those variables' purposes" />
     <MESSAGE value="Added/improved comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added/improved comments" />
+    <MESSAGE value="Removed _combined from filenames" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed _combined from filenames" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580925921756">
@@ -586,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582556654185">
+    <state x="46" y="12" key="CommitChangelistDialog2" timestamp="1582560902737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582556654185" />
+    <state x="46" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582560902737" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -602,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="767" height="243" key="GridCell.Tab.0.bottom" timestamp="1582556791695">
+    <state width="1537" height="257" key="GridCell.Tab.0.bottom" timestamp="1582561241885">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582556791695" />
-    <state width="767" height="243" key="GridCell.Tab.0.center" timestamp="1582556791695">
+    <state width="1537" height="257" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582561241885" />
+    <state width="1537" height="257" key="GridCell.Tab.0.center" timestamp="1582561241885">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582556791695" />
-    <state width="767" height="243" key="GridCell.Tab.0.left" timestamp="1582556791695">
+    <state width="1537" height="257" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582561241885" />
+    <state width="1537" height="257" key="GridCell.Tab.0.left" timestamp="1582561241885">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582556791695" />
-    <state width="767" height="243" key="GridCell.Tab.0.right" timestamp="1582556791695">
+    <state width="1537" height="257" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582561241885" />
+    <state width="1537" height="257" key="GridCell.Tab.0.right" timestamp="1582561241885">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="767" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582556791695" />
+    <state width="1537" height="257" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582561241885" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

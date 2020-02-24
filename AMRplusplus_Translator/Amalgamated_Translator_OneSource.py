@@ -45,6 +45,9 @@ def Diff(li1, li2):  # entries that are in list 1 but not list 2
     return diff
 
 
+def entry_to_line(x): # Converts from index # to line #
+    return (x+1)*2 - 1
+
 def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
     # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
     # merged dataframe. pass which='both'to check those that are in both one and the other.
