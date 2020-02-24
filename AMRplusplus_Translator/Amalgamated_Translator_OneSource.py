@@ -217,16 +217,6 @@ annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here be
 # newAnn in the next section
 annotationGene = list(newAnn['Model Name'])
 
-# TODO: Does this need to be changed or can it be totally removed?
-# noAnnotationGene = []
-# noAnnotationAccession = []
-# for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of database
-#         # entries which lack an annotation so that those DB entries can be culled
-#     if aroIndex['Protein Accession'].loc[i] not in list(aroAnn['Protein Accession']) and \
-#             aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
-#         noAnnotationGene.append(aroIndex['Model Name'].loc[i])
-#         noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
-
 
 #//region Create AMR++-compliant header, concatenate it to newAnn, and put newAnn into the same order
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
