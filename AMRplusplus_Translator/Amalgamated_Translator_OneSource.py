@@ -2,7 +2,6 @@
 
 # TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
 #  those that match
-# TODO: remove "_combined" from default filenames once this version takes over from the original translator
 # TODO: Make the script operable from command line, and make it possible to change the names of the input files
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
@@ -17,8 +16,8 @@ import re
 import argparse
 
 # Define default filenames
-aroIndexFile = 'aro_index_combined.tsv'
-aroDBFile = "nucleotide_fasta_protein_homolog_model_combined.fasta"
+aroIndexFile = 'aro_index.tsv'
+aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
 
 #//region Parse commandline arguments to allow the user to input different filenames
 parser = argparse.ArgumentParser()
