@@ -2,12 +2,12 @@
 
 # TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
 #  those that match
+# TODO: remove "_combined" from default filenames once this version takes over from the original translator
 # TODO: Make the script operable from command line, and make it possible to change the names of the input files
 # TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
 #  cause false negatives. Fix.
 # TODO: Remove "multi-drug resistance" if multi-group entries cannot be removed or changed to "multi-group" somehow
 # TODO: Create README file for program
-
 
 import numpy as np
 import pandas as pd
@@ -17,20 +17,19 @@ import re
 import argparse
 
 # Define default filenames
-aroAnnFile = 'aro_categories_index.tsv'
-aroIndexFile = 'aro_index.tsv'
-aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
+aroIndexFile = 'aro_index_combined.tsv'
+aroDBFile = "nucleotide_fasta_protein_homolog_model_combined.fasta"
 
 #//region Parse commandline arguments to allow the user to input different filenames
 parser = argparse.ArgumentParser()
-parser.add_argument("-a", help='Allows user to define the filepath of the ARO annotation file')
+# parser.add_argument("-a", help='Allows user to define the filepath of the ARO annotation file')
 parser.add_argument("-i", help='Allows user to define the filepath of the ARO index file')
 parser.add_argument("-d", help='Allows user to define the filepath of the ARO database file')
 
 args = parser.parse_args()
-if isinstance(args.a, str):
-    aroAnnFile = args.a
-print("Annotation file: " + aroAnnFile)
+# if isinstance(args.a, str):
+#     aroAnnFile = args.a
+# print("Annotation file: " + aroAnnFile)
 if isinstance(args.i, str):
     aroIndexFile = args.i
 print("Index file: " + aroIndexFile)
@@ -77,7 +76,7 @@ def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind
 #//endregion
 
 # Import files
-aroAnn = pd.read_csv(aroAnnFile, sep='\t') # import annotation data
+# aroAnn = pd.read_csv(aroAnnFile, sep='\t') # import annotation data
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
 # them from the translated annotation list
 aroIndex = pd.read_csv(aroIndexFile, sep='\t')  # Read index file in order to compare gene  to gene family via
@@ -89,13 +88,14 @@ newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a Seqreco
 #//region Annotation Translation
 
 # Create new DataFrame containing AMR++-relevant data
-aroCols = ['Protein Accession', 'DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family']  # Important
+aroCols = ['Protein Accession', 'DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family',
+           'Model Name']  # Important
 # columns from ARO data.
-newAnn = aroAnn[aroCols].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
+newAnn = aroIndex[aroCols].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
 
-newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group']  # sets names of columns of new
+newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group', 'Model Name']  # sets names of columns of new
 # annotation file
 
 #//region -PRIME notation conversion
@@ -160,7 +160,7 @@ newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with no protein a
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
 dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len(cutEntries)
-percentDrop = round(100 * dropTotal/len(aroAnn), 2)
+percentDrop = round(100 * dropTotal/len(aroIndex), 2)
 print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
                                                                                                  "\n")
 #//endregion
@@ -168,45 +168,44 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 #//region Convert multi-drug resistant class columns to "multi-drug resistant" string
 # print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
 newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
-# print(newAnn.loc[newAnn['class'].str.contains('multi-drug resistant'),'class'])
-# exit()
+
 #//endregion
 # TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
 #  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
 #  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
 
 #//region Add "Model Name" to newAnn
+#
+# indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession and gene, respectively, from index file
+# # Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
+# # Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
+# compIndex = aroIndex[indexCols].copy()
+#
+# if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
+#     # no entries that are only in the annotation file
+#     print("\033[1;31;31m ERROR: Annotation is larger than index. Ensure you have the most recent version of both \033["
+#           "0;31;39m")
+#     exit()
+# # in the output file, "right_only" means that it is only in the index. 'left_only' should be empty, as the index
+# # should have all of the entries that are in the annotation, but not vice versa. Having things in 'right_only' is
+# # therefore fine, but having any in left_only means that the index does not contain all entries, and something has
+# # gone wrong with your download.
 
-indexCols = ['Protein Accession', 'Model Name']  # Columns for protein accession and gene, respectively, from index file
-# Gene column is pulled from Model Name, not ARO name, because Model Name is used to build database headers
-# Create dataframe from the index file to line up each entry's gene with its gene family by protein accession
-compIndex = aroIndex[indexCols].copy()
-
-if dataframe_merge(newAnn, compIndex, doc=False, which='left_only').index.size > 0:  # Checks that there are
-    # no entries that are only in the annotation file
-    print("\033[1;31;31m ERROR: Annotation is larger than index. Ensure you have the most recent version of both \033["
-          "0;31;39m")
-    exit()
-# in the output file, "right_only" means that it is only in the index. 'left_only' should be empty, as the index
-# should have all of the entries that are in the annotation, but not vice versa. Having things in 'right_only' is
-# therefore fine, but having any in left_only means that the index does not contain all entries, and something has
-# gone wrong with your download.
-
-mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
-if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
-    # after merge. Merge function sometimes produces duplicate entries
-    print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size)
-    with pd.option_context('display.max_columns', 10):
-        print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)])  # print entries
-        # duplicated by merging index and newAnn
-    print("number of duplicates:" + str(len(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep='first')])))
-    print("newAnn length: " + str(len(newAnn)))
-    print("mergeCheck length: " + str(len(mergeCheck)))
-    print("ERROR: Duplicate entries detected. Exiting translator")
-    exit()
-
-newAnn = dataframe_merge(newAnn, compIndex, doc=False, which='both', ind=False)  # add 'Model Name' to newAnn,
-# merging by protein accession
+# mergeCheck = dataframe_merge(newAnn, compIndex, doc=False, which='both')
+# if mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size > 0:  # check for duplicates
+#     # after merge. Merge function sometimes produces duplicate entries
+#     print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)].index.size)
+#     with pd.option_context('display.max_columns', 10):
+#         print(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep=False)])  # print entries
+#         # duplicated by merging index and newAnn
+#     print("number of duplicates:" + str(len(mergeCheck[mergeCheck.duplicated(subset=['Protein Accession'], keep='first')])))
+#     print("newAnn length: " + str(len(newAnn)))
+#     print("mergeCheck length: " + str(len(mergeCheck)))
+#     print("ERROR: Duplicate entries detected. Exiting translator")
+#     exit()
+#
+# newAnn = dataframe_merge(newAnn, compIndex, doc=False, which='both', ind=False)  # add 'Model Name' to newAnn,
+# # merging by protein accession
 
 
 #//endregion
@@ -218,21 +217,18 @@ annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here be
 # newAnn in the next section
 annotationGene = list(newAnn['Model Name'])
 
-noAnnotationGene = []
-noAnnotationAccession = []
-for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of database
-        # entries which lack an annotation so that those DB entries can be culled
-    if aroIndex['Protein Accession'].loc[i] not in list(aroAnn['Protein Accession']) and \
-            aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
-        noAnnotationGene.append(aroIndex['Model Name'].loc[i])
-        noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
+# TODO: Does this need to be changed or can it be totally removed?
+# noAnnotationGene = []
+# noAnnotationAccession = []
+# for i in range(0, aroIndex.index.size): # Get models names and DNA accessions of database
+#         # entries which lack an annotation so that those DB entries can be culled
+#     if aroIndex['Protein Accession'].loc[i] not in list(aroAnn['Protein Accession']) and \
+#             aroIndex['Protein Accession'].loc[i] not in list(protDupe['Protein Accession']):
+#         noAnnotationGene.append(aroIndex['Model Name'].loc[i])
+#         noAnnotationAccession.append(aroIndex['DNA Accession'].loc[i])
 
-overlapToCull = dataframe_merge(overlapRows, compIndex, ind=False)
-protDupeToCull = dataframe_merge(protDupe, compIndex, ind=False)
-# Adds 'Model Name' to the dataframes that contain unmatchable annotation entries so that the database can be searched
-# for entries whose annotations had been culled
 
-#//region Create AMR++-compliant header
+#//region Create AMR++-compliant header, concatenate it to newAnn, and put newAnn into the same order
 typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
 # annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
 typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be concatenated to
@@ -255,7 +251,7 @@ newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Acce
 #//region dbGenes and dbAccession Processor
 dbAccessions = []
 dbGenes = []
-p = re.compile('(gb\|)')  # find the string 'gb|'
+p = re.compile('(gb\|)')  # find the string 'gb|' in each database entry's header
 for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from database headers
     dbAccessions.append(p.sub('', aroDB[i].id))  # remove 'gb|' from each entry's header
     dbAccessions[i] = dbAccessions[i][:dbAccessions[i].index('|')]  # Cuts everything after the first |, leaving only
@@ -299,18 +295,18 @@ for i in range(0, len(annotationAccessions)):
             # order for the translated database
 for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose annotations have been culled so that
     # those database entries can be removed later
-    if dbGenes[i] in list(overlapToCull['Model Name']) and dbAccessions[i] in list(overlapToCull['DNA Accession']):
+    if dbGenes[i] in list(overlapRows['Model Name']) and dbAccessions[i] in list(overlapRows['DNA Accession']):
         # DB entries whose annotations were culled for overlapping DNA accession and gene family
         newHeaders[i] = overlapMessage
         dbToCull.append(i)
-    elif dbGenes[i] in list(protDupeToCull['Model Name']) and dbAccessions[i] in list(protDupeToCull['DNA Accession']):
+    elif dbGenes[i] in list(protDupe['Model Name']) and dbAccessions[i] in list(protDupe['DNA Accession']):
         # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
-    elif dbGenes[i] in noAnnotationGene and dbAccessions[i] in noAnnotationAccession:
-        # DB entries with no annotation entry
-        newHeaders[i] = noAnnotationMessage
-        dbToCull.append(i)
+    # elif dbGenes[i] in noAnnotationGene and dbAccessions[i] in noAnnotationAccession:
+    #     # DB entries with no annotation entry
+    #     newHeaders[i] = noAnnotationMessage
+    #     dbToCull.append(i)
 
 # x = 1 # test value that determines which annotation/databse entry pair to print
 # print(aroDB[x].description)  # print original id. If print(aroDB[x].id) matches its DNA Accession with
@@ -332,33 +328,33 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
     # (due to culling) or erroneously
     if newHeaders[i] == overlapMessage:
         print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its annotation's DNA "
-                                                               "Accession and "
-                                                         "gene family overlapped with another annotation")
-        print(aroDB[i].description)
+                                                               "Accession and gene family overlapped with another "
+                                                                 "annotation")
+        # print(aroDB[i].description)
     if newHeaders[i] == noAnnotationMessage:
         print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because it has no corresponding annotation")
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
     if newHeaders[i] == protDupeMessage:  # This message shouldn't appear for current CARD data (Feb 2020), but will be
         # left in in case new data is added
         print("Database entry on line " + str((i + 1) * 2 - 1) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str((i + 1) * 2 - 1) + " has not been given a value")
         print("DEBUG: index = " + str(i))
-        # print(aroDB[i].description)
+        print(aroDB[i].description)
         errorPresent = True
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
-print("Line numbers of culled entries: ")
+print("Line numbers of culled database entries: ")
 culledDB = [((line+1)*2-1) for line in dbToCull]
 print(culledDB)
 
 if errorPresent:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled. No files "
-          "generated.")
+          "generated")
     exit()
 #//endregion
 
