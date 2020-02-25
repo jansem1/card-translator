@@ -4,6 +4,8 @@
 # Dataframe: [Sequence, CARD gene fam, MEGARes group]
 # - Figure out where the families and groups overlap - bar charts
 
+# TODO: Switch to translated CARD database? That's what's actually being compared
+
 import pandas as pd
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
@@ -16,18 +18,24 @@ def importFasta(file):  # Pandas doesn't have its own fasta importer, so we brin
         identifiers = []
         sequences = []
         for title, sequence in SimpleFastaParser(fasta_file):
-            identifiers.append(title.split(None, 1)[0])  # First word is ID
+            identifiers.append(title)  # First word is ID
             sequences.append(sequence)
     d = list(zip(identifiers,sequences))
     return pd.DataFrame(d, columns=['header', 'sequence'])
 
 
-def get_groups (data, grouploc):  # Extracts group from header
+def get_groups (data, grouploc, species=False):  # Extracts group from header
     groups = data['header'].str.split('|')
-    f = lambda x: x[grouploc]  # Megares and CARD have their groups at different locations in the header,
-    # so the group's location must be specified
+    f = lambda x: x[grouploc]  # Megares and CARD have their groups at different locations in the
+    # header, so the group's location must be specified.
     groups = groups.apply(f)
     groups.columns = ['group']
+
+    if species:  # Only CARD has species info
+        g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
+        # have spaces in them
+        groups = groups.apply(g)
+
     out = data.merge(groups, left_index=True, right_index=True)
     out.columns = ['header', 'sequence', 'group']  # The merge changes the header and group column names for some
     # reason, so they have to be changed back
@@ -60,12 +68,10 @@ cardData = importFasta(cardDataFile)
 # Columns are now 0: Header, 1: Sequence
 
 # Pull out group/family and append it to the end of the dataframe
-cardData = get_groups(cardData, 5)
+cardData = get_groups(cardData, 5, species=True)
 megData = get_groups(megData, 4)
 # Columns are now 0: Header, 1: Sequence, 2: group
 
-# print(cardData)
-
 cardData = prime_notation(cardData)
-
-print(cardData)
+pd.set_option('display.max_rows', None, 'display.max_columns', None)
+print(cardData['header'].loc[2507])
