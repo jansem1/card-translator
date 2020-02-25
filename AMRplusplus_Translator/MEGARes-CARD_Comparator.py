@@ -26,9 +26,6 @@ def get_groups (data, grouploc):  # Extracts group from header
     # so the group's location must be specified
     groups = groups.apply(f)
     groups.columns = ['group']
-    return groups
-
-def add_groups (data, groups):
     out = data.merge(groups, left_index=True, right_index=True)
     out.columns = ['header', 'sequence', 'group']  # The merge changes the header and group column names for some
     # reason, so they have to be changed back
@@ -41,12 +38,7 @@ megData = importFasta(megDataFile)
 cardData = importFasta(cardDataFile)
 
 # Pull out group/family
-cardGroups = get_groups(cardData, 5)
-megGroups = get_groups(megData, 4)
-
-# Add that family in its own column
-cardData = add_groups(cardData, cardGroups)
-megData = add_groups(megData, megGroups)
-
+cardData = get_groups(cardData, 5)
+megData = get_groups(megData, 4)
 
 print(cardData)
