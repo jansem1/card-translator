@@ -162,13 +162,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00027" summary="TODO edit">
-      <created>1579551381604</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1579551381604</updated>
-    </task>
     <task id="LOCAL-00028" summary="Added TODO and comments">
       <created>1579720655917</created>
       <option name="number" value="00028" />
@@ -505,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582576321663</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Streamlined group extraction into a single function instead of two">
+      <created>1582645915513</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1582645915513</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -519,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved multi-drug conversion below annotation checking to prevent NaN issues" />
     <MESSAGE value="Removed commented-out code, improved documentation, set newAnn merge doc=True to doc=False to prevent confusing files being generated for the user" />
     <MESSAGE value="Removed commented-out code and improved documentation" />
     <MESSAGE value="Added output for a list of culled entries to make it easier for the user to go back and find relevant entries" />
@@ -544,7 +543,8 @@
     <MESSAGE value="intro print edit" />
     <MESSAGE value="Translator now creates folder for translated files to prevent clutter" />
     <MESSAGE value="Comparator now pulls database headers and sequences and gets group data from headers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comparator now pulls database headers and sequences and gets group data from headers" />
+    <MESSAGE value="Streamlined group extraction into a single function instead of two" />
+    <option name="LAST_COMMIT_MESSAGE" value="Streamlined group extraction into a single function instead of two" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582562596140">
@@ -559,10 +559,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="500" y="0" key="CommitChangelistDialog2" timestamp="1582576317163">
+    <state x="500" y="0" key="CommitChangelistDialog2" timestamp="1582645906903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="500" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582576317163" />
+    <state x="500" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582645906903" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1578422293842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -575,22 +575,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582645857646">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582646665760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582645857646" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582645857646">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582646665760" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582646665760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582645857646" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582645857646">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582646665760" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582646665760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582645857646" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582645857646">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582646665760" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582646665760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582645857646" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582646665760" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

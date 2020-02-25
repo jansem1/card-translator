@@ -1,4 +1,3 @@
-# - Add gene families/groups to dataframe
 # - Do -PRIME notation conversion on CARD data
 # - Connect each sequence to its CARD/MEGARes gene family - 2 dataframes
 # Merge the dataframes along the sequence to produce a final dataframe:
@@ -7,6 +6,9 @@
 
 import pandas as pd
 from Bio.SeqIO.FastaIO import SimpleFastaParser
+
+#//region Define functions
+
 
 def importFasta(file):  # Pandas doesn't have its own fasta importer, so we bring in fasta data with SeqIO and
     # convert it to a dataframe
@@ -31,14 +33,39 @@ def get_groups (data, grouploc):  # Extracts group from header
     # reason, so they have to be changed back
     return out
 
+
+def prime_notation(data):  # Converts from (#') to #-PRIME
+    # Removes parentheses in gene family and converts ' to -PRIME and '' to -DPRIME. eg. AAC(6') = AAC6-PRIME
+    data['group'] = data['group'].str.replace('(?<! )\(', '')
+    # replaces open paren only when within a word
+    data['group'] = data['group'].str.replace('\'\'\)$', '-DPRIME')
+    data['group'] = data['group'].str.replace('\'\)$', '-PRIME')  #
+    # Replace ' or '' when next to a close paren and at the end of a line (single gene family)
+    data['group'] = data['group'].str.replace('\'\'\);', '-DPRIME;')
+    data['group'] = data['group'].str.replace('\'\);', '-PRIME;')
+    # Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
+    data['group'] = data['group'].str.replace('(?<=\d)\)$', '')
+    data['group'] = data['group'].str.replace('(?<=\d)\);', ';')
+    # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
+    return data
+
+#//endregion
+
+
 megDataFile = 'megares_full_database_v2.00.fasta'
 cardDataFile = 'nucleotide_fasta_protein_homolog_model.fasta'
 
 megData = importFasta(megDataFile)
 cardData = importFasta(cardDataFile)
+# Columns are now 0: Header, 1: Sequence
 
-# Pull out group/family
+# Pull out group/family and append it to the end of the dataframe
 cardData = get_groups(cardData, 5)
 megData = get_groups(megData, 4)
+# Columns are now 0: Header, 1: Sequence, 2: group
+
+# print(cardData)
+
+cardData = prime_notation(cardData)
 
 print(cardData)
