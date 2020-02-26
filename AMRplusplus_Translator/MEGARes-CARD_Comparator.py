@@ -4,11 +4,10 @@
 # Dataframe: [Sequence, CARD gene fam, MEGARes group]
 # - Figure out where the families and groups overlap - bar charts
 
-# TODO: Switch to translated CARD database? That's what's supposedly being compared
-
 import pandas as pd
 import numpy as np
 from Bio.SeqIO.FastaIO import SimpleFastaParser
+from datetime import date
 
 #//region Define functions
 
@@ -25,20 +24,20 @@ def importFasta(file):  # Pandas doesn't have its own fasta importer, so we brin
     return pd.DataFrame(d, columns=['header', 'sequence'])
 
 
-def get_groups (data, grouploc, species=False):  # Extracts group from header
-    groups = data['header'].str.split('|')
-    f = lambda x: x[grouploc]  # Megares and CARD have their groups at different locations in the
-    # header, so the group's location must be specified.
-    groups = groups.apply(f)
-    groups.columns = ['group']
+def get_bins (data, binloc, species=False):  # Extracts group from header
 
-    if species:  # Only CARD has species info
+    bins = data['header'].str.split('|')
+    f = lambda x: x[binloc]  # Megares and CARD have their bins at different locations in the
+    # header, so the group's location must be specified.
+    bins = bins.apply(f)
+    bins.columns = ['bins']
+    if species:  # Only CARD's original database has species info
         g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
         # have spaces in them
-        groups = groups.apply(g)
+        bins = bins.apply(g)
 
-    out = data.merge(groups, left_index=True, right_index=True)
-    out.columns = ['header', 'sequence', 'group']  # The merge changes the header and group column names for some
+    out = data.merge(bins, left_index=True, right_index=True)
+    out.columns = ['header', 'sequence', 'bins']  # The merge changes the header and group column names for some
     # reason, so they have to be changed back
     return out
 
@@ -47,21 +46,26 @@ def get_groups (data, grouploc, species=False):  # Extracts group from header
 
 
 megDataFile = 'megares_full_database_v2.00.fasta'
-cardDataFile = 'nucleotide_fasta_protein_homolog_model.fasta'
+
+translatedPath = './translations/'
+today = date.today()
+cardDataFile = (translatedPath + "CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
 megData = importFasta(megDataFile)
 cardData = importFasta(cardDataFile)
 # Columns are now 0: Header, 1: Sequence
 
+print(cardData['header'].loc[0])
+
 # Pull out group/family and append it to the end of the dataframe
-cardData = get_groups(cardData, 5, species=True)
-megData = get_groups(megData, 4)
-# Columns are now 0: Header, 1: Sequence, 2: group
+cardData = get_bins(cardData, 4)
+megData = get_bins(megData, 4)
+# Columns are now 0: Header, 1: Sequence, 2: bin
 
 # Create column for corresponding group/family
 cardData['in group'] = ""
 megData['in family'] = ""
-# Columns are now 0: Header, 1: Sequence, 2: group, 3: in {bin}
+# Columns are now 0: Header, 1: Sequence, 2: bin, 3: in {bin}
 
 x = 0
 for i in cardData.index:
@@ -81,8 +85,8 @@ for i in megData.index:
     print(i)
     for n in cardData.index:
         if cardData['sequence'].loc[n] == megData['sequence'].loc[i]:
-            cardData['in group'].loc[n] = megData['group'].loc[i]
-            megData['in family'].loc[i] = cardData['group'].loc[n]
+            cardData['in group'].loc[n] = megData['bins'].loc[i]
+            megData['in family'].loc[i] = cardData['bins'].loc[n]
 # TODO: Find a way to do this with generators. This is way too slow.
 # //endregion
 
