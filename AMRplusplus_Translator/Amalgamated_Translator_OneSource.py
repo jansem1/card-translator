@@ -273,6 +273,12 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
         # DB entries whose annotations were culled for overlapping DNA accession and gene family
         newHeaders[i] = overlapMessage
         dbToCull.append(i)
+        # print(dbAccessions[i])
+        # print(newHeaders[i-1])
+        # print(newHeaders[i])
+        # print(dbToCull)
+        # print(aroDB[i].id)
+        # exit()
     elif dbGenes[i] in list(protDupe['Model Name']) and dbAccessions[i] in list(protDupe['DNA Accession']):
         # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
@@ -302,11 +308,10 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         # but will be left in in case new data is added
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
-        # print(aroDB[i].description)
+        print(aroDB[i].description)
     elif newHeaders[i] == nullEntryMessage:
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation contained a "
                                                                   "null value")
-
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
@@ -354,10 +359,16 @@ print("DONE")
 # Write Database file and cull problem headers
 print("Writing Database file")
 headerToCull = []
-for i in dbToCull:
+
+for i in sorted(dbToCull, reverse=True):  # Deletes entries in reverse order to prevent changing the indices of the
+    # list as you delete them
     headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
     del newHeaders[i]  # Remove culled entries from newHeaders
 
+wrongHeaders = [protDupeMessage,nullEntryMessage,noAnnotationMessage,overlapMessage]
+if any(item in wrongHeaders for item in newHeaders):
+    print("ERROR: newHeaders is not losing toCullMessages")
+    exit()
 
 # Write all entries to database file that are not on the cull list
 keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header
