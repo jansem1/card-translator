@@ -184,13 +184,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00034" summary="Updated CARD data, imported protein accession to be able to attribute genes to gene families. Translator cannot produce correct output at this stage">
-      <created>1580332623626</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1580332623626</updated>
-    </task>
     <task id="LOCAL-00035" summary="Combined translators into Amalgamated_Translator and began merging the code">
       <created>1580411005293</created>
       <option name="number" value="00035" />
@@ -527,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582816496691</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="replaced nested for loops with pd.merge">
+      <created>1582818404508</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1582818404508</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added comments for parser" />
     <MESSAGE value="Added comments in file importer" />
     <MESSAGE value="Checked output annotation file for missed -PRIME conversion, found none, so removed &quot;Is this all cases?&quot; TODO" />
     <MESSAGE value="Added todo to undo the replacement of multi-drug resistant class entries with &quot;Multi-Drug resistance&quot;" />
@@ -566,25 +565,26 @@
     <MESSAGE value="Fixed culling message headers being applied to new database because new headers were being deleted in order, changing the indices of their list with every loop" />
     <MESSAGE value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
     <MESSAGE value="Assign groups to matching families via nested for loops" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assign groups to matching families via nested for loops" />
+    <MESSAGE value="replaced nested for loops with pd.merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="replaced nested for loops with pd.merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582731113331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1582731113331" />
-    <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581608346975">
+    <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582818648544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1581608346975" />
+    <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1582818648544" />
     <state x="-4" y="138" key="#xdebugger.XInspectDialog" timestamp="1580833854222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="300" y="12" key="CommitChangelistDialog2" timestamp="1582816495776">
+    <state x="300" y="12" key="CommitChangelistDialog2" timestamp="1582818403510">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="300" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582816495776" />
+    <state x="300" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582818403510" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -601,22 +601,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582818157315">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582820651654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582818157315" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582818157314">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582820651654" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582820651654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582818157314">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582820651654" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582820651654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582818157314">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582820651654" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582820651654">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582820651654" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -649,10 +649,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1581103852388" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582729687323">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582818786694">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582729687323" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582818786694" />
     <state x="322" y="149" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580832759054">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

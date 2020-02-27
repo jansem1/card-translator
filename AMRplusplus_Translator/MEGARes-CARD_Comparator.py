@@ -47,7 +47,6 @@ def get_bins (data, binloc, source, species=False):  # Extracts group from heade
 
 #//endregion
 
-
 megDataFile = 'megares_full_database_v2.00.fasta'
 
 translatedPath = './translations/'
@@ -58,17 +57,10 @@ megData = importFasta(megDataFile)
 cardData = importFasta(cardDataFile)
 # Columns are now 0: Header, 1: Sequence
 
-print(cardData['header'].loc[0])
-
 # Pull out group/family and append it to the end of the dataframe
 cardData = get_bins(cardData, 4, 'card')
 megData = get_bins(megData, 4, 'meg')
-# Columns are now 0: Header, 1: Sequence, 2: bin
-print(cardData.loc[0])
-# Create column for corresponding group/family
-# cardData['in group'] = ""
-# megData['in family'] = ""
-# Columns are now 0: Header, 1: Sequence, 2: bin, 3: in {bin}
+# Columns are now 0: Header, 1: Sequence, 2: {database}_bin
 
 x = 0
 for i in cardData.index:
@@ -80,8 +72,6 @@ megInCard = (str(round(100 * x/len(megData.index), 2)))
 print("Percent of CARD homolog model sequences in MEGARes: " + cardInMeg + "%")
 print("Percent of MEGARes sequences in CARD homolog model: " + megInCard + "%")
 
-
-
 #//region Find all group/family matches
 
 mergedDatabases = pd.merge(left=cardData, right=megData, on='sequence')
@@ -90,3 +80,16 @@ mergedDatabases.rename(columns={'header_x': 'card_header', 'header_y': 'meg_head
 #//endregion
 
 print(mergedDatabases)
+
+# TODO: Create 2 dataframes - 1 contains one instance of each MEG group and all the families that fall into it,
+# 2 contains one instance of each CARD family and all the groups that fall into it.
+# TODO: Delete duplicate bins (x) and duplicate bins of bins (y)
+
+# for  i in mergedDatabases.index:
+goneThrough = []
+card_binsOfBins = []
+for i in mergedDatabases.index:
+    if mergedDatabases['card_bins'].loc[i] not in goneThrough:
+        print(mergedDatabases['card_bins'].loc[i])
+        print(mergedDatabases['meg_bins'].loc[mergedDatabases['card_bins'] == mergedDatabases['card_bins'].loc[i]].tolist())
+    goneThrough.append(mergedDatabases['card_bins'].loc[i])
