@@ -68,9 +68,19 @@ megData['in family'] = ""
 # Columns are now 0: Header, 1: Sequence, 2: bin, 3: in {bin}
 
 x = 0
+cardToKeep = []
+megToKeep = []
 for i in cardData.index:
     if cardData['sequence'].loc[i] in megData['sequence'].tolist():
         x+=1
+        cardToKeep.append(i)  # Only want to keep entries that are in both and ignore all others
+for i in megData.index:
+    if megData['sequence'].loc[i] in cardData['sequence'].tolist():
+        megToKeep.append(i)
+
+cardKept = cardData.loc[cardToKeep].copy()
+megKept = megData.loc[megToKeep].copy()
+
 
 cardInMeg = (str(round(100 * x/len(cardData.index), 2)))
 megInCard = (str(round(100 * x/len(megData.index), 2)))
@@ -81,13 +91,13 @@ print("Percent of MEGARes sequences in CARD homolog model: " + megInCard + "%")
 # cardData['in group'] = np.where(cardData['sequence'] == megData['sequence'], 'True', 'False')
 # megData['in family'] = np.where(cardData['sequence'] == megData['sequence'], 'True', 'False')
 
-for i in megData.index:
+for i in megKept.index:
     print(i)
-    for n in cardData.index:
-        if cardData['sequence'].loc[n] == megData['sequence'].loc[i]:
-            cardData['in group'].loc[n] = megData['bins'].loc[i]
-            megData['in family'].loc[i] = cardData['bins'].loc[n]
+    for n in cardKept.index:
+        if cardKept['sequence'].loc[n] == megKept['sequence'].loc[i]:
+            cardKept['in group'].loc[n] = megKept['bins'].loc[i]
+            megKept['in family'].loc[i] = cardKept['bins'].loc[n]
 # TODO: Find a way to do this with generators. This is way too slow.
 # //endregion
 
-print(cardData)
+print(cardKept)
