@@ -44,6 +44,34 @@ def get_bins (data, binloc, source, species=False):  # Extracts group from heade
     # reason, so they have to be changed back
     return out
 
+def bin_overlap(data, left, right):
+    # TODO: THIS IS BROKEN. SPITS OUT WRONG MATCHES SOMTIMES, BUT NOT ALWAYS Eg. HERA is not included
+    left_goneThrough = []
+    # right_goneThrough = []
+    left_binsOfBins = []
+    right_containedBins = []
+    # rightdoubles = []
+    # leftdoubles = []
+    for i in data.index:
+        leftFam = data[left + '_bins'].loc[i]
+        rightGroup = data[right + '_bins'].loc[data[left + '_bins'] == leftFam].tolist()  # Finds
+        # all
+        # instances of MEGARes groups that overlap with each CARD family
+        if leftFam not in left_goneThrough:
+            left_binsOfBins.append(leftFam)
+            right_containedBins.append(rightGroup)
+            # if rightGroup in right_goneThrough:
+            #     rightdoubles.append(rightGroup)
+            #     leftdoubles.append(leftFam)
+            # if rightGroup not in right_goneThrough:
+            #     right_goneThrough.append(rightGroup)
+        left_goneThrough.append(data[left + '_bins'].loc[i])
+    df = {left: left_binsOfBins, right: right_containedBins}
+    return pd.DataFrame(df)
+
+
+removeDuplicates = lambda x: list(dict.fromkeys(x))
+# TODO: This breaks apart card families into unique characters. Stop that.
 
 #//endregion
 
@@ -79,17 +107,32 @@ mergedDatabases.rename(columns={'header_x': 'card_header', 'header_y': 'meg_head
 
 #//endregion
 
-print(mergedDatabases)
-
 # TODO: Create 2 dataframes - 1 contains one instance of each MEG group and all the families that fall into it,
-# 2 contains one instance of each CARD family and all the groups that fall into it.
+#  2 contains one instance of each CARD family and all the groups that fall into it.
 # TODO: Delete duplicate bins (x) and duplicate bins of bins (y)
 
-# for  i in mergedDatabases.index:
-goneThrough = []
-card_binsOfBins = []
-for i in mergedDatabases.index:
-    if mergedDatabases['card_bins'].loc[i] not in goneThrough:
-        print(mergedDatabases['card_bins'].loc[i])
-        print(mergedDatabases['meg_bins'].loc[mergedDatabases['card_bins'] == mergedDatabases['card_bins'].loc[i]].tolist())
-    goneThrough.append(mergedDatabases['card_bins'].loc[i])
+# print(mergedDatabases.loc[mergedDatabases['meg_bins'] == 'PNGM'])
+print(type(mergedDatabases['meg_bins'] == 'PNGM'))
+# exit()
+
+cardOverlap = bin_overlap(mergedDatabases, 'card', 'meg')
+cardOverlap['meg'] = cardOverlap['meg'].apply(removeDuplicates)
+print(cardOverlap)
+# exit()
+# print(type(cardOverlap['meg'].loc[216]))
+# print(cardOverlap['meg'].loc[216])
+# print(cardOverlap['meg'].loc[216] == ['PNGM'])
+# # exit()
+
+# print(type(cardOverlap['meg'] == 'PNGM'))
+# print(cardOverlap.loc[cardOverlap['meg'] == ['PNGM']])
+# exit()
+# TODO: bin_overlap is causing issues and unclear if it's aligning properly. Try to check by looking for all the
+#  entries in cardOverlap that contain "HERA" in the 'meg' column. That works fine in mergedDatabases, but not in
+#  cardOverlap.
+megOverlap = bin_overlap(mergedDatabases, 'meg', 'card')
+megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
+print(megOverlap)
+exit()
+# print(len(megOverlap['card']))
+print(megOverlap.loc[megOverlap['card'].map(len) > 1])  # Finds MEG entries with more than one family
