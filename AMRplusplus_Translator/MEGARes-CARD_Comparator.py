@@ -9,8 +9,10 @@ import numpy as np
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 from datetime import date
 
+# Dataframe display options
+pd.options.display.width = 0
+pd.options.display.max_rows = 50
 #//region Define functions
-
 
 def importFasta(file):  # Pandas doesn't have its own fasta importer, so we bring in fasta data with SeqIO and
     # convert it to a dataframe
@@ -24,20 +26,21 @@ def importFasta(file):  # Pandas doesn't have its own fasta importer, so we brin
     return pd.DataFrame(d, columns=['header', 'sequence'])
 
 
-def get_bins (data, binloc, species=False):  # Extracts group from header
+def get_bins (data, binloc, source, species=False):  # Extracts group from header
 
     bins = data['header'].str.split('|')
     f = lambda x: x[binloc]  # Megares and CARD have their bins at different locations in the
     # header, so the group's location must be specified.
     bins = bins.apply(f)
-    bins.columns = ['bins']
+    bins.columns = [source + '_bins']
     if species:  # Only CARD's original database has species info
         g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
         # have spaces in them
         bins = bins.apply(g)
 
     out = data.merge(bins, left_index=True, right_index=True)
-    out.columns = ['header', 'sequence', 'bins']  # The merge changes the header and group column names for some
+    out.columns = ['header', 'sequence', source + '_bins']  # The merge changes the header and group column names for
+    # some
     # reason, so they have to be changed back
     return out
 
@@ -58,46 +61,32 @@ cardData = importFasta(cardDataFile)
 print(cardData['header'].loc[0])
 
 # Pull out group/family and append it to the end of the dataframe
-cardData = get_bins(cardData, 4)
-megData = get_bins(megData, 4)
+cardData = get_bins(cardData, 4, 'card')
+megData = get_bins(megData, 4, 'meg')
 # Columns are now 0: Header, 1: Sequence, 2: bin
-
+print(cardData.loc[0])
 # Create column for corresponding group/family
-cardData['in group'] = ""
-megData['in family'] = ""
+# cardData['in group'] = ""
+# megData['in family'] = ""
 # Columns are now 0: Header, 1: Sequence, 2: bin, 3: in {bin}
 
 x = 0
-cardToKeep = []
-megToKeep = []
 for i in cardData.index:
     if cardData['sequence'].loc[i] in megData['sequence'].tolist():
         x+=1
-        cardToKeep.append(i)  # Only want to keep entries that are in both and ignore all others
-for i in megData.index:
-    if megData['sequence'].loc[i] in cardData['sequence'].tolist():
-        megToKeep.append(i)
-
-cardKept = cardData.loc[cardToKeep].copy()
-megKept = megData.loc[megToKeep].copy()
-
 
 cardInMeg = (str(round(100 * x/len(cardData.index), 2)))
 megInCard = (str(round(100 * x/len(megData.index), 2)))
 print("Percent of CARD homolog model sequences in MEGARes: " + cardInMeg + "%")
 print("Percent of MEGARes sequences in CARD homolog model: " + megInCard + "%")
 
+
+
 #//region Find all group/family matches
-# cardData['in group'] = np.where(cardData['sequence'] == megData['sequence'], 'True', 'False')
-# megData['in family'] = np.where(cardData['sequence'] == megData['sequence'], 'True', 'False')
 
-for i in megKept.index:
-    print(i)
-    for n in cardKept.index:
-        if cardKept['sequence'].loc[n] == megKept['sequence'].loc[i]:
-            cardKept['in group'].loc[n] = megKept['bins'].loc[i]
-            megKept['in family'].loc[i] = cardKept['bins'].loc[n]
-# TODO: Find a way to do this with generators. This is way too slow.
-# //endregion
+mergedDatabases = pd.merge(left=cardData, right=megData, on='sequence')
+mergedDatabases.rename(columns={'header_x': 'card_header', 'header_y': 'meg_header'}, inplace=True)
 
-print(cardKept)
+#//endregion
+
+print(mergedDatabases)

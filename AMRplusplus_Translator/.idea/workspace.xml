@@ -184,13 +184,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00033" summary="re-fixed typecol bug">
-      <created>1580232683876</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1580232683876</updated>
-    </task>
     <task id="LOCAL-00034" summary="Updated CARD data, imported protein accession to be able to attribute genes to gene families. Translator cannot produce correct output at this stage">
       <created>1580332623626</created>
       <option name="number" value="00034" />
@@ -527,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582743607676</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Assign groups to matching families via nested for loops">
+      <created>1582816496691</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1582816496691</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Argparse to allow the script to be run from command line" />
     <MESSAGE value="Added comments for parser" />
     <MESSAGE value="Added comments in file importer" />
     <MESSAGE value="Checked output annotation file for missed -PRIME conversion, found none, so removed &quot;Is this all cases?&quot; TODO" />
@@ -566,7 +565,8 @@
     <MESSAGE value="find overlapping families/groups using nested for loops. Currently too slow." />
     <MESSAGE value="Fixed culling message headers being applied to new database because new headers were being deleted in order, changing the indices of their list with every loop" />
     <MESSAGE value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
+    <MESSAGE value="Assign groups to matching families via nested for loops" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assign groups to matching families via nested for loops" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582731113331">
@@ -581,10 +581,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="646" y="12" key="CommitChangelistDialog2" timestamp="1582743606850">
+    <state x="300" y="12" key="CommitChangelistDialog2" timestamp="1582816495776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="646" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582743606850" />
+    <state x="300" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582816495776" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -601,22 +601,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582816056258">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1582818157315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582816056258" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582816056258">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582818157315" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1582818157314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582816056258" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582816056258">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1582818157314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582816056258" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582816056258">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1582818157314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582816056258" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582818157314" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1580839841086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
