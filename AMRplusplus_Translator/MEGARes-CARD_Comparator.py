@@ -119,21 +119,15 @@ print(type(mergedDatabases['meg_bins'] == 'PNGM'))
 cardOverlap = bin_overlap(mergedDatabases, 'card', 'meg')
 cardOverlap['meg'] = cardOverlap['meg'].apply(removeDuplicates)
 print(cardOverlap)
-# exit()
-# print(type(cardOverlap['meg'].loc[216]))
-# print(cardOverlap['meg'].loc[216])
-# print(cardOverlap['meg'].loc[216] == ['PNGM'])
-# # exit()
 
-# print(type(cardOverlap['meg'] == 'PNGM'))
-# print(cardOverlap.loc[cardOverlap['meg'] == ['PNGM']])
+searchgroup = 'AAC6-PRIME'  # MEG group to search for
+df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
+# instances of that group that are present in cardOverlap
+print(cardOverlap.loc[df2.index])
 # exit()
-# TODO: bin_overlap is causing issues and unclear if it's aligning properly. Try to check by looking for all the
-#  entries in cardOverlap that contain "HERA" in the 'meg' column. That works fine in mergedDatabases, but not in
-#  cardOverlap.
 megOverlap = bin_overlap(mergedDatabases, 'meg', 'card')
 megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 print(megOverlap)
-exit()
+# exit()
 # print(len(megOverlap['card']))
 print(megOverlap.loc[megOverlap['card'].map(len) > 1])  # Finds MEG entries with more than one family
