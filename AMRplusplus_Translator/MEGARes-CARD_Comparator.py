@@ -61,9 +61,8 @@ def bin_overlap(data, left, right):
     return pd.DataFrame(df)
 
 
-
 removeDuplicates = lambda x: list(dict.fromkeys(x))
-# TODO: This breaks apart card families into unique characters. Stop that.
+
 
 #//endregion
 
@@ -99,25 +98,19 @@ mergedDatabases.rename(columns={'header_x': 'card_header', 'header_y': 'meg_head
 
 #//endregion
 
-# TODO: Create 2 dataframes - 1 contains one instance of each MEG group and all the families that fall into it,
-#  2 contains one instance of each CARD family and all the groups that fall into it.
-# TODO: Delete duplicate bins (x) and duplicate bins of bins (y)
-
-# print(mergedDatabases.loc[mergedDatabases['meg_bins'] == 'PNGM'])
-print(type(mergedDatabases['meg_bins'] == 'PNGM'))
-# exit()
-
+# Get card-meg direction
 cardOverlap = bin_overlap(mergedDatabases, 'card', 'meg')
 cardOverlap['meg'] = cardOverlap['meg'].apply(removeDuplicates)
 print(cardOverlap)
 
-
-# searchgroup = 'AAC6-PRIME'  # MEG group to search for
-# df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
-# # instances of that group that are present in cardOverlap
-# print(cardOverlap.loc[df2.index])
-
+# Get meg-card direction
 megOverlap = bin_overlap(mergedDatabases, 'meg', 'card')
 megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 print(megOverlap)
 print(megOverlap.loc[megOverlap['card'].map(len) > 1])  # Finds MEG entries with more than one family
+
+# DEBUG: Search for specific groups to test that bin_overlap is working properly
+# searchgroup = 'AAC6-PRIME'  # MEG group to search for
+# df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
+# # instances of that group that are present in cardOverlap
+# print(cardOverlap.loc[df2.index])
