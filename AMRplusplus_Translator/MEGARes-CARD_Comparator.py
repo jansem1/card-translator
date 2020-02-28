@@ -5,6 +5,7 @@
 # - Figure out where the families and groups overlap - bar charts
 
 #TODO: Remove Date stamping when translator is confirmed
+# TODO: Get list of families in CARD that aren't in MEGARes and vice versa
 
 import pandas as pd
 import numpy as np
@@ -28,14 +29,15 @@ def importFasta(file):  # Pandas doesn't have its own fasta importer, so we brin
     return pd.DataFrame(d, columns=['header', 'sequence'])
 
 
-def get_bins (data, binloc, source, species=False):  # Extracts group from header
-
+def get_bins (data, binloc, source, species=False):  # Extracts family/group from header
     bins = data['header'].str.split('|')
-    f = lambda x: x[binloc]  # Megares and CARD have their bins at different locations in the
-    # header, so the group's location must be specified.
+    f = lambda x: x[binloc]  # Legacy. Megares and original CARD can have their bins at different locations in the
+    # header, so the group's location must be specified. Tranlsated CARD has its bins in the same location,
+    # so this is not currently needed.
     bins = bins.apply(f)
     bins.columns = [source + '_bins']
-    if species:  # Only CARD's original database has species info
+    if species:  # Legacy. Only CARD's original database has species info. This is not necessary for translated CARD or
+        # MEGARes
         g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
         # have spaces in them
         bins = bins.apply(g)
@@ -51,8 +53,6 @@ def bin_overlap(data, left, right):
     left_binsOfBins = []  # X value. Contains groups/families that have overlapping families/groups
     right_containedBins = []  # Y value. Contains families/groups that overlap with groups/families
     numSequences = []
-    # TODO: Add a case for 0 overlapping bins. WATCH OUT to only include entries whose sequence is in both CARD and
-    #  MEGARes
     for i in data.index:
         leftFam = data[left + '_bins'].loc[i]
         rightGroup = data[right + '_bins'].loc[data[left + '_bins'] == leftFam].tolist()  # Finds
@@ -131,17 +131,28 @@ print(megOverlap)
 # print(megOverlap.loc[megOverlap['num_bins'] == 0])
 # print(cardOverlap.loc[cardOverlap['num_bins']>1])
 
-# TODO: Get entries where groups and families do not overlap at all
-
 # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
 # df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
 # # instances of that group that are present in cardOverlap
 # print(cardOverlap.loc[df2.index])
 
-# Print nubmer of instances of families with i number of groups in them. Eg. 163 families have 1 group - 1: 163
-for i in range(0, 1000):
-    numInstances = len(cardOverlap[cardOverlap['num_bins'] == i])
-    if numInstances > 0:
-        print(i, end=': ')
-        print(len(cardOverlap[cardOverlap['num_bins'] == i]))
+# Print number of instances of bins of bins with i number of bins in them. Eg. 163 families have 1 group - 1: 163
+def num_instances(data): # TODO: Make this useful instead of just printing. Need this as a csv.
+    numBins = []
+    instanceList = []
+    for i in range(0, 1000):
+        numInstances = len(data[data['num_bins'] == i])
+        if numInstances > 0:
+            # print(i, end=' bin(s): ')
+            # print(numInstances)
+            numBins.append(i)
+            instanceList.append(numInstances)
+    return pd.DataFrame({'bins': numBins, 'instances': instanceList})
+
+print("card instances: ")
+print(num_instances(cardOverlap))
+print("meg instances: ")
+print(num_instances(megOverlap))
+
+pd.DataFrame.to_csv(num_instances(cardOverlap),'card_num_bins.csv',index=False)
