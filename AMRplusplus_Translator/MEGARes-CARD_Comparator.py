@@ -76,6 +76,21 @@ def num_bins(data, right):  # This needs to be done after duplicates have been r
     df = pd.DataFrame({'num_bins': numBins})
     return pd.merge(data, df, left_index=True, right_index=True)
 
+
+# Print number of instances of bins of bins with i number of bins in them. Eg. 163 families have 1 group - 1: 163
+def num_instances(data):
+    numBins = []
+    instanceList = []
+    for i in range(0, 1000):
+        numInstances = len(data[data['num_bins'] == i])
+        if numInstances > 0:
+            # print(i, end=' bin(s): ')
+            # print(numInstances)
+            numBins.append(i)
+            instanceList.append(numInstances)
+    return pd.DataFrame({'bins': numBins, 'instances': instanceList})
+
+
 #//endregion
 
 megDataFile = 'megares_full_database_v2.00.fasta'
@@ -125,8 +140,8 @@ megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 cardOverlap = num_bins(cardOverlap, 'meg')
 megOverlap = num_bins(megOverlap, 'card')
 
-print(cardOverlap)
-print(megOverlap)
+# print(cardOverlap)
+# print(megOverlap)
 
 # print(megOverlap.loc[megOverlap['num_bins'] == 0])
 # print(cardOverlap.loc[cardOverlap['num_bins']>1])
@@ -137,22 +152,19 @@ print(megOverlap)
 # # instances of that group that are present in cardOverlap
 # print(cardOverlap.loc[df2.index])
 
-# Print number of instances of bins of bins with i number of bins in them. Eg. 163 families have 1 group - 1: 163
-def num_instances(data):
-    numBins = []
-    instanceList = []
-    for i in range(0, 1000):
-        numInstances = len(data[data['num_bins'] == i])
-        if numInstances > 0:
-            # print(i, end=' bin(s): ')
-            # print(numInstances)
-            numBins.append(i)
-            instanceList.append(numInstances)
-    return pd.DataFrame({'bins': numBins, 'instances': instanceList})
+
+# print(cardOverlap[cardOverlap['num_bins'] == 85])
+# exit()
 
 print("card instances: ")
 print(num_instances(cardOverlap))
 print("meg instances: ")
 print(num_instances(megOverlap))
 
+# TODO: Get names of binsofbins that have more than one bin inside them. Eg. One Family has 85 groups in it. Which
+#  family is that?
+
+
+print("EXIT EARLY - Just before to_csv")
+exit()
 pd.DataFrame.to_csv(num_instances(cardOverlap),'card_num_bins.csv',index=False)
