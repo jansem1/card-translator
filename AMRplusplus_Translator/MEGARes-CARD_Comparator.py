@@ -46,29 +46,20 @@ def get_bins (data, binloc, source, species=False):  # Extracts group from heade
     return out
 
 def bin_overlap(data, left, right):
-    # TODO: THIS IS BROKEN. SPITS OUT WRONG MATCHES SOMTIMES, BUT NOT ALWAYS Eg. HERA is not included
-    left_goneThrough = []
-    # right_goneThrough = []
-    left_binsOfBins = []
-    right_containedBins = []
-    # rightdoubles = []
-    # leftdoubles = []
+    # left_goneThrough = []  # X value of array that have already been . Ensures that there is only one of
+    # each bin of bins (eg. [F][G1, G2, Gn])
+    left_binsOfBins = []  # X value. Contains groups/families that have overlapping families/groups
+    right_containedBins = []  # Y value. Contains families/groups that overlap with groups/families
     for i in data.index:
         leftFam = data[left + '_bins'].loc[i]
         rightGroup = data[right + '_bins'].loc[data[left + '_bins'] == leftFam].tolist()  # Finds
-        # all
-        # instances of MEGARes groups that overlap with each CARD family
-        if leftFam not in left_goneThrough:
+        # all instances of MEGARes groups that overlap with each CARD family
+        if leftFam not in left_binsOfBins:
             left_binsOfBins.append(leftFam)
             right_containedBins.append(rightGroup)
-            # if rightGroup in right_goneThrough:
-            #     rightdoubles.append(rightGroup)
-            #     leftdoubles.append(leftFam)
-            # if rightGroup not in right_goneThrough:
-            #     right_goneThrough.append(rightGroup)
-        left_goneThrough.append(data[left + '_bins'].loc[i])
     df = {left: left_binsOfBins, right: right_containedBins}
     return pd.DataFrame(df)
+
 
 
 removeDuplicates = lambda x: list(dict.fromkeys(x))
@@ -120,14 +111,13 @@ cardOverlap = bin_overlap(mergedDatabases, 'card', 'meg')
 cardOverlap['meg'] = cardOverlap['meg'].apply(removeDuplicates)
 print(cardOverlap)
 
-searchgroup = 'AAC6-PRIME'  # MEG group to search for
-df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
-# instances of that group that are present in cardOverlap
-print(cardOverlap.loc[df2.index])
-# exit()
+
+# searchgroup = 'AAC6-PRIME'  # MEG group to search for
+# df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
+# # instances of that group that are present in cardOverlap
+# print(cardOverlap.loc[df2.index])
+
 megOverlap = bin_overlap(mergedDatabases, 'meg', 'card')
 megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 print(megOverlap)
-# exit()
-# print(len(megOverlap['card']))
 print(megOverlap.loc[megOverlap['card'].map(len) > 1])  # Finds MEG entries with more than one family
