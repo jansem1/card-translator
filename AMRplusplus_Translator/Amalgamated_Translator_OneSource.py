@@ -336,7 +336,7 @@ translatedPath = './translations/'
 today = date.today()  # get current date
 if not os.path.exists(translatedPath):  # Creates a folder for translted files to go into if one is not already present
     os.mkdir(translatedPath)
-filename = (translatedPath + "CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
+annotationFilename = (translatedPath + "CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 translatedFilename = (translatedPath + "CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
 
 print("Writing Annotation file")
@@ -352,7 +352,7 @@ finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # Exports AMR++-ready annotation file and names it based on the present date
 
 # Export converted annotation file as csv
-pd.DataFrame.to_csv(finalAnn, filename, index=False)
+pd.DataFrame.to_csv(finalAnn, annotationFilename, index=False)
 print("DONE")
 
 # Write Database file and cull problem headers
