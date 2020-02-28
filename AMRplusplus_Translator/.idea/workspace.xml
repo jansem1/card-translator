@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00044" summary="End of day Feb 4 - cleaned up Todo, improved comments, got annotation file to output correct columns">
-      <created>1580851911114</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1580851911114</updated>
     </task>
     <task id="LOCAL-00045" summary="End of Day Feb 5 - Translator now outputs (ostensibly) correct database and annotation file. Validation still required">
       <created>1580930923764</created>
@@ -524,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582921361410</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Added num_instances function to get number of instances of bin-binofbins">
+      <created>1582921506860</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1582921506860</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed _combined from filenames" />
     <MESSAGE value="added entry to line function" />
     <MESSAGE value="Undid a bug in the previous commit where the program would say it had culled the line numbers of annotation entries, but give the line number of database entries" />
     <MESSAGE value="Attempted to add, then removed nullEntryToCull section to Amalgamated_Translator.py because it would require that the index be merged before checking for unmatchable entries, which is not possible. Added it successfully to Amalgamated_Translator_OneSource.py" />
@@ -563,7 +561,8 @@
     <MESSAGE value="Added num_bins function" />
     <MESSAGE value="Get number of instances of each number of bins in each bin" />
     <MESSAGE value="Renamed filename to annotationFilename to make code more legible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed filename to annotationFilename to make code more legible" />
+    <MESSAGE value="Added num_instances function to get number of instances of bin-binofbins" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added num_instances function to get number of instances of bin-binofbins" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,10 +577,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="604" y="8" key="CommitChangelistDialog2" timestamp="1582921359881">
+    <state x="604" y="8" key="CommitChangelistDialog2" timestamp="1582921505282">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582921359881" />
+    <state x="604" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582921505282" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

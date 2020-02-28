@@ -138,7 +138,7 @@ print(megOverlap)
 # print(cardOverlap.loc[df2.index])
 
 # Print number of instances of bins of bins with i number of bins in them. Eg. 163 families have 1 group - 1: 163
-def num_instances(data): # TODO: Make this useful instead of just printing. Need this as a csv.
+def num_instances(data):
     numBins = []
     instanceList = []
     for i in range(0, 1000):
