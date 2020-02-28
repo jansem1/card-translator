@@ -4,6 +4,8 @@
 # Dataframe: [Sequence, CARD gene fam, MEGARes group]
 # - Figure out where the families and groups overlap - bar charts
 
+#TODO: Remove Date stamping when translator is confirmed working
+
 import pandas as pd
 import numpy as np
 from Bio.SeqIO.FastaIO import SimpleFastaParser
@@ -39,9 +41,8 @@ def get_bins (data, binloc, source, species=False):  # Extracts group from heade
         bins = bins.apply(g)
 
     out = data.merge(bins, left_index=True, right_index=True)
-    out.columns = ['header', 'sequence', source + '_bins']  # The merge changes the header and group column names for
-    # some
-    # reason, so they have to be changed back
+    out.columns = ['header', 'sequence', source + '_bins']  # The merge changes the header and group column names,
+    # so they have to be changed back
     return out
 
 def bin_overlap(data, left, right):

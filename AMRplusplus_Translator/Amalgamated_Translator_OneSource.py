@@ -1,12 +1,11 @@
 # Translates CARD Annotation file into one that AMR++ can read
 
-# TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
-#  those that match
-# TODO: Make the script operable from command line, and make it possible to change the names of the input files
-# TODO: The fact that CARD sorts its drugs and gene families by semicolon separation in a single cell an issue will
-#  cause false negatives. Fix.
+
+# TODO: Remove Date stamping when translator is confirmed working
 # TODO: Remove "multi-drug resistance" if multi-group entries cannot be removed or changed to "multi-group" somehow
 # TODO: Create README file for program
+# TODO: Remove private annotations from translated. Compare private list to translated list by DNA Accession and remove
+#  those that match
 
 import os
 import pandas as pd
