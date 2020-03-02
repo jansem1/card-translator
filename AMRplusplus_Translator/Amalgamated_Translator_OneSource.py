@@ -1,6 +1,8 @@
 # Translates CARD Annotation file into one that AMR++ can read
 
 
+# TODO: REMOVE Accessions, replace with unique number (followed by the accession, for readability)
+# TODO: Add another round of accession culling to remove duplicates created during the newAnn creation process
 # TODO: Remove Date stamping when translator is confirmed working
 # TODO: Remove "multi-drug resistance" if multi-group entries cannot be removed or changed to "multi-group" somehow
 # TODO: Create README file for program
@@ -126,6 +128,9 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 
 # Check for annotations that cannot be searched
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
+print(dupedRows)
+exit()
+
 # Rows that are just duplicate annotations
 overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the
 # same DNA accession and group
@@ -179,7 +184,6 @@ percentDrop = round(100 * dropTotal/len(aroIndex), 2)
 print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
                                                                                                  "\n")
 #//endregion
-
 #//endregion
 
 #//region Database Translation
