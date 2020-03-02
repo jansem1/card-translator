@@ -152,19 +152,19 @@ newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Acce
 
 # Check for annotations that cannot be searched
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'],
-                                     keep=False)].copy()  #
-
+                                     keep=False)].copy()
 # print(dupedRows)
 # exit()
 
 # Rows that are just duplicate annotations
-overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the
-# same DNA accession and group
+overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'],
+                                       keep=False)].copy()  # rows which have the same DNA accession and group
 overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
 # complete duplicates of one another from overlapRows, leaving only the ones that differ in everything except DNA
 # Accession and group.If there are any entries in this dataframe, then searching with DNA Accession and group together
 # will still result in multiple hits
-protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'], keep=False)]  # find duplicate Prot. Acc.
+protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'],
+                                    keep=False)]  # find duplicate Prot. Acc.
 
 # Cull annotations and provide the user with output detailing which entries were culled and why
 
@@ -250,6 +250,7 @@ match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
 # for the translated database. If one is not filled in, it will be listed as "error"
 dbToCull = []
+granularityMessage = 'granularity culled'
 overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
@@ -259,7 +260,10 @@ annotationAccessions = list(newAnn['DNA Accession'])
 annotationGene = list(newAnn['Model Name'])
 
 # TODO: Add statement checking to see if each entry has been added to newHeaders already. If it has, update dbToCull
+#  - Give it the value of granularityMessage
+#  - Add a case
 
+# Assign new headers
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -267,8 +271,9 @@ for i in range(0, len(annotationAccessions)):
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
-for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose annotations have been culled so that
-    # those database entries can be removed later
+
+# Get indices of database entries whose annotations have been culled so that those database entries can be removed
+for i in range(0, len(dbAccessions)):
     if dbGenes[i] in list(overlapRows['Model Name']) and dbAccessions[i] in list(overlapRows['DNA Accession']):
         # DB entries whose annotations were culled for overlapping DNA accession and gene family
         newHeaders[i] = overlapMessage
@@ -289,9 +294,9 @@ for i in range(0, len(dbAccessions)):  # Gets indices of database entries whose 
 #//endregion
 
 #//region Error checking before proceeding to the file writing stage
-noValue = 0
-# list of db entries that have not been assigned a header and were not culled, suggesting that an error has occurred
-# somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled from database
+noValue = 0  # list of db entries that have not been assigned a header and were not culled, suggesting that an error
+# has occurred somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled
+# from database
 errorPresent = False
 
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly

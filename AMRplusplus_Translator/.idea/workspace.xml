@@ -182,13 +182,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00054" summary="Added &quot;RequiresSNPConfirmation&quot; flag to all headers">
-      <created>1581436015061</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1581436015061</updated>
-    </task>
     <task id="LOCAL-00055" summary="Removed completed todo">
       <created>1581436171583</created>
       <option name="number" value="00055" />
@@ -525,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583178784821</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Added TODO">
+      <created>1583179478087</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1583179478087</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -539,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added -PRIME notation conversion" />
     <MESSAGE value="remove species name from group column" />
     <MESSAGE value="find overlapping families/groups using nested for loops. Currently too slow." />
     <MESSAGE value="Fixed culling message headers being applied to new database because new headers were being deleted in order, changing the indices of their list with every loop" />
@@ -564,7 +563,8 @@
     <MESSAGE value="Removed early exit, added TODO" />
     <MESSAGE value="Moved annotationAccessions to a place closer to where it is accessed and removed early exit()" />
     <MESSAGE value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
+    <MESSAGE value="Added TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added TODO" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -579,10 +579,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583178782782">
+    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583179476623">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583178782782" />
+    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583179476623" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
