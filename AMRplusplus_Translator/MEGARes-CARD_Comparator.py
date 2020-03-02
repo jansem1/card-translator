@@ -4,8 +4,11 @@
 # Dataframe: [Sequence, CARD gene fam, MEGARes group]
 # - Figure out where the families and groups overlap - bar charts
 
-#TODO: Remove Date stamping when translator is confirmed
+# TODO: Find which groups are in multiple families and vice versa. Look at binsOfBins in card/megInstance DataFrames.
+# TODO: Remove Date stamping when translator is confirmed
 # TODO: Get list of families in CARD that aren't in MEGARes and vice versa
+
+
 
 import pandas as pd
 import numpy as np

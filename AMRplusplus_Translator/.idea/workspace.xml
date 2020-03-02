@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="Removed early exit, added TODO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,13 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Removed completed todo">
-      <created>1581436171583</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1581436171583</updated>
     </task>
     <task id="LOCAL-00056" summary="Added Argparse to allow the script to be run from command line">
       <created>1581446725687</created>
@@ -525,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583179478087</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Improved documentation, added TODOs, added granularityMessage">
+      <created>1583180365016</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1583180365016</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -539,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remove species name from group column" />
     <MESSAGE value="find overlapping families/groups using nested for loops. Currently too slow." />
     <MESSAGE value="Fixed culling message headers being applied to new database because new headers were being deleted in order, changing the indices of their list with every loop" />
     <MESSAGE value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
@@ -564,7 +561,8 @@
     <MESSAGE value="Moved annotationAccessions to a place closer to where it is accessed and removed early exit()" />
     <MESSAGE value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
     <MESSAGE value="Added TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TODO" />
+    <MESSAGE value="Improved documentation, added TODOs, added granularityMessage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved documentation, added TODOs, added granularityMessage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -579,10 +577,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583179476623">
+    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583180363518">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583179476623" />
+    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583180363518" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
