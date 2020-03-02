@@ -182,13 +182,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00053" summary="Added output for a list of culled entries to make it easier for the user to go back and find relevant entries">
-      <created>1581355637932</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1581355637932</updated>
-    </task>
     <task id="LOCAL-00054" summary="Added &quot;RequiresSNPConfirmation&quot; flag to all headers">
       <created>1581436015061</created>
       <option name="number" value="00054" />
@@ -525,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583177224635</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders">
+      <created>1583178784821</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1583178784821</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -539,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Streamlined group extraction into a single function instead of two" />
     <MESSAGE value="added -PRIME notation conversion" />
     <MESSAGE value="remove species name from group column" />
     <MESSAGE value="find overlapping families/groups using nested for loops. Currently too slow." />
@@ -564,7 +563,8 @@
     <MESSAGE value="Removed multi-drug resistant conversion because it caused duplicate headers, making AMR++ non-functional" />
     <MESSAGE value="Removed early exit, added TODO" />
     <MESSAGE value="Moved annotationAccessions to a place closer to where it is accessed and removed early exit()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved annotationAccessions to a place closer to where it is accessed and removed early exit()" />
+    <MESSAGE value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -579,10 +579,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583177223189">
+    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583178782782">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583177223189" />
+    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583178782782" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -599,22 +599,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583178619539">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583178852648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583178619539" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583178619539">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583178852648" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583178852648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583178619539" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583178619539">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583178852648" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583178852648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583178619539" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583178619539">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583178852648" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583178852648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583178619539" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583178852648" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1582829918747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

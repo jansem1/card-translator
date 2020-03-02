@@ -258,6 +258,8 @@ nullEntryMessage = 'null entry culled'
 annotationAccessions = list(newAnn['DNA Accession'])
 annotationGene = list(newAnn['Model Name'])
 
+# TODO: Add statement checking to see if each entry has been added to newHeaders already. If it has, update dbToCull
+
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
@@ -306,7 +308,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         # but will be left in in case new data is added
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its protein accession was "
                                                          "identical to another annotation")
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
     elif newHeaders[i] == nullEntryMessage:
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation contained a "
                                                                   "null value")
