@@ -180,15 +180,6 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
                                                                                                  "\n")
 #//endregion
 
-#//region Convert multi-drug resistant class columns to "multi-drug resistant" string
-# print(newAnn.loc[newAnn['class'].str.contains(';'),'class'])
-# newAnn.loc[newAnn['class'].str.contains(';'),'class'] = 'multi-drug resistant'
-
-# TODO: Is it worth doing this if you can't also do it to the group column (because that group column is required to
-#  sort annotations)? Eg. 3 entries of DNA Acc. AE004091.2 will be culled because they have the same DNA acc,
-#  but different collections of multiple groups. All 3 would be found to have the same DNA acc. and groups and be culled
-
-#//endregion
 #//endregion
 
 #//region Database Translation
