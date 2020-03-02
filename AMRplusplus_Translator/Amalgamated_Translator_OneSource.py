@@ -128,8 +128,8 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 
 # Check for annotations that cannot be searched
 dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
-print(dupedRows)
-exit()
+# print(dupedRows)
+# exit()
 
 # Rows that are just duplicate annotations
 overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'], keep=False)].copy()  # rows which have the
@@ -187,10 +187,6 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 #//endregion
 
 #//region Database Translation
-
-annotationAccessions = list(newAnn['DNA Accession'])  # this needs to be here because DNA Accession gets cut from
-# newAnn in the next section
-annotationGene = list(newAnn['Model Name'])
 
 
 #//region Create AMR++-compliant header, concatenate it to newAnn, and put newAnn into the same order
@@ -253,6 +249,11 @@ overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
 nullEntryMessage = 'null entry culled'
+
+
+annotationAccessions = list(newAnn['DNA Accession'])
+annotationGene = list(newAnn['Model Name'])
+
 
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
