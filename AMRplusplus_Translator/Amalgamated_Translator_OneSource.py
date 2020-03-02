@@ -16,6 +16,8 @@ from Bio import SeqIO
 import re
 import argparse
 
+pd.options.display.width = 0
+
 print("Definitions: \n"
       "Entry: Information corresponding to a single determinant contained on one line of the annotation file or two "
       "lines of the database file. \n"
@@ -124,10 +126,34 @@ newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
 # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
 
+
+#//region Create AMR++-compliant header, concatenate it to newAnn, and put newAnn into the same order
+typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
+# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
+typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be concatenated to
+# the new Dataframe which will contain the translated data
+
+headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
+            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
+# concatenate columns to make header and add "RequiresSNPConfirmation" flag to force AMR++ to use RGI's perfect
+# algorithm, because all the entries I translated are from the protein homolog model only
+
+newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
+                    newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
+# concatenates all columns that must be in the final annotation
+
+newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
+# rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
+
+#//endregion
+
+
 #//region Unsearchable annotation checking and culling
 
 # Check for annotations that cannot be searched
-dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'], keep=False)].copy()  #
+dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'],
+                                     keep=False)].copy()  #
+
 # print(dupedRows)
 # exit()
 
@@ -188,27 +214,6 @@ print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + 
 
 #//region Database Translation
 
-
-#//region Create AMR++-compliant header, concatenate it to newAnn, and put newAnn into the same order
-typeCol = ['Drugs'] * len(newAnn.index)  # Creates a list of the string 'Drugs' with as many values as the
-# annotation file has. MEGARes has a type column, but ARO (mostly) only deals with drugs
-typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be concatenated to
-# the new Dataframe which will contain the translated data
-
-headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
-            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
-# concatenate columns to make header and add "RequiresSNPConfirmation" flag to force AMR++ to use RGI's perfect
-# algorithm, because all the entries I translated are from the protein homolog model only
-
-newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
-                    newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
-# concatenates all columns that must be in the final annotation
-
-newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
-# rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
-
-#//endregion
-
 #//region dbGenes and dbAccession Processor
 dbAccessions = []
 dbGenes = []
@@ -250,10 +255,8 @@ protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
 nullEntryMessage = 'null entry culled'
 
-
 annotationAccessions = list(newAnn['DNA Accession'])
 annotationGene = list(newAnn['Model Name'])
-
 
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
@@ -324,6 +327,12 @@ if errorPresent:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled. No files "
           "generated")
     exit()
+
+for i in newHeaders:
+    if newHeaders.count(i) > 1:
+        print("ERROR: Multiple copies of the same header are being created. No files have been generated.")
+        exit()
+exit()
 #//endregion
 #//endregion
 
