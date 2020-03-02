@@ -78,17 +78,21 @@ def num_bins(data, right):  # This needs to be done after duplicates have been r
 
 
 # Print number of instances of bins of bins with i number of bins in them. Eg. 163 families have 1 group - 1: 163
-def num_instances(data):
+def num_instances(data, dbName):
     numBins = []
     instanceList = []
+    binsOfBins = []
     for i in range(0, 1000):
-        numInstances = len(data[data['num_bins'] == i])
+        numInstances = len(data[data['num_bins'] == i])  # Go through the possible number of instances of each bin
+        # within each bin of bins
         if numInstances > 0:
             # print(i, end=' bin(s): ')
             # print(numInstances)
             numBins.append(i)
             instanceList.append(numInstances)
-    return pd.DataFrame({'bins': numBins, 'instances': instanceList})
+            binsOfBins.append((data[dbName].loc[data['num_bins'] == i]).tolist())  # Adds a column containing all the
+            # bins within that instance category (Eg. 10 bins, 1 instance, 16s rRNA methyltransferase (G1405
+    return pd.DataFrame({'bins': numBins, 'instances': instanceList, 'binsOfBins': binsOfBins})
 
 
 #//endregion
@@ -144,27 +148,33 @@ megOverlap = num_bins(megOverlap, 'card')
 # print(megOverlap)
 
 # print(megOverlap.loc[megOverlap['num_bins'] == 0])
-# print(cardOverlap.loc[cardOverlap['num_bins']>1])
+# print(cardOverlap.loc[cardOverlap['num_bins'] > 1])  # Find card entries with more than 1 contained group
 
+# exit()
 # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
 # df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
 # # instances of that group that are present in cardOverlap
 # print(cardOverlap.loc[df2.index])
 
-
-# print(cardOverlap[cardOverlap['num_bins'] == 85])
+# print(cardOverlap['card'].loc[cardOverlap['num_bins'] == 85])
 # exit()
 
+cardInstances = num_instances(cardOverlap, 'card')
+megInstances = num_instances(megOverlap, 'meg')
+
 print("card instances: ")
-print(num_instances(cardOverlap))
+print(cardInstances)
+# exit()
 print("meg instances: ")
-print(num_instances(megOverlap))
-
-# TODO: Get names of binsofbins that have more than one bin inside them. Eg. One Family has 85 groups in it. Which
-#  family is that?
-
+print(megInstances)
 
 print("EXIT EARLY - Just before to_csv")
 exit()
-pd.DataFrame.to_csv(num_instances(cardOverlap),'card_num_bins.csv',index=False)
+print("Writing CARD CSV...")
+pd.DataFrame.to_csv(cardInstances,'card_num_bins.csv',index=False)
+print("DONE")
+
+print("Writing MEGARes CSV...")
+pd.DataFrame.to_csv(megInstances,'meg_num_bins.csv',index=False)
+print("DONE")
