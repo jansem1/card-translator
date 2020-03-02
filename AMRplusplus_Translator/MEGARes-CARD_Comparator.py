@@ -41,11 +41,11 @@ def get_bins (data, binloc, source, species=False):  # Extracts family/group fro
         g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
         # have spaces in them
         bins = bins.apply(g)
-
     out = data.merge(bins, left_index=True, right_index=True)
     out.columns = ['header', 'sequence', source + '_bins']  # The merge changes the header and group column names,
     # so they have to be changed back
     return out
+
 
 def bin_overlap(data, left, right):
     # left_goneThrough = []  # X value of array that have already been . Ensures that there is only one of
@@ -133,44 +133,32 @@ mergedDatabases.rename(columns={'header_x': 'card_header', 'header_y': 'meg_head
 # Get card-meg direction and remove duplicate bins
 cardOverlap = bin_overlap(mergedDatabases, 'card', 'meg')
 cardOverlap['meg'] = cardOverlap['meg'].apply(removeDuplicates)
-# print(cardOverlap)
 
 # Get meg-card direction and remove duplicate bins
 megOverlap = bin_overlap(mergedDatabases, 'meg', 'card')
 megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
-# print(megOverlap)
-# print(megOverlap.loc[megOverlap['card'].map(len) > 1])  # Finds MEG entries with more than one family
 
+# Get the number of bins contained in each bin of bins for each database
 cardOverlap = num_bins(cardOverlap, 'meg')
 megOverlap = num_bins(megOverlap, 'card')
 
-# print(cardOverlap)
-# print(megOverlap)
-
-# print(megOverlap.loc[megOverlap['num_bins'] == 0])
-# print(cardOverlap.loc[cardOverlap['num_bins'] > 1])  # Find card entries with more than 1 contained group
-
-# exit()
 # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
 # df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
 # # instances of that group that are present in cardOverlap
 # print(cardOverlap.loc[df2.index])
 
-# print(cardOverlap['card'].loc[cardOverlap['num_bins'] == 85])
-# exit()
-
 cardInstances = num_instances(cardOverlap, 'card')
 megInstances = num_instances(megOverlap, 'meg')
 
 print("card instances: ")
 print(cardInstances)
-# exit()
 print("meg instances: ")
 print(megInstances)
 
 print("EXIT EARLY - Just before to_csv")
 exit()
+
 print("Writing CARD CSV...")
 pd.DataFrame.to_csv(cardInstances,'card_num_bins.csv',index=False)
 print("DONE")
