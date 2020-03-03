@@ -345,6 +345,8 @@ for i in newHeaders:
 #//endregion
 #//endregion
 
+
+# TODO: ADD unique numbers to each DNA Accession (just increment by 1 each time) to prevent duplication issues
 #//region Write final files
 translatedPath = './translations/'
 today = date.today()  # get current date
@@ -378,9 +380,10 @@ for i in sorted(dbToCull, reverse=True):  # Deletes entries in reverse order to 
     headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
     del newHeaders[i]  # Remove culled entries from newHeaders
 
-wrongHeaders = [protDupeMessage,nullEntryMessage,noAnnotationMessage,overlapMessage]
+wrongHeaders = [protDupeMessage, nullEntryMessage, noAnnotationMessage, overlapMessage, granularityMessage]
 if any(item in wrongHeaders for item in newHeaders):
-    print("ERROR: newHeaders is not losing toCullMessages")
+    print("ERROR: culled headers are not being dropped from newHeaders and they are being sent to the database. "
+          "Annotation file already generated, but no database file generated.")
     exit()
 
 # Write all entries to database file that are not on the cull list

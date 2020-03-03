@@ -181,13 +181,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00058" summary="Added comments in file importer">
-      <created>1581447133320</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1581447133320</updated>
-    </task>
     <task id="LOCAL-00059" summary="Checked output annotation file for missed -PRIME conversion, found none, so removed &quot;Is this all cases?&quot; TODO">
       <created>1581447598701</created>
       <option name="number" value="00059" />
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583250380996</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Added removal of duplicate newHeaders">
+      <created>1583250582457</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1583250582457</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed culling message headers being applied to new database because new headers were being deleted in order, changing the indices of their list with every loop" />
     <MESSAGE value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
     <MESSAGE value="Assign groups to matching families via nested for loops" />
     <MESSAGE value="replaced nested for loops with pd.merge" />
@@ -563,7 +562,8 @@
     <MESSAGE value="Improved documentation, added TODOs, added granularityMessage" />
     <MESSAGE value="Added TODO" />
     <MESSAGE value="removed an exit() that would break the program" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed an exit() that would break the program" />
+    <MESSAGE value="Added removal of duplicate newHeaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added removal of duplicate newHeaders" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,10 +578,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="388" y="12" key="CommitChangelistDialog2" timestamp="1583250374363">
+    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583250579474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="388" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583250374363" />
+    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583250579474" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
