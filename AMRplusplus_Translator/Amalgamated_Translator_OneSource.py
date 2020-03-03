@@ -293,6 +293,8 @@ for i in range(0, len(dbAccessions)):
     elif dbGenes[i] in nullGene and dbAccessions[i] in nullAccession:
         newHeaders[i] = nullEntryMessage
         dbToCull.append(i)
+    elif newHeaders[i] == granularityMessage:
+        dbToCull.append(i)
 #//endregion
 
 #//region Error checking before proceeding to the file writing stage
@@ -319,6 +321,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
     elif newHeaders[i] == nullEntryMessage:
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation contained a "
                                                                   "null value")
+    # elif newHeaders[i] == granularityMessage:
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
@@ -348,6 +351,9 @@ for i in newHeaders:
 
 # TODO: ADD unique numbers to each DNA Accession (just increment by 1 each time) to prevent duplication issues
 #//region Write final files
+
+# Write annotation file. Exports AMR++-ready annotation file and names it based on the present date
+
 translatedPath = './translations/'
 today = date.today()  # get current date
 if not os.path.exists(translatedPath):  # Creates a folder for translted files to go into if one is not already present
@@ -363,9 +369,6 @@ finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # with pd.option_context('display.max_columns', 5):
 #     print(finalAnn)
 
-# Write annotation file
-
-# Exports AMR++-ready annotation file and names it based on the present date
 
 # Export converted annotation file as csv
 pd.DataFrame.to_csv(finalAnn, annotationFilename, index=False)

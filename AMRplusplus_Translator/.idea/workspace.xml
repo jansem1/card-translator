@@ -181,13 +181,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00059" summary="Checked output annotation file for missed -PRIME conversion, found none, so removed &quot;Is this all cases?&quot; TODO">
-      <created>1581447598701</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1581447598701</updated>
-    </task>
     <task id="LOCAL-00060" summary="Added todo to undo the replacement of multi-drug resistant class entries with &quot;Multi-Drug resistance&quot;">
       <created>1581453427703</created>
       <option name="number" value="00060" />
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583250582457</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="updated error message for wrongHeaders">
+      <created>1583250814900</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1583250814900</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Renamed get_groups to get_bins, changed to pulling daily translated CARD database instead of original Card Database" />
     <MESSAGE value="Assign groups to matching families via nested for loops" />
     <MESSAGE value="replaced nested for loops with pd.merge" />
     <MESSAGE value="Print out card bins and the meg bins within them" />
@@ -563,7 +562,8 @@
     <MESSAGE value="Added TODO" />
     <MESSAGE value="removed an exit() that would break the program" />
     <MESSAGE value="Added removal of duplicate newHeaders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added removal of duplicate newHeaders" />
+    <MESSAGE value="updated error message for wrongHeaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated error message for wrongHeaders" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,10 +578,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583250579474">
+    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583250812377">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583250579474" />
+    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583250812377" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
