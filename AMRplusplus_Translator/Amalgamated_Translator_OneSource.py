@@ -321,7 +321,12 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
     elif newHeaders[i] == nullEntryMessage:
         print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation contained a "
                                                                   "null value")
-    # elif newHeaders[i] == granularityMessage:
+    elif newHeaders[i] == granularityMessage:
+        print("Database entry on line " + str(entry_to_line(i)) + " Has been culled because its annotation was "
+                                                                  "already assigned to another sequence. AMR++ only "
+                                                                  "allows one header per sequence, and the conversion "
+                                                                  "from gene to gene families results in a loss of "
+                                                                  "granularity.")
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
