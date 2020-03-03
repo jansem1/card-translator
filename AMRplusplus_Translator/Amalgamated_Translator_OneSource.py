@@ -261,7 +261,7 @@ annotationGene = list(newAnn['Model Name'])
 
 # TODO: Add statement checking to see if each entry has been added to newHeaders already. If it has, update dbToCull
 #  - Give it the value of granularityMessage
-#  - Add a case
+#  - Add a case in the verbose culling section
 
 # Assign new headers
 for i in range(0, len(annotationAccessions)):
@@ -335,11 +335,11 @@ if errorPresent:
           "generated")
     exit()
 
+# Check that there is only one of each kind of newHeader. Every database header must be unique.
 for i in newHeaders:
     if newHeaders.count(i) > 1:
-        print("ERROR: Multiple copies of the same header are being created. No files have been generated.")
+        print("ERROR: Multiple copies of the same translated header are being created. No files have been generated.")
         exit()
-exit()
 #//endregion
 #//endregion
 
