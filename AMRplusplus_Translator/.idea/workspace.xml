@@ -181,13 +181,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00064" summary="Removed the commented-out &quot;Add model name to newAnn...&quot; section">
-      <created>1582556273542</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1582556273542</updated>
-    </task>
     <task id="LOCAL-00065" summary="Renamed &quot;cutLines&quot; and &quot;cutEntries&quot; to &quot;overlapLines&quot; and &quot;overlapEntries&quot;, respectively, to better reflect those variables' purposes">
       <created>1582556386638</created>
       <option name="number" value="00065" />
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583262725947</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Fixed space replacement. Changed ' [' to '_[' in species removal. replaced errorPresent check with unassignedHeaders check and improved output to list broken entries">
+      <created>1583265708794</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1583265708794</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed completed TODOs and added some new ones" />
     <MESSAGE value="Found a way to search within lists to make sure bin_overlap is working right." />
     <MESSAGE value="Simplified and documented bin_overlap function" />
     <MESSAGE value="Removed completed TODO and moved megOverlap to improve flow" />
@@ -563,7 +562,8 @@
     <MESSAGE value="add verbosity for granularityMessage culling" />
     <MESSAGE value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
     <MESSAGE value="Replace spaces in newAnn with underscores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replace spaces in newAnn with underscores" />
+    <MESSAGE value="Fixed space replacement. Changed ' [' to '_[' in species removal. replaced errorPresent check with unassignedHeaders check and improved output to list broken entries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed space replacement. Changed ' [' to '_[' in species removal. replaced errorPresent check with unassignedHeaders check and improved output to list broken entries" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,10 +578,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583262724983">
+    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583265707409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583262724983" />
+    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583265707409" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -598,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583265580492">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583265736751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583265580492" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583265580492">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583265736751" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583265736751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583265580492" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583265580492">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583265736751" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583265736751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583265580492" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583265580492">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583265736751" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583265736751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583265580492" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583265736751" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1582829918747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

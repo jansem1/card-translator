@@ -271,10 +271,6 @@ wrongHeaders = [protDupeMessage, nullEntryMessage, noAnnotationMessage, overlapM
 annotationAccessions = list(newAnn['DNA Accession'])
 annotationGene = list(newAnn['Model Name'])
 
-# TODO: Add statement checking to see if each entry has been added to newHeaders already. If it has, update dbToCull
-#  - Give it the value of granularityMessage x
-#  - Add a case in the verbose culling section x
-
 # Assign new headers
 for i in range(0, len(annotationAccessions)):
     # print(newHeaders)
@@ -359,7 +355,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
 print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
 print("Line numbers of culled database entries (In original database file): ")
-culledDB = [((line+1)*2-1) for line in dbToCull]
+culledDB = [entry_to_line(line) for line in dbToCull]
 print(culledDB)
 
 if len(unassignedHeaders) > 0:
@@ -380,10 +376,8 @@ for i in newHeaders:
 if DuplicatePrinted:
     exit()
 
-
 #//endregion
 #//endregion
-
 
 # TODO: ADD unique numbers to each DNA Accession (just increment by 1 each time) to prevent duplication issues
 #//region Write final files
