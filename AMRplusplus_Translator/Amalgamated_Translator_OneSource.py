@@ -266,11 +266,13 @@ annotationGene = list(newAnn['Model Name'])
 # Assign new headers
 for i in range(0, len(annotationAccessions)):
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
-        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]:  # match by accession and
-            # gene
+        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]\
+                and newAnn['header'].loc[i] not in newHeaders:  # match by accession and gene
             match.append([i, n])  # give list of indices of accessions that match each other
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
+        else:
+            newHeaders[n] = granularityMessage
 
 # Get indices of database entries whose annotations have been culled so that those database entries can be removed
 for i in range(0, len(dbAccessions)):
