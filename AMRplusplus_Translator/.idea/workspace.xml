@@ -181,13 +181,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00062" summary="removed the commented-out &quot;noannotationgenes&quot; section from oneSource">
-      <created>1582555987978</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1582555987978</updated>
-    </task>
     <task id="LOCAL-00063" summary="removed the commented-out condition for removing database entries with no annotations from the &quot;match&quot; section">
       <created>1582556234932</created>
       <option name="number" value="00063" />
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583251246501</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Fixed newHeader duplication issue, added space_replace function but did not apply it yet">
+      <created>1583261821108</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1583261821108</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Print out card bins and the meg bins within them" />
     <MESSAGE value="Added bin_overlap function" />
     <MESSAGE value="Removed completed TODOs and added some new ones" />
     <MESSAGE value="Found a way to search within lists to make sure bin_overlap is working right." />
@@ -563,7 +562,8 @@
     <MESSAGE value="updated error message for wrongHeaders" />
     <MESSAGE value="Add duplicate newHeaders to dbToCull" />
     <MESSAGE value="add verbosity for granularityMessage culling" />
-    <option name="LAST_COMMIT_MESSAGE" value="add verbosity for granularityMessage culling" />
+    <MESSAGE value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,18 +578,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583251243692">
+    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583262695754">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583251243692" />
+    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583262695754" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="429" height="442" key="Diff.GoToChangePopup/0.0.1536.824@0.0.1536.824" timestamp="1582665922938" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1582665945716">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1583261798038">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1582665945716" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1583261798038" />
     <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1582244031644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -598,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583260838084">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583262663896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583260838084">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583262663896" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583262663896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583260838084">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583262663896" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583262663896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583260838084">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583262663896" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583262663896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583262663896" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1582829918747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

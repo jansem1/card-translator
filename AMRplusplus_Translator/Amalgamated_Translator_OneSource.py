@@ -56,10 +56,6 @@ def Diff(li1, li2):  # entries that are in list 1 but not list 2
     return diff
 
 
-def space_replace(string):
-    string.replace(' ', '_')
-
-
 def entry_to_line(x): # Converts from index # to line #
     return (x+1)*2 - 1
 
@@ -116,18 +112,25 @@ newAnn = aroIndex[aroCols].copy()  # Creates a Dataframe containing the Columns 
 newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group', 'Model Name']  # sets names of columns of new
 # annotation file
 
+# Replace spaces with underscores
+newAnn['group'] = newAnn['group'].str.replace(' ', '_')
+newAnn['mechanism'] = newAnn['mechanism'].str.replace(' ', '_')
+newAnn['class'] = newAnn['class'].str.replace(' ', '_')
+newAnn['Model Name'] = newAnn['Model Name'].str.replace(' ', '_')
+
+
 #//region -PRIME notation conversion
 # Removes parentheses in gene family and converts ' to -PRIME and '' to -DPRIME. eg. AAC(6') = AAC6-PRIME
-newAnn['group'] = newAnn['group'].str.replace('(?<! )\(', '')
+newAnn['group'] = newAnn['group'].str.replace('(?<! )\(', '', regex=True)
 # replaces open paren only when within a word
-newAnn['group'] = newAnn['group'].str.replace('\'\'\)$', '-DPRIME')
-newAnn['group'] = newAnn['group'].str.replace('\'\)$', '-PRIME')  #
+newAnn['group'] = newAnn['group'].str.replace('\'\'\)$', '-DPRIME', regex=True)
+newAnn['group'] = newAnn['group'].str.replace('\'\)$', '-PRIME', regex=True)  #
 # Replace ' or '' when next to a close paren and at the end of a line (single gene family)
-newAnn['group'] = newAnn['group'].str.replace('\'\'\);', '-DPRIME;')
-newAnn['group'] = newAnn['group'].str.replace('\'\);', '-PRIME;')
+newAnn['group'] = newAnn['group'].str.replace('\'\'\);', '-DPRIME;', regex=True)
+newAnn['group'] = newAnn['group'].str.replace('\'\);', '-PRIME;', regex=True)
 # Replace ' or '' when next to a close paren and next to a semicolon (multiple gene families)
-newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\)$', '')
-newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';')
+newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\)$', '', regex=True)
+newAnn['group'] = newAnn['group'].str.replace('(?<=\d)\);', ';', regex=True)
 # replaces ) when preceded by a number and (at the end of a string or semicolon-separated)
 #//endregion
 
