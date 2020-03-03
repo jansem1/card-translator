@@ -41,7 +41,7 @@ def get_bins (data, binloc, source, species=False):  # Extracts family/group fro
     bins.columns = [source + '_bins']
     if species:  # Legacy. Only CARD's original database has species info. This is not necessary for translated CARD or
         # MEGARes
-        g = lambda x: x[:x.index(' [')]  # removes species name. Can't just remove by space because some group names
+        g = lambda x: x[:x.index('_[')]  # removes species name. Can't just remove by space because some group names
         # have spaces in them
         bins = bins.apply(g)
     out = data.merge(bins, left_index=True, right_index=True)
