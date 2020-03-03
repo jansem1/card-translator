@@ -56,8 +56,13 @@ def Diff(li1, li2):  # entries that are in list 1 but not list 2
     return diff
 
 
+def space_replace(string):
+    string.replace(' ', '_')
+
+
 def entry_to_line(x): # Converts from index # to line #
     return (x+1)*2 - 1
+
 
 def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
     # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
@@ -248,31 +253,42 @@ for i in range(0,len(dbGenes)):  # DB file is in ' notation. Translated Annotati
 #//region Prepare and match new headers to overwrite database headers
 match = []
 newHeaders = ['error'] * len(dbAccessions)  # Create list that will contain all translated headers in the correct order
-# for the translated database. If one is not filled in, it will be listed as "error"
+# for the translated database. If one is not filled in, it will be listed as "error". Must create it at full length
+# to allow it to be filled out of order, as the database and annotation files are in different orders.
 dbToCull = []
 granularityMessage = 'granularity culled'
 overlapMessage = 'overlap culled'
 protDupeMessage = 'protein accession duplication culled'
 noAnnotationMessage = 'lack annotation culled'
 nullEntryMessage = 'null entry culled'
+wrongHeaders = [protDupeMessage, nullEntryMessage, noAnnotationMessage, overlapMessage, granularityMessage]
 
 annotationAccessions = list(newAnn['DNA Accession'])
 annotationGene = list(newAnn['Model Name'])
 
 # TODO: Add statement checking to see if each entry has been added to newHeaders already. If it has, update dbToCull
-#  - Give it the value of granularityMessage
-#  - Add a case in the verbose culling section
+#  - Give it the value of granularityMessage x
+#  - Add a case in the verbose culling section x
 
 # Assign new headers
 for i in range(0, len(annotationAccessions)):
+    # print(newHeaders)
+    # print(newAnn.loc[i])
+    # print(newAnn['header'].loc[i] not in newHeaders)
+    # exit()
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
-        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]\
-                and newAnn['header'].loc[i] not in newHeaders:  # match by accession and gene
-            match.append([i, n])  # give list of indices of accessions that match each other
+        # if newAnn['header'].loc[i] in newHeaders:
+        #     newHeaders[n] = granularityMessage
+        #     break  # Break to prevent it from overwriting the entire newHeader with granularityMessage
+        if annotationAccessions[i] == dbAccessions[n] and annotationGene[i] == dbGenes[n]: # match by accession
+            # and gene
+            match.append([i, n])  # give list of indices of accessions that match each other. DEBUG only.
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
-        else:
-            newHeaders[n] = granularityMessage
+
+for i in range(len(newHeaders) - 1, -1, -1):  # go through newHeaders in reverse order and remove duplicate headers
+    if newHeaders.count(newHeaders[i]) > 1 and newHeaders[i] != granularityMessage:
+        newHeaders[i] = granularityMessage
 
 # Get indices of database entries whose annotations have been culled so that those database entries can be removed
 for i in range(0, len(dbAccessions)):
@@ -327,6 +343,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
                                                                   "allows one header per sequence, and the conversion "
                                                                   "from gene to gene families results in a loss of "
                                                                   "granularity.")
+        print(aroDB[i].description)
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
@@ -346,10 +363,18 @@ if errorPresent:
     exit()
 
 # Check that there is only one of each kind of newHeader. Every database header must be unique.
+DuplicatePrinted = False
 for i in newHeaders:
-    if newHeaders.count(i) > 1:
-        print("ERROR: Multiple copies of the same translated header are being created. No files have been generated.")
-        exit()
+    if newHeaders.count(i) > 1 and i not in wrongHeaders:
+        if not DuplicatePrinted:
+            print("ERROR: Multiple copies of the same translated header are being created. No files have been "
+                  "generated. The following headers are being duplicated: ")
+            DuplicatePrinted = True
+        print(i)
+if DuplicatePrinted:
+    exit()
+
+
 #//endregion
 #//endregion
 
@@ -388,7 +413,6 @@ for i in sorted(dbToCull, reverse=True):  # Deletes entries in reverse order to 
     headerToCull.append(aroDB[i].id)  # Original database headers of DB entries to be culled
     del newHeaders[i]  # Remove culled entries from newHeaders
 
-wrongHeaders = [protDupeMessage, nullEntryMessage, noAnnotationMessage, overlapMessage, granularityMessage]
 if any(item in wrongHeaders for item in newHeaders):
     print("ERROR: culled headers are not being dropped from newHeaders and they are being sent to the database. "
           "Annotation file already generated, but no database file generated.")

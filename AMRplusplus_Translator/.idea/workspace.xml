@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,13 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Added a version of the translator that can use the new index file which Amos has created. This removes the need for the annotation file.">
-      <created>1582555949062</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1582555949078</updated>
     </task>
     <task id="LOCAL-00062" summary="removed the commented-out &quot;noannotationgenes&quot; section from oneSource">
       <created>1582555987978</created>
@@ -523,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583251120734</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="add verbosity for granularityMessage culling">
+      <created>1583251246501</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1583251246501</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -537,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="replaced nested for loops with pd.merge" />
     <MESSAGE value="Print out card bins and the meg bins within them" />
     <MESSAGE value="Added bin_overlap function" />
     <MESSAGE value="Removed completed TODOs and added some new ones" />
@@ -562,7 +562,8 @@
     <MESSAGE value="Added removal of duplicate newHeaders" />
     <MESSAGE value="updated error message for wrongHeaders" />
     <MESSAGE value="Add duplicate newHeaders to dbToCull" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add duplicate newHeaders to dbToCull" />
+    <MESSAGE value="add verbosity for granularityMessage culling" />
+    <option name="LAST_COMMIT_MESSAGE" value="add verbosity for granularityMessage culling" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -577,10 +578,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583251117079">
+    <state x="611" y="12" key="CommitChangelistDialog2" timestamp="1583251243692">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583251117079" />
+    <state x="611" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583251243692" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -597,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583250539908">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583260838084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583250539908" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583250539908">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583260838084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583250539908" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583250539908">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583260838084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583250539908" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583250539908">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583260838084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583250539908" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583260838084" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1582829918747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
