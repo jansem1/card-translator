@@ -112,12 +112,14 @@ newAnn = aroIndex[aroCols].copy()  # Creates a Dataframe containing the Columns 
 newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group', 'Model Name']  # sets names of columns of new
 # annotation file
 
-# Replace spaces with underscores
+# Replace spaces with underscores because AMR++ can't parse spaces
 newAnn['group'] = newAnn['group'].str.replace(' ', '_')
 newAnn['mechanism'] = newAnn['mechanism'].str.replace(' ', '_')
 newAnn['class'] = newAnn['class'].str.replace(' ', '_')
 newAnn['Model Name'] = newAnn['Model Name'].str.replace(' ', '_')
 
+for i in range(0,len(aroDB)):
+    aroDB[i].description = aroDB[i].description.replace(' ', '_')
 
 #//region -PRIME notation conversion
 # Removes parentheses in gene family and converts ' to -PRIME and '' to -DPRIME. eg. AAC(6') = AAC6-PRIME
@@ -233,7 +235,7 @@ for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from d
     dbGenes.append(aroDB[i].description)
     splitGroup = dbGenes[i].split("|")  # separates the header into individual sections
     dbGenes[i] = splitGroup[5]  # adds the 'group' section of the database header into the dbGenes list
-    dbGenes[i] = dbGenes[i][:dbGenes[i].index(' [')]  # cuts species information, leaving only the gene
+    dbGenes[i] = dbGenes[i][:dbGenes[i].index('_[')]  # cuts species information, leaving only the gene
 #//endregion
 
 #//region -PRIME notation conversion for dbGenes
@@ -320,7 +322,7 @@ for i in range(0, len(dbAccessions)):
 noValue = 0  # list of db entries that have not been assigned a header and were not culled, suggesting that an error
 # has occurred somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled
 # from database
-errorPresent = False
+unassignedHeaders = []
 
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
     # (due to culling) or erroneously
@@ -352,17 +354,18 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
         print("DEBUG: index = " + str(i))
         print(aroDB[i].description)
-        errorPresent = True
+        unassignedHeaders.append(aroDB[i].description)
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
 print("Database entries to cull: " + str(len(dbToCull)))
-print("Line numbers of culled database entries: ")
+print("Line numbers of culled database entries (In original database file): ")
 culledDB = [((line+1)*2-1) for line in dbToCull]
 print(culledDB)
 
-if errorPresent:
+if len(unassignedHeaders) > 0:
     print("ERROR: Some database entries are not being assigned headers, but are also not being culled. No files "
-          "generated")
+          "generated. They are:")
+    print(unassignedHeaders)
     exit()
 
 # Check that there is only one of each kind of newHeader. Every database header must be unique.
