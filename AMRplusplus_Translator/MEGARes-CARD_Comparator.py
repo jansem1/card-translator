@@ -4,7 +4,8 @@
 # Dataframe: [Sequence, CARD gene fam, MEGARes group]
 # - Figure out where the families and groups overlap - bar charts
 
-# TODO: Find which groups are in multiple families and vice versa. Look at binsOfBins in card/megInstance DataFrames.
+# TODO: Find which groups are spread across multiple families and vice versa. Look at binsOfBins in card/megInstance
+#  DataFrames.
 # TODO: Remove Date stamping when translator is confirmed
 # TODO: Get list of families in CARD that aren't in MEGARes and vice versa
 
@@ -95,7 +96,7 @@ def num_instances(data, dbName):
             instanceList.append(numInstances)
             binsOfBins.append((data[dbName].loc[data['num_bins'] == i]).tolist())  # Adds a column containing all the
             # bins within that instance category (Eg. 10 bins, 1 instance, 16s rRNA methyltransferase (G1405
-    return pd.DataFrame({'bins': numBins, 'instances': instanceList, 'binsOfBins': binsOfBins})
+    return pd.DataFrame({'num_bins': numBins, 'instances': instanceList, 'binsOfBins': binsOfBins})
 
 
 #//endregion
@@ -116,13 +117,13 @@ megData = get_bins(megData, 4, 'meg')
 # Columns are now 0: Header, 1: Sequence, 2: {database}_bin
 
 # Find percent of card sequences present in MEGARes and vice versa
-x = 0
+numIn = 0
 for i in cardData.index:
     if cardData['sequence'].loc[i] in megData['sequence'].tolist():
-        x+=1
+        numIn += 1
 
-cardInMeg = (str(round(100 * x/len(cardData.index), 2)))
-megInCard = (str(round(100 * x/len(megData.index), 2)))
+cardInMeg = (str(round(100 * numIn/len(cardData.index), 2)))
+megInCard = (str(round(100 * numIn/len(megData.index), 2)))
 print("Percent of CARD homolog model sequences in MEGARes: " + cardInMeg + "%")
 print("Percent of MEGARes sequences in CARD homolog model: " + megInCard + "%")
 
@@ -145,7 +146,7 @@ megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 cardOverlap = num_bins(cardOverlap, 'meg')
 megOverlap = num_bins(megOverlap, 'card')
 
-# DEBUG: Search for specific groups to test that bin_overlap is working properly
+# # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
 # df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
 # # instances of that group that are present in cardOverlap
