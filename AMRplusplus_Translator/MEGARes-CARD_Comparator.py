@@ -162,10 +162,12 @@ print(megInstances)
 print("EXIT EARLY - Just before to_csv")
 exit()
 
+filename = '_num_bins'
+
 print("Writing CARD CSV...")
-pd.DataFrame.to_csv(cardInstances,'card_num_bins.csv',index=False)
+pd.DataFrame.to_csv(cardInstances,'card' + filename,index=False)
 print("DONE")
 
 print("Writing MEGARes CSV...")
-pd.DataFrame.to_csv(megInstances,'meg_num_bins.csv',index=False)
+pd.DataFrame.to_csv(megInstances,'meg' + filename,index=False)
 print("DONE")

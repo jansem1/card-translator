@@ -181,13 +181,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00066" summary="Added/improved comments">
-      <created>1582556656143</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1582556656143</updated>
-    </task>
     <task id="LOCAL-00067" summary="Removed _combined from filenames">
       <created>1582560906407</created>
       <option name="number" value="00067" />
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583265961744</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Changed species name removal to reflect space to underscore conversion">
+      <created>1583269539460</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1583269539460</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -538,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Simplified and documented bin_overlap function" />
     <MESSAGE value="Removed completed TODO and moved megOverlap to improve flow" />
     <MESSAGE value="Added num_bins function" />
     <MESSAGE value="Get number of instances of each number of bins in each bin" />
@@ -563,7 +562,8 @@
     <MESSAGE value="Replace spaces in newAnn with underscores" />
     <MESSAGE value="Fixed space replacement. Changed ' [' to '_[' in species removal. replaced errorPresent check with unassignedHeaders check and improved output to list broken entries" />
     <MESSAGE value="comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments" />
+    <MESSAGE value="Changed species name removal to reflect space to underscore conversion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed species name removal to reflect space to underscore conversion" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -578,10 +578,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="0" y="12" key="CommitChangelistDialog2" timestamp="1583265960925">
+    <state x="0" y="12" key="CommitChangelistDialog2" timestamp="1583269537508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="0" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583265960925" />
+    <state x="0" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583269537508" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -598,22 +598,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583269382354">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583348356900">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583269382354" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583269382354">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583348356900" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583348356899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583269382354" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583269382354">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583348356899" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583348356899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583269382354" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583269382354">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583348356899" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583348356899">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583269382354" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583348356899" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1582829918747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
