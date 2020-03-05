@@ -58,13 +58,13 @@ def bin_overlap(data, left, right):
     right_containedBins = []  # Y value. Contains families/groups that overlap with groups/families
     numSequences = []
     for i in data.index:
-        leftFam = data[left + '_bins'].loc[i]
-        rightGroup = data[right + '_bins'].loc[data[left + '_bins'] == leftFam].tolist()  # Finds
+        leftBin = data[left + '_bins'].loc[i]
+        rightBin = data[right + '_bins'].loc[data[left + '_bins'] == leftBin].tolist()  # Finds
         # all instances of MEGARes groups that overlap with each CARD family
-        if leftFam not in left_binsOfBins:
-            left_binsOfBins.append(leftFam)
-            right_containedBins.append(rightGroup)
-            numSequences.append(len(rightGroup))
+        if leftBin not in left_binsOfBins:
+            left_binsOfBins.append(leftBin)
+            right_containedBins.append(rightBin)
+            numSequences.append(len(rightBin))
     df = {left: left_binsOfBins, right: right_containedBins, 'num_sequences': numSequences}
     return pd.DataFrame(df)
 
@@ -158,8 +158,25 @@ megOverlap = num_bins(megOverlap, 'card')
 # exit()
 
 # Test to see which CARD bins are getting groups spread across them
-print(megOverlap.loc[megOverlap['num_bins'] > 1])
-print(megOverlap.dtypes.value_counts())
+# print(megOverlap.loc[megOverlap['num_bins'] > 1])
+# exit()
+# print(len(megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()))
+# print(len(megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist()))
+
+x=np.array([[1,2,3],[4,5]])
+y=np.array([[1,2,3],[4,5,6]])
+print(x.transpose())
+# print(type(x))
+print(y.transpose())
+exit()
+
+dataIn = megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()
+print(dataIn)
+exit()
+test = pd.DataFrame(dataIn,
+                    columns=megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist())
+print(test)
+# print(megOverlap['card'].loc[megOverlap['meg'] == 'VANRA'])
 # collectCard = []
 # for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:
 #     collectCard.extend(i)
