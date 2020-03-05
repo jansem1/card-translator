@@ -174,7 +174,7 @@ overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Acce
 # Accession and group.If there are any entries in this dataframe, then searching with DNA Accession and group together
 # will still result in multiple hits
 protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'],
-                                    keep=False)]  # find duplicate Prot. Acc.
+                                    keep=False)].copy()  # find duplicate Prot. Acc.
 
 # Cull annotations and provide the user with output detailing which entries were culled and why
 

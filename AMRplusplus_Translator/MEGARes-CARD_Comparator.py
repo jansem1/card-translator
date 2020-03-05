@@ -95,7 +95,7 @@ def num_instances(data, dbName):
             numBins.append(i)
             instanceList.append(numInstances)
             binsOfBins.append((data[dbName].loc[data['num_bins'] == i]).tolist())  # Adds a column containing all the
-            # bins within that instance category (Eg. 10 bins, 1 instance, 16s rRNA methyltransferase (G1405
+            # bins within that instance category (Eg. 10 bins, 1 instance, 16s rRNA methyltransferase (G1405)
     return pd.DataFrame({'num_bins': numBins, 'instances': instanceList, 'binsOfBins': binsOfBins})
 
 
@@ -145,6 +145,32 @@ megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 # Get the number of bins contained in each bin of bins for each database
 cardOverlap = num_bins(cardOverlap, 'meg')
 megOverlap = num_bins(megOverlap, 'card')
+
+
+# TODO: find bins in multiple bins of bins, then make this into a function and apply it to both CARD and MEG. Get
+#  list of bins of bins that each bin falls into
+#  - Add it to card_instances, or export as separate file?
+#  - megInstances suggests that almost all groups fall into one family. Just analyze multi-overlap from MEG?
+
+# print(cardOverlap)
+#
+# print(cardOverlap['meg'].value_counts())  # TODO: This doesn't go into the lists. Find another way.
+# exit()
+
+# Test to see which CARD bins are getting groups spread across them
+print(megOverlap.loc[megOverlap['num_bins'] > 1])
+print(megOverlap.dtypes.value_counts())
+# collectCard = []
+# for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:
+#     collectCard.extend(i)
+# # print(collectCard)
+# for i in collectCard:  # DON'T USE .count IN A LOOP. PERFORMANCE ISSUE. USE Counter MODULE INSTEAD
+#     if collectCard.count(i) > 0:
+#         print(i)
+#         print(megOverlap['card'].loc[megOverlap['card']])
+#
+
+exit()
 
 # # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
