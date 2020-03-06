@@ -107,42 +107,43 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
 
     collectBins = []
     for i in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
-        # in multiple bins of bins will show up more than once
+        # spread across multiple bins of bins will show up more than once
         collectBins.extend(i)
     dupCount = [x for x in collectBins if collectBins.count(x) > 1] # Only want to search for bins we KNOW are in
     # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
     dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
     # are spread
     print(dupCount)
-    # TODO: Rename df to be more descriptive
-    df = pd.DataFrame()
+    binsInDataFrame = pd.DataFrame()
     for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
         # separate rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is
         # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
         # brute-force way
         columnData = data[binsColumn].loc[i]
         df2 = pd.Series(data=columnData)
-        df = pd.concat([df,df2],axis=1, ignore_index=True)
-    df.columns = binsOfBinsNames
-    # print(df.loc['subclass_B3_LRA_beta-lactamase'])
-    print(df)
+        binsInDataFrame = pd.concat([binsInDataFrame,df2],axis=1, ignore_index=True)
+    binsInDataFrame.columns = binsOfBinsNames
+    # print(binsInDataFrame.loc['subclass_B3_LRA_beta-lactamase'])
+    print(binsInDataFrame)
 
     for duplicate in dupCount:
         dupCount = 0
-        print(binsOfBinsType + " that contain " + duplicate + "(" + binsColumn +"): ", end=' ')
+        print(duplicate + " (" + binsColumn + ")" + " is spread across these " + binsOfBinsType + ": ", end=' ')
         binsOfBins = []
         for column in binsOfBinsNames:
-            for row in df.index:
-                if df[column].loc[row] == duplicate:
+            for row in binsInDataFrame.index:
+                if binsInDataFrame[column].loc[row] == duplicate:
                     dupCount += 1
-                    binsOfBins.append(df[column].name)
+                    binsOfBins.append(binsInDataFrame[column].name)
         print(binsOfBins)
-        print("Number of bins of bins: " + str(dupCount))
+        print("Number of " + binsOfBinsType + ": " + str(dupCount))
         print('')
 # TODO: Make this return a DataFrame that can be exported as a csv
 
 
 #//endregion
+
+#//region Comparison
 
 megDataFile = 'megares_full_database_v2.00.fasta'
 
@@ -232,3 +233,4 @@ print("DONE")
 print("Writing MEGARes CSV...")
 pd.DataFrame.to_csv(megInstances,'meg' + filename,index=False)
 print("DONE")
+#//endregion
