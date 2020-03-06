@@ -99,6 +99,49 @@ def num_instances(data, dbName):
     return pd.DataFrame({'num_bins': numBins, 'instances': instanceList, 'binsOfBins': binsOfBins})
 
 
+
+def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins'):
+
+    multiBinIndex = data.loc[data['num_bins'] > 1].index
+    binsOfBinsNames = data[binsOfBinsColumn].loc[multiBinIndex]
+
+    collectBins = []
+    for i in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
+        # in multiple bins of bins will show up more than once
+        collectBins.extend(i)
+    dupCount = [x for x in collectBins if collectBins.count(x) > 1] # Only want to search for bins we KNOW are in
+    # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
+    dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
+    # are spread
+    print(dupCount)
+    # TODO: Rename df to be more descriptive
+    df = pd.DataFrame()
+    for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
+        # separate rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is
+        # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
+        # brute-force way
+        columnData = data[binsColumn].loc[i]
+        df2 = pd.Series(data=columnData)
+        df = pd.concat([df,df2],axis=1, ignore_index=True)
+    df.columns = binsOfBinsNames
+    # print(df.loc['subclass_B3_LRA_beta-lactamase'])
+    print(df)
+
+    for duplicate in dupCount:
+        dupCount = 0
+        print(binsOfBinsType + " that contain " + duplicate + "(" + binsColumn +"): ", end=' ')
+        binsOfBins = []
+        for column in binsOfBinsNames:
+            for row in df.index:
+                if df[column].loc[row] == duplicate:
+                    dupCount += 1
+                    binsOfBins.append(df[column].name)
+        print(binsOfBins)
+        print("Number of bins of bins: " + str(dupCount))
+        print('')
+# TODO: Make this return a DataFrame that can be exported as a csv
+
+
 #//endregion
 
 megDataFile = 'megares_full_database_v2.00.fasta'
@@ -156,81 +199,10 @@ megOverlap = num_bins(megOverlap, 'card')
 #//region Find bins that go into multiple bins of bins to figure out the differences in categorization between CARD
 # and see which bins of bins are getting bins spread across them
 
-
-# TODO: Translate this into a function so it can be applied in both directions
-
-def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins'):
-
-    multiBinIndex = data.loc[data['num_bins'] > 1].index
-    binsOfBinsNames = data[binsOfBinsColumn].loc[multiBinIndex]
-
-    collectBins = []
-    for i in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
-        # in multiple bins of bins will show up more than once
-        collectBins.extend(i)
-    dupCount = [x for x in collectBins if collectBins.count(x) > 1] # Only want to search for bins we KNOW are in
-    # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
-    dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
-    # are spread
-    print(dupCount)
-    # TODO: Rename df to be more descriptive
-    df = pd.DataFrame()
-    for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
-        # separate rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is
-        # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
-        # brute-force way
-        columnData = data[binsColumn].loc[i]
-        df2 = pd.Series(data=columnData)
-        df = pd.concat([df,df2],axis=1, ignore_index=True)
-    df.columns = binsOfBinsNames
-    # print(df.loc['subclass_B3_LRA_beta-lactamase'])
-    print(df)
-
-    for duplicate in dupCount:
-        dupCount = 0
-        print(binsOfBinsType + " that contain " + duplicate + "(" + binsColumn +"): ", end=' ')
-        binsOfBins = []
-        for column in binsOfBinsNames:
-            for row in df.index:
-                if df[column].loc[row] == duplicate:
-                    dupCount += 1
-                    binsOfBins.append(df[column].name)
-        print(binsOfBins)
-        print("Number of bins of bins: " + str(dupCount))
-        print('')
-# TODO: Make this return a DataFrame that can be exported as a csv
-
 find_spread(megOverlap,'meg','card','groups')
 find_spread(cardOverlap,'card','meg','families')
 
-
-# print(megOverlap.loc[9])
-# print(megOverlap['card'].loc[9][0:])
-# print(cardOverlap.loc[cardOverlap['num_bins'] > 1])
-# print(cardOverlap.loc[cardOverlap['card'] == 'OXA_beta-lactamase'])
 exit()
-# # print(len(megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()))
-# # print(len(megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist()))
-#
-# dataIn = megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()  # TODO: This doesn't work because it spreads
-# # the data horizontally instead of vertically.
-# print(dataIn)
-# exit()
-# test = pd.DataFrame(dataIn,
-#                     columns=megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist())
-# print(test)
-# print(megOverlap['card'].loc[megOverlap['meg'] == 'VANRA'])
-# collectCard = []
-# for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:
-#     collectCard.extend(i)
-# # print(collectCard)
-# for i in collectCard:  # DON'T USE .count IN A LOOP. PERFORMANCE ISSUE. USE Counter MODULE INSTEAD
-#     if collectCard.count(i) > 0:
-#         print(i)
-#         print(megOverlap['card'].loc[megOverlap['card']])
-#
-
-# exit()
 #//endregion
 
 

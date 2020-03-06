@@ -184,13 +184,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00073" summary="intro print edit">
-      <created>1582570446852</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1582570446852</updated>
-    </task>
     <task id="LOCAL-00074" summary="Translator now creates folder for translated files to prevent clutter">
       <created>1582571503955</created>
       <option name="number" value="00074" />
@@ -527,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583526383860</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="created function to find spread for both card and meg">
+      <created>1583527237210</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1583527237210</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved num_instances to function area" />
     <MESSAGE value="Added a column to num_instances function that contains all the bins of bins within that contained bin number" />
     <MESSAGE value="Removed unnecessary commented-out code" />
     <MESSAGE value="Removed multi-drug resistant conversion because it caused duplicate headers, making AMR++ non-functional" />
@@ -566,7 +565,8 @@
     <MESSAGE value="changed names of variables in bin_overlap" />
     <MESSAGE value="got bin of bin overlap counting done for meg, need to create a function to generalize it" />
     <MESSAGE value="generalized variable names of spread finding" />
-    <option name="LAST_COMMIT_MESSAGE" value="generalized variable names of spread finding" />
+    <MESSAGE value="created function to find spread for both card and meg" />
+    <option name="LAST_COMMIT_MESSAGE" value="created function to find spread for both card and meg" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -581,10 +581,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583526383018">
+    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583527236366">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583526383018" />
+    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583527236366" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -601,22 +601,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583527092343">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583527325200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583527092343" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583527092343">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583527325200" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583527325200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583527092343" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583527092343">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583527325200" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583527325200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583527092343" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583527092343">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583527325200" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583527325200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583527092343" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583527325200" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1583356452247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
