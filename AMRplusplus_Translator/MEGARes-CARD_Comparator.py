@@ -17,8 +17,8 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 from datetime import date
 
 # Dataframe display options
-pd.options.display.width = 0
-pd.options.display.max_rows = 50
+# pd.options.display.width = 0
+# pd.options.display.max_rows = 50
 #//region Define functions
 
 def importFasta(file):  # Pandas doesn't have its own fasta importer, so we bring in fasta data with SeqIO and
@@ -149,33 +149,80 @@ megOverlap = num_bins(megOverlap, 'card')
 
 # TODO: find bins in multiple bins of bins, then make this into a function and apply it to both CARD and MEG. Get
 #  list of bins of bins that each bin falls into
-#  - Add it to card_instances, or export as separate file?
-#  - megInstances suggests that almost all groups fall into one family. Just analyze multi-overlap from MEG?
+#  - Create a separate DataFrame for it. Columns are bins of bins, rows are bins
+#  - megInstances suggests that almost all groups fall into one family. Just analyze multi-overlap from MEG? No.
+#  glycopeptide_resistance_gene_cluster;van_ligase has multiple families, as do APH3-PRIME and APH3-DPRIME
 
-# print(cardOverlap)
+#//region Find bins that go into multiple bins of bins to figure out the differences in categorization between CARD
+# and see which bins of bins are getting bins spread across them
+
+
+# TODO: Translate this into a function so it can be applied in both directions
+
+multiBinIndex = megOverlap.loc[megOverlap['num_bins'] > 1].index
+megNames = megOverlap['meg'].loc[multiBinIndex]
+
+collectCard = []
+for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
+    # in multiple bins of bins will show up more than once
+    collectCard.extend(i)
+dupCount = [x for x in collectCard if collectCard.count(x) > 1] # Only want to search for bins we KNOW are in
+# multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
+dupCount = removeDuplicates(dupCount)
+# print(dupCount)
+
+# df = pd.DataFrame(data=megOverlap['card'].loc[9], columns=[megOverlap['meg'].loc[9]])
+# TODO: Rename df to be more descriptive
+df = pd.DataFrame()
+for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as separate
+    # rows. .loc[] has no use here. Have to search by using a for loop and megNames. This is done because Pandas has
+    # no way to search an entire dataframe for a string, so you have to go through in a brute-force way
+    columnData = megOverlap['card'].loc[i]
+    # print(columnData)
+    columnName = megOverlap['meg'].loc[i]
+    df2 = pd.Series(data=columnData, name=columnName)
+    # print(df2)
+    df = pd.concat([df,df2],axis=1, ignore_index=True)
+    # print(df)
+df.columns = megNames
+# print(df.loc['subclass_B3_LRA_beta-lactamase'])
+print(df)
+
+for duplicate in dupCount:
+    dupCount = 0
+    print("Bins of bins that contain " + duplicate + ": ", end=' ')
+    binsOfBins = []
+    for column in megNames:
+        for row in df.index:
+            if df[column].loc[row] == duplicate:
+                dupCount += 1
+                binsOfBins.append(df[column].name)
+    print(binsOfBins)
+    print("Number of bins of bins: " + str(dupCount))
+    print('')
+# print(df[megNames.tolist()[0]])
+
+# df = pd.DataFrame(columns=megNames.tolist()) # Runs into index length mismatch issue
+# for i in multiBinIndex:
+#     df[megOverlap['meg'].loc[i]] = megOverlap['card'].loc[i]
 #
-# print(cardOverlap['meg'].value_counts())  # TODO: This doesn't go into the lists. Find another way.
-# exit()
+#     print(df)
 
-# Test to see which CARD bins are getting groups spread across them
-# print(megOverlap.loc[megOverlap['num_bins'] > 1])
-# exit()
-# print(len(megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()))
-# print(len(megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist()))
-
-x=np.array([[1,2,3],[4,5]])
-y=np.array([[1,2,3],[4,5,6]])
-print(x.transpose())
-# print(type(x))
-print(y.transpose())
+# print(megOverlap.loc[9])
+# print(megOverlap['card'].loc[9][0:])
+# print(cardOverlap.loc[cardOverlap['num_bins'] > 1])
+# print(cardOverlap.loc[cardOverlap['card'] == 'OXA_beta-lactamase'])
 exit()
-
-dataIn = megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()
-print(dataIn)
-exit()
-test = pd.DataFrame(dataIn,
-                    columns=megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist())
-print(test)
+# # print(len(megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()))
+# # print(len(megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist()))
+#
+# dataIn = megOverlap['card'].loc[megOverlap['num_bins'] > 1].tolist()  # TODO: This doesn't work because it spreads
+# # the data horizontally instead of vertically.
+# print(dataIn)
+# exit()
+# test = pd.DataFrame(dataIn,
+#                     columns=megOverlap['meg'].loc[megOverlap['num_bins'] > 1].tolist())
+# print(test)
 # print(megOverlap['card'].loc[megOverlap['meg'] == 'VANRA'])
 # collectCard = []
 # for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:
@@ -187,7 +234,9 @@ print(test)
 #         print(megOverlap['card'].loc[megOverlap['card']])
 #
 
-exit()
+# exit()
+#//endregion
+
 
 # # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
