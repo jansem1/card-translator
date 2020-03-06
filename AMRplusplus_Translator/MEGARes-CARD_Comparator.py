@@ -197,15 +197,6 @@ megOverlap = num_bins(megOverlap, 'card')
 #  - megInstances suggests that almost all groups fall into one family. Just analyze multi-overlap from MEG? No.
 #  glycopeptide_resistance_gene_cluster;van_ligase has multiple families, as do APH3-PRIME and APH3-DPRIME
 
-#//region Find bins that go into multiple bins of bins to figure out the differences in categorization between CARD
-# and see which bins of bins are getting bins spread across them
-
-find_spread(megOverlap,'meg','card','groups')
-find_spread(cardOverlap,'card','meg','families')
-
-exit()
-#//endregion
-
 
 # # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
@@ -220,6 +211,15 @@ print("card instances: ")
 print(cardInstances)
 print("meg instances: ")
 print(megInstances)
+
+#//region Find bins that go into multiple bins of bins to figure out the differences in categorization between CARD
+# and see which bins of bins are getting bins spread across them
+
+find_spread(megOverlap,'meg','card','groups')
+find_spread(cardOverlap,'card','meg','families')
+
+#//endregion
+
 
 print("EXIT EARLY - Just before to_csv")
 exit()
