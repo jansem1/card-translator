@@ -159,23 +159,24 @@ megOverlap = num_bins(megOverlap, 'card')
 
 # TODO: Translate this into a function so it can be applied in both directions
 
-multiBinIndex = megOverlap.loc[megOverlap['num_bins'] > 1].index
-megNames = megOverlap['meg'].loc[multiBinIndex]
+def find_spread(data, binsColumn, binsOfBinsColumn,):
 
-collectCard = []
+multiBinIndex = megOverlap.loc[megOverlap['num_bins'] > 1].index
+binsOfBinsNames = megOverlap['meg'].loc[multiBinIndex]
+
+collectBins = []
 for i in megOverlap['card'].loc[megOverlap['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
     # in multiple bins of bins will show up more than once
-    collectCard.extend(i)
-dupCount = [x for x in collectCard if collectCard.count(x) > 1] # Only want to search for bins we KNOW are in
+    collectBins.extend(i)
+dupCount = [x for x in collectBins if collectBins.count(x) > 1] # Only want to search for bins we KNOW are in
 # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
-dupCount = removeDuplicates(dupCount)
-# print(dupCount)
+dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
+# are spread
 
-# df = pd.DataFrame(data=megOverlap['card'].loc[9], columns=[megOverlap['meg'].loc[9]])
 # TODO: Rename df to be more descriptive
 df = pd.DataFrame()
 for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as separate
-    # rows. .loc[] has no use here. Have to search by using a for loop and megNames. This is done because Pandas has
+    # rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is done because Pandas has
     # no way to search an entire dataframe for a string, so you have to go through in a brute-force way
     columnData = megOverlap['card'].loc[i]
     # print(columnData)
@@ -184,7 +185,7 @@ for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the 
     # print(df2)
     df = pd.concat([df,df2],axis=1, ignore_index=True)
     # print(df)
-df.columns = megNames
+df.columns = binsOfBinsNames
 # print(df.loc['subclass_B3_LRA_beta-lactamase'])
 print(df)
 
@@ -192,7 +193,7 @@ for duplicate in dupCount:
     dupCount = 0
     print("Bins of bins that contain " + duplicate + ": ", end=' ')
     binsOfBins = []
-    for column in megNames:
+    for column in binsOfBinsNames:
         for row in df.index:
             if df[column].loc[row] == duplicate:
                 dupCount += 1
