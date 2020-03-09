@@ -17,7 +17,7 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 from datetime import date
 
 # Dataframe display options
-# pd.options.display.width = 0
+pd.options.display.width = 0
 # pd.options.display.max_rows = 50
 #//region Define functions
 
@@ -113,31 +113,30 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
     # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
     dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
     # are spread
-    print(dupCount)
+    # print(dupCount)
     binsInDataFrame = pd.DataFrame()
     for row in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
-        # separate rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is
+        # separate rows. Have to search by using a for loop and binsOfBinsNames. This is
         # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
-        # brute-force way
+        # brute-force way. .loc[] has no use here.
         columnData = data[binsColumn].loc[row]
         df2 = pd.Series(data=columnData)
         binsInDataFrame = pd.concat([binsInDataFrame,df2],axis=1, ignore_index=True)
     binsInDataFrame.columns = binsOfBinsNames
     # print(binsInDataFrame.loc['subclass_B3_LRA_beta-lactamase'])
-    print(binsInDataFrame)
+    # print(binsInDataFrame)
 
     for duplicate in dupCount:
-        dupCount = 0
-        print(duplicate + " (" + binsColumn + ")" + " is spread across these " + binsOfBinsType + ": ", end=' ')
-        binsOfBins = []
+        dupNumber = 0
+        binsOfBin = []  # Bins of bins across which the current bin (duplicate) is spread across
         for column in binsOfBinsNames:
             for row in binsInDataFrame.index:
                 if binsInDataFrame[column].loc[row] == duplicate:
-                    dupCount += 1
-                    binsOfBins.append(binsInDataFrame[column].name)
-        print(binsOfBins)
-        print("Number of " + binsOfBinsType + ": " + str(dupCount))
-        print('')
+                    dupNumber += 1
+                    binsOfBin.append(binsInDataFrame[column].name)
+        print(duplicate + " (" + binsColumn + ")" + " is spread across these " + binsOfBinsType + ": ", end=' ')
+        print(binsOfBin)
+        print("Number of " + binsOfBinsType + ": " + str(dupNumber) + '\n')
 # TODO: Make this return a DataFrame that can be exported as a csv
 
 
@@ -190,14 +189,6 @@ megOverlap['card'] = megOverlap['card'].apply(removeDuplicates)
 cardOverlap = num_bins(cardOverlap, 'meg')
 megOverlap = num_bins(megOverlap, 'card')
 
-
-# TODO: find bins in multiple bins of bins, then make this into a function and apply it to both CARD and MEG. Get
-#  list of bins of bins that each bin falls into
-#  - Create a separate DataFrame for it. Columns are bins of bins, rows are bins
-#  - megInstances suggests that almost all groups fall into one family. Just analyze multi-overlap from MEG? No.
-#  glycopeptide_resistance_gene_cluster;van_ligase has multiple families, as do APH3-PRIME and APH3-DPRIME
-
-
 # # DEBUG: Search for specific groups to test that bin_overlap is working properly
 # searchgroup = 'AAC6-PRIME'  # MEG group to search for
 # df2 = cardOverlap[[searchgroup in x for x in cardOverlap['meg']]]  # creates a dummy dataframe that holds all the
@@ -219,6 +210,9 @@ find_spread(megOverlap,'meg','card','groups')
 find_spread(cardOverlap,'card','meg','families')
 
 #//endregion
+# print(megData)
+# exit()
+
 
 
 print("EXIT EARLY - Just before to_csv")

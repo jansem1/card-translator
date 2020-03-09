@@ -318,7 +318,7 @@ BAA15935.1	AP009048.1	resistance-nodulation-cell division (RND) antibiotic efflu
 BAA15934.1	AP009048	resistance-nodulation-cell division (RND) antibiotic efflux pump	aminocoumarin antibiotic;aminoglycoside antibiotic	antibiotic efflux
 APB03218.1	KX531048.1	Bah amidohydrolase	peptide antibiotic	antibiotic inactivation
 AAL82403.1	AF469609	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
-ABM44583.1	CP000524.1	aminocoumarin resistant gyrB	aminocoumarin antibiotic	antibiotic target alteration
+ABM44583.1	CP000524.1	aminocoumarin resistant gyrB	N/A	antibiotic target alteration
 AAG08162.1	AE004091.2	pmr phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
 AEX49906.1	JQ340365	pmr phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
 EIM09515.1	AJRJ01000061.1	BAT Beta-lactamase	cephalosporin	antibiotic inactivation
@@ -346,7 +346,6 @@ ABU39978.1	EF540343.1	blaZ beta-lactamase	penam	antibiotic inactivation
 ABU39979.1	EF540343.1	blaZ beta-lactamase	penam	antibiotic inactivation
 AAC36944.1	L32599	major facilitator superfamily (MFS) antibiotic efflux pump	acridine dye;fluoroquinolone antibiotic	antibiotic efflux
 AAA22277.1	M33768	major facilitator superfamily (MFS) antibiotic efflux pump	acridine dye;fluoroquinolone antibiotic;nucleoside antibiotic;phenicol antibiotic	antibiotic efflux
-N/A	NR_044732.2	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	NR_044732.2	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 AAC66824.2	AE000783.1	murA transferase	fosfomycin	antibiotic target alteration
 ABV63006.2	CP000813.4	BPU Beta-lactamase	penam	antibiotic inactivation
@@ -424,7 +423,7 @@ AAV37206.1	AY769934	CfxA beta-lactamase	cephamycin	antibiotic inactivation
 ACT97371.1	GQ342996	CfxA beta-lactamase	cephamycin	antibiotic inactivation
 AAL55262.1	AF339733.1	CGA beta-lactamase	penam	antibiotic inactivation
 ABS29619.1	EF672680	CGB beta-lactamase	carbapenem;cephalosporin;penam	antibiotic inactivation
-N/A	NR_076160.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
+N/A	NR_076160.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
 AAN28945	AY152390	murA transferase	N/A	antibiotic target alteration
 N/A	NC_005353.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 N/A	NC_005353.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
@@ -441,12 +440,12 @@ AGZ55247.1	CP006845.1	Cfr 23S ribosomal RNA methyltransferase	lincosamide antibi
 BAH45481.1	AP008955.1	Cfr 23S ribosomal RNA methyltransferase	lincosamide antibiotic;macrolide antibiotic;oxazolidinone antibiotic;phenicol antibiotic;pleuromutilin antibiotic;streptogramin antibiotic	antibiotic target alteration
 BAD63613.1	AP006627.1	Cfr 23S ribosomal RNA methyltransferase	lincosamide antibiotic;macrolide antibiotic;oxazolidinone antibiotic;phenicol antibiotic;pleuromutilin antibiotic;streptogramin antibiotic	antibiotic target alteration
 AIX48090.1	KM359438.1	Cfr 23S ribosomal RNA methyltransferase	lincosamide antibiotic;macrolide antibiotic;oxazolidinone antibiotic;phenicol antibiotic;pleuromutilin antibiotic;streptogramin antibiotic	antibiotic target alteration
-N/A	NR_076234.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	lincosamide antibiotic;macrolide antibiotic	antibiotic target alteration
+N/A	NR_076234.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
 AXU66539.1	CP012325.1	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
 CAJ66820.1	AM180355.1	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 ADK13120.1	CP001666.1	fluoroquinolone resistant gyrB	fluoroquinolone antibiotic	antibiotic target alteration
 AAK80188.1	AE001437.1	murG transferase	glycopeptide antibiotic	antibiotic target alteration
-ADK17136.1	CP001666.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	N/A	antibiotic target alteration;antibiotic target replacement
+ADK17136.1	CP001666.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
 AJP09758.1	CP010905.2	vancomycin-resistant beta prime subunit of RNA polymerase (rpoC)	glycopeptide antibiotic	antibiotic target alteration
 AAA73865.1	M93113	chloramphenicol acetyltransferase (CAT)	phenicol antibiotic	antibiotic inactivation
 ABG86067.1	CP000312.1	defensin resistant mprF	peptide antibiotic	antibiotic target alteration
@@ -736,46 +735,46 @@ N/A	NR_040847.1	16S rRNA with mutation conferring resistance to tetracycline der
 AER05434.1	CP003084.1	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 AAN62561.1	AY168442.1	van ligase	glycopeptide antibiotic	antibiotic target alteration
 AAM45855.1	AF426161.1	DES beta-lactamase	penam	antibiotic inactivation
-AAP74961.2	KJ541681.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AHG97174.1	KF976462	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AAP74961.2	KJ541681.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+AHG97174.1	KF976462	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 ADG84870.1	GU585907.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 CAA90683.1	Z50802	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ACI32877.1	EU780012	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AHB39758.1	KF534911	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AHB39758.1	KF534911	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 CAI29521.1	AJ867237.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
-AAK60186.1	AF174129	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-ABG91835.1	DQ838665	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AAK64581.1	AY034138.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AAK60186.1	AF174129	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+ABG91835.1	DQ838665	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+AAK64581.1	AY034138.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 CAC81324.1	AJ310778	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAE53424.1	AJ605332	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAP69659.1	AM932669	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAX16467.1	FM957884	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAE53424.1	AJ605332	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAP69659.1	AM932669	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAX16467.1	FM957884	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 CAG34233.2	AJ746361	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAI99385.1	AJ972619	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAI99385.1	AJ972619	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ABB71176.1	DQ267940	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 CAL48457.1	AM403715	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ACD45689.1	KP076293.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAT00035.1	FM877476.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-ANN23980.1	KX118301.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAT00035.1	FM877476.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+ANN23980.1	KX118301.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 AAA25550.1	J03306	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-CAQ53849.2	AM997279.2	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+CAQ53849.2	AM997279.2	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ACZ52983.1	GU067642.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AAN85115.1	AY162283.2	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+AAN85115.1	AY162283.2	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ABB89122.1	DQ278190	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-ACY06082.1	FJ905898.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+ACY06082.1	FJ905898.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 CAB06660.1	Z86002.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 ACS44716.1	FJ854362	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AHV80711.1	KJ174469	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AHV80711.1	KJ174469	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 CAA40897.1	X57730.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 AAY33960.1	AY970968.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ABI20482.1	DQ839391.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 ACR57831.1	GQ150744	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AKF12264.1	KP314737.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
-AAX46054.1	AY943084.1	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
-ADO00942.1	GU060319	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
+AKF12264.1	KP314737.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AAX46054.1	AY943084.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+ADO00942.1	GU060319	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 ADB54781.1	GU295656.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 AAO04716.1	AE015929.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
-AAA85213.1	U43152	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
+AAA85213.1	U43152	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
 EOD99669.1	AIIS01000002.1	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 AAD01868.1	AF028812	trimethoprim resistant dihydrofolate reductase dfr	N/A	antibiotic target replacement
 BAE15963.1	AB205645	trimethoprim resistant dihydrofolate reductase dfr	diaminopyrimidine antibiotic	antibiotic target replacement
@@ -821,7 +820,7 @@ AAL02176.1	AF403298.1	non-erm 23S ribosomal RNA methyltransferase (G748)	lincosa
 ABG77965.1	DQ679966	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux
 AFK13827.1	JQ727667	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux
 CAA63498.2	X92945.2	chloramphenicol acetyltransferase (CAT)	phenicol antibiotic	antibiotic inactivation
-AEA93051.1	CP002621.1	daptomycin resistant cls	N/A	antibiotic target alteration
+AEA93051.1	CP002621.1	daptomycin resistant cls	peptide antibiotic	antibiotic target alteration
 AAO81566.1	AE016830.1	daptomycin resistant drmA	peptide antibiotic	antibiotic target alteration
 AAO81656.1	AE016830.1	daptomycin resistant gdpD	peptide antibiotic	antibiotic target alteration
 AMR95642.1	CP014949.1	daptomycin resistant gshF	peptide antibiotic	antibiotic target alteration
@@ -831,7 +830,7 @@ AAO82600.1	AE016830.1	daptomycin resistant liaS	peptide antibiotic	antibiotic ta
 AAO81526.1	AE016830.1	daptomycin resistant YvlB	peptide antibiotic	antibiotic target alteration
 AAO79895.1	AE016830.1	daptomycin resistant YybT	peptide antibiotic	antibiotic target alteration
 AAO52851.1	AF507977.1	chloramphenicol acetyltransferase (CAT)	phenicol antibiotic	antibiotic inactivation
-ALL09868.1	CP013009.1	daptomycin resistant cls	N/A	antibiotic target alteration
+ALL09868.1	CP013009.1	daptomycin resistant cls	peptide antibiotic	antibiotic target alteration
 AFK57679.1	CP003583.1	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
 CUX99269.1	LN999844.1	daptomycin resistant liaF	peptide antibiotic	antibiotic target alteration
 AFK58562.1	CP003583	daptomycin resistant liaR	peptide antibiotic	antibiotic target alteration
@@ -886,11 +885,10 @@ CAM96571.1	AM709783.1	Erm 23S ribosomal RNA methyltransferase	lincosamide antibi
 AAL86999.1	AY077733.1	ERP beta-lactamase	penam	antibiotic inactivation
 N/A	U00096	16s rRNA with mutation conferring resistance to peptide antibiotics	peptide antibiotic	antibiotic target alteration
 N/A	U00096	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
-N/A	U00096	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	U00096	16S rRNA with mutation conferring resistance to tetracycline derivatives	N/A	antibiotic target alteration
 N/A	AE014075	23S rRNA with mutation conferring resistance to phenicol antibiotics	phenicol antibiotic	antibiotic target alteration
 N/A	AE014075.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
-N/A	AE014075.1	23S rRNA with mutation conferring resistance to lincosamide antibiotics	N/A	antibiotic target alteration
+N/A	AE014075.1	23S rRNA with mutation conferring resistance to lincosamide antibiotics	lincosamide antibiotic	antibiotic target alteration
 N/A	AE014075.1	23S rRNA with mutation conferring resistance to oxazolidinone antibiotics	oxazolidinone antibiotic	antibiotic target alteration
 AAC73565.1	U00096.3	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux
 AAC73566.1	U00096.3	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux;antibiotic target alteration
@@ -901,20 +899,20 @@ ANK04473.1	CP015085.1	resistance-nodulation-cell division (RND) antibiotic efflu
 CDJ73082	HG738867	cya adenylate cyclase	fosfomycin	antibiotic target alteration
 AAC76364.1	U00096.3	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
 AAA50993.1	AH002539.2	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
-AAN82549.1	AE014075.1	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
+AAN82549.1	AE014075.1	elfamycin resistant EF-Tu	elfamycin antibiotic	antibiotic target alteration
 CAA77936.1	Z11877.1	small multidrug resistance (SMR) antibiotic efflux pump	macrolide antibiotic	antibiotic efflux
-AAC74177.1	U00096.3	antibiotic resistance fabG	N/A	antibiotic target alteration
-AAC74370.1	U00096.3	antibiotic resistant fabI	isoniazid	antibiotic target alteration
+AAC74177.1	U00096.3	antibiotic resistant fabG	N/A	antibiotic target alteration
+AAC74370.1	U00096.3	antibiotic resistant fabI	isoniazid;triclosan	antibiotic target alteration
 AAC76209.2	U00096.3	sulfonamide resistant dihydropteroate synthase folP	N/A	antibiotic target alteration
 CDJ72593	HG738867	GlpT	fosfomycin	antibiotic target alteration
 AAC75291.1	U00096.3	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 AAC75291.1	U00096.3	triclosan resistant gyrA	triclosan	antibiotic target alteration
-BAE77595.1	AP009048	aminocoumarin resistant gyrB	N/A	antibiotic target alteration
+BAE77595.1	AP009048	aminocoumarin resistant gyrB	aminocoumarin antibiotic	antibiotic target alteration
 BAB38442	BA000007	Sugar Porin (SP)	fluoroquinolone antibiotic;tetracycline antibiotic	reduced permeability to antibiotic;resistance by absence
 AAC74603.2	U00096	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux;antibiotic target alteration
 AFH35853.1	JQ394987	major facilitator superfamily (MFS) antibiotic efflux pump	benzalkonium chloride;rhodamine;tetracycline antibiotic	antibiotic efflux
 NP_310518	NC_002695.2	MipA-interacting Protein	aminoglycoside antibiotic;fluoroquinolone antibiotic	reduced permeability to antibiotic;resistance by absence
-AIL15701	CP009072	murA transferase	fosfomycin	antibiotic target alteration
+AIL15701	CP009072	murA transferase	N/A	antibiotic target alteration
 AAC73938.1	U00096.3	antibiotic resistant nfsA	nitrofuran antibiotic	antibiotic target alteration
 AAC73679.1	U00096.3	antibiotic resistant nfsB	nitrofuran antibiotic	antibiotic target alteration
 AAC74015.1	U00096.3	General Bacterial Porin with reduced permeability to beta-lactams	carbapenem;cephalosporin;cephamycin;monobactam;penam;penem	reduced permeability to antibiotic
@@ -922,7 +920,7 @@ AAC76055.1	U00096.3	fluoroquinolone resistant parC	fluoroquinolone antibiotic	an
 BAE77086.1	AP009048.1	fluoroquinolone resistant parE	fluoroquinolone antibiotic	antibiotic target alteration
 CDJ72759	HG738867	PtsI phosphotransferase	fosfomycin	antibiotic target alteration
 NP_418813.1	NC_000913.3	resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux
-BAB38333.1	BA000007.3	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
+BAB38333.1	BA000007.3	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	N/A	antibiotic target alteration;antibiotic target replacement
 AAC77033.1	U00096	ATP-binding cassette (ABC) antibiotic efflux pump;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	cephalosporin;fluoroquinolone antibiotic;glycylcycline;penam;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux;antibiotic target alteration
 AAC77032.1	U00096.3	ATP-binding cassette (ABC) antibiotic efflux pump;General Bacterial Porin with reduced permeability to beta-lactams;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	carbapenem;cephalosporin;cephamycin;fluoroquinolone antibiotic;glycylcycline;monobactam;penam;penem;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux;antibiotic target alteration;reduced permeability to antibiotic
 CDJ73205	HG738867	UhpT	fosfomycin	antibiotic target alteration
@@ -1032,7 +1030,7 @@ AAF89153.1	AF189297.1	GOB beta-lactamase	carbapenem;cephalosporin;penam	antibiot
 AAQ54756.1	AY348327.1	GOB beta-lactamase	carbapenem;cephalosporin;penam	antibiotic inactivation
 AAT68576.1	AY647246.1	GOB beta-lactamase	carbapenem;cephalosporin;penam	antibiotic inactivation
 AAL19308.1	AE006468.2	resistance-nodulation-cell division (RND) antibiotic efflux pump	carbapenem;cephalosporin;cephamycin;monobactam;penam;penem;phenicol antibiotic	antibiotic efflux
-AAC22787.1	L42023.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephamycin	antibiotic target alteration
+AAC22787.1	L42023.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
 CBW16027.1	FQ312002.1	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 WP_041918279.1	NC_015964.1	fluoroquinolone resistant parC	N/A	antibiotic target alteration
 N/A	X03407.1	23S rRNA with mutation conferring resistance to phenicol antibiotics	N/A	antibiotic target alteration
@@ -1253,38 +1251,38 @@ AAV85982.1	AY768532	ATP-binding cassette (ABC) antibiotic efflux pump	macrolide 
 BAA15221.2	AP009048.1	General Bacterial Porin with reduced permeability to beta-lactams;resistance-nodulation-cell division (RND) antibiotic efflux pump	carbapenem;cephalosporin;cephamycin;fluoroquinolone antibiotic;glycylcycline;monobactam;penam;penem;phenicol antibiotic;rifamycin antibiotic;tetracycline antibiotic;triclosan	antibiotic efflux;reduced permeability to antibiotic
 AKF16168	KP347127	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
 ASK49940.1	MF176238.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
-ATM29809.1	KY853650.2	N/A	N/A	antibiotic target alteration
-BBB21811.1	LC337668.1	N/A	N/A	antibiotic target alteration
-AVM85874.1	MG384739.1	N/A	N/A	N/A
+ATM29809.1	KY853650.2	N/A	peptide antibiotic	N/A
+BBB21811.1	LC337668.1	N/A	peptide antibiotic	antibiotic target alteration
+AVM85874.1	MG384739.1	N/A	peptide antibiotic	antibiotic target alteration
 ANR95875.1	KX236309.1	N/A	peptide antibiotic	N/A
-ANJ15621.1	KU934208.1	N/A	peptide antibiotic	N/A
-APM87143.1	KY041856.1	N/A	peptide antibiotic	antibiotic target alteration
-APM84488.1	KY283125.1	N/A	peptide antibiotic	antibiotic target alteration
-AQK48217.1	KY352406.1	N/A	N/A	N/A
-AQQ11622.1	KY488488.1	N/A	N/A	N/A
+ANJ15621.1	KU934208.1	N/A	N/A	antibiotic target alteration
+APM87143.1	KY041856.1	N/A	N/A	antibiotic target alteration
+APM84488.1	KY283125.1	N/A	peptide antibiotic	N/A
+AQK48217.1	KY352406.1	N/A	peptide antibiotic	N/A
+AQQ11622.1	KY488488.1	N/A	peptide antibiotic	N/A
 AQY61516.1	KY683842.1	N/A	peptide antibiotic	N/A
-AVA31022.1	KY780959.1	N/A	peptide antibiotic	N/A
+AVA31022.1	KY780959.1	N/A	N/A	N/A
 SBV31106.1	LT598652.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
-ASK49941.1	MF176239.1	N/A	peptide antibiotic	antibiotic target alteration
+ASK49941.1	MF176239.1	N/A	N/A	antibiotic target alteration
 ASF81896.1	KY924928.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
-ATQ63376.1	MG214531.1	N/A	peptide antibiotic	N/A
-AUN87920.1	MG489958.1	N/A	N/A	N/A
-AVZ47168.1	MG564491.1	N/A	peptide antibiotic	antibiotic target alteration
+ATQ63376.1	MG214531.1	N/A	peptide antibiotic	antibiotic target alteration
+AUN87920.1	MG489958.1	N/A	peptide antibiotic	antibiotic target alteration
+AVZ47168.1	MG564491.1	N/A	N/A	antibiotic target alteration
 OYN70668.1	NMWW01000143.1	N/A	N/A	N/A
 ASU10319.1	MF495680.1	N/A	peptide antibiotic	antibiotic target alteration
-SBZ31568.1	FLXA01000011.1	N/A	peptide antibiotic	N/A
-ASU04896.1	MF489760.1	N/A	peptide antibiotic	N/A
-AST36140.1	MF598076.1	N/A	N/A	antibiotic target alteration
+SBZ31568.1	FLXA01000011.1	N/A	peptide antibiotic	antibiotic target alteration
+ASU04896.1	MF489760.1	N/A	N/A	antibiotic target alteration
+AST36140.1	MF598076.1	N/A	N/A	N/A
 AST36141.1	MF598077.1	N/A	N/A	antibiotic target alteration
-AST36143.1	MF598079.1	N/A	N/A	antibiotic target alteration
-AST36144.1	MF598080.1	N/A	N/A	antibiotic target alteration
+AST36143.1	MF598079.1	N/A	N/A	N/A
+AST36144.1	MF598080.1	N/A	peptide antibiotic	N/A
 ASR73329.1	MF543359.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
-AVK94777.1	MG822663.1	MCR phosphoethanolamine transferase	N/A	antibiotic target alteration
+AVK94777.1	MG822663.1	N/A	peptide antibiotic	antibiotic target alteration
 AUI38915.1	MG026621.1	N/A	N/A	antibiotic target alteration
 AVK94779.1	MG822665.1	N/A	peptide antibiotic	antibiotic target alteration
-AVK94778.1	MG822664.1	MCR phosphoethanolamine transferase	N/A	antibiotic target alteration
+AVK94778.1	MG822664.1	N/A	N/A	N/A
 ASK40551.1	KY807920.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
-AVM85875.1	MG384740.1	N/A	N/A	antibiotic target alteration
+AVM85875.1	MG384740.1	N/A	peptide antibiotic	N/A
 ASK49942.1	MF176240.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
 AUR80098.1	MG267386.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
 AVX52225.1	MG736312.1	MCR phosphoethanolamine transferase	peptide antibiotic	antibiotic target alteration
@@ -1362,9 +1360,9 @@ ABN69112.2	EF417572	MIR beta-lactamase	cephalosporin;monobactam	antibiotic inact
 AJO16037.1	KP050484	MIR beta-lactamase	cephalosporin;monobactam	antibiotic inactivation
 AFJ79785.1	JQ664733	MIR beta-lactamase	cephalosporin;monobactam	antibiotic inactivation
 AIT76113.1	KM087860	MIR beta-lactamase	cephalosporin;monobactam	antibiotic inactivation
-N/A	CP002005.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
+N/A	CP002005.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
 AAX99225	AY905613	General Bacterial Porin with reduced permeability to beta-lactams	carbapenem;cephalosporin;cephamycin;monobactam;penam;penem	reduced permeability to antibiotic;resistance by absence
-AGG29535.1	CP004345.1	fluoroquinolone resistant gyrB	fluoroquinolone antibiotic	antibiotic target alteration
+AGG29535.1	CP004345.1	fluoroquinolone resistant gyrB	N/A	antibiotic target alteration
 BAA02563.2	D13304	MOX beta-lactamase	cephalosporin;cephamycin;penam	antibiotic inactivation
 CAB82578.1	AJ276453	MOX beta-lactamase	cephalosporin;cephamycin;penam	antibiotic inactivation
 ACA30419.1	EU515248	MOX beta-lactamase	cephalosporin;cephamycin;penam	antibiotic inactivation
@@ -1412,93 +1410,93 @@ N/A	NZ_CP019883.1	23S rRNA with mutation conferring resistance to macrolide anti
 CAC29732.1	AL450380	dapsone resistant dihydropteroate synthase folP	N/A	antibiotic target alteration
 CAC29513.1	AL450380	fluoroquinolone resistant gyrB	N/A	antibiotic target alteration
 CAC30845.1	AL450380	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
+N/A	AL123456.3	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	AL123456.3	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 N/A	AL123456.3	16s rRNA with mutation conferring resistance to peptide antibiotics	peptide antibiotic	antibiotic target alteration
 N/A	AL123456.3	23s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
-CCP46621.1	AL123456.3	ethambutol resistant aftA	N/A	antibiotic target alteration
-CCP45220.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP45579.1	AL123456.3	N/A	cycloserine	antibiotic target alteration
-CCP46245.1	AL123456.3	N/A	cycloserine	antibiotic target alteration
-CCP46419.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45786.1	AL123456.3	N/A	N/A	antibiotic target alteration
-CCP44549.1	AL123456.3	N/A	fluoroquinolone antibiotic	N/A
-CCP44550.1	AL123456.3	N/A	fluoroquinolone antibiotic	N/A
-CCP45207.1	AL123456.3	N/A	aminoglycoside antibiotic	antibiotic target alteration
-AFN51820.1	CP003248	ethambutol resistant aftA	N/A	antibiotic target alteration
-CCP46624.1	AL123456	ethambutol resistant aftA	polyamine antibiotic	antibiotic target alteration
+CCP46621.1	AL123456.3	ethambutol resistant aftA	polyamine antibiotic	antibiotic target alteration
+CCP45220.1	AL123456.3	isoniazid resistant ahpC	isoniazid	antibiotic target alteration
+CCP45579.1	AL123456.3	cycloserine resistant ald	cycloserine	antibiotic target alteration
+CCP46245.1	AL123456.3	cycloserine resistant alr	cycloserine	antibiotic target alteration
+CCP46419.1	AL123456.3	pyrazinamide resistant clpC1	pyrazinamide	antibiotic target alteration
+CCP45786.1	AL123456.3	cycloserine resistant ddlA	cycloserine	antibiotic target alteration
+CCP44549.1	AL123456.3	fluoroquinolone resistant eccB5	fluoroquinolone antibiotic	antibiotic target alteration
+CCP44550.1	AL123456.3	fluoroquinolone resistant eccC5	fluoroquinolone antibiotic	antibiotic target alteration
+CCP45207.1	AL123456.3	kanamycin resistant eis	aminoglycoside antibiotic	antibiotic target alteration
+AFN51820.1	CP003248	N/A	N/A	N/A
+CCP46624.1	AL123456	N/A	polyamine antibiotic	N/A
 AAK48268.1	AE000516	rifamycin-resistant arabinosyltransferase	rifamycin antibiotic	antibiotic target alteration
-AFN51819.1	CP003248	ethambutol resistant aftA	polyamine antibiotic	antibiotic target alteration
-CCP44023.1	AL123456.3	ethambutol resistant aftA	N/A	antibiotic target alteration
-AAK48336.1	AE000516.2	ethionamide resistant ethA	N/A	antibiotic target alteration
-CCP44243.1	AL123456.3	N/A	ethionamide	antibiotic target alteration
-CCP44243.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
+AFN51819.1	CP003248	N/A	polyamine antibiotic	N/A
+CCP44023.1	AL123456.3	N/A	N/A	N/A
+AAK48336.1	AE000516.2	ethionamide resistant ethA	ethionamide	antibiotic target alteration
+CCP44243.1	AL123456.3	Ethionamide resistant fabG1	ethionamide	antibiotic target alteration
+CCP44243.1	AL123456.3	isoniazid resistant fabG1	isoniazid	antibiotic target alteration
 CCP45240.1	AL123456.3	aminosalicylate resistant dihydrofolate synthase	para-aminosalicylic acid	antibiotic target alteration
-CCP44676.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
+CCP44676.1	AL123456.3	isoniazid resistant furA	isoniazid	antibiotic target alteration
 CCP46748.1	AL123456	antibiotic resistant gidB	aminoglycoside antibiotic	antibiotic target alteration
-CCP45582.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
+CCP45582.1	AL123456.3	pyrazinamide resistant gpsI	pyrazinamide	antibiotic target alteration
 CCP42728.1	AL123456	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 CAA55486.1	X78888.1	fluoroquinolone resistant gyrB	fluoroquinolone antibiotic	antibiotic target alteration
-CCP43004.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP44244.1	AL123456.3	inhA with mutations with conferring resistance to ethionamide	ethionamide;isoniazid	antibiotic target alteration
-CCP44244.1	AL123456	inhA with mutations with conferring resistance to isoniazid	isoniazid	antibiotic target alteration
+CCP43004.1	AL123456.3	isoniazid resistant inbR	isoniazid	antibiotic target alteration
+CCP44244.1	AL123456.3	inhA with mutations with conferring resistance to ethionamide	ethionamide	antibiotic target alteration
+CCP44244.1	AL123456	isoniazid resistant inhA	N/A	antibiotic target alteration
 CCP43072.1	AL123456	Ethambutol resistant iniA	polyamine antibiotic	antibiotic efflux;antibiotic target alteration
 CCP43071.1	AL123456.3	Ethambutol resistant iniB	polyamine antibiotic	antibiotic efflux;antibiotic target alteration
 CCP43073.1	AL123456	Ethambutol resistant iniC	polyamine antibiotic	antibiotic efflux;antibiotic target alteration
-CCE36834	HE608151	murA transferase	fosfomycin	antibiotic target alteration
+CCE36834	HE608151	murA transferase	N/A	antibiotic target alteration
 CCP45025.1	AL123456	antibiotic resistant kasA	isoniazid	antibiotic target alteration
 CCP44675.1	AL123456.3	isoniazid resistant katG	isoniazid	antibiotic target alteration
-CCP45743.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP43386.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP43220.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP43926.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP44905.1	AL123456.3	N/A	ethionamide	antibiotic target alteration
-CCP44905.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-N/A	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP46388.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
+CCP45743.1	AL123456.3	pyrazinamide resistant mas	pyrazinamide	antibiotic target alteration
+CCP43386.1	AL123456.3	isoniazid resistant mmaA3	isoniazid	antibiotic target alteration
+CCP43220.1	AL123456.3	isoniazid resistant mshA	isoniazid	antibiotic target alteration
+CCP43926.1	AL123456.3	isoniazid resistant mshB	isoniazid	antibiotic target alteration
+CCP44905.1	AL123456.3	ethionamide resistant mshC	ethionamide	antibiotic target alteration
+CCP44905.1	AL123456.3	isoniazid resistant mshC	isoniazid	antibiotic target alteration
+NP_217599.1	NC_000962.3	isoniazid resistant mymA	isoniazid	antibiotic target alteration
+CCP46388.1	AL123456.3	isoniazid resistant nat	isoniazid	antibiotic target alteration
 CCP44620.1	AL123456.3	antibiotic resistant ndh	isoniazid	antibiotic target alteration
-CCP46014.1	AL123456.3	N/A	ethionamide	antibiotic target alteration
-CCP46014.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
+CCP46014.1	AL123456.3	ethionamide resistant nudC	ethionamide	antibiotic target alteration
+CCP46014.1	AL123456.3	isoniazid resistant nudC	isoniazid	antibiotic target alteration
 CCP44816.1	AL123456	pyrazinamide resistant pncA	pyrazinamide	antibiotic target alteration
-CCP42772.1	AL123456.3	N/A	rifamycin antibiotic	antibiotic target alteration
-CCP45734.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45736.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45737.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
+CCP42772.1	AL123456.3	rifamycin resistant ponA1	rifamycin antibiotic	antibiotic target alteration
+CCP45734.1	AL123456.3	antibiotic resistant polyketide synthase genes	pyrazinamide	antibiotic target alteration
+CCP45736.1	AL123456.3	antibiotic resistant polyketide synthase genes	pyrazinamide	antibiotic target alteration
+CCP45737.1	AL123456.3	antibiotic resistant polyketide synthase genes	pyrazinamide	antibiotic target alteration
 CCP45469.1	AL123456.3	aminosalicylate resistant dihydrofolate reductase	para-aminosalicylic acid	antibiotic target replacement
-CCP46279.1	AL123456.3	N/A	rifamycin antibiotic	antibiotic target alteration
-CCP43410.1	AL123456.3	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
-CCP43411.1	AL123456.3	N/A	rifamycin antibiotic	antibiotic target alteration
+CCP46279.1	AL123456.3	rifampicin resistant rpoA	rifamycin antibiotic	antibiotic target alteration
+CCP43410.1	AL123456.3	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	N/A	antibiotic target alteration;antibiotic target replacement
+CCP43411.1	AL123456.3	rifampicin resistant rpoC	rifamycin antibiotic	antibiotic target alteration
 CCP44394.1	AL123456.3	pyrazinamide resistant rpsA	pyrazinamide	antibiotic target alteration
 AAK44936.1	AE000516	antibiotic resistant rpsL	aminoglycoside antibiotic	antibiotic target alteration
-CCP42918.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP43303.1	AL123456.3	N/A	ethionamide	antibiotic target alteration
-CCP44432.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45529.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45814.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP45980.1	AL123456.3	N/A	pyrazinamide	antibiotic target alteration
-CCP43945.1	AL123456.3	N/A	isoniazid	antibiotic target alteration
-CCP44014.1	AL123456.3	N/A	aminoglycoside antibiotic	antibiotic target alteration
+CCP42918.1	AL123456.3	pyrazinamide resistant Rv0191	pyrazinamide	antibiotic target alteration
+CCP43303.1	AL123456.3	Ethionamide resistant Rv0565c	ethionamide	antibiotic target alteration
+CCP44432.1	AL123456.3	pyrazinamide resistant Rv1667	pyrazinamide	antibiotic target alteration
+CCP45529.1	AL123456.3	pyrazinamide resistant Rv2731	pyrazinamide	antibiotic target alteration
+CCP45814.1	AL123456.3	pyrazinamide resistant Rv3008	pyrazinamide	antibiotic target alteration
+CCP45980.1	AL123456.3	pyrazinamide resistant Rv3169	pyrazinamide	antibiotic target alteration
+CCP43945.1	AL123456.3	isoniazid resistant sigI	isoniazid	antibiotic target alteration
+CCP44014.1	AL123456.3	streptomycin resistant tap	aminoglycoside antibiotic	antibiotic target alteration
 CCP45563.1	AL123456.3	aminosalicylate resistant thymidylate synthase	para-aminosalicylic acid	antibiotic target alteration
 AAK46002.1	AE000516	Antibiotic resistant tlyA	aminoglycoside antibiotic	antibiotic target alteration
-CCP46635.1	AL123456.3	N/A	polyamine antibiotic	antibiotic target alteration
-CDO45096.1	BX248333	ethambutol resistant aftA	N/A	antibiotic target alteration
+CCP46635.1	AL123456.3	ethambutol resistant ubiA	polyamine antibiotic	antibiotic target alteration
+CDO45096.1	BX248333	N/A	polyamine antibiotic	N/A
 CAL71877.1	AM408590.1	antibiotic resistant ndh	isoniazid	antibiotic target alteration
-CCP46011.1	AL123456.3	N/A	aminoglycoside antibiotic	antibiotic target alteration
+CCP46011.1	AL123456.3	streptomycin resistant whib7	aminoglycoside antibiotic	antibiotic target alteration
+CCP46011.1	AL123456.3	kanamycin resistant whib7	aminoglycoside antibiotic	antibiotic target alteration
 N/A	CU458896.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
-N/A	CU458896.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	NC_010397.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
 N/A	NR_114659.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	NR_114659.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 N/A	GU143889.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
 CAC29514.1	AL450380	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 N/A	NC_008596.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
-N/A	NC_008596.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	aminoglycoside antibiotic	antibiotic target alteration
 N/A	NC_008596.1	16s rRNA with mutation conferring resistance to peptide antibiotics	peptide antibiotic	antibiotic target alteration
 N/A	X52922.1	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 N/A	AB011184.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
 AIU22003.1	CP009496.1	antibiotic resistant ndh	isoniazid	antibiotic target alteration
-N/A	NC_021002.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
-N/A	NC_004829.2	23S rRNA with mutation conferring resistance to pleuromutilin antibiotics	N/A	antibiotic target alteration
-N/A	L43967.2	23S rRNA with mutation conferring resistance to macrolide antibiotics	fluoroquinolone antibiotic;macrolide antibiotic	antibiotic target alteration
+N/A	NC_021002.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
+N/A	NC_004829.2	23S rRNA with mutation conferring resistance to pleuromutilin antibiotics	pleuromutilin antibiotic	antibiotic target alteration
+N/A	L43967.2	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
 AAC71220.1	L43967.2	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 WP_010869372.1	NC_000908.2	fluoroquinolone resistant parC	N/A	antibiotic target alteration
 N/A	CP011538.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
@@ -1538,15 +1536,16 @@ N/A	NR_103957	23S rRNA with mutation conferring resistance to macrolide antibiot
 N/A	CP020418	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
 KAE9504908.1	WHPL01000002	sulfonamide resistant dihydropteroate synthase folP	N/A	antibiotic target alteration
 AAW89357.1	AE004969.1	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
-WP_050171206	NZ_CQOZ01000008.1	N/A	N/A	N/A
-AAW89918.1	AE004969.1	fluoroquinolone resistant parC	fluoroquinolone antibiotic	antibiotic target alteration
+WP_050171206	NZ_CQOZ01000008.1	Zoliflodacin resistant gyrB	Zoliflodacin	antibiotic target alteration
+AAW89918.1	AE004969.1	fluoroquinolone resistant parC	N/A	antibiotic target alteration
 AAA25463.1	M32091.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
 AAB57788.1	U75641	General Bacterial Porin with reduced permeability to beta-lactams	carbapenem;cephalosporin;cephamycin;monobactam;penam;penem;tetracycline antibiotic	reduced permeability to antibiotic
-ACF30254.1	KI391932.1	N/A	macrolide antibiotic	antibiotic efflux
-AAB52541.1	U80933.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
-VEG60537.1	LR134358	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephalosporin	antibiotic target alteration
+YP_208871	AE004969	50S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
+ACF30254.1	KI391932.1	resistance-nodulation-cell division (RND) antibiotic efflux pump	macrolide antibiotic	antibiotic efflux
+AAB52541.1	U80933.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephamycin;penam	antibiotic target alteration
+VEG60537.1	LR134358	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephamycin	antibiotic target alteration
 N/A	NC_003112	16s rRNA with mutation conferring resistance to aminoglycoside antibiotics	N/A	antibiotic target alteration
-AAF40852.1	AE002098.2	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephalosporin	antibiotic target alteration
+AAF40852.1	AE002098.2	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
 CAA79967.1	Z21956	NmcA beta-lactamase	carbapenem;cephalosporin;cephamycin;penam	antibiotic inactivation
 CAA79966.1	Z21956.1	NmcA beta-lactamase	carbapenem;cephalosporin;cephamycin;penam	antibiotic inactivation
 AAS68233.1	AY566250	major facilitator superfamily (MFS) antibiotic efflux pump	acridine dye;fluoroquinolone antibiotic	antibiotic efflux
@@ -2132,7 +2131,7 @@ AWN09461.1	MF445022.1	PNGM beta-lactamase	carbapenem;cephalosporin;penam	antibio
 APB87301	KY086517	General Bacterial Porin with reduced permeability to beta-lactams	carbapenem;cephalosporin;cephamycin;monobactam;penam;penem	reduced permeability to antibiotic
 AVI44920.1	MF095097.1	ABC-F ATP-binding cassette ribosomal protection protein	lincosamide antibiotic;macrolide antibiotic;oxazolidinone antibiotic;phenicol antibiotic;pleuromutilin antibiotic;streptogramin antibiotic;tetracycline antibiotic	antibiotic target protection
 BAA07072.1	D37826	major facilitator superfamily (MFS) antibiotic efflux pump	phenicol antibiotic	antibiotic efflux
-N/A	Y10819.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
+N/A	Y10819.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
 CAA11473.1	AJ223604	chloramphenicol acetyltransferase (CAT)	phenicol antibiotic	antibiotic inactivation
 NP_249397.1	NC_002516.2	chloramphenicol acetyltransferase (CAT)	phenicol antibiotic	antibiotic inactivation
 SIP52035.1	LT673656.1	resistance-nodulation-cell division (RND) antibiotic efflux pump	aminocoumarin antibiotic;aminoglycoside antibiotic;carbapenem;cephalosporin;cephamycin;diaminopyrimidine antibiotic;fluoroquinolone antibiotic;macrolide antibiotic;monobactam;penam;penem;peptide antibiotic;phenicol antibiotic;sulfonamide antibiotic;tetracycline antibiotic	antibiotic efflux
@@ -2276,8 +2275,6 @@ AAC60781.1	U46859.1	major facilitator superfamily (MFS) antibiotic efflux pump	p
 AAC60780.1	U46859	major facilitator superfamily (MFS) antibiotic efflux pump	peptide antibiotic	antibiotic efflux
 AIA08936.1	KJ151292	rifampin phosphotransferase	rifamycin antibiotic	antibiotic inactivation
 APB03222.1	KX531052.1	rifampin phosphotransferase	rifamycin antibiotic	antibiotic inactivation
-AKE04873.1	CP011301	N/A	N/A	N/A
-YP_208871	AE004969	N/A	macrolide antibiotic	N/A
 BAD59497.1	AP006618.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
 AAW90462.1	AE004969.1	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 AUW34365.1	MG739510.1	RSA beta-lactamase	carbapenem;cephalosporin	antibiotic inactivation
@@ -2486,7 +2483,7 @@ CAA45050.1	X63451	ABC-F ATP-binding cassette ribosomal protection protein	lincos
 BAA23130.1	AB008454	SRT beta-lactamase	cephalosporin	antibiotic inactivation
 AAS07017.3	AY524276	SRT beta-lactamase	cephalosporin	antibiotic inactivation
 AAA88560.1	M16183.1	streptothricin acetyltransferase (SAT)	nucleoside antibiotic	antibiotic inactivation
-N/A	NZ_CP009828.1	23S rRNA with mutation conferring resistance to linezolid antibiotics	macrolide antibiotic;oxazolidinone antibiotic	antibiotic target alteration
+N/A	NZ_CP009828.1	23S rRNA with mutation conferring resistance to linezolid antibiotics	macrolide antibiotic;oxazolidinone antibiotic;pleuromutilin antibiotic	antibiotic target alteration
 CAG41107	BX571856	daptomycin resistant agrA	peptide antibiotic	antibiotic target alteration
 ABD31357.1	CP000253.1	daptomycin resistant cls	peptide antibiotic	antibiotic target alteration
 EHS19134.1	AHLO01000073.1	fosfomycin thiol transferase	fosfomycin	antibiotic inactivation
@@ -2495,18 +2492,18 @@ ADL24064.1	CP002114.2	antibiotic resistant fusE	fusidic acid	antibiotic target a
 CAG39357	BX571856.1	GlpT	fosfomycin	antibiotic target alteration
 ALY16697.1	CP012011.1	fluoroquinolone resistant gyrA	fluoroquinolone antibiotic	antibiotic target alteration
 CAG39033.1	BX571856.1	aminocoumarin resistant gyrB	aminocoumarin antibiotic	antibiotic target alteration
-CAA52296.1	X74219	antibiotic resistant isoleucyl-tRNA synthetase (ileS)	mupirocin	antibiotic target alteration
+CAA52296.1	X74219	antibiotic resistant isoleucyl-tRNA synthetase (ileS)	N/A	antibiotic target alteration
 AAW38464.1	CP000046.1	major facilitator superfamily (MFS) antibiotic efflux pump	aminoglycoside antibiotic;diaminopyrimidine antibiotic;macrolide antibiotic;oxazolidinone antibiotic;phenicol antibiotic	antibiotic efflux
 ABD30105.1	CP000253.1	lysocin resistant menA	peptide antibiotic	antibiotic target alteration
 ADJ67256.1	HM140977	defensin resistant mprF	peptide antibiotic	antibiotic target alteration
-ADJ67256	HM140977	daptomycin resistant mprF	peptide antibiotic	antibiotic target alteration
+ADJ67256	HM140977	daptomycin resistant mprF	N/A	antibiotic target alteration
 CAG41169.1	BX571856.1	murA transferase	fosfomycin	antibiotic target alteration
 BAA14147.1	D90119.1	major facilitator superfamily (MFS) antibiotic efflux pump	fluoroquinolone antibiotic	antibiotic efflux
 CAG40365.1	BX571856.1	fluoroquinolone resistant parC	fluoroquinolone antibiotic	antibiotic target alteration
 BAA11086.1	D67075.1	aminocoumarin resistant parE	N/A	antibiotic target alteration
 CAG40364.1	BX571856.1	fluoroquinolone resistant parE	fluoroquinolone antibiotic	antibiotic target alteration
 BAB95031.1	BA000033.2	daptomycin resistant pgsA	peptide antibiotic	antibiotic target alteration
-CAG39568.1	BX571856.1	daptomycin resistant beta-subunit of RNA polymerase (rpoB)	N/A	antibiotic target alteration
+CAG39568.1	BX571856.1	daptomycin resistant beta-subunit of RNA polymerase (rpoB)	peptide antibiotic;rifamycin antibiotic	antibiotic target alteration
 CAG39568.1	BX571856.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	rifamycin antibiotic	antibiotic target alteration;antibiotic target replacement
 CAG39569.1	BX571856.1	daptomycin-resistant beta prime subunit of RNA polymerase (rpoC)	peptide antibiotic	antibiotic target alteration
 CAG39240	BX571856.1	UhpT	fosfomycin	antibiotic target alteration
@@ -2516,10 +2513,10 @@ CAA53189	X75439	antibiotic resistant isoleucyl-tRNA synthetase (ileS)	mupirocin	
 AEY83581	JQ231224	antibiotic resistant isoleucyl-tRNA synthetase (ileS)	mupirocin	antibiotic target alteration
 AAN00989.1	AE009948.1	defensin resistant mprF	peptide antibiotic	antibiotic target alteration
 AQA08261.1	CP019562.1	daptomycin resistant CdsA	peptide antibiotic	antibiotic target alteration
-N/A	NZ_CP018138.1	23S rRNA with mutation conferring resistance to macrolide antibiotics;23S rRNA with mutation conferring resistance to streptogramins antibiotics	macrolide antibiotic	antibiotic target alteration
-N/A	NZ_CP018138.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	N/A	antibiotic target alteration
+N/A	NZ_CP018138.1	23S rRNA with mutation conferring resistance to macrolide antibiotics;23S rRNA with mutation conferring resistance to streptogramins antibiotics	macrolide antibiotic;streptogramin antibiotic	antibiotic target alteration
+N/A	NZ_CP018138.1	23S rRNA with mutation conferring resistance to macrolide antibiotics	macrolide antibiotic	antibiotic target alteration
 AAK74984.1	AE005672	fluoroquinolone resistant parC	fluoroquinolone antibiotic	antibiotic target alteration
-AFC91828.1	JN645776	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
+AFC91828.1	JN645776	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephamycin	antibiotic target alteration
 AAL00321.1	AE007317.1	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	N/A	antibiotic target alteration
 AFC91898.1	JN645706	Penicillin-binding protein mutations conferring resistance to beta-lactam antibiotics	cephamycin	antibiotic target alteration
 AAL97684.1	AE009949	sulfonamide resistant dihydropteroate synthase folP	N/A	antibiotic target alteration
@@ -2528,7 +2525,7 @@ N/A	NZ_CP012949.1	23S rRNA with mutation conferring resistance to macrolide anti
 CAA67349.1	X98831.1	elfamycin resistant EF-Tu	N/A	antibiotic target alteration
 CAA42594.1	X59968	major facilitator superfamily (MFS) antibiotic efflux pump	phenicol antibiotic	antibiotic efflux
 AAO47226.2	AF235050.4	aminocoumarin resistant parY	aminocoumarin antibiotic	antibiotic target alteration
-AEJ33969.1	JF969163	sulfonamide resistant sul	N/A	antibiotic target replacement
+AEJ33969.1	JF969163	sulfonamide resistant sul	sulfonamide antibiotic	antibiotic target replacement
 AAL59753.1	AY055428.1	sulfonamide resistant sul	sulfonamide antibiotic	antibiotic target replacement
 ACJ63260.1	FJ196385	sulfonamide resistant sul	sulfonamide antibiotic	antibiotic target replacement
 WP_102607457.1	NG_056174.1	sulfonamide resistant sul	sulfonamide antibiotic	antibiotic target replacement
@@ -2729,7 +2726,7 @@ AKQ05898.1	KR857688.1	tetracycline-resistant ribosomal protection protein	tetrac
 AKQ05899.1	KR857689.1	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 ARB93503.1	CP020412.2	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 AMP42492.1	KU736879.1	major facilitator superfamily (MFS) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
-AAN06707.1	AF534183.1	major facilitator superfamily (MFS) antibiotic efflux pump	glycylcycline;tetracycline antibiotic	antibiotic efflux
+AAN06707.1	AF534183.1	major facilitator superfamily (MFS) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
 AET10444.1	HQ652506.1	ATP-binding cassette (ABC) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
 APB03214.1	KX531044.1	major facilitator superfamily (MFS) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
 ANZ79240.1	KX000272.1	ATP-binding cassette (ABC) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
@@ -2750,7 +2747,7 @@ AAA22851.1	M11036	major facilitator superfamily (MFS) antibiotic efflux pump	tet
 CAQ49384.1	AM990992.1	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 AAA23033.2	M18896.2	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 CAA79727.1	Z21523	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
-CAD09823.1	AL513383	major facilitator superfamily (MFS) antibiotic efflux pump	glycylcycline;tetracycline antibiotic	antibiotic efflux;antibiotic target alteration
+CAD09823.1	AL513383	major facilitator superfamily (MFS) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux;antibiotic target alteration
 AAB24797.1	S52438.1	major facilitator superfamily (MFS) antibiotic efflux pump	tetracycline antibiotic	antibiotic efflux
 AAA25293.1	L09756	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
 AAF01499.1	L42544	tetracycline-resistant ribosomal protection protein	tetracycline antibiotic	antibiotic target protection
