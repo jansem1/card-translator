@@ -287,8 +287,10 @@ for i in range(0, len(annotationAccessions)):
             newHeaders[n] = newAnn['header'].loc[i]  # set list to contain all translated headers in the correct
             # order for the translated database
 
+granularityCulled = []
 for i in range(len(newHeaders) - 1, -1, -1):  # go through newHeaders in reverse order and remove duplicate headers
     if newHeaders.count(newHeaders[i]) > 1 and newHeaders[i] != granularityMessage:
+        granularityCulled.append(newHeaders[i])
         newHeaders[i] = granularityMessage
 
 # Get indices of database entries whose annotations have been culled so that those database entries can be removed
@@ -379,7 +381,11 @@ if DuplicatePrinted:
 #//endregion
 #//endregion
 
-# TODO: ADD unique numbers to each DNA Accession (just increment by 1 each time) to prevent duplication issues
+
+print("Translated versions of database entries culled due to annotation overlap (reducing granularity): ") # Print
+# duplicate headers to allow comparison of their families to MEGARes
+print(granularityCulled)
+
 #//region Write final files
 
 # Write annotation file. Exports AMR++-ready annotation file and names it based on the present date
@@ -417,6 +423,7 @@ if any(item in wrongHeaders for item in newHeaders):
     print("ERROR: culled headers are not being dropped from newHeaders and they are being sent to the database. "
           "Annotation file already generated, but no database file generated.")
     exit()
+
 
 # Write all entries to database file that are not on the cull list
 keepSeq = {}  # Hash table to contain sequences that have been given an appropriate header

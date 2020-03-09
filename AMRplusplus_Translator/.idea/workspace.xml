@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +40,7 @@
   <component name="PyConsoleOptionsProvider">
     <option name="myUseExistingConsole" value="true" />
   </component>
-  <component name="RunManager" selected="Python.MEGARes-CARD_Comparator">
+  <component name="RunManager" selected="Python.Amalgamated_Translator_OneSource (1)">
     <configuration name="Amalgamated_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,8 +154,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MEGARes-CARD_Comparator" />
         <item itemvalue="Python.Amalgamated_Translator_OneSource (1)" />
+        <item itemvalue="Python.MEGARes-CARD_Comparator" />
         <item itemvalue="Python.MEGARes-CARD_Comparator" />
         <item itemvalue="Python.Amalgamated_Translator_OneSource" />
         <item itemvalue="Python.Amalgamated_Translator" />
@@ -183,13 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Streamlined group extraction into a single function instead of two">
-      <created>1582645915513</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1582645915513</updated>
     </task>
     <task id="LOCAL-00077" summary="added -PRIME notation conversion">
       <created>1582646709034</created>
@@ -527,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583528661744</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="Moved spread below instances">
+      <created>1583529211825</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1583529211825</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -541,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed multi-drug resistant conversion because it caused duplicate headers, making AMR++ non-functional" />
     <MESSAGE value="Removed early exit, added TODO" />
     <MESSAGE value="Moved annotationAccessions to a place closer to where it is accessed and removed early exit()" />
     <MESSAGE value="Moved newAnn creation to be above duplicate removal. Added error check for multiple entries of the same header in newHeaders" />
@@ -566,7 +566,8 @@
     <MESSAGE value="created function to find spread for both card and meg" />
     <MESSAGE value="moved spread function to funciton region" />
     <MESSAGE value="renamed df to be more descriptive" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed df to be more descriptive" />
+    <MESSAGE value="Moved spread below instances" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved spread below instances" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -581,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583528660908">
+    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583529210877">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583528660908" />
+    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583529210877" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -601,22 +602,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583529184552">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583767712452">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583529184552" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583529184552">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583767712452" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583767712451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583529184552" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583529184552">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583767712451" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583767712451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583529184552" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583529184552">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583767712451" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583767712451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583529184552" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583767712451" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1583356452247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -641,10 +642,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1583430554625" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583180390320">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583529220144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583180390320" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583529220144" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581103852388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -653,6 +654,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583425992087" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583766883889">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1583766883889" />
     <state x="322" y="149" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1580832759054">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
