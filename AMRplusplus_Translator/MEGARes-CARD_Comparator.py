@@ -125,7 +125,8 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
     binsInDataFrame.columns = binsOfBinsNames
     # print(binsInDataFrame.loc['subclass_B3_LRA_beta-lactamase'])
     # print(binsInDataFrame)
-
+    x = []
+    y = []
     for duplicate in dupCount:
         dupNumber = 0
         binsOfBin = []  # Bins of bins across which the current bin (duplicate) is spread across
@@ -137,6 +138,9 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
         print(duplicate + " (" + binsColumn + ")" + " is spread across these " + binsOfBinsType + ": ", end=' ')
         print(binsOfBin)
         print("Number of " + binsOfBinsType + ": " + str(dupNumber) + '\n')
+        x.append(duplicate)
+        y.append(binsOfBin)
+    return pd.DataFrame({binsColumn:x, 'spread_' + binsOfBinsType: y})
 # TODO: Make this return a DataFrame that can be exported as a csv
 
 
@@ -206,8 +210,11 @@ print(megInstances)
 #//region Find bins that go into multiple bins of bins to figure out the differences in categorization between CARD
 # and see which bins of bins are getting bins spread across them
 
-find_spread(megOverlap,'meg','card','groups')
-find_spread(cardOverlap,'card','meg','families')
+megSpread = find_spread(megOverlap,'meg','card','groups')
+cardSpread = find_spread(cardOverlap,'card','meg','families')
+
+print(megSpread)
+print(cardSpread)
 
 #//endregion
 # print(megData)
@@ -215,16 +222,21 @@ find_spread(cardOverlap,'card','meg','families')
 
 
 
-print("EXIT EARLY - Just before to_csv")
-exit()
+# print("EXIT EARLY - Just before to_csv")
+# exit()
 
-filename = '_num_bins'
+instanceFilename = '_num_bins'
+spreadFilename = '_spread'
 
-print("Writing CARD CSV...")
-pd.DataFrame.to_csv(cardInstances,'card' + filename,index=False)
-print("DONE")
+print("Writing CARD CSVs...")
+pd.DataFrame.to_csv(cardInstances,'card' + instanceFilename,index=False)
+print("Instances DONE")
+pd.DataFrame.to_csv(cardSpread, 'card' + instanceFilename, index=False)
+print("Spread DONE")
 
 print("Writing MEGARes CSV...")
-pd.DataFrame.to_csv(megInstances,'meg' + filename,index=False)
-print("DONE")
+pd.DataFrame.to_csv(megInstances,'meg' + instanceFilename,index=False)
+print("Instances DONE")
+pd.DataFrame.to_csv(megSpread, 'meg' + instanceFilename, index=False)
+print("Spread DONE")
 #//endregion
