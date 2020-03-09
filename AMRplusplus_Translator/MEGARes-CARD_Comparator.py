@@ -106,20 +106,20 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
     binsOfBinsNames = data[binsOfBinsColumn].loc[multiBinIndex]
 
     collectBins = []
-    for i in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
+    for bin in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
         # spread across multiple bins of bins will show up more than once
-        collectBins.extend(i)
-    dupCount = [x for x in collectBins if collectBins.count(x) > 1] # Only want to search for bins we KNOW are in
+        collectBins.extend(bin)
+    dupCount = [bin for bin in collectBins if collectBins.count(bin) > 1] # Only want to search for bins we KNOW are in
     # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
     dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
     # are spread
     print(dupCount)
     binsInDataFrame = pd.DataFrame()
-    for i in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
+    for row in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
         # separate rows. .loc[] has no use here. Have to search by using a for loop and binsOfBinsNames. This is
         # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
         # brute-force way
-        columnData = data[binsColumn].loc[i]
+        columnData = data[binsColumn].loc[row]
         df2 = pd.Series(data=columnData)
         binsInDataFrame = pd.concat([binsInDataFrame,df2],axis=1, ignore_index=True)
     binsInDataFrame.columns = binsOfBinsNames
