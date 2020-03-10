@@ -161,8 +161,10 @@ newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Acce
 #//region Unsearchable annotation checking and culling
 
 # Check for annotations that cannot be searched
-dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanism', 'group'],
-                                     keep=False)].copy()
+dupedRows = newAnn[newAnn.duplicated(subset=['header'],
+                                     keep=False)].copy()  # Only want to remove those that are duplicates in the
+# areas that were used to create the header as that is what will be attached to the database
+
 # print(dupedRows)
 # exit()
 
