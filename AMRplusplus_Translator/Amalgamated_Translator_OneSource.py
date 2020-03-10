@@ -169,10 +169,13 @@ dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanis
 # Rows that are just duplicate annotations
 overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'],
                                        keep=False)].copy()  # rows which have the same DNA accession and group
+
 overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
 # complete duplicates of one another from overlapRows, leaving only the ones that differ in everything except DNA
 # Accession and group.If there are any entries in this dataframe, then searching with DNA Accession and group together
 # will still result in multiple hits
+
+
 protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'],
                                     keep=False)].copy()  # find duplicate Prot. Acc.
 
@@ -316,6 +319,9 @@ noValue = 0  # list of db entries that have not been assigned a header and were 
 # has occurred somewhere. ProtDupe and DupedRows always have NaN for their model name, so do not need to be culled
 # from database
 unassignedHeaders = []
+
+#TODO: Instead of printing each one indvidually and outputting an illegible mess, just output a list of all the
+# culled entries in each category (culled for overlap, no annotation, protdupe, granularityCulled, etc)
 
 for i in range(0, len(newHeaders)):  # Checks for database entries have not been assigned a header, either correctly
     # (due to culling) or erroneously
