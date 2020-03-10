@@ -273,10 +273,6 @@ annotationGene = list(newAnn['Model Name'])
 
 # Assign new headers
 for i in range(0, len(annotationAccessions)):
-    # print(newHeaders)
-    # print(newAnn.loc[i])
-    # print(newAnn['header'].loc[i] not in newHeaders)
-    # exit()
     for n in range(0, len(dbAccessions)):  # Sorts new headers into same order as database
         # if newAnn['header'].loc[i] in newHeaders:
         #     newHeaders[n] = granularityMessage
@@ -346,7 +342,7 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
                                                                   "allows one header per sequence, and the conversion "
                                                                   "from gene to gene families results in a loss of "
                                                                   "granularity.")
-        print(aroDB[i].description)
+        # print(aroDB[i].description)
     elif newHeaders[i] == 'error':  # Indicates database entries which will not be assigned a header,
         # but whose annotations were not culled, suggesting that an error in header assignment has occurred
         print("ERROR: Database entry on line " + str(entry_to_line(i)) + " has not been given a value")
@@ -355,7 +351,9 @@ for i in range(0, len(newHeaders)):  # Checks for database entries have not been
         unassignedHeaders.append(aroDB[i].description)
         noValue += 1
 print("Number of unmatched entries: " + str(noValue))
-print("Database entries to cull: " + str(len(dbToCull)))
+percentCulled = round(len(dbToCull)/len(aroDB), 3)*100
+print("Database entries to cull: " + str(len(dbToCull)) + ", or " + str(percentCulled) + "% of the CARD "
+                                                                                         "Homolog Model Database")
 print("Line numbers of culled database entries (In original database file): ")
 culledDB = [entry_to_line(line) for line in dbToCull]
 print(culledDB)
@@ -381,11 +379,6 @@ if DuplicatePrinted:
 #//endregion
 #//endregion
 
-
-print("Translated versions of database entries culled due to annotation overlap (reducing granularity): ") # Print
-# duplicate headers to allow comparison of their families to MEGARes
-print(granularityCulled)
-
 #//region Write final files
 
 # Write annotation file. Exports AMR++-ready annotation file and names it based on the present date
@@ -402,9 +395,6 @@ print("Writing Annotation file")
 finalCols = ['header', 'type', 'class', 'mechanism', 'group']
 finalAnn = newAnn[finalCols].copy()  # drop all columns that are unneeded for
 # annotation file
-# with pd.option_context('display.max_columns', 5):
-#     print(finalAnn)
-
 
 # Export converted annotation file as csv
 pd.DataFrame.to_csv(finalAnn, annotationFilename, index=False)
@@ -438,4 +428,9 @@ for seq_record in newAroDB:  # pulls each Seq_record (header + sequence) from th
             i += 1
 print("DONE")
 # //endregion
+
+print("Translated versions of database entries culled due to annotation overlap (reducing granularity): ") # Print
+# duplicate headers to allow comparison of their families to MEGARes
+print(granularityCulled)
+
 # THE END
