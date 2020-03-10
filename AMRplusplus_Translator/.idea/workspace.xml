@@ -185,13 +185,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00084" summary="Print out card bins and the meg bins within them">
-      <created>1582820685734</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1582820685734</updated>
-    </task>
     <task id="LOCAL-00085" summary="Added bin_overlap function">
       <created>1582833804155</created>
       <option name="number" value="00085" />
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583867179194</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually.">
+      <created>1583867502102</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1583867502102</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated error message for wrongHeaders" />
     <MESSAGE value="Add duplicate newHeaders to dbToCull" />
     <MESSAGE value="add verbosity for granularityMessage culling" />
     <MESSAGE value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
@@ -567,7 +566,8 @@
     <MESSAGE value="Tidying up and moving printing of granularityCulled down" />
     <MESSAGE value="Tidied up code and improve documentation" />
     <MESSAGE value="Changed overlapRows from gene family to gene overlap, because that's what's used to match to DB entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed overlapRows from gene family to gene overlap, because that's what's used to match to DB entries" />
+    <MESSAGE value="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually." />
+    <option name="LAST_COMMIT_MESSAGE" value="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually." />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -582,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="516" y="12" key="CommitChangelistDialog2" timestamp="1583867177513">
+    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1583867500240">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="516" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583867177513" />
+    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583867500240" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -602,22 +602,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583867382018">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1583867694827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583867382018" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583867382017">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583867694827" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1583867694827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583867382017" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583867382016">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583867694827" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1583867694827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583867382016" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583867382018">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583867694827" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1583867694827">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583867382018" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583867694827" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1583356452247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

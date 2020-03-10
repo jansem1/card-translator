@@ -165,9 +165,6 @@ dupedRows = newAnn[newAnn.duplicated(subset=['header'],
                                      keep=False)].copy()  # Only want to remove those that are duplicates in the
 # areas that were used to create the header as that is what will be attached to the database
 
-# print(dupedRows)
-# exit()
-
 # Rows that are just duplicate annotations
 overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'Model Name'],
                                        keep=False)].copy()  # rows which have the same DNA accession and gene
@@ -177,9 +174,9 @@ overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Acce
 # Accession and gene. If there are any entries in this dataframe, then searching with DNA Accession and gene together
 # will still result in multiple hits
 
-
-protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'],
-                                    keep=False)].copy()  # find duplicate Prot. Acc.
+#
+# protDupe = newAnn[newAnn.duplicated(subset=['Protein Accession'],
+#                                     keep=False)].copy()  # find duplicate Prot. Acc.
 
 # Cull annotations and provide the user with output detailing which entries were culled and why
 
@@ -196,14 +193,14 @@ print(overlapLines)
 newAnn.drop(overlapEntries, axis=0, inplace=True)  # removes rows with duplicate groups and DNA Accessions
 
 # Duplicate Protein Accession culling
-protDupeEntries = list(protDupe.index)
-protDupeLines = [x+2 for x in protDupeEntries]
-print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
-      "lack or have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
-print(protDupeLines)
-# print("(Debug) Their index values are: ")
-# print(protDupeEntries)  # only show those that were cut because of duplication, not null
-newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
+# protDupeEntries = list(protDupe.index)
+# protDupeLines = [x+2 for x in protDupeEntries]
+# print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
+#       "lack or have duplicate protein accessions, making it impossible to add them to the database file:\033[0;31;39m")
+# print(protDupeLines)
+# # print("(Debug) Their index values are: ")
+# # print(protDupeEntries)  # only show those that were cut because of duplication, not null
+# newAnn.drop(protDupeEntries, axis=0, inplace=True)  # removes rows with duplicate Protein Accessions
 
 # N/A culling
 nullEntries = newAnn[newAnn.isna().any(axis=1)].index.tolist()  # finds indices of any entry with any n/a cell
@@ -215,13 +212,13 @@ nullAccession = newAnn["DNA Accession"].loc[nullEntries].tolist() # List of DNA 
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
       "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
       "them to the database file:\033[0;31;39m")
-print(Diff(nullLines, protDupeLines))
+print(nullLines)
 # print("(Debug) Their index values are: ")
 # print(Diff(nullEntries, protDupeEntries))
 newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with no protein accession
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
-dropTotal = len(Diff(nullEntries, protDupeEntries)) + len(protDupeEntries) + len(overlapEntries)
+dropTotal = len(nullEntries)
 percentDrop = round(100 * dropTotal/len(aroIndex), 2)
 print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
                                                                                                  "\n")
@@ -299,14 +296,8 @@ for i in range(len(newHeaders) - 1, -1, -1):  # go through newHeaders in reverse
 for i in range(0, len(dbAccessions)):
 
     if dbGenes[i] in list(overlapRows['Model Name']) and dbAccessions[i] in list(overlapRows['DNA Accession']):
-        # DB entries whose annotations were culled for overlapping DNA accession and gene family. Search in database
-        # by gene, because the database only has gene data, not gene family.
+        # DB entries whose annotations were culled for overlapping DNA accession and gene
         newHeaders[i] = overlapMessage
-        dbToCull.append(i)
-
-    elif dbGenes[i] in list(protDupe['Model Name']) and dbAccessions[i] in list(protDupe['DNA Accession']):
-        # DB entries whose annotations were culled for having a duplicate protein accession
-        newHeaders[i] = protDupeMessage
         dbToCull.append(i)
 
     elif dbGenes[i] in nullGene and dbAccessions[i] in nullAccession:
