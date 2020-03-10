@@ -291,23 +291,22 @@ for i in range(len(newHeaders) - 1, -1, -1):  # go through newHeaders in reverse
 
 # Get indices of database entries whose annotations have been culled so that those database entries can be removed
 for i in range(0, len(dbAccessions)):
+
     if dbGenes[i] in list(overlapRows['Model Name']) and dbAccessions[i] in list(overlapRows['DNA Accession']):
-        # DB entries whose annotations were culled for overlapping DNA accession and gene family
+        # DB entries whose annotations were culled for overlapping DNA accession and gene family. Search in database
+        # by gene, because the database only has gene data, not gene family.
         newHeaders[i] = overlapMessage
         dbToCull.append(i)
-        # print(dbAccessions[i])
-        # print(newHeaders[i-1])
-        # print(newHeaders[i])
-        # print(dbToCull)
-        # print(aroDB[i].id)
-        # exit()
+
     elif dbGenes[i] in list(protDupe['Model Name']) and dbAccessions[i] in list(protDupe['DNA Accession']):
         # DB entries whose annotations were culled for having a duplicate protein accession
         newHeaders[i] = protDupeMessage
         dbToCull.append(i)
+
     elif dbGenes[i] in nullGene and dbAccessions[i] in nullAccession:
         newHeaders[i] = nullEntryMessage
         dbToCull.append(i)
+
     elif newHeaders[i] == granularityMessage:
         dbToCull.append(i)
 #//endregion
