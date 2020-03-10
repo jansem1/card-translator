@@ -167,12 +167,12 @@ dupedRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'class', 'mechanis
 # exit()
 
 # Rows that are just duplicate annotations
-overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'group'],
-                                       keep=False)].copy()  # rows which have the same DNA accession and group
+overlapRows = newAnn[newAnn.duplicated(subset=['DNA Accession', 'Model Name'],
+                                       keep=False)].copy()  # rows which have the same DNA accession and gene
 
 overlapRows = overlapRows[~overlapRows['DNA Accession'].isin(dupedRows['DNA Accession'])]  # Removes entries which are
 # complete duplicates of one another from overlapRows, leaving only the ones that differ in everything except DNA
-# Accession and group.If there are any entries in this dataframe, then searching with DNA Accession and group together
+# Accession and gene. If there are any entries in this dataframe, then searching with DNA Accession and gene together
 # will still result in multiple hits
 
 
@@ -186,7 +186,8 @@ overlapEntries = list(overlapRows.index)
 overlapLines = [x+2 for x in overlapEntries]  # adds 2 to index to get line # in annotation source file (+1 from counting
 # from 1 instead of 0, +1 from header)
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because their "
-      "DNA accessions and groups overlapped, making it impossible for AMR++ to read them:\033[0;31;39m")
+      "DNA accessions and genes overlapped, causing them to conflict when being attached to a database entry:\033["
+      "0;31;39m")
 print(overlapLines)
 # print("(Debug) Their index values are: ")
 # print(overlapEntries)
@@ -237,7 +238,7 @@ for i in range(0,len(aroDB)):  # Create lists of DNA Accessions and genes from d
     # the DNA accession
     dbGenes.append(aroDB[i].description)
     splitGroup = dbGenes[i].split("|")  # separates the header into individual sections
-    dbGenes[i] = splitGroup[5]  # adds the 'group' section of the database header into the dbGenes list
+    dbGenes[i] = splitGroup[5]  # adds the 'gene' section of the database header into the dbGenes list
     dbGenes[i] = dbGenes[i][:dbGenes[i].index('_[')]  # cuts species information, leaving only the gene
 #//endregion
 
