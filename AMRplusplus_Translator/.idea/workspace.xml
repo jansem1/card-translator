@@ -185,13 +185,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00085" summary="Added bin_overlap function">
-      <created>1582833804155</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1582833804156</updated>
-    </task>
     <task id="LOCAL-00086" summary="Removed completed TODOs and added some new ones">
       <created>1582905172354</created>
       <option name="number" value="00086" />
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583867502102</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Removed protDupe">
+      <created>1583871537529</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1583871537529</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add duplicate newHeaders to dbToCull" />
     <MESSAGE value="add verbosity for granularityMessage culling" />
     <MESSAGE value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
     <MESSAGE value="Replace spaces in newAnn with underscores" />
@@ -567,7 +566,8 @@
     <MESSAGE value="Tidied up code and improve documentation" />
     <MESSAGE value="Changed overlapRows from gene family to gene overlap, because that's what's used to match to DB entries" />
     <MESSAGE value="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually." />
-    <option name="LAST_COMMIT_MESSAGE" value="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually." />
+    <MESSAGE value="Removed protDupe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed protDupe" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -582,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1583867500240">
+    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1584458979895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1583867500240" />
+    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584458979895" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -642,18 +642,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1583430554625" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1583529220144">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584023294323">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583529220144" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584023294323" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581103852388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1581103852388" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1583863786873">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584458513666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583863786873" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584458513666" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583766883889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

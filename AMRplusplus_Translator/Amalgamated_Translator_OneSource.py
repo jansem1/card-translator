@@ -144,10 +144,12 @@ typeAnn = pd.Series(typeCol)  # Turns that list into a Dataframe so it can be co
 # the new Dataframe which will contain the translated data
 
 headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
-            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
-# concatenate columns to make header and add "RequiresSNPConfirmation" flag to force AMR++ to use RGI's perfect
-# algorithm, because all the entries I translated are from the protein homolog model only
+            newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str)
+# concatenate columns to make header
 
+# headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
+#             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
+# RequiresSNPConfirmation is only required for Protein Variant Model, not
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
                     newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
 # concatenates all columns that must be in the final annotation
