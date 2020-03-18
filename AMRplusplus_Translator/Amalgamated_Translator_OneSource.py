@@ -15,6 +15,7 @@ from datetime import date
 from Bio import SeqIO
 import re
 import argparse
+import csv
 
 pd.options.display.width = 0
 
@@ -430,8 +431,17 @@ for seq_record in newAroDB:  # pulls each Seq_record (header + sequence) from th
 print("DONE")
 # //endregion
 
-print("Translated versions of database entries culled due to annotation overlap (reducing granularity): ") # Print
+
+culledDBFilename = 'Overlap_culled_DB.csv'
+
+print("Writing Translated versions of database entries culled due to annotation overlap (reducing granularity) into "
+      "csv... ") # Print
+print("Filename: " + culledDBFilename)
 # duplicate headers to allow comparison of their families to MEGARes
-print(granularityCulled)
+with open(culledDBFilename, 'w', newline='') as myfile:
+    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+    wr.writerow(granularityCulled)
+print("DONE")
+
 
 # THE END
