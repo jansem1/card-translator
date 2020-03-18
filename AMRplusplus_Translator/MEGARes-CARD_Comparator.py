@@ -109,7 +109,7 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
     for bin in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
         # spread across multiple bins of bins will show up more than once
         collectBins.extend(bin)
-    dupCount = [bin for bin in collectBins if collectBins.count(bin) > 1] # Only want to search for bins we KNOW are in
+    dupCount = [bin for bin in collectBins if collectBins.count(bin) > 1]  # Only want to search for bins we KNOW are in
     # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
     dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
     # are spread
@@ -118,7 +118,7 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
     for row in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
         # separate rows. Have to search by using a for loop and binsOfBinsNames. This is
         # done because Pandas has no way to search an entire dataframe for a string, so you have to go through in a
-        # brute-force way. .loc[] has no use here.
+        # brute-force way.
         columnData = data[binsColumn].loc[row]
         df2 = pd.Series(data=columnData)
         binsInDataFrame = pd.concat([binsInDataFrame,df2],axis=1, ignore_index=True)
@@ -141,7 +141,6 @@ def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins
         x.append(duplicate)
         y.append(binsOfBin)
     return pd.DataFrame({binsColumn:x, 'spread_' + binsOfBinsType: y})
-# TODO: Make this return a DataFrame that can be exported as a csv
 
 
 #//endregion
@@ -216,27 +215,23 @@ cardSpread = find_spread(cardOverlap,'card','meg','families')
 print(megSpread)
 print(cardSpread)
 
-#//endregion
-# print(megData)
-# exit()
-
-
-
+#
 # print("EXIT EARLY - Just before to_csv")
 # exit()
 
-instanceFilename = '_num_bins'
-spreadFilename = '_spread'
+instanceFilename = '_num_bins.csv'
+spreadFilename = '_spread.csv'
 
 print("Writing CARD CSVs...")
 pd.DataFrame.to_csv(cardInstances,'card' + instanceFilename,index=False)
 print("Instances DONE")
-pd.DataFrame.to_csv(cardSpread, 'card' + instanceFilename, index=False)
+pd.DataFrame.to_csv(cardSpread, 'card' + spreadFilename, index=False)
 print("Spread DONE")
 
 print("Writing MEGARes CSV...")
 pd.DataFrame.to_csv(megInstances,'meg' + instanceFilename,index=False)
 print("Instances DONE")
-pd.DataFrame.to_csv(megSpread, 'meg' + instanceFilename, index=False)
+pd.DataFrame.to_csv(megSpread, 'meg' + spreadFilename, index=False)
 print("Spread DONE")
+#//endregion
 #//endregion
