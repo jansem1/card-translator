@@ -185,13 +185,6 @@
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
     </task>
-    <task id="LOCAL-00087" summary="Found a way to search within lists to make sure bin_overlap is working right.">
-      <created>1582906143122</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1582906143122</updated>
-    </task>
     <task id="LOCAL-00088" summary="Simplified and documented bin_overlap function">
       <created>1582914838964</created>
       <option name="number" value="00088" />
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584459032052</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="Translator now prints culled DB entries as a csv">
+      <created>1584495871689</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1584495871689</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed newHeader duplication issue, added space_replace function but did not apply it yet" />
     <MESSAGE value="Replace spaces in newAnn with underscores" />
     <MESSAGE value="Fixed space replacement. Changed ' [' to '_[' in species removal. replaced errorPresent check with unassignedHeaders check and improved output to list broken entries" />
     <MESSAGE value="comments" />
@@ -567,7 +566,8 @@
     <MESSAGE value="PREVIOUS COMMIT CHANGED OVERLAP ROWS TO SEARCH BY GENE. Overlap rows now only searches header, because before it was just searching the areas that build the header individually." />
     <MESSAGE value="Removed protDupe" />
     <MESSAGE value="Removed &quot;RequiresSNPConfirmation&quot; flag as this is required for PVM, not PHM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed &quot;RequiresSNPConfirmation&quot; flag as this is required for PVM, not PHM" />
+    <MESSAGE value="Translator now prints culled DB entries as a csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Translator now prints culled DB entries as a csv" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
@@ -582,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1584459074612">
+    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1584495869370">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584459074612" />
+    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584495869370" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -602,22 +602,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1584495479031">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1584545253840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584495479031" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1584495479031">
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584545253840" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1584545253840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584495479031" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1584495479031">
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584545253840" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1584545253840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584495479031" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1584495479031">
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584545253840" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1584545253840">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584495479031" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584545253840" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1583356452247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -642,10 +642,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1583430554625" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584023294323">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584496115550">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584023294323" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584496115550" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581103852388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

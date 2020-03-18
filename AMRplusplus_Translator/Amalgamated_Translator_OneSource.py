@@ -441,6 +441,7 @@ print("Filename: " + culledDBFilename)
 with open(culledDBFilename, 'w', newline='') as myfile:
     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
     wr.writerow(granularityCulled)
+
 print("DONE")
 
 
