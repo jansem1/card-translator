@@ -102,18 +102,21 @@ def num_instances(data, dbName):
 
 def find_spread(data, binsOfBinsColumn, binsColumn, binsOfBinsType='bins of bins'):
 
-    multiBinIndex = data.loc[data['num_bins'] > 1].index
+    multiBinIndex = data.index
     binsOfBinsNames = data[binsOfBinsColumn].loc[multiBinIndex]
-
+    print(data)
     collectBins = []
-    for bin in data[binsColumn].loc[data['num_bins'] > 1]:  # gets all the bins across all bins of bins. Only bins
+    for bin in data[binsColumn]:  # gets all the bins across all bins of bins. Only bins
         # spread across multiple bins of bins will show up more than once
         collectBins.extend(bin)
+    # print(collectBins)
+    # exit()
     dupCount = [bin for bin in collectBins if collectBins.count(bin) > 1]  # Only want to search for bins we KNOW are in
     # multiple bins of bins, as bins that go into a single bin of bins will not be able to overlap
-    dupCount = removeDuplicates(dupCount) # remove duplicates so we only go once through each bin of bins across which bins
-    # are spread
+    dupCount = removeDuplicates(dupCount)  # remove duplicates so we only go once through each bin of bins across
+    # which bins are spread
     # print(dupCount)
+    # exit()
     binsInDataFrame = pd.DataFrame()
     for row in multiBinIndex:  # Creates a dataframe that has the bins of bins as the column names and the bins as
         # separate rows. Have to search by using a for loop and binsOfBinsNames. This is
@@ -210,14 +213,14 @@ print(megInstances)
 # and see which bins of bins are getting bins spread across them
 
 megSpread = find_spread(megOverlap,'meg','card','groups')
-cardSpread = find_spread(cardOverlap,'card','meg','families')
+# cardSpread = find_spread(cardOverlap,'card','meg','families')
 
 print(megSpread)
-print(cardSpread)
+# print(cardSpread)
 
 #
-# print("EXIT EARLY - Just before to_csv")
-# exit()
+print("EXIT EARLY - Just before to_csv")
+exit()
 
 instanceFilename = '_num_bins.csv'
 spreadFilename = '_spread.csv'
