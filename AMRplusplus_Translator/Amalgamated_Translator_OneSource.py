@@ -33,14 +33,10 @@ aroDBFile = "nucleotide_fasta_protein_homolog_model.fasta"
 
 #//region Parse commandline arguments to allow the user to input different filenames
 parser = argparse.ArgumentParser()
-# parser.add_argument("-a", help='Allows user to define the filepath of the ARO annotation file')
 parser.add_argument("-i", help='Allows user to define the filepath of the ARO index file')
 parser.add_argument("-d", help='Allows user to define the filepath of the ARO database file')
 
 args = parser.parse_args()
-# if isinstance(args.a, str):
-#     aroAnnFile = args.a
-# print("Annotation file: " + aroAnnFile)
 if isinstance(args.i, str):
     aroIndexFile = args.i
 print("Index file: " + aroIndexFile)
@@ -61,31 +57,31 @@ def entry_to_line(x): # Converts from index # to line #
     return (x+1)*2 - 1
 
 
-def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
-    # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
-    # merged dataframe. pass which='both'to check those that are in both one and the other.
-    comparison_df = df1.merge(df2,
-                              indicator=True,
-                              how='outer',
-                              on=on,
-                              left_index=byIndex,
-                              right_index=byIndex
-                              )
-    duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
-    # the merge
-    comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
-    comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
-    if ind:
-        if which is None:
-            merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
-        else:
-            merged_df = comparison_df[comparison_df['_merge'] == which]
-    else:
-        merged_df = comparison_df[comparison_df['_merge'] == 'both']
-        # merged_df.drop(['_merge'], axis=1, inplace=True)
-    if doc:
-        merged_df.to_csv('diff.csv')
-    return merged_df
+# def dataframe_merge(df1, df2, doc=False, which=None, on='Protein Accession', ind=True, byIndex=False):  # Compares 2
+#     # dataframes for their contents and outputs the results. set doc to true to output a csv file containing the
+#     # merged dataframe. pass which='both'to check those that are in both one and the other.
+#     comparison_df = df1.merge(df2,
+#                               indicator=True,
+#                               how='outer',
+#                               on=on,
+#                               left_index=byIndex,
+#                               right_index=byIndex
+#                               )
+#     duplicates = comparison_df[comparison_df.duplicated(keep='first')].index  # finds duplicate entries created by
+#     # the merge
+#     comparison_df.drop(duplicates, axis=0, inplace=True)  # drops duplicate entries created by the merge
+#     comparison_df.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
+#     if ind:
+#         if which is None:
+#             merged_df = comparison_df[comparison_df['_merge'] != 'both']  # returns only the entries which differ
+#         else:
+#             merged_df = comparison_df[comparison_df['_merge'] == which]
+#     else:
+#         merged_df = comparison_df[comparison_df['_merge'] == 'both']
+#         # merged_df.drop(['_merge'], axis=1, inplace=True)
+#     if doc:
+#         merged_df.to_csv('diff.csv')
+#     return merged_df
 
 
 #//endregion
@@ -150,7 +146,9 @@ headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + ne
 
 # headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + newAnn['class'].map(str) + "|" + \
 #             newAnn['mechanism'].map(str) + "|" + newAnn['group'].map(str) + "|" + "RequiresSNPConfirmation"
-# RequiresSNPConfirmation is only required for Protein Variant Model, not
+# RequiresSNPConfirmation is only required for Protein Variant Model, not PHM. Swap this out if adding PVM to
+# translator.
+
 newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
                     newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
 # concatenates all columns that must be in the final annotation
@@ -223,7 +221,8 @@ newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entrie
 
 dropTotal = len(nullEntries)
 percentDrop = round(100 * dropTotal/len(aroIndex), 2)
-print("\n Total number of entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of total entries "
+print("\n Total number of annotation entries dropped: " + str(dropTotal) + ", which is " + str(percentDrop) + "% of "
+                                                                                                            "total entries "
                                                                                                  "\n")
 #//endregion
 #//endregion

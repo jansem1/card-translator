@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MEGARes-CARD_Comparator.py" afterDir="false" />
+    <list default="true" id="2d54bd2e-e760-44a2-bc69-30ca766aef3c" name="Default Changelist" comment="A">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_translator.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README_translator.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
   <component name="PyConsoleOptionsProvider">
     <option name="myUseExistingConsole" value="true" />
   </component>
-  <component name="RunManager" selected="Python.MEGARes-CARD_Comparator">
+  <component name="RunManager" selected="Python.Amalgamated_Translator_OneSource">
     <configuration name="Amalgamated_Translator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -60,7 +62,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Amalgamated_Translator_OneSource (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Amalgamated_Translator_OneSource" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AMRplusplus_Translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,27 +75,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Amalgamated_Translator_OneSource.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Amalgamated_Translator_OneSource" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AMRplusplus_Translator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Amalgamated_Translator_OneSource.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,16 +127,14 @@
     </configuration>
     <list>
       <item itemvalue="Python.Amalgamated_Translator" />
-      <item itemvalue="Python.Amalgamated_Translator_OneSource" />
       <item itemvalue="Python.MEGARes-CARD_Comparator" />
-      <item itemvalue="Python.Amalgamated_Translator_OneSource (1)" />
+      <item itemvalue="Python.Amalgamated_Translator_OneSource" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MEGARes-CARD_Comparator" />
-        <item itemvalue="Python.Amalgamated_Translator_OneSource (1)" />
-        <item itemvalue="Python.MEGARes-CARD_Comparator" />
         <item itemvalue="Python.Amalgamated_Translator_OneSource" />
+        <item itemvalue="Python.MEGARes-CARD_Comparator" />
+        <item itemvalue="Python.MEGARes-CARD_Comparator" />
         <item itemvalue="Python.Amalgamated_Translator" />
       </list>
     </recent_temporary>
@@ -182,20 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574958624058</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Get number of instances of each number of bins in each bin">
-      <created>1582919492407</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1582919492407</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Renamed filename to annotationFilename to make code more legible">
-      <created>1582921361410</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1582921361410</updated>
     </task>
     <task id="LOCAL-00093" summary="Added num_instances function to get number of instances of bin-binofbins">
       <created>1582921506860</created>
@@ -526,7 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584577024178</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Fixed cardSpread not being output">
+      <created>1584577115287</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1584577115287</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Add readme for translator (blank)">
+      <created>1586114517315</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1586114517315</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -540,8 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed species name removal to reflect space to underscore conversion" />
-    <MESSAGE value="Added filename" />
     <MESSAGE value="output and commenting clarity improvements" />
     <MESSAGE value="added .copy() to protDupe assignment from newAnn" />
     <MESSAGE value="changed names of variables in bin_overlap" />
@@ -565,13 +542,16 @@
     <MESSAGE value="Tidied up code" />
     <MESSAGE value="Improved documentation and fixed naming issue" />
     <MESSAGE value="MAJOR BUGFIX: Fixed find_spread not outputting bins spread across other bins if the other bins were exclusively in the containing bin" />
-    <option name="LAST_COMMIT_MESSAGE" value="MAJOR BUGFIX: Fixed find_spread not outputting bins spread across other bins if the other bins were exclusively in the containing bin" />
+    <MESSAGE value="Fixed cardSpread not being output" />
+    <MESSAGE value="Add readme for translator (blank)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add readme for translator (blank)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582830627267">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="279" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586047981794">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1582830627267" />
+    <state x="279" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586047981794" />
     <state x="449" y="149" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582818648544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -580,10 +560,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-4" y="138" key="#xdebugger.XInspectDialog/0.0.1536.824@0.0.1536.824" timestamp="1580833854222" />
-    <state x="589" y="12" key="CommitChangelistDialog2" timestamp="1584577023328">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="195" y="15" key="CommitChangelistDialog2" timestamp="1586114515605">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="589" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584577023328" />
+    <state x="156" y="12" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584577114412" />
+    <state x="195" y="15" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586114515605" />
     <state width="429" height="442" key="Diff.GoToChangePopup" timestamp="1582665922938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -600,22 +581,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="610" y="307" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1579114754644" />
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom" timestamp="1584577072499">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1921" height="373" key="GridCell.Tab.0.bottom" timestamp="1586135556607">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584577072499" />
-    <state width="1537" height="283" key="GridCell.Tab.0.center" timestamp="1584577072499">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1537" height="283" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584755956099" />
+    <state width="1921" height="373" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586135556607" />
+    <state width="1921" height="373" key="GridCell.Tab.0.center" timestamp="1586135556607">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584577072499" />
-    <state width="1537" height="283" key="GridCell.Tab.0.left" timestamp="1584577072499">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1537" height="283" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584755956099" />
+    <state width="1921" height="373" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586135556607" />
+    <state width="1921" height="373" key="GridCell.Tab.0.left" timestamp="1586135556606">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584577072499" />
-    <state width="1537" height="283" key="GridCell.Tab.0.right" timestamp="1584577072499">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1537" height="283" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584755956099" />
+    <state width="1921" height="373" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586135556606" />
+    <state width="1921" height="373" key="GridCell.Tab.0.right" timestamp="1586135556607">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584577072499" />
+    <state width="1537" height="283" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584755956099" />
+    <state width="1921" height="373" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586135556607" />
     <state width="1537" height="223" key="GridCell.Tab.1.bottom" timestamp="1583356452247">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -640,18 +625,20 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="520" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1583430554625" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1584575345318">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="451" y="184" key="Vcs.Push.Dialog.v2" timestamp="1586131917885">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584575345318" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584577134427" />
+    <state x="451" y="184" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586131917885" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581103852388">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1581103852388" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1584458513666">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1586114212076">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584458513666" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584927909828" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586114212076" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583766883889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
