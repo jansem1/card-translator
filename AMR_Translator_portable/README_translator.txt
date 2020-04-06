@@ -26,9 +26,9 @@ The headers of each CARD database entry are converted from
 
 to
 
-	DNA Accession|Type|Class|Mechanism|Group*
+	DNA Accession|Type|Class|Mechanism|Family*
 
-it places the annotation and database file in a folder named 'translations' within the same directory as the script.
+The script places the annotation and database file in a folder named 'translations' within the same directory as the script.
 
 Overlap_culled_DB.csv is the final file produced and includes the entries that were removed from the database because their DNA Accessions and gene families overlapped with those of other entries.
 
