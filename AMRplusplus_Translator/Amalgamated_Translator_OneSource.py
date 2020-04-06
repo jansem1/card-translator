@@ -389,6 +389,7 @@ if not os.path.exists(translatedPath):  # Creates a folder for translted files t
     os.mkdir(translatedPath)
 annotationFilename = (translatedPath + "CARD_to_AMRplusplus_Annotation_" + today.strftime("%Y_%b_%d") + ".csv")
 translatedFilename = (translatedPath + "CARD_to_AMRplusplus_Database_" + today.strftime("%Y_%b_%d") + ".fasta")
+culledDBFilename = 'Overlap_culled_DB.csv'
 
 print("Writing Annotation file")
 
@@ -427,10 +428,6 @@ for seq_record in newAroDB:  # pulls each Seq_record (header + sequence) from th
             translated.write(">" + newHeaders[i] + "\n" + keepSeq[header] + "\n")
             i += 1
 print("DONE")
-# //endregion
-
-
-culledDBFilename = 'Overlap_culled_DB.csv'
 
 print("Writing Translated versions of database entries culled due to annotation overlap (reducing granularity) into "
       "csv... ") # Print
@@ -442,5 +439,6 @@ with open(culledDBFilename, 'w', newline='') as myfile:
 
 print("DONE")
 
+# //endregion
 
 # THE END
