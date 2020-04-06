@@ -90,8 +90,7 @@ def entry_to_line(x): # Converts from index # to line #
 
 # privateAnn = pd.read_csv('private_models.csv')  # Read in annotations that are not used by CARD in order to remove
 # them from the translated annotation list
-aroIndex = pd.read_csv(aroIndexFile, sep='\t')  # Read index file in order to compare gene  to gene family via
-# protein accession
+aroIndex = pd.read_csv(aroIndexFile, sep='\t')  # Read index file in order to generate annotations
 aroDB = list(SeqIO.parse(aroDBFile, "fasta"))  # Read in CARD Database file as a list of seqRecord objects
 newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a Seqrecord generator, instead of a list,
 # so that it can be overwritten later
@@ -99,14 +98,14 @@ newAroDB = SeqIO.parse(aroDBFile, "fasta")  # Read in CARD database as a Seqreco
 #//region Annotation Translation
 
 # Create new DataFrame containing AMR++-relevant data
-aroCols = ['Protein Accession', 'DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family',
+aroCols = ['DNA Accession', 'Drug Class', 'Resistance Mechanism', 'AMR Gene Family',
            'Model Name']  # Important
 # columns from ARO data.
 newAnn = aroIndex[aroCols].copy()  # Creates a Dataframe containing the Columns from the ARO annotation
 # file. ARO's columns (branches) are in a different order than MEGARes, so this reorders them.
 # Also Add DNA accession to allow the database to be searched for matching entries - fills the same spot as Meg_###
 
-newAnn.columns = ['Protein Accession', 'DNA Accession', 'class', 'mechanism', 'group', 'Model Name']  # sets names of columns of new
+newAnn.columns = ['DNA Accession', 'class', 'mechanism', 'group', 'Model Name']  # sets names of columns of new
 # annotation file
 
 # Replace spaces with underscores because AMR++ can't parse spaces
@@ -149,11 +148,11 @@ headerCol = newAnn['DNA Accession'].map(str) + "|" + typeAnn.map(str) + "|" + ne
 # RequiresSNPConfirmation is only required for Protein Variant Model, not PHM. Swap this out if adding PVM to
 # translator.
 
-newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'],
-                    newAnn['Protein Accession'], newAnn['Model Name'], newAnn['DNA Accession']], axis=1)  #
+newAnn = pd.concat([headerCol, typeAnn, newAnn['class'], newAnn['mechanism'], newAnn['group'], newAnn['Model Name'],
+                    newAnn['DNA Accession']], axis=1)  #
 # concatenates all columns that must be in the final annotation
 
-newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Protein Accession', 'Model Name', 'DNA Accession']
+newAnn.columns = ['header', 'type', 'class', 'mechanism', 'group', 'Model Name', 'DNA Accession']
 # rename columns to match with those of AMR++. Protein Accession and Model Name will be cut before export
 
 #//endregion
@@ -211,12 +210,12 @@ nullAccession = newAnn["DNA Accession"].loc[nullEntries].tolist() # List of DNA 
 # values. These two together will be used to search the database for entries that need to be culled
 
 print("\033[1;31;31m The following entries (line # in the annotation file) were cut from original file because they "
-      "lack a protein accession, DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
+      "lack a DNA Accession, drug class, mechanism, or gene family, making it impossible to add "
       "them to the database file:\033[0;31;39m")
 print(nullLines)
 # print("(Debug) Their index values are: ")
 # print(Diff(nullEntries, protDupeEntries))
-newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with no protein accession
+newAnn.dropna(how='any', axis=0, inplace=True)  # removes rows with n/a in any field
 newAnn.reset_index(drop=True, inplace=True)  # Reset index after dropping entries to prevent empty rows
 
 dropTotal = len(nullEntries)
