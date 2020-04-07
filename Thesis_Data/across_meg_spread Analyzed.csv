@@ -1,0 +1,115 @@
+card,spread_groups,,Number of groups
+16S_rRNA_methyltransferase_A1408,"['NPMA', 'KAMB']","NPMA, KAMB",2
+16S_rRNA_methyltransferase_G1405,"['RMTH', 'RMTB', 'RMTG', 'ARMA', 'RMTC', 'RMTD', 'RMTF', 'RMTA', 'SGM', 'RMTE']","RMTH, RMTB, RMTG, ARMA, RMTC, RMTD, RMTF, RMTA, SGM, RMTE",10
+AAC3,"['AAC3', 'AAC3-PRIME']","AAC3, AAC3-PRIME",2
+AAC6-PRIME,"['AAC6-PRIME', 'IBCR']","AAC6-PRIME, IBCR",2
+ABC-F_ATP-binding_cassette_ribosomal_protection_protein,"['MSRE', 'SRMB', 'VGA', 'LSAE', 'CARA', 'LMRC', 'VGAD', 'LSAB', 'MSRA', 'MEFA', 'LSA', 'OLEB', 'VGAE', 'LSAC', 'VGAB', 'TLRCM', 'MSRC', 'SALA', 'OPTRA', 'TVAA', 'POXT', 'VMLR']","MSRE, SRMB, VGA, LSAE, CARA, LMRC, VGAD, LSAB, MSRA, MEFA, LSA, OLEB, VGAE, LSAC, VGAB, TLRCM, MSRC, SALA, OPTRA, TVAA, POXT, VMLR",22
+ampC-type_beta-lactamase,"['PBP4B', 'AMPH', 'AMPC']","PBP4B, AMPH, AMPC",3
+ANT4-PRIME,"['ANT4-PRIME', 'BLAI']","ANT4-PRIME, BLAI",2
+antibiotic_resistant_isoleucyl-tRNA_synthetase_ileS),"['ILES', 'MUPB', 'MUPA']","ILES, MUPB, MUPA",3
+APH3-PRIME,"['APH3-PRIME', 'APH2-DPRIME', 'APH3-DPRIME']","APH3-PRIME, APH2-DPRIME, APH3-DPRIME",3
+ATP-binding_cassette_ABC)_antibiotic_efflux_pump,"['BCRA', 'MACB', 'LMRB', 'NOVA', 'LMRD', 'MACA', 'OTRC', 'PATA', 'TET35', 'OLEC', 'ABCA', 'EFRB', 'MSBA', 'YOGI', 'TAEA', 'TETB60', 'TETA46', 'TETA60']","BCRA, MACB, LMRB, NOVA, LMRD, MACA, OTRC, PATA, TET35, OLEC, ABCA, EFRB, MSBA, YOGI, TAEA, TETB60, TETA46, TETA60",18
+ATP-binding_cassette_ABC)_antibiotic_efflux_pump;major_facilitator_superfamily_MFS)_antibiotic_efflux_pump;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"['TOLC', 'SOXR']","TOLC, SOXR",2
+Bc_beta-lactamase,"['BC', 'BCII']","BC, BCII",2
+blaZ_beta-lactamase,"['BLAZ', 'BLAR']","BLAZ, BLAR",2
+Cfr_23S_ribosomal_RNA_methyltransferase,"['CLBB', 'CLBA', 'CFRA', 'CLBC', 'CFRB', 'CIPA', 'CFRC', 'CLBD']","CLBB, CLBA, CFRA, CLBC, CFRB, CIPA, CFRC, CLBD",8
+chloramphenicol_acetyltransferase_CAT),"['CATB', 'CATP', 'CAT', 'CATA', 'CATS']","CATB, CATP, CAT, CATA, CATS",5
+class_A_LRA_beta-lactamase,"['LRA', 'PENA']","LRA, PENA",2
+CMY_beta-lactamase,"['CMY', 'CFE', 'LAT']","CMY, CFE, LAT",3
+defensin_resistant_mprF,"['YKKCL', 'MPRF']","YKKCL, MPRF",2
+Erm_23S_ribosomal_RNA_methyltransferase,"['ERM', 'ERME', 'ERMN', 'ERMQ', 'ERMU', 'ERM37', 'ERM32', 'ERMF', 'ERM42', 'ERMS', 'ERMC', 'ERMX', 'ERMA', 'ERMG', 'ERMO', 'ERMD', 'ERMV', 'ERMH', 'ERM30', 'ERMR', 'ERMB']","ERM, ERME, ERMN, ERMQ, ERMU, ERM37, ERM32, ERMF, ERM42, ERMS, ERMC, ERMX, ERMA, ERMG, ERMO, ERMD, ERMV, ERMH, ERM30, ERMR, ERMB",21
+fosfomycin_thiol_transferase,"['FOSA', 'FOSX', 'FOSB', 'FOSK', 'FOSD']","FOSA, FOSX, FOSB, FOSK, FOSD",5
+fusidic_acid_inactivation_enzyme,"['FUSB', 'FUSH', 'FUSD', 'FUSC', 'FUSF']","FUSB, FUSH, FUSD, FUSC, FUSF",5
+General_Bacterial_Porin_with_reduced_permeability_to_beta-lactams,"['OMP38', 'OMP37']","OMP38, OMP37",2
+General_Bacterial_Porin_with_reduced_permeability_to_beta-lactams;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"['RAMA', 'MARA']","RAMA, MARA",2
+glycopeptide_resistance_gene_cluster;van_ligase,"['VANRA', 'VANXYC', 'VANRB', 'VANN', 'VANYF', 'VANL', 'VANXYE', 'VANSM', 'VANHD', 'VANG', 'VANA', 'VANI']","VANRA, VANXYC, VANRB, VANN, VANYF, VANL, VANXYE, VANSM, VANHD, VANG, VANA, VANI",12
+glycopeptide_resistance_gene_cluster;vanH,"['VANRA', 'VANYF', 'VAN', 'VANSM', 'VANHA', 'VANHD']","VANRA, VANYF, VAN, VANSM, VANHA, VANHD",6
+glycopeptide_resistance_gene_cluster;vanR,"['VANRA', 'VANXYC', 'VANRB', 'VANYF', 'VANRL', 'VANRE', 'VANSM', 'VANHD', 'VANRN', 'VANRG', 'VANRO', 'VANRI']","VANRA, VANXYC, VANRB, VANYF, VANRL, VANRE, VANSM, VANHD, VANRN, VANRG, VANRO, VANRI",12
+glycopeptide_resistance_gene_cluster;vanS,"['VANRA', 'VANRB', 'VANYF', 'VANSG', 'VANSO', 'VANSL', 'VANSM', 'VANSC', 'VANSN', 'VANSE', 'VANSD']","VANRA, VANRB, VANYF, VANSG, VANSO, VANSL, VANSM, VANSC, VANSN, VANSE, VANSD",11
+glycopeptide_resistance_gene_cluster;vanT,"['VANXYC', 'VANTML', 'VANTE', 'VANTG', 'VANTN']","VANXYC, VANTML, VANTE, VANTG, VANTN",5
+glycopeptide_resistance_gene_cluster;vanW,"['VANRB', 'VANWG', 'VANWI']","VANRB, VANWG, VANWI",3
+glycopeptide_resistance_gene_cluster;vanX,"['VANRA', 'VANRB', 'VANYF', 'VANSM', 'VANHD', 'VANXO', 'VANXI']","VANRA, VANRB, VANYF, VANSM, VANHD, VANXO, VANXI",7
+glycopeptide_resistance_gene_cluster;vanXY,"['VANXYC', 'VANXYG', 'VANXYN', 'VANXYE', 'VANXYL']","VANXYC, VANXYG, VANXYN, VANXYE, VANXYL",5
+glycopeptide_resistance_gene_cluster;vanY,"['VANRA', 'VANRB', 'VANYF', 'VANYG', 'VAN', 'VANSM']","VANRA, VANRB, VANYF, VANYG, VAN, VANSM",6
+glycopeptide_resistance_gene_cluster;vanZ,"['VANRA', 'VANYF']","VANRA, VANYF",2
+lincosamide_nucleotidyltransferase_LNU),"['LNUA', 'LNUC', 'LNUB', 'LNUF', 'LNUP', 'LNUE', 'LIN', 'LNUG']","LNUA, LNUC, LNUB, LNUF, LNUP, LNUE, LIN, LNUG",8
+macrolide_esterase,"['EREA', 'ERED', 'EREB']","EREA, ERED, EREB",3
+macrolide_phosphotransferase_MPH),"['MPHE', 'MPHA', 'MPHB', 'MPHC', 'MPHG', 'MPHM', 'MPHI', 'MPH', 'MPHH', 'MPHK', 'MPHO', 'MPHJ']","MPHE, MPHA, MPHB, MPHC, MPHG, MPHM, MPHI, MPH, MPHH, MPHK, MPHO, MPHJ",12
+major_facilitator_superfamily_MFS)_antibiotic_efflux_pump,"['MDTP', 'CMLR', 'TET42', 'TET45', 'TETE', 'ARLS', 'CMLA', 'CMRA', 'QACAB', 'MDTH', 'TETB', 'TETY', 'CMLB', 'ROSB', 'EMRY', 'MDTG', 'TCR3', 'TET31', 'FEXA', 'OTRB', 'TET40', 'TETC', 'TETG', 'TETH', 'TET39', 'TETJ', 'TETV', 'NORBD', 'MDTM', 'MEFB', 'QEPA', 'BMR', 'ROSA', 'TETD', 'EMRR', 'CMX', 'ARLR', 'MEFE', 'TETK', 'FACT', 'NORA', 'TETA', 'TAP', 'EMRA', 'TET43', 'TET30', 'TET38', 'TETZ', 'BLT', 'FLOR', 'PMRA', 'TET33', 'MEFC', 'TETU', 'EFMA', 'EFPA', 'FARA', 'HP', 'IRFA', 'LMRP', 'PEXA', 'TET58', 'BCR1', 'TETL', 'MDFA', 'TET59', 'LMRS', 'ABAF', 'ABAQ', 'AMVA', 'KPNE', 'KPN']","MDTP, CMLR, TET42, TET45, TETE, ARLS, CMLA, CMRA, QACAB, MDTH, TETB, TETY, CMLB, ROSB, EMRY, MDTG, TCR3, TET31, FEXA, OTRB, TET40, TETC, TETG, TETH, TET39, TETJ, TETV, NORBD, MDTM, MEFB, QEPA, BMR, ROSA, TETD, EMRR, CMX, ARLR, MEFE, TETK, FACT, NORA, TETA, TAP, EMRA, TET43, TET30, TET38, TETZ, BLT, FLOR, PMRA, TET33, MEFC, TETU, EFMA, EFPA, FARA, HP, IRFA, LMRP, PEXA, TET58, BCR1, TETL, MDFA, TET59, LMRS, ABAF, ABAQ, AMVA, KPNE, KPN",72
+major_facilitator_superfamily_MFS)_antibiotic_efflux_pump;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"['EVGA', 'HNS', 'EVGS']","EVGA, HNS, EVGS",3
+methicillin_resistant_PBP2,"['MECA', 'PBP2', 'MECI', 'MECB', 'MECD']","MECA, PBP2, MECI, MECB, MECD",5
+MIR_beta-lactamase,"['MIR', 'AZECL']","MIR, AZECL",2
+multidrug_and_toxic_compound_extrusion_MATE)_transporter,"['MEPA', 'EMEA', 'MEPR', 'ABEM', 'MDTK', 'CDEA', 'HMRM', 'PMPM']","MEPA, EMEA, MEPR, ABEM, MDTK, CDEA, HMRM, PMPM",8
+non-erm_23S_ribosomal_RNA_methyltransferase_G748,"['MYRA', 'CHRBM', 'ERM32', 'RLMA', 'EMTA']","MYRA, CHRBM, ERM32, RLMA, EMTA",5
+ole_glycosyltransferase,"['OLED', 'OLEI']","OLED, OLEI",2
+pmr_phosphoethanolamine_transferase,"['EPTA', 'UGD', 'ARNA', 'BASRS']","EPTA, UGD, ARNA, BASRS",4
+quinolone_resistance_protein_qnr),"['QNRB', 'QNRS', 'QNRA', 'QNRVC', 'QNRD', 'MFPA', 'QNRC', 'QNRE']","QNRB, QNRS, QNRA, QNRVC, QNRD, MFPA, QNRC, QNRE",8
+resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"['GOLS', 'GADX', 'MDTF', 'CPXAR', 'ADEG', 'ADES', 'SDIA', 'SME', 'OPRN', 'MEXX', 'ADEC', 'MDTA', 'OPMD', 'MTRE', 'AMRB', 'MEXA', 'ACRS', 'ADEH', 'ADEJ', 'CMEB', 'CMEC', 'MEXC', 'ADEB', 'BAES', 'ACRB', 'ADEF', 'CMER', 'CEOB', 'BAER', 'MTRC', 'ACRD', 'ACRF', 'ADEI', 'MTRAD', 'OPRA', 'ADEN', 'MEXB', 'OPCM', 'TRIA', 'MEXQ', 'MEXJ', 'MEXV', 'MEXW', 'MEXN', 'GADW', 'OQXA', 'MUXA', 'ADEL', 'ACRA', 'OPRM', 'LPEA', 'OPRZ']","GOLS, GADX, MDTF, CPXAR, ADEG, ADES, SDIA, SME, OPRN, MEXX, ADEC, MDTA, OPMD, MTRE, AMRB, MEXA, ACRS, ADEH, ADEJ, CMEB, CMEC, MEXC, ADEB, BAES, ACRB, ADEF, CMER, CEOB, BAER, MTRC, ACRD, ACRF, ADEI, MTRAD, OPRA, ADEN, MEXB, OPCM, TRIA, MEXQ, MEXJ, MEXV, MEXW, MEXN, GADW, OQXA, MUXA, ADEL, ACRA, OPRM, LPEA, OPRZ",52
+SHW_beta-lactamase,"['SLB', 'SFB']","SLB, SFB",2
+small_multidrug_resistance_SMR)_antibiotic_efflux_pump,"['YKKC', 'ABES', 'QACH', 'EMRE', 'MVRC']","YKKC, ABES, QACH, EMRE, MVRC",5
+streptogramin_vat_acetyltransferase,"['VATD', 'VATA', 'VATC', 'VATB', 'ERMB', 'VATF', 'VATI']","VATD, VATA, VATC, VATB, ERMB, VATF, VATI",7
+streptogramin_vgb_lyase,"['VGBB', 'VGBA', 'VGBC']","VGBB, VGBA, VGBC",3
+sulfonamide_resistant_sul,"['SULIII', 'SULII', 'SULI']","SULIII, SULII, SULI",3
+tetracycline_inactivation_enzyme,"['TET37', 'TETX']","TET37, TETX",2
+tetracycline-resistant_ribosomal_protection_protein,"['TETW', 'TETBP', 'TET56', 'TET44', 'TETQ', 'TET32', 'OTRA', 'TETS', 'TET36', 'TETO', 'TETT', 'TET47', 'TET52', 'TET48', 'TET49', 'TET50', 'TET51', 'TET53', 'TET54', 'TET55']","TETW, TETBP, TET56, TET44, TETQ, TET32, OTRA, TETS, TET36, TETO, TETT, TET47, TET52, TET48, TET49, TET50, TET51, TET53, TET54, TET55",20
+trimethoprim_resistant_dihydrofolate_reductase_dfr,"['DFRF', 'DHFR', 'DFRA', 'DFRG', 'DFRD', 'DHFRIII', 'DFRB', 'DFRC', 'DFRE', 'DFRK', 'DFRI']","DFRF, DHFR, DFRA, DFRG, DFRD, DHFRIII, DFRB, DFRC, DFRE, DFRK, DFRI",11
+undecaprenyl_pyrophosphate_related_proteins,"['BCRC', 'BACA']","BCRC, BACA",2
+,,,
+,,,
+,,,
+card,,,
+16S_rRNA_methyltransferase_A1408,"NPMA, KAMB",,
+16S_rRNA_methyltransferase_G1405,"RMTH, RMTB, RMTG, ARMA, RMTC, RMTD, RMTF, RMTA, SGM, RMTE",,
+AAC3,"AAC3, AAC3-PRIME",,
+AAC6-PRIME,"AAC6-PRIME, IBCR",,
+ABC-F_ATP-binding_cassette_ribosomal_protection_protein,"MSRE, SRMB, VGA, LSAE, CARA, LMRC, VGAD, LSAB, MSRA, MEFA, LSA, OLEB, VGAE, LSAC, VGAB, TLRCM, MSRC, SALA, OPTRA, TVAA, POXT, VMLR",,
+ampC-type_beta-lactamase,"PBP4B, AMPH, AMPC",,
+ANT4-PRIME,"ANT4-PRIME, BLAI",,
+antibiotic_resistant_isoleucyl-tRNA_synthetase_ileS),"ILES, MUPB, MUPA",,
+APH3-PRIME,"APH3-PRIME, APH2-DPRIME, APH3-DPRIME",,
+ATP-binding_cassette_ABC)_antibiotic_efflux_pump,"BCRA, MACB, LMRB, NOVA, LMRD, MACA, OTRC, PATA, TET35, OLEC, ABCA, EFRB, MSBA, YOGI, TAEA, TETB60, TETA46, TETA60",,
+ATP-binding_cassette_ABC)_antibiotic_efflux_pump;major_facilitator_superfamily_MFS)_antibiotic_efflux_pump;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"TOLC, SOXR",,
+Bc_beta-lactamase,"BC, BCII",,
+blaZ_beta-lactamase,"BLAZ, BLAR",,
+Cfr_23S_ribosomal_RNA_methyltransferase,"CLBB, CLBA, CFRA, CLBC, CFRB, CIPA, CFRC, CLBD",,
+chloramphenicol_acetyltransferase_CAT),"CATB, CATP, CAT, CATA, CATS",,
+class_A_LRA_beta-lactamase,"LRA, PENA",,
+CMY_beta-lactamase,"CMY, CFE, LAT",,
+defensin_resistant_mprF,"YKKCL, MPRF",,
+Erm_23S_ribosomal_RNA_methyltransferase,"ERM, ERME, ERMN, ERMQ, ERMU, ERM37, ERM32, ERMF, ERM42, ERMS, ERMC, ERMX, ERMA, ERMG, ERMO, ERMD, ERMV, ERMH, ERM30, ERMR, ERMB",,
+fosfomycin_thiol_transferase,"FOSA, FOSX, FOSB, FOSK, FOSD",,
+fusidic_acid_inactivation_enzyme,"FUSB, FUSH, FUSD, FUSC, FUSF",,
+General_Bacterial_Porin_with_reduced_permeability_to_beta-lactams,"OMP38, OMP37",,
+General_Bacterial_Porin_with_reduced_permeability_to_beta-lactams;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"RAMA, MARA",,
+glycopeptide_resistance_gene_cluster;van_ligase,"VANRA, VANXYC, VANRB, VANN, VANYF, VANL, VANXYE, VANSM, VANHD, VANG, VANA, VANI",,
+glycopeptide_resistance_gene_cluster;vanH,"VANRA, VANYF, VAN, VANSM, VANHA, VANHD",,
+glycopeptide_resistance_gene_cluster;vanR,"VANRA, VANXYC, VANRB, VANYF, VANRL, VANRE, VANSM, VANHD, VANRN, VANRG, VANRO, VANRI",,
+glycopeptide_resistance_gene_cluster;vanS,"VANRA, VANRB, VANYF, VANSG, VANSO, VANSL, VANSM, VANSC, VANSN, VANSE, VANSD",,
+glycopeptide_resistance_gene_cluster;vanT,"VANXYC, VANTML, VANTE, VANTG, VANTN",,
+glycopeptide_resistance_gene_cluster;vanW,"VANRB, VANWG, VANWI",,
+glycopeptide_resistance_gene_cluster;vanX,"VANRA, VANRB, VANYF, VANSM, VANHD, VANXO, VANXI",,
+glycopeptide_resistance_gene_cluster;vanXY,"VANXYC, VANXYG, VANXYN, VANXYE, VANXYL",,
+glycopeptide_resistance_gene_cluster;vanY,"VANRA, VANRB, VANYF, VANYG, VAN, VANSM",,
+glycopeptide_resistance_gene_cluster;vanZ,"VANRA, VANYF",,
+lincosamide_nucleotidyltransferase_LNU),"LNUA, LNUC, LNUB, LNUF, LNUP, LNUE, LIN, LNUG",,
+macrolide_esterase,"EREA, ERED, EREB",,
+macrolide_phosphotransferase_MPH),"MPHE, MPHA, MPHB, MPHC, MPHG, MPHM, MPHI, MPH, MPHH, MPHK, MPHO, MPHJ",,
+major_facilitator_superfamily_MFS)_antibiotic_efflux_pump,"MDTP, CMLR, TET42, TET45, TETE, ARLS, CMLA, CMRA, QACAB, MDTH, TETB, TETY, CMLB, ROSB, EMRY, MDTG, TCR3, TET31, FEXA, OTRB, TET40, TETC, TETG, TETH, TET39, TETJ, TETV, NORBD, MDTM, MEFB, QEPA, BMR, ROSA, TETD, EMRR, CMX, ARLR, MEFE, TETK, FACT, NORA, TETA, TAP, EMRA, TET43, TET30, TET38, TETZ, BLT, FLOR, PMRA, TET33, MEFC, TETU, EFMA, EFPA, FARA, HP, IRFA, LMRP, PEXA, TET58, BCR1, TETL, MDFA, TET59, LMRS, ABAF, ABAQ, AMVA, KPNE, KPN",,
+major_facilitator_superfamily_MFS)_antibiotic_efflux_pump;resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"EVGA, HNS, EVGS",,
+methicillin_resistant_PBP2,"MECA, PBP2, MECI, MECB, MECD",,
+MIR_beta-lactamase,"MIR, AZECL",,
+multidrug_and_toxic_compound_extrusion_MATE)_transporter,"MEPA, EMEA, MEPR, ABEM, MDTK, CDEA, HMRM, PMPM",,
+non-erm_23S_ribosomal_RNA_methyltransferase_G748,"MYRA, CHRBM, ERM32, RLMA, EMTA",,
+ole_glycosyltransferase,"OLED, OLEI",,
+pmr_phosphoethanolamine_transferase,"EPTA, UGD, ARNA, BASRS",,
+quinolone_resistance_protein_qnr),"QNRB, QNRS, QNRA, QNRVC, QNRD, MFPA, QNRC, QNRE",,
+resistance-nodulation-cell_division_RND)_antibiotic_efflux_pump,"GOLS, GADX, MDTF, CPXAR, ADEG, ADES, SDIA, SME, OPRN, MEXX, ADEC, MDTA, OPMD, MTRE, AMRB, MEXA, ACRS, ADEH, ADEJ, CMEB, CMEC, MEXC, ADEB, BAES, ACRB, ADEF, CMER, CEOB, BAER, MTRC, ACRD, ACRF, ADEI, MTRAD, OPRA, ADEN, MEXB, OPCM, TRIA, MEXQ, MEXJ, MEXV, MEXW, MEXN, GADW, OQXA, MUXA, ADEL, ACRA, OPRM, LPEA, OPRZ",,
+SHW_beta-lactamase,"SLB, SFB",,
+small_multidrug_resistance_SMR)_antibiotic_efflux_pump,"YKKC, ABES, QACH, EMRE, MVRC",,
+streptogramin_vat_acetyltransferase,"VATD, VATA, VATC, VATB, ERMB, VATF, VATI",,
+streptogramin_vgb_lyase,"VGBB, VGBA, VGBC",,
+sulfonamide_resistant_sul,"SULIII, SULII, SULI",,
+tetracycline_inactivation_enzyme,"TET37, TETX",,
+tetracycline-resistant_ribosomal_protection_protein,"TETW, TETBP, TET56, TET44, TETQ, TET32, OTRA, TETS, TET36, TETO, TETT, TET47, TET52, TET48, TET49, TET50, TET51, TET53, TET54, TET55",,
+trimethoprim_resistant_dihydrofolate_reductase_dfr,"DFRF, DHFR, DFRA, DFRG, DFRD, DHFRIII, DFRB, DFRC, DFRE, DFRK, DFRI",,
+undecaprenyl_pyrophosphate_related_proteins,"BCRC, BACA",,
