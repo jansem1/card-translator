@@ -39,7 +39,7 @@ If using AMR++ on linux, you MUST run dos2unix on the output files (translated d
 
 If run on a singularity version of AMR++, the command to run AMR++ will resemble
 
-	$ nextflow run main_AmrPlusPlus_v2.nf -profile singularity --reads "../*_{1,2}.fastq" --output CARD_mar18_db_sewage_sample_AMR++ --amr CARD_to_AMRplusplus_Database_2020_Mar_18.fasta --annotation CARD_to_AMRplusplus_Annotation_2020_Mar_18.csv
+	$ nextflow run main_AmrPlusPlus_v2.nf -profile singularity --reads "../*_{1,2}.fastq" --output {desired output name} --amr {name of database file}.fasta --annotation {name of annotation file}.csv
 
 Some of the information to run AMR++ in this way is not currently (April 2020) available on the MEGARes Readme, so I wish you the best of luck if that command doesn't work.
 
